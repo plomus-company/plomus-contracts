@@ -8,7 +8,7 @@
 | 파일 | 내용 |
 |---|---|
 | `base.json` | `lifecycleObjects`, `eventObjects`, `errorCategories` |
-| `frontmatter.json` | 문서별 상태/필수필드(4) — product/order/claim/settlement |
+| `frontmatter.json` | 문서별 상태/필수필드(10) — product/order/claim/settlement(상태 enum 보유) + commerce_review·commerce_profile·workflow_profile·review_policy·approval_policy·document_profile(상태 없음, 필수필드만) |
 | `event-types.json` | 객체별 이벤트 분류(6 그룹) — profile/commerceReview/aiRecommendation/changePlan/task/system |
 | `error-codes.json` | error code(21) — `PLOMUS_ERROR_CODES` |
 
@@ -20,7 +20,7 @@
 
 ## 검증 무결성
 
-frontmatter documentType∈commerce documentTypes∩base.lifecycleObjects·상태/extraEnum 고유·필수필드에 type+local_id 포함; event-group object∈base.eventObjects·이벤트 commerce 정합·그룹간 중복 금지·**commerce 전 이벤트가 정확히 한 그룹에 귀속**; error code 고유·category∈base.
+frontmatter documentType∈commerce documentTypes·필수필드에 type+local_id 포함·상태는 선택적(보유 시 비어있지 않고 고유, 보유 문서만 base.lifecycleObjects에 등재); event-group object∈base.eventObjects·이벤트 commerce 정합·그룹간 중복 금지·**commerce 전 이벤트가 정확히 한 그룹에 귀속**; error code 고유·category∈base.
 
 ## 승격 후보
 

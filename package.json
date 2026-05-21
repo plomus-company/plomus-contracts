@@ -69,7 +69,8 @@
     "./gameops/base": "./contracts/gameops/v1/base.json",
     "./gameops/adapters": "./contracts/gameops/v1/adapters.json",
     "./gameops/agents": "./contracts/gameops/v1/agents.json",
-    "./gameops/playbooks": "./contracts/gameops/v1/playbooks.json"
+    "./gameops/playbooks": "./contracts/gameops/v1/playbooks.json",
+    "./gameops/fields": "./contracts/gameops/v1/fields.json"
   },
   "scripts": {
     "format:contracts": "node scripts/format-contracts.mjs",

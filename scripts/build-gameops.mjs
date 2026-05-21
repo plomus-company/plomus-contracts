@@ -19,11 +19,14 @@ writeJson("dist/plomus-gameops.json", {
     noticeTypes: base.noticeTypes ?? [],
     pipelineEntityTypes: base.pipelineEntityTypes ?? [],
     commandSources: base.commandSources ?? [],
+    dashboardStatusLevels: base.dashboardStatusLevels ?? [],
   },
+  incidentSeverityThresholds: base.incidentSeverityThresholds ?? [],
   contracts: {
     adapters: readJson("contracts/gameops/v1/adapters.json").adapters ?? [],
     agents: readJson("contracts/gameops/v1/agents.json").agents ?? [],
     playbooks: readJson("contracts/gameops/v1/playbooks.json").playbooks ?? [],
+    fields: readJson("contracts/gameops/v1/fields.json").fields ?? [],
   },
 });
 console.log("built dist/plomus-gameops.json");

@@ -105,18 +105,18 @@ const FIELDS = [
 
 // ---- C. defined-but-unimplemented, distribution-relevant rules (proposed EXPERIMENTAL) ----
 const EXPERIMENTAL_RULES = [
-  { ruleId: "INVENTORY_OUT_OF_STOCK", domain: "INVENTORY", status: "EXPERIMENTAL" },
-  { ruleId: "INVENTORY_OVER_STOCK", domain: "INVENTORY", status: "EXPERIMENTAL" },
-  { ruleId: "INVENTORY_SYNC_MISMATCH", domain: "INVENTORY", status: "EXPERIMENTAL" },
-  { ruleId: "SUPPLIER_RESPONSE_DELAY", domain: "SUPPLIER", status: "EXPERIMENTAL" },
-  { ruleId: "SUPPLIER_STOCK_UNCONFIRMED", domain: "SUPPLIER", status: "EXPERIMENTAL" },
-  { ruleId: "ORDER_STATUS_STALE", domain: "ORDER", status: "EXPERIMENTAL" },
-  { ruleId: "ORDER_PAYMENT_MISMATCH", domain: "ORDER", status: "EXPERIMENTAL" },
-  { ruleId: "PRODUCT_OPTION_MISSING", domain: "PRODUCT", status: "EXPERIMENTAL" },
-  { ruleId: "PRODUCT_STATUS_INCONSISTENT", domain: "PRODUCT", status: "EXPERIMENTAL" },
-  { ruleId: "SETTLEMENT_NOT_CONFIRMED", domain: "SETTLEMENT", status: "EXPERIMENTAL" },
-  { ruleId: "CLAIM_WAITING_CUSTOMER", domain: "CLAIM", status: "EXPERIMENTAL" },
-  { ruleId: "REFUND_DELAY", domain: "CLAIM", status: "EXPERIMENTAL" },
+  { ruleId: "INVENTORY_OUT_OF_STOCK", domain: "INVENTORY", status: "EXPERIMENTAL", description: "판매 중 상품의 가용 재고가 0이 되어 품절 처리·발주가 필요한 상태." },
+  { ruleId: "INVENTORY_OVER_STOCK", domain: "INVENTORY", status: "EXPERIMENTAL", description: "회전율 대비 과다 재고로 보관비·악성재고 위험이 있는 상태." },
+  { ruleId: "INVENTORY_SYNC_MISMATCH", domain: "INVENTORY", status: "EXPERIMENTAL", description: "채널별 재고 수량이 서로 불일치해 동기화 점검이 필요한 상태." },
+  { ruleId: "SUPPLIER_RESPONSE_DELAY", domain: "SUPPLIER", status: "EXPERIMENTAL", description: "공급사 발주·문의 응답이 기준 시간을 초과한 상태." },
+  { ruleId: "SUPPLIER_STOCK_UNCONFIRMED", domain: "SUPPLIER", status: "EXPERIMENTAL", description: "공급사 재고 가용 여부가 미확인되어 발주 확정이 지연되는 상태." },
+  { ruleId: "ORDER_STATUS_STALE", domain: "ORDER", status: "EXPERIMENTAL", description: "주문 상태가 장시간 갱신되지 않아 처리 누락이 의심되는 상태." },
+  { ruleId: "ORDER_PAYMENT_MISMATCH", domain: "ORDER", status: "EXPERIMENTAL", description: "주문 금액과 결제 금액이 불일치하는 상태." },
+  { ruleId: "PRODUCT_OPTION_MISSING", domain: "PRODUCT", status: "EXPERIMENTAL", description: "필수 상품 옵션(사이즈/색상 등) 정보가 누락된 상태." },
+  { ruleId: "PRODUCT_STATUS_INCONSISTENT", domain: "PRODUCT", status: "EXPERIMENTAL", description: "판매 상태와 재고·노출 설정이 상호 모순되는 상태." },
+  { ruleId: "SETTLEMENT_NOT_CONFIRMED", domain: "SETTLEMENT", status: "EXPERIMENTAL", description: "정산 예정 건이 기한 내 확정되지 않은 상태." },
+  { ruleId: "CLAIM_WAITING_CUSTOMER", domain: "CLAIM", status: "EXPERIMENTAL", description: "고객 회신 대기로 클레임 처리가 멈춰 있는 상태." },
+  { ruleId: "REFUND_DELAY", domain: "CLAIM", status: "EXPERIMENTAL", description: "환불 승인 후 실제 환급이 기준 시간을 초과한 상태." },
 ];
 
 const base = {

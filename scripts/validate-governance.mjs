@@ -61,10 +61,14 @@ if (diff(riskLevels, (rolesDoc.approvalCapability ?? []).map((c) => c.riskLevel)
 
 // ---- approval ----
 assertUnique("approval", "policy", approval.policies.map((p) => p.policy));
+const channelSet = new Set(base.approvalChannels ?? []);
 for (const p of approval.policies ?? []) {
   const scope = `approval-policy:${p.policy ?? "(missing)"}`;
   if (!policySet.has(p.policy)) fail(scope, `policy not in base.approvalPolicies: ${p.policy}`);
   if (typeof p.requiredApprovals !== "number" || p.requiredApprovals < 1) fail(scope, "requiredApprovals must be >= 1.");
+  const badChannels = (p.allowedChannels ?? []).filter((c) => !channelSet.has(c));
+  if (badChannels.length) fail(scope, `allowedChannels not in base.approvalChannels: ${badChannels.join(", ")}`);
+  if (!(p.allowedChannels ?? []).length) fail(scope, "allowedChannels must not be empty.");
 }
 if (diff(approvalPolicies, approval.policies.map((p) => p.policy)).length) fail("approval", "base.approvalPolicies and approval.json disagree.");
 for (const rp of approval.riskPolicy ?? []) {

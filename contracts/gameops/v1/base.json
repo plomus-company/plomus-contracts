@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "source": "plomus-gameops-ai-os",
-  "sourceImportedAt": "2026-05-21T16:30:29.485Z",
+  "sourceImportedAt": "2026-05-21T21:42:53.832Z",
   "builtOnGovernance": "contracts/governance/v1",
   "intents": [
     "status.check",
@@ -82,5 +82,24 @@
     "desktop",
     "web",
     "system"
+  ],
+  "dashboardStatusLevels": [
+    "normal",
+    "warning",
+    "critical"
+  ],
+  "incidentSeverityThresholds": [
+    {
+      "severity": "S2",
+      "minTickets": 30
+    },
+    {
+      "severity": "S3",
+      "minTickets": 10
+    },
+    {
+      "severity": "S4",
+      "minTickets": 0
+    }
   ]
 }

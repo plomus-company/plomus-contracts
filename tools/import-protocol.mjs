@@ -49,17 +49,17 @@ const SYNC_EVENT_FIELDS = [
   { field: "occurred_at", type: "string", required: false },
 ];
 
-// packages/schemas/src/sync-payload-router.ts → validateSyncPayload (objectType → schema)
+// packages/schemas/src/{profile-payload,workflow}.schema.ts — required = non-optional, non-default
 const PAYLOADS = [
   { objectType: "COMMERCE_PROFILE", localIdPrefix: "PROFILE-COMMERCE", requiredFields: ["local_id", "commerce_types", "sales_channels", "product_types", "operation_mode", "enabled_domains"] },
   { objectType: "WORKFLOW_PROFILE", localIdPrefix: "PROFILE-WORKFLOW", requiredFields: ["local_id", "enabled_workflows", "default_review_workflow", "default_apply_workflow"] },
-  { objectType: "REVIEW_POLICY", localIdPrefix: "PROFILE-REVIEW-POLICY", requiredFields: ["local_id"] },
-  { objectType: "APPROVAL_POLICY", localIdPrefix: "PROFILE-APPROVAL-POLICY", requiredFields: ["local_id"] },
-  { objectType: "DOCUMENT_PROFILE", localIdPrefix: "PROFILE-DOCUMENT", requiredFields: ["local_id"] },
-  { objectType: "COMMERCE_REVIEW", localIdPrefix: null, requiredFields: ["local_id"] },
-  { objectType: "AI_RECOMMENDATION", localIdPrefix: null, requiredFields: ["local_id"] },
-  { objectType: "CHANGE_PLAN", localIdPrefix: null, requiredFields: ["local_id"] },
-  { objectType: "TASK", localIdPrefix: null, requiredFields: ["local_id"] },
+  { objectType: "REVIEW_POLICY", localIdPrefix: "PROFILE-REVIEW-POLICY", requiredFields: ["local_id", "enabled_rules"] },
+  { objectType: "APPROVAL_POLICY", localIdPrefix: "PROFILE-APPROVAL-POLICY", requiredFields: ["local_id", "require_approval_for"] },
+  { objectType: "DOCUMENT_PROFILE", localIdPrefix: "PROFILE-DOCUMENT", requiredFields: ["local_id", "enabled_folders", "enabled_document_types"] },
+  { objectType: "COMMERCE_REVIEW", localIdPrefix: "REV-", requiredFields: ["local_id", "review_scope", "review_type", "status"] },
+  { objectType: "AI_RECOMMENDATION", localIdPrefix: "AIR-", requiredFields: ["local_id", "recommendation_type", "target_type", "target_id", "title", "status", "confidence_score"] },
+  { objectType: "CHANGE_PLAN", localIdPrefix: "PLAN-", requiredFields: ["local_id", "plan_type", "change_type", "status", "target_file", "title"] },
+  { objectType: "TASK", localIdPrefix: "TASK-", requiredFields: ["local_id", "task_type", "title", "status"] },
 ];
 
 // apps/desktop/src/modules/telegram/telegram-command.service.ts

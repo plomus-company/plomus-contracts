@@ -20,6 +20,15 @@ const base = readJson("contracts/gameops/v1/base.json");
 const adapters = readJson("contracts/gameops/v1/adapters.json").adapters ?? [];
 const agents = readJson("contracts/gameops/v1/agents.json").agents ?? [];
 const playbooks = readJson("contracts/gameops/v1/playbooks.json").playbooks ?? [];
+const fields = readJson("contracts/gameops/v1/fields.json").fields ?? [];
+
+// enum names available for binding/outputs
+const ENUM_KEYS = new Set([
+  "csCategories", "csStatuses", "csPriorities", "csSentiments",
+  "incidentSeverities", "noticeTypes", "dashboardStatusLevels", "sanctionTypes",
+  "pipelineEntityTypes", "playbookStepTypes", "intents",
+]);
+const incidentSeveritySet = new Set(base.incidentSeverities ?? []);
 
 // governance baseline (read-only)
 const governanceBase = readJson("contracts/governance/v1/base.json");
@@ -63,6 +72,27 @@ for (const a of agents) {
   if (!agentIdSet.has(a.agentId)) fail(scope, `agentId not in base.agentIds: ${a.agentId}`);
   const unknown = requireArray(scope, a.intents, "intents").filter((i) => !intentSet.has(i));
   if (unknown.length) fail(scope, `intents not in base.intents: ${unknown.join(", ")}`);
+  // each output field binds to a known base enum vocabulary
+  for (const [outField, enumName] of Object.entries(a.outputs ?? {})) {
+    if (!ENUM_KEYS.has(enumName)) fail(scope, `output '${outField}' binds to unknown enum: ${enumName}`);
+    else if (!Array.isArray(base[enumName])) fail(scope, `output '${outField}' enum '${enumName}' missing from base.`);
+  }
+}
+
+// ---- incident severity thresholds ----
+for (const t of base.incidentSeverityThresholds ?? []) {
+  const scope = `incident-threshold:${t.severity ?? "(missing)"}`;
+  if (!incidentSeveritySet.has(t.severity)) fail(scope, `severity not in base.incidentSeverities: ${t.severity}`);
+  if (typeof t.minTickets !== "number" || t.minTickets < 0) fail(scope, "minTickets must be a number >= 0.");
+}
+
+// ---- field bindings ----
+for (const f of fields) {
+  const scope = `field:${f.documentType ?? "?"}.${f.field ?? "?"}`;
+  requireString(scope, f.documentType, "documentType");
+  requireString(scope, f.field, "field");
+  if (!ENUM_KEYS.has(f.enum)) fail(scope, `enum not a known gameops vocabulary: ${f.enum}`);
+  else if (!Array.isArray(base[f.enum])) fail(scope, `enum '${f.enum}' missing from base.`);
 }
 
 // ---- playbooks (risk + approval resolve against governance) ----

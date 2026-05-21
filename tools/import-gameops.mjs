@@ -28,6 +28,24 @@ const CS_SENTIMENTS = ["negative", "neutral", "positive"];
 const NOTICE_TYPES = ["incident", "general"];
 const PIPELINE_ENTITY_TYPES = ["PAYMENT", "STABILITY", "SESSION", "CS", "GENERIC"];
 const COMMAND_SOURCES = ["telegram", "desktop", "web", "system"];
+const DASHBOARD_STATUS_LEVELS = ["normal", "warning", "critical"];
+
+// apps/desktop/src/modules/.../incident-agent.ts — severity by CS ticket count.
+const INCIDENT_SEVERITY_THRESHOLDS = [
+  { severity: "S2", minTickets: 30 },
+  { severity: "S3", minTickets: 10 },
+  { severity: "S4", minTickets: 0 },
+];
+
+// Frontmatter field -> controlled vocabulary binding for gameops documents.
+const FIELDS = [
+  { documentType: "cs_ticket", field: "category", enum: "csCategories", required: true },
+  { documentType: "cs_ticket", field: "status", enum: "csStatuses", required: true },
+  { documentType: "cs_ticket", field: "priority", enum: "csPriorities", required: false },
+  { documentType: "cs_ticket", field: "sentiment", enum: "csSentiments", required: false },
+  { documentType: "incident", field: "severity", enum: "incidentSeverities", required: true },
+  { documentType: "notice", field: "notice_type", enum: "noticeTypes", required: true },
+];
 
 // packages/execution/src/catalog.ts
 const ADAPTERS = [
@@ -42,10 +60,10 @@ const ADAPTERS = [
 
 // packages/agents/src/gameops/*
 const AGENTS = [
-  { agentId: "cs", intents: ["cs.summary"], description: "CS 문의 요약·분류(category/sentiment/priority)" },
-  { agentId: "notice", intents: ["notice.draft", "notice.publish"], description: "공지 초안 작성·검토" },
-  { agentId: "incident", intents: ["incident.create"], description: "인시던트 생성·심각도 분류(S1–S4)" },
-  { agentId: "dashboard", intents: ["report.today.brief", "report.daily.generate"], description: "운영 대시보드 인사이트·일일 브리핑" },
+  { agentId: "cs", intents: ["cs.summary"], description: "CS 문의 요약·분류(category/sentiment/priority)", outputs: { category: "csCategories", sentiment: "csSentiments", priority: "csPriorities" } },
+  { agentId: "notice", intents: ["notice.draft", "notice.publish"], description: "공지 초안 작성·검토", outputs: { notice_type: "noticeTypes" } },
+  { agentId: "incident", intents: ["incident.create"], description: "인시던트 생성·심각도 분류(S1–S4)", outputs: { severity: "incidentSeverities" } },
+  { agentId: "dashboard", intents: ["report.today.brief", "report.daily.generate"], description: "운영 대시보드 인사이트·일일 브리핑", outputs: { status_level: "dashboardStatusLevels" } },
 ];
 
 // apps/web/prisma/seed-playbooks.json
@@ -71,10 +89,13 @@ writeJson("contracts/gameops/v1/base.json", {
   noticeTypes: NOTICE_TYPES,
   pipelineEntityTypes: PIPELINE_ENTITY_TYPES,
   commandSources: COMMAND_SOURCES,
+  dashboardStatusLevels: DASHBOARD_STATUS_LEVELS,
+  incidentSeverityThresholds: INCIDENT_SEVERITY_THRESHOLDS,
 });
 writeJson("contracts/gameops/v1/adapters.json", { schemaVersion: "1.0.0", adapters: ADAPTERS });
 writeJson("contracts/gameops/v1/agents.json", { schemaVersion: "1.0.0", agents: AGENTS });
 writeJson("contracts/gameops/v1/playbooks.json", { schemaVersion: "1.0.0", playbooks: PLAYBOOKS });
+writeJson("contracts/gameops/v1/fields.json", { schemaVersion: "1.0.0", note: "GameOps document fields and the controlled vocabulary each binds to.", fields: FIELDS });
 
 console.log(`imported gameops contracts (source: ${sourceRepo})`);
-console.log(`  intents: ${INTENTS.length}, adapters: ${ADAPTERS.length}, agents: ${AGENTS.length}, playbooks: ${PLAYBOOKS.length}`);
+console.log(`  intents: ${INTENTS.length}, adapters: ${ADAPTERS.length}, agents: ${AGENTS.length}, playbooks: ${PLAYBOOKS.length}, fields: ${FIELDS.length}`);

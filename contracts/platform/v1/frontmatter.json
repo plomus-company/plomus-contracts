@@ -98,6 +98,85 @@
         "expected_amount",
         "settlement_status"
       ]
+    },
+    {
+      "documentType": "commerce_review",
+      "localIdPrefix": "REV-",
+      "statusField": "status",
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "review_scope",
+        "review_type",
+        "status"
+      ]
+    },
+    {
+      "documentType": "commerce_profile",
+      "localIdPrefix": "PROFILE-COMMERCE",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "commerce_types",
+        "sales_channels",
+        "product_types",
+        "operation_mode",
+        "enabled_domains"
+      ]
+    },
+    {
+      "documentType": "workflow_profile",
+      "localIdPrefix": "PROFILE-WORKFLOW",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "enabled_workflows"
+      ]
+    },
+    {
+      "documentType": "review_policy",
+      "localIdPrefix": "PROFILE-REVIEW-POLICY",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "enabled_rules"
+      ]
+    },
+    {
+      "documentType": "approval_policy",
+      "localIdPrefix": "PROFILE-APPROVAL-POLICY",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "require_approval_for"
+      ]
+    },
+    {
+      "documentType": "document_profile",
+      "localIdPrefix": "PROFILE-DOCUMENT",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "enabled_folders",
+        "enabled_document_types"
+      ]
     }
   ]
 }

@@ -6,7 +6,12 @@
       "intents": [
         "cs.summary"
       ],
-      "description": "CS 문의 요약·분류(category/sentiment/priority)"
+      "description": "CS 문의 요약·분류(category/sentiment/priority)",
+      "outputs": {
+        "category": "csCategories",
+        "sentiment": "csSentiments",
+        "priority": "csPriorities"
+      }
     },
     {
       "agentId": "notice",
@@ -14,14 +19,20 @@
         "notice.draft",
         "notice.publish"
       ],
-      "description": "공지 초안 작성·검토"
+      "description": "공지 초안 작성·검토",
+      "outputs": {
+        "notice_type": "noticeTypes"
+      }
     },
     {
       "agentId": "incident",
       "intents": [
         "incident.create"
       ],
-      "description": "인시던트 생성·심각도 분류(S1–S4)"
+      "description": "인시던트 생성·심각도 분류(S1–S4)",
+      "outputs": {
+        "severity": "incidentSeverities"
+      }
     },
     {
       "agentId": "dashboard",
@@ -29,7 +40,10 @@
         "report.today.brief",
         "report.daily.generate"
       ],
-      "description": "운영 대시보드 인사이트·일일 브리핑"
+      "description": "운영 대시보드 인사이트·일일 브리핑",
+      "outputs": {
+        "status_level": "dashboardStatusLevels"
+      }
     }
   ]
 }

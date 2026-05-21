@@ -16,12 +16,21 @@ const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const sourceRepo = process.env.PLOMUS_COMMERCE_AI_OS_PATH ?? path.resolve(repoRoot, "../plomus-commerce-ai-os");
 const generatedAt = new Date().toISOString();
 
-// packages/schemas/src/domain.schema.ts (status enums + required fields)
+// packages/schemas/src/{domain,profile,workflow}.schema.ts — status enums + required fields.
+// Domain objects carry a lifecycle status enum; profile/review documents do not
+// (statusField/statuses omitted), so the contract models status as optional.
 const FRONTMATTER = [
   { documentType: "product", localIdPrefix: "PROD-", statusField: "status", statuses: ["DRAFT", "ACTIVE", "PAUSED", "SOLD_OUT", "ARCHIVED"], extraEnums: { content_quality_status: ["GOOD", "NEEDS_SUPPLEMENT", "MISSING_REQUIRED_INFO"], image_status: ["READY", "MISSING", "NEEDS_REVIEW"] }, requiredFields: ["type", "local_id", "product_name", "status"] },
   { documentType: "order", localIdPrefix: "ORDER-", statusField: "order_status", statuses: ["PAID", "PREPARING", "SHIPPED", "DELIVERED", "CANCELLED", "REFUNDED"], extraEnums: {}, requiredFields: ["type", "local_id", "order_number", "order_status", "payment_amount"] },
   { documentType: "claim", localIdPrefix: "CLAIM-", statusField: "claim_status", statuses: ["RECEIVED", "IN_REVIEW", "WAITING_CUSTOMER", "RESOLVED", "REJECTED"], extraEnums: { claim_type: ["CANCEL", "RETURN", "EXCHANGE", "REFUND", "CS"] }, requiredFields: ["type", "local_id", "claim_type", "claim_status"] },
   { documentType: "settlement", localIdPrefix: "SETTLE-", statusField: "settlement_status", statuses: ["EXPECTED", "RECEIVED", "MISMATCH", "NEEDS_CHECK", "CONFIRMED"], extraEnums: {}, requiredFields: ["type", "local_id", "settlement_period", "expected_amount", "settlement_status"] },
+  // commerce_review carries a free-string status (no enum); profiles have no lifecycle status.
+  { documentType: "commerce_review", localIdPrefix: "REV-", statusField: "status", statuses: [], extraEnums: {}, requiredFields: ["type", "local_id", "review_scope", "review_type", "status"] },
+  { documentType: "commerce_profile", localIdPrefix: "PROFILE-COMMERCE", statusField: null, statuses: [], extraEnums: {}, requiredFields: ["type", "local_id", "commerce_types", "sales_channels", "product_types", "operation_mode", "enabled_domains"] },
+  { documentType: "workflow_profile", localIdPrefix: "PROFILE-WORKFLOW", statusField: null, statuses: [], extraEnums: {}, requiredFields: ["type", "local_id", "enabled_workflows"] },
+  { documentType: "review_policy", localIdPrefix: "PROFILE-REVIEW-POLICY", statusField: null, statuses: [], extraEnums: {}, requiredFields: ["type", "local_id", "enabled_rules"] },
+  { documentType: "approval_policy", localIdPrefix: "PROFILE-APPROVAL-POLICY", statusField: null, statuses: [], extraEnums: {}, requiredFields: ["type", "local_id", "require_approval_for"] },
+  { documentType: "document_profile", localIdPrefix: "PROFILE-DOCUMENT", statusField: null, statuses: [], extraEnums: {}, requiredFields: ["type", "local_id", "enabled_folders", "enabled_document_types"] },
 ];
 
 // packages/core/src/event-types.ts (per-object event taxonomy; union ⊆ commerce syncEventTypes)
@@ -65,7 +74,7 @@ writeJson("contracts/platform/v1/base.json", {
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
   builtOnCommerce: "contracts/v1",
-  lifecycleObjects: FRONTMATTER.map((f) => f.documentType),
+  lifecycleObjects: FRONTMATTER.filter((f) => (f.statuses ?? []).length > 0).map((f) => f.documentType),
   eventObjects: EVENT_TYPES.map((e) => e.object),
   errorCategories: ERROR_CATEGORIES,
 });

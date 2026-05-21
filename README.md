@@ -11,9 +11,9 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | **Benchmarks** | `contracts/benchmarks/v1/` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks/v1/README.md](contracts/benchmarks/v1/README.md) |
 | **Distribution** | `contracts/distribution/v1/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 도메인상태 4 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/v1/README.md](contracts/distribution/v1/README.md) |
 | **Protocol** | `contracts/protocol/v1/` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [contracts/protocol/v1/README.md](contracts/protocol/v1/README.md) |
-| **Platform** | `contracts/platform/v1/` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 4 · 이벤트그룹 6 · error code 21 | [contracts/platform/v1/README.md](contracts/platform/v1/README.md) |
+| **Platform** | `contracts/platform/v1/` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [contracts/platform/v1/README.md](contracts/platform/v1/README.md) |
 | **Governance** | `contracts/governance/v1/` | `plomus-gameops-ai-os` (benchmarks 교차참조) | role 6 · 실행상태 19 · 승인정책 3 · risk→model 4 | [contracts/governance/v1/README.md](contracts/governance/v1/README.md) |
-| **GameOps** | `contracts/gameops/v1/` | `plomus-gameops-ai-os` (governance 교차참조) | adapter 7 · intent 16 · agent 4 · playbook 2 | [contracts/gameops/v1/README.md](contracts/gameops/v1/README.md) |
+| **GameOps** | `contracts/gameops/v1/` | `plomus-gameops-ai-os` (governance 교차참조) | adapter 7 · intent 16 · agent 4 · playbook 2 · field 6 | [contracts/gameops/v1/README.md](contracts/gameops/v1/README.md) |
 
 ## 계약 범위
 

@@ -45,6 +45,7 @@ const targets = [
   "contracts/gameops/v1/adapters.json",
   "contracts/gameops/v1/agents.json",
   "contracts/gameops/v1/playbooks.json",
+  "contracts/gameops/v1/fields.json",
 ];
 
 const changed = [];

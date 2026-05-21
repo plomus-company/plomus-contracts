@@ -139,23 +139,53 @@
   "executionSteps": [
     {
       "step": "validate",
-      "required": true
+      "required": true,
+      "resultFields": [
+        "ok"
+      ]
     },
     {
       "step": "dryRun",
-      "required": true
+      "required": true,
+      "resultFields": [
+        "ok",
+        "summary",
+        "estimatedImpact",
+        "warnings",
+        "rollbackSupported",
+        "rollbackPlan"
+      ]
     },
     {
       "step": "execute",
-      "required": true
+      "required": true,
+      "resultFields": [
+        "ok",
+        "externalExecutionId",
+        "summary",
+        "result"
+      ]
     },
     {
       "step": "verify",
-      "required": true
+      "required": true,
+      "resultFields": [
+        "ok",
+        "expected",
+        "actual",
+        "summary",
+        "errors"
+      ]
     },
     {
       "step": "rollback",
-      "required": false
+      "required": false,
+      "resultFields": [
+        "ok",
+        "externalExecutionId",
+        "summary",
+        "result"
+      ]
     }
   ]
 }

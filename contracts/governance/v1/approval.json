@@ -3,15 +3,27 @@
   "policies": [
     {
       "policy": "admin_multi",
-      "requiredApprovals": 2
+      "requiredApprovals": 2,
+      "allowedChannels": [
+        "WEB",
+        "TELEGRAM"
+      ]
     },
     {
       "policy": "operation_pm",
-      "requiredApprovals": 1
+      "requiredApprovals": 1,
+      "allowedChannels": [
+        "WEB",
+        "TELEGRAM"
+      ]
     },
     {
       "policy": "single",
-      "requiredApprovals": 1
+      "requiredApprovals": 1,
+      "allowedChannels": [
+        "WEB",
+        "TELEGRAM"
+      ]
     }
   ],
   "riskPolicy": [

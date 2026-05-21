@@ -41,18 +41,32 @@ for (const doc of documents) {
   const scope = `frontmatter:${doc.documentType ?? "(missing)"}`;
   requireString(scope, doc.documentType, "documentType");
   if (!commerceDocTypes.has(doc.documentType)) fail(scope, `documentType not in commerce documentTypes: ${doc.documentType}`);
-  if (!lifecycleSet.has(doc.documentType)) fail(scope, `documentType not in base.lifecycleObjects: ${doc.documentType}`);
-  requireString(scope, doc.statusField, "statusField");
-  const statuses = requireArray(scope, doc.statuses, "statuses");
-  if (statuses.length === 0) fail(scope, "statuses must not be empty.");
-  assertUnique(scope, "statuses", statuses);
+
+  // status is optional: domain objects carry a lifecycle status enum, profile/
+  // review documents do not. Only documents with a non-empty status enum are
+  // lifecycle objects, and exactly those must be listed in base.lifecycleObjects.
+  const statuses = requireArray(scope, doc.statuses ?? [], "statuses");
+  const hasLifecycle = statuses.length > 0;
+  if (hasLifecycle) {
+    requireString(scope, doc.statusField, "statusField");
+    assertUnique(scope, "statuses", statuses);
+    if (!lifecycleSet.has(doc.documentType)) fail(scope, `status-bearing document not in base.lifecycleObjects: ${doc.documentType}`);
+  } else if (lifecycleSet.has(doc.documentType)) {
+    fail(scope, `documentType in base.lifecycleObjects but has no status enum: ${doc.documentType}`);
+  }
   for (const [name, values] of Object.entries(doc.extraEnums ?? {})) {
     assertUnique(scope, `extraEnums.${name}`, requireArray(scope, values, `extraEnums.${name}`));
   }
   const req = requireArray(scope, doc.requiredFields, "requiredFields");
+  if (req.length === 0) fail(scope, "requiredFields must not be empty.");
   for (const must of ["type", "local_id"]) {
     if (!req.includes(must)) fail(scope, `requiredFields must include ${must}.`);
   }
+}
+// every declared lifecycle object must have a frontmatter document
+const docTypeSet = new Set(documents.map((d) => d.documentType));
+for (const obj of lifecycleObjects) {
+  if (!docTypeSet.has(obj)) fail("frontmatter", `lifecycleObject has no frontmatter document: ${obj}`);
 }
 
 // ---- event-types (P3): per-object taxonomy, union ⊆ commerce ----

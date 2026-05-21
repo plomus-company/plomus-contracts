@@ -8,8 +8,11 @@
 |---|---|
 | `base.json` | intents(16)·agentIds(4)·playbookStepTypes(4)·sanctionTypes(ban/mute/warn)·incidentSeverities(S1–S4)·CS 분류(category/status/priority/sentiment)·noticeTypes·pipelineEntityTypes·commandSources |
 | `adapters.json` | LiveOps 실행 어댑터(7) — executionTypes·capabilities·dryRun/rollback 지원·requiresConfig |
-| `agents.json` | GameOps 에이전트(4) — cs/notice/incident/dashboard + 지원 intent |
+| `agents.json` | GameOps 에이전트(4) — cs/notice/incident/dashboard + 지원 intent + **출력 분류 바인딩(`outputs`)** |
 | `playbooks.json` | playbook(2) — triggers·riskLevel·requiresApproval·steps |
+| `fields.json` | 게임 문서 필드↔어휘 바인딩(6) — cs_ticket/incident/notice |
+
+`base.json`에 `dashboardStatusLevels`와 **인시던트 심각도 임계(`incidentSeverityThresholds`: S2≥30·S3≥10·S4≥0 tickets)**를 포함합니다.
 
 ## 핵심
 

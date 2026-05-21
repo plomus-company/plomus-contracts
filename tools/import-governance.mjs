@@ -64,13 +64,13 @@ const COMMAND_TRANSITIONS = {
   rejected: ["archived"],
   archived: [],
 };
-// packages/execution/src/execution.types.ts — adapter step contract
+// packages/execution/src/execution.types.ts — adapter step contract + result fields
 const EXECUTION_STEPS = [
-  { step: "validate", required: true },
-  { step: "dryRun", required: true },
-  { step: "execute", required: true },
-  { step: "verify", required: true },
-  { step: "rollback", required: false },
+  { step: "validate", required: true, resultFields: ["ok"] },
+  { step: "dryRun", required: true, resultFields: ["ok", "summary", "estimatedImpact", "warnings", "rollbackSupported", "rollbackPlan"] },
+  { step: "execute", required: true, resultFields: ["ok", "externalExecutionId", "summary", "result"] },
+  { step: "verify", required: true, resultFields: ["ok", "expected", "actual", "summary", "errors"] },
+  { step: "rollback", required: false, resultFields: ["ok", "externalExecutionId", "summary", "result"] },
 ];
 
 // packages/core/src/rbac.ts — canApprove(role, risk)
@@ -124,7 +124,7 @@ writeJson("contracts/governance/v1/roles.json", {
 });
 writeJson("contracts/governance/v1/approval.json", {
   schemaVersion: "1.0.0",
-  policies: Object.entries(APPROVAL_THRESHOLDS).map(([policy, requiredApprovals]) => ({ policy, requiredApprovals })),
+  policies: Object.entries(APPROVAL_THRESHOLDS).map(([policy, requiredApprovals]) => ({ policy, requiredApprovals, allowedChannels: APPROVAL_CHANNELS })),
   riskPolicy: RISK_POLICY,
 });
 writeJson("contracts/governance/v1/execution-lifecycle.json", {
