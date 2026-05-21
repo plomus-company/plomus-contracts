@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "playbooks": [
+    {
+      "playbookId": "payment_missing_response_v1",
+      "triggers": [
+        "cs.summary",
+        "incident.create"
+      ],
+      "riskLevel": "high",
+      "requiresApproval": true,
+      "steps": [
+        {
+          "type": "query"
+        },
+        {
+          "type": "analyze"
+        },
+        {
+          "type": "draft"
+        },
+        {
+          "type": "approval",
+          "approvalPolicy": "operation_pm"
+        }
+      ]
+    },
+    {
+      "playbookId": "daily_ops_brief_v1",
+      "triggers": [
+        "report.today.brief",
+        "report.daily.generate"
+      ],
+      "riskLevel": "low",
+      "requiresApproval": false,
+      "steps": [
+        {
+          "type": "query"
+        },
+        {
+          "type": "analyze"
+        },
+        {
+          "type": "draft"
+        }
+      ]
+    }
+  ]
+}

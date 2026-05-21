@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "plomus-gameops-ai-os",
+  "sourceImportedAt": "2026-05-21T16:30:29.485Z",
+  "builtOnGovernance": "contracts/governance/v1",
+  "intents": [
+    "status.check",
+    "report.today.brief",
+    "report.daily.generate",
+    "cs.summary",
+    "notice.draft",
+    "notice.publish",
+    "incident.create",
+    "reward.grant",
+    "sanction.apply",
+    "playbook.run",
+    "approval.queue.list",
+    "approval.approve",
+    "approval.reject",
+    "account.link",
+    "ai.command",
+    "help.show"
+  ],
+  "agentIds": [
+    "cs",
+    "notice",
+    "incident",
+    "dashboard"
+  ],
+  "playbookStepTypes": [
+    "query",
+    "analyze",
+    "draft",
+    "approval"
+  ],
+  "sanctionTypes": [
+    "ban",
+    "mute",
+    "warn"
+  ],
+  "incidentSeverities": [
+    "S1",
+    "S2",
+    "S3",
+    "S4"
+  ],
+  "csCategories": [
+    "payment",
+    "general"
+  ],
+  "csStatuses": [
+    "open",
+    "assigned",
+    "in_progress",
+    "resolved",
+    "closed"
+  ],
+  "csPriorities": [
+    "low",
+    "normal",
+    "high",
+    "urgent"
+  ],
+  "csSentiments": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "noticeTypes": [
+    "incident",
+    "general"
+  ],
+  "pipelineEntityTypes": [
+    "PAYMENT",
+    "STABILITY",
+    "SESSION",
+    "CS",
+    "GENERIC"
+  ],
+  "commandSources": [
+    "telegram",
+    "desktop",
+    "web",
+    "system"
+  ]
+}
