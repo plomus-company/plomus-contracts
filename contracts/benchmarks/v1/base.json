@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "source": "plomus-contracts:skills+commerce",
-  "generatedAt": "2026-05-21T15:34:03.655Z",
+  "generatedAt": "2026-05-21T20:44:59.192Z",
   "pricingAsOf": "2026-05",
   "modelVendors": [
     "anthropic",
@@ -41,11 +41,16 @@
   ],
   "targetKinds": [
     "skill",
-    "workflow"
+    "workflow",
+    "agent",
+    "playbook",
+    "preset"
   ],
   "targetDomains": [
     "skills",
-    "commerce"
+    "commerce",
+    "gameops",
+    "distribution"
   ],
   "dataSources": [
     "measured",

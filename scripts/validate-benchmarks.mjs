@@ -28,6 +28,9 @@ const rollups = readJson("contracts/benchmarks/v1/rollups.json").rollups ?? [];
 // referenced contracts (cross-domain integrity)
 const skillIds = new Set((readJson("contracts/skills/v1/catalog.json").skills ?? []).map((s) => s.skillId));
 const workflowIds = new Set((readJson("contracts/v1/workflows.json").workflows ?? []).map((w) => w.workflowId));
+const agentIds = new Set((readJson("contracts/gameops/v1/agents.json").agents ?? []).map((a) => a.agentId));
+const playbookIds = new Set((readJson("contracts/gameops/v1/playbooks.json").playbooks ?? []).map((p) => p.playbookId));
+const presetIds = new Set((readJson("contracts/distribution/v1/presets.json").presets ?? []).map((p) => p.presetId));
 
 const vendors = base.modelVendors ?? [];
 const modalities = base.modalities ?? [];
@@ -101,6 +104,15 @@ for (const target of targets) {
   } else if (target.kind === "workflow") {
     if (target.domain !== "commerce") fail(scope, "workflow targets must be in the commerce domain.");
     if (!workflowIds.has(target.ref)) fail(scope, `ref is not a known workflow: ${target.ref}`);
+  } else if (target.kind === "agent") {
+    if (target.domain !== "gameops") fail(scope, "agent targets must be in the gameops domain.");
+    if (!agentIds.has(target.ref)) fail(scope, `ref is not a known gameops agent: ${target.ref}`);
+  } else if (target.kind === "playbook") {
+    if (target.domain !== "gameops") fail(scope, "playbook targets must be in the gameops domain.");
+    if (!playbookIds.has(target.ref)) fail(scope, `ref is not a known gameops playbook: ${target.ref}`);
+  } else if (target.kind === "preset") {
+    if (target.domain !== "distribution") fail(scope, "preset targets must be in the distribution domain.");
+    if (!presetIds.has(target.ref)) fail(scope, `ref is not a known distribution preset: ${target.ref}`);
   }
 }
 

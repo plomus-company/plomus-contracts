@@ -856,6 +856,62 @@
       "ref": "task-approved",
       "label": "승인 작업 검토",
       "group": "TASK"
+    },
+    {
+      "targetId": "agent:cs",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "cs",
+      "label": "cs",
+      "group": "agent"
+    },
+    {
+      "targetId": "agent:notice",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "notice",
+      "label": "notice",
+      "group": "agent"
+    },
+    {
+      "targetId": "agent:incident",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "incident",
+      "label": "incident",
+      "group": "agent"
+    },
+    {
+      "targetId": "agent:dashboard",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "dashboard",
+      "label": "dashboard",
+      "group": "agent"
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "kind": "playbook",
+      "domain": "gameops",
+      "ref": "payment_missing_response_v1",
+      "label": "payment_missing_response_v1",
+      "group": "high"
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "kind": "playbook",
+      "domain": "gameops",
+      "ref": "daily_ops_brief_v1",
+      "label": "daily_ops_brief_v1",
+      "group": "low"
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "kind": "preset",
+      "domain": "distribution",
+      "ref": "PLOMUS_DISTRIBUTION",
+      "label": "플로머스 탁구 유통형",
+      "group": "preset"
     }
   ]
 }

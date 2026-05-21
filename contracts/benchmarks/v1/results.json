@@ -4,1718 +4,6 @@
   "results": [
     {
       "targetId": "skill:blue-ribbon-nearby",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:09.245Z",
-      "metrics": {
-        "latency_p50_ms": 3755.09,
-        "throughput_tps": 13.49,
-        "cost_per_run_usd": 0,
-        "input_tokens": 102,
-        "output_tokens": 41,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:bunjang-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:15.347Z",
-      "metrics": {
-        "latency_p50_ms": 5850.72,
-        "throughput_tps": 13.48,
-        "cost_per_run_usd": 0,
-        "input_tokens": 90,
-        "output_tokens": 57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:catchtable-sniper",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:19.867Z",
-      "metrics": {
-        "latency_p50_ms": 4177.77,
-        "throughput_tps": 12.63,
-        "cost_per_run_usd": 0,
-        "input_tokens": 77,
-        "output_tokens": 49,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:cheap-gas-nearby",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:23.849Z",
-      "metrics": {
-        "latency_p50_ms": 3729.58,
-        "throughput_tps": 13.53,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 46,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:corporate-registration-consulting",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:29.318Z",
-      "metrics": {
-        "latency_p50_ms": 5227.07,
-        "throughput_tps": 13.53,
-        "cost_per_run_usd": 0,
-        "input_tokens": 132,
-        "output_tokens": 66,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:coupang-product-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:36.460Z",
-      "metrics": {
-        "latency_p50_ms": 6901.63,
-        "throughput_tps": 13.16,
-        "cost_per_run_usd": 0,
-        "input_tokens": 107,
-        "output_tokens": 87,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:court-auction-notice-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:43.259Z",
-      "metrics": {
-        "latency_p50_ms": 6487.09,
-        "throughput_tps": 13.64,
-        "cost_per_run_usd": 0,
-        "input_tokens": 174,
-        "output_tokens": 80,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:daangn-cars-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:47.997Z",
-      "metrics": {
-        "latency_p50_ms": 4489.37,
-        "throughput_tps": 14.05,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:daangn-jobs-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:52.359Z",
-      "metrics": {
-        "latency_p50_ms": 4115.06,
-        "throughput_tps": 13.07,
-        "cost_per_run_usd": 0,
-        "input_tokens": 96,
-        "output_tokens": 49,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:daangn-realty-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:02:59.723Z",
-      "metrics": {
-        "latency_p50_ms": 7093.17,
-        "throughput_tps": 12.73,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 85,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:daangn-used-goods-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:04.373Z",
-      "metrics": {
-        "latency_p50_ms": 4396.37,
-        "throughput_tps": 11.67,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:daishin-report-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:12.314Z",
-      "metrics": {
-        "latency_p50_ms": 7393.31,
-        "throughput_tps": 9.86,
-        "cost_per_run_usd": 0,
-        "input_tokens": 85,
-        "output_tokens": 67,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:daiso-product-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:18.673Z",
-      "metrics": {
-        "latency_p50_ms": 5883.95,
-        "throughput_tps": 10.42,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 56,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:danawa-price-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:27.680Z",
-      "metrics": {
-        "latency_p50_ms": 8568.2,
-        "throughput_tps": 9.5,
-        "cost_per_run_usd": 0,
-        "input_tokens": 102,
-        "output_tokens": 77,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:delivery-tracking",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:35.243Z",
-      "metrics": {
-        "latency_p50_ms": 7108.95,
-        "throughput_tps": 9.85,
-        "cost_per_run_usd": 0,
-        "input_tokens": 93,
-        "output_tokens": 65,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:donation-place-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:42.087Z",
-      "metrics": {
-        "latency_p50_ms": 6577.02,
-        "throughput_tps": 10.9,
-        "cost_per_run_usd": 0,
-        "input_tokens": 102,
-        "output_tokens": 68,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:emergency-room-beds",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:49.061Z",
-      "metrics": {
-        "latency_p50_ms": 6496.41,
-        "throughput_tps": 9.23,
-        "cost_per_run_usd": 0,
-        "input_tokens": 103,
-        "output_tokens": 56,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:express-bus-booking",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:03:58.821Z",
-      "metrics": {
-        "latency_p50_ms": 9274.55,
-        "throughput_tps": 10.2,
-        "cost_per_run_usd": 0,
-        "input_tokens": 103,
-        "output_tokens": 90,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:fine-dust-location",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:05.745Z",
-      "metrics": {
-        "latency_p50_ms": 6442.57,
-        "throughput_tps": 9.54,
-        "cost_per_run_usd": 0,
-        "input_tokens": 93,
-        "output_tokens": 57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:flight-ticket-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:11.138Z",
-      "metrics": {
-        "latency_p50_ms": 5096.23,
-        "throughput_tps": 10.86,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 49,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:foresttrip-vacancy",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:18.156Z",
-      "metrics": {
-        "latency_p50_ms": 6764.01,
-        "throughput_tps": 10.53,
-        "cost_per_run_usd": 0,
-        "input_tokens": 104,
-        "output_tokens": 66,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:gangnamunni-clinic-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:23.825Z",
-      "metrics": {
-        "latency_p50_ms": 5223.46,
-        "throughput_tps": 11.87,
-        "cost_per_run_usd": 0,
-        "input_tokens": 97,
-        "output_tokens": 57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:geeknews-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:28.583Z",
-      "metrics": {
-        "latency_p50_ms": 4279.84,
-        "throughput_tps": 12.5,
-        "cost_per_run_usd": 0,
-        "input_tokens": 86,
-        "output_tokens": 48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:gongsijiga-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:33.289Z",
-      "metrics": {
-        "latency_p50_ms": 4186.17,
-        "throughput_tps": 12.05,
-        "cost_per_run_usd": 0,
-        "input_tokens": 62,
-        "output_tokens": 47,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:han-river-water-level",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:38.520Z",
-      "metrics": {
-        "latency_p50_ms": 4748,
-        "throughput_tps": 11.96,
-        "cost_per_run_usd": 0,
-        "input_tokens": 104,
-        "output_tokens": 52,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:hipass-receipt",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:43.514Z",
-      "metrics": {
-        "latency_p50_ms": 4494.76,
-        "throughput_tps": 13.33,
-        "cost_per_run_usd": 0,
-        "input_tokens": 91,
-        "output_tokens": 54,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:hola-poke-yeoksam",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:49.796Z",
-      "metrics": {
-        "latency_p50_ms": 5820.6,
-        "throughput_tps": 12.82,
-        "cost_per_run_usd": 0,
-        "input_tokens": 90,
-        "output_tokens": 69,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:household-waste-info",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:04:55.084Z",
-      "metrics": {
-        "latency_p50_ms": 5033.22,
-        "throughput_tps": 14.24,
-        "cost_per_run_usd": 0,
-        "input_tokens": 97,
-        "output_tokens": 67,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:hwp",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:02.553Z",
-      "metrics": {
-        "latency_p50_ms": 6999.95,
-        "throughput_tps": 12.61,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 83,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:intercity-bus-booking",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:09.467Z",
-      "metrics": {
-        "latency_p50_ms": 6427.76,
-        "throughput_tps": 12.79,
-        "cost_per_run_usd": 0,
-        "input_tokens": 103,
-        "output_tokens": 77,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:iros-registry-automation",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:17.377Z",
-      "metrics": {
-        "latency_p50_ms": 7471.37,
-        "throughput_tps": 12.81,
-        "cost_per_run_usd": 0,
-        "input_tokens": 114,
-        "output_tokens": 89,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:joseon-sillok-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:23.202Z",
-      "metrics": {
-        "latency_p50_ms": 5398.78,
-        "throughput_tps": 12.27,
-        "cost_per_run_usd": 0,
-        "input_tokens": 87,
-        "output_tokens": 61,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:k-dart",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:29.816Z",
-      "metrics": {
-        "latency_p50_ms": 6155.21,
-        "throughput_tps": 15.63,
-        "cost_per_run_usd": 0,
-        "input_tokens": 104,
-        "output_tokens": 90,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:k-schoollunch-menu",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:35.177Z",
-      "metrics": {
-        "latency_p50_ms": 5120.69,
-        "throughput_tps": 15.13,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 72,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:k-skill-cleaner",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:43.870Z",
-      "metrics": {
-        "latency_p50_ms": 8208.43,
-        "throughput_tps": 12.28,
-        "cost_per_run_usd": 0,
-        "input_tokens": 80,
-        "output_tokens": 96,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:k-skill-setup",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:48.545Z",
-      "metrics": {
-        "latency_p50_ms": 4162.91,
-        "throughput_tps": 12.62,
-        "cost_per_run_usd": 0,
-        "input_tokens": 91,
-        "output_tokens": 48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kakao-bar-nearby",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:53.667Z",
-      "metrics": {
-        "latency_p50_ms": 4629.45,
-        "throughput_tps": 12.26,
-        "cost_per_run_usd": 0,
-        "input_tokens": 108,
-        "output_tokens": 52,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kakaotalk-mac",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:05:57.865Z",
-      "metrics": {
-        "latency_p50_ms": 3719.65,
-        "throughput_tps": 13.2,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 44,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kbl-results",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:02.541Z",
-      "metrics": {
-        "latency_p50_ms": 4205.84,
-        "throughput_tps": 12.68,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kbo-results",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:07.143Z",
-      "metrics": {
-        "latency_p50_ms": 4127.95,
-        "throughput_tps": 13.42,
-        "cost_per_run_usd": 0,
-        "input_tokens": 100,
-        "output_tokens": 50,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kleague-results",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:11.601Z",
-      "metrics": {
-        "latency_p50_ms": 4199.55,
-        "throughput_tps": 12.67,
-        "cost_per_run_usd": 0,
-        "input_tokens": 89,
-        "output_tokens": 49,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korea-weather",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:17.062Z",
-      "metrics": {
-        "latency_p50_ms": 5049.82,
-        "throughput_tps": 11.78,
-        "cost_per_run_usd": 0,
-        "input_tokens": 82,
-        "output_tokens": 54,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-character-count",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:21.408Z",
-      "metrics": {
-        "latency_p50_ms": 3882.78,
-        "throughput_tps": 13.89,
-        "cost_per_run_usd": 0,
-        "input_tokens": 83,
-        "output_tokens": 48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-cinema-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:27.656Z",
-      "metrics": {
-        "latency_p50_ms": 5954.24,
-        "throughput_tps": 12.15,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 67,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-jangbu-for",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:34.119Z",
-      "metrics": {
-        "latency_p50_ms": 5988.53,
-        "throughput_tps": 12.38,
-        "cost_per_run_usd": 0,
-        "input_tokens": 143,
-        "output_tokens": 65,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-law-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:37.942Z",
-      "metrics": {
-        "latency_p50_ms": 3582.38,
-        "throughput_tps": 14.96,
-        "cost_per_run_usd": 0,
-        "input_tokens": 88,
-        "output_tokens": 49,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-marathon-schedule",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:43.462Z",
-      "metrics": {
-        "latency_p50_ms": 5259.01,
-        "throughput_tps": 17.34,
-        "cost_per_run_usd": 0,
-        "input_tokens": 98,
-        "output_tokens": 82,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-patent-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:47.008Z",
-      "metrics": {
-        "latency_p50_ms": 3313.38,
-        "throughput_tps": 17.09,
-        "cost_per_run_usd": 0,
-        "input_tokens": 88,
-        "output_tokens": 51,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-privacy-terms",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:53.971Z",
-      "metrics": {
-        "latency_p50_ms": 6716.14,
-        "throughput_tps": 16.07,
-        "cost_per_run_usd": 0,
-        "input_tokens": 133,
-        "output_tokens": 102,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-scholarship-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:06:58.739Z",
-      "metrics": {
-        "latency_p50_ms": 4532.02,
-        "throughput_tps": 16.55,
-        "cost_per_run_usd": 0,
-        "input_tokens": 118,
-        "output_tokens": 68,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-slang-writing",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:03.322Z",
-      "metrics": {
-        "latency_p50_ms": 4336.03,
-        "throughput_tps": 16.25,
-        "cost_per_run_usd": 0,
-        "input_tokens": 96,
-        "output_tokens": 65,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-spell-check",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:07.370Z",
-      "metrics": {
-        "latency_p50_ms": 3808.12,
-        "throughput_tps": 16.07,
-        "cost_per_run_usd": 0,
-        "input_tokens": 89,
-        "output_tokens": 55,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-stock-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:13.496Z",
-      "metrics": {
-        "latency_p50_ms": 5882.08,
-        "throughput_tps": 16.5,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 91,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:korean-transit-route",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:18.214Z",
-      "metrics": {
-        "latency_p50_ms": 4479.37,
-        "throughput_tps": 16.33,
-        "cost_per_run_usd": 0,
-        "input_tokens": 126,
-        "output_tokens": 67,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kosis-stats",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:22.366Z",
-      "metrics": {
-        "latency_p50_ms": 3914.96,
-        "throughput_tps": 16.91,
-        "cost_per_run_usd": 0,
-        "input_tokens": 130,
-        "output_tokens": 60,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:kstartup-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:28.487Z",
-      "metrics": {
-        "latency_p50_ms": 5881,
-        "throughput_tps": 15.87,
-        "cost_per_run_usd": 0,
-        "input_tokens": 111,
-        "output_tokens": 88,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:ktx-booking",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:34.640Z",
-      "metrics": {
-        "latency_p50_ms": 5901.59,
-        "throughput_tps": 16.61,
-        "cost_per_run_usd": 0,
-        "input_tokens": 111,
-        "output_tokens": 93,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:lck-analytics",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:40.785Z",
-      "metrics": {
-        "latency_p50_ms": 5874.88,
-        "throughput_tps": 14.3,
-        "cost_per_run_usd": 0,
-        "input_tokens": 108,
-        "output_tokens": 78,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:lh-notice-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:47.066Z",
-      "metrics": {
-        "latency_p50_ms": 5800.87,
-        "throughput_tps": 12.45,
-        "cost_per_run_usd": 0,
-        "input_tokens": 124,
-        "output_tokens": 65,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:library-book-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:07:54.318Z",
-      "metrics": {
-        "latency_p50_ms": 6785.39,
-        "throughput_tps": 12.73,
-        "cost_per_run_usd": 0,
-        "input_tokens": 95,
-        "output_tokens": 81,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:local-election-candidate-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:00.186Z",
-      "metrics": {
-        "latency_p50_ms": 5406.96,
-        "throughput_tps": 12.76,
-        "cost_per_run_usd": 0,
-        "input_tokens": 90,
-        "output_tokens": 64,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:lotto-results",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:06.063Z",
-      "metrics": {
-        "latency_p50_ms": 5389.71,
-        "throughput_tps": 12.39,
-        "cost_per_run_usd": 0,
-        "input_tokens": 97,
-        "output_tokens": 62,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:market-kurly-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:11.098Z",
-      "metrics": {
-        "latency_p50_ms": 4560.43,
-        "throughput_tps": 13.35,
-        "cost_per_run_usd": 0,
-        "input_tokens": 90,
-        "output_tokens": 55,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:mfds-drug-safety",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:15.866Z",
-      "metrics": {
-        "latency_p50_ms": 4532.99,
-        "throughput_tps": 13.39,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:mfds-food-safety",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:21.198Z",
-      "metrics": {
-        "latency_p50_ms": 4870.88,
-        "throughput_tps": 12.92,
-        "cost_per_run_usd": 0,
-        "input_tokens": 100,
-        "output_tokens": 57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:myrealtrip-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:27.388Z",
-      "metrics": {
-        "latency_p50_ms": 5707.47,
-        "throughput_tps": 12.71,
-        "cost_per_run_usd": 0,
-        "input_tokens": 98,
-        "output_tokens": 68,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:naver-blog-research",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:33.024Z",
-      "metrics": {
-        "latency_p50_ms": 5163.02,
-        "throughput_tps": 12.24,
-        "cost_per_run_usd": 0,
-        "input_tokens": 86,
-        "output_tokens": 58,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:naver-news-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:39.502Z",
-      "metrics": {
-        "latency_p50_ms": 6008.07,
-        "throughput_tps": 14.35,
-        "cost_per_run_usd": 0,
-        "input_tokens": 108,
-        "output_tokens": 79,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:naver-shopping-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:43.859Z",
-      "metrics": {
-        "latency_p50_ms": 4087.89,
-        "throughput_tps": 16.72,
-        "cost_per_run_usd": 0,
-        "input_tokens": 91,
-        "output_tokens": 63,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:nts-business-registration",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:47.958Z",
-      "metrics": {
-        "latency_p50_ms": 3858.37,
-        "throughput_tps": 15.71,
-        "cost_per_run_usd": 0,
-        "input_tokens": 91,
-        "output_tokens": 55,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:ohou-today-deal",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:52.797Z",
-      "metrics": {
-        "latency_p50_ms": 4566.97,
-        "throughput_tps": 13.75,
-        "cost_per_run_usd": 0,
-        "input_tokens": 93,
-        "output_tokens": 58,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:olive-young-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:08:57.335Z",
-      "metrics": {
-        "latency_p50_ms": 4222.46,
-        "throughput_tps": 15.84,
-        "cost_per_run_usd": 0,
-        "input_tokens": 83,
-        "output_tokens": 60,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:parking-lot-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:00.762Z",
-      "metrics": {
-        "latency_p50_ms": 3177.57,
-        "throughput_tps": 16.83,
-        "cost_per_run_usd": 0,
-        "input_tokens": 110,
-        "output_tokens": 49,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:public-restroom-nearby",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:04.088Z",
-      "metrics": {
-        "latency_p50_ms": 3086.45,
-        "throughput_tps": 16.66,
-        "cost_per_run_usd": 0,
-        "input_tokens": 103,
-        "output_tokens": 47,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:real-estate-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:10.401Z",
-      "metrics": {
-        "latency_p50_ms": 6043.4,
-        "throughput_tps": 16.26,
-        "cost_per_run_usd": 0,
-        "input_tokens": 102,
-        "output_tokens": 91,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:rhwp-advanced",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:16.056Z",
-      "metrics": {
-        "latency_p50_ms": 5411.49,
-        "throughput_tps": 17.05,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 87,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:rhwp-edit",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:21.553Z",
-      "metrics": {
-        "latency_p50_ms": 5264.21,
-        "throughput_tps": 17.01,
-        "cost_per_run_usd": 0,
-        "input_tokens": 104,
-        "output_tokens": 84,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:seoul-density",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:26.286Z",
-      "metrics": {
-        "latency_p50_ms": 4490.17,
-        "throughput_tps": 15.96,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 67,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:seoul-subway-arrival",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:30.763Z",
-      "metrics": {
-        "latency_p50_ms": 4234.4,
-        "throughput_tps": 15.88,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 62,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:sh-notice-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:36.583Z",
-      "metrics": {
-        "latency_p50_ms": 5579.43,
-        "throughput_tps": 17.32,
-        "cost_per_run_usd": 0,
-        "input_tokens": 94,
-        "output_tokens": 89,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:srt-booking",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:44.271Z",
-      "metrics": {
-        "latency_p50_ms": 7211.46,
-        "throughput_tps": 12.66,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 86,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:subway-lost-property",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:53.890Z",
-      "metrics": {
-        "latency_p50_ms": 9157.47,
-        "throughput_tps": 13.03,
-        "cost_per_run_usd": 0,
-        "input_tokens": 113,
-        "output_tokens": 112,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:ticket-availability",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:09:59.647Z",
-      "metrics": {
-        "latency_p50_ms": 5325.48,
-        "throughput_tps": 13.44,
-        "cost_per_run_usd": 0,
-        "input_tokens": 90,
-        "output_tokens": 66,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:toss-securities",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:10:04.048Z",
-      "metrics": {
-        "latency_p50_ms": 3941.16,
-        "throughput_tps": 13.23,
-        "cost_per_run_usd": 0,
-        "input_tokens": 104,
-        "output_tokens": 47,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:used-car-price-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:10:08.679Z",
-      "metrics": {
-        "latency_p50_ms": 4142,
-        "throughput_tps": 14.75,
-        "cost_per_run_usd": 0,
-        "input_tokens": 92,
-        "output_tokens": 56,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:zipcode-search",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:10:13.336Z",
-      "metrics": {
-        "latency_p50_ms": 4417.27,
-        "throughput_tps": 13.91,
-        "cost_per_run_usd": 0,
-        "input_tokens": 80,
-        "output_tokens": 58,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:app-release-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:10:34.359Z",
-      "metrics": {
-        "latency_p50_ms": 20533.22,
-        "throughput_tps": 12.81,
-        "cost_per_run_usd": 0,
-        "input_tokens": 60,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:app-store-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:10:51.624Z",
-      "metrics": {
-        "latency_p50_ms": 16810.43,
-        "throughput_tps": 15.71,
-        "cost_per_run_usd": 0,
-        "input_tokens": 63,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:apply-change-plan",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:11:07.941Z",
-      "metrics": {
-        "latency_p50_ms": 16068.93,
-        "throughput_tps": 16.32,
-        "cost_per_run_usd": 0,
-        "input_tokens": 61,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:claim-created",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:11:24.421Z",
-      "metrics": {
-        "latency_p50_ms": 16239.88,
-        "throughput_tps": 16.1,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:commerce-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:11:40.854Z",
-      "metrics": {
-        "latency_p50_ms": 16183.16,
-        "throughput_tps": 16.15,
-        "cost_per_run_usd": 0,
-        "input_tokens": 61,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:contract-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:12:00.385Z",
-      "metrics": {
-        "latency_p50_ms": 19286.53,
-        "throughput_tps": 12.41,
-        "cost_per_run_usd": 0,
-        "input_tokens": 57,
-        "output_tokens": 233,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:daily-briefing",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:12:18.454Z",
-      "metrics": {
-        "latency_p50_ms": 17606.52,
-        "throughput_tps": 12.14,
-        "cost_per_run_usd": 0,
-        "input_tokens": 66,
-        "output_tokens": 207,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:finance-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:12:40.342Z",
-      "metrics": {
-        "latency_p50_ms": 21581.4,
-        "throughput_tps": 11.45,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 242,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:general-company-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:13:01.877Z",
-      "metrics": {
-        "latency_p50_ms": 21089.51,
-        "throughput_tps": 11.52,
-        "cost_per_run_usd": 0,
-        "input_tokens": 60,
-        "output_tokens": 236,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:hr-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:13:21.852Z",
-      "metrics": {
-        "latency_p50_ms": 19708.97,
-        "throughput_tps": 13.24,
-        "cost_per_run_usd": 0,
-        "input_tokens": 58,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:inventory-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:13:39.431Z",
-      "metrics": {
-        "latency_p50_ms": 17308.28,
-        "throughput_tps": 12.7,
-        "cost_per_run_usd": 0,
-        "input_tokens": 60,
-        "output_tokens": 215,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:legal-policy-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:14:03.480Z",
-      "metrics": {
-        "latency_p50_ms": 23602.2,
-        "throughput_tps": 11.11,
-        "cost_per_run_usd": 0,
-        "input_tokens": 60,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:operations-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:14:25.222Z",
-      "metrics": {
-        "latency_p50_ms": 21298.7,
-        "throughput_tps": 11.92,
-        "cost_per_run_usd": 0,
-        "input_tokens": 61,
-        "output_tokens": 247,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:order-delay-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:14:45.975Z",
-      "metrics": {
-        "latency_p50_ms": 20290.73,
-        "throughput_tps": 11.47,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 226,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:partner-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:15:05.495Z",
-      "metrics": {
-        "latency_p50_ms": 19038.85,
-        "throughput_tps": 11.8,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 218,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:product-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:15:25.225Z",
-      "metrics": {
-        "latency_p50_ms": 19307.28,
-        "throughput_tps": 11.56,
-        "cost_per_run_usd": 0,
-        "input_tokens": 58,
-        "output_tokens": 215,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:recurring-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:15:44.459Z",
-      "metrics": {
-        "latency_p50_ms": 18780.08,
-        "throughput_tps": 11.67,
-        "cost_per_run_usd": 0,
-        "input_tokens": 61,
-        "output_tokens": 213,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:settlement-check",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:16:07.703Z",
-      "metrics": {
-        "latency_p50_ms": 22824.29,
-        "throughput_tps": 11.53,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:si-project-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:16:32.595Z",
-      "metrics": {
-        "latency_p50_ms": 24360.94,
-        "throughput_tps": 10.76,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:stock-low",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:16:53.395Z",
-      "metrics": {
-        "latency_p50_ms": 20314.61,
-        "throughput_tps": 10.98,
-        "cost_per_run_usd": 0,
-        "input_tokens": 60,
-        "output_tokens": 217,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:task-approved",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:17:16.551Z",
-      "metrics": {
-        "latency_p50_ms": 22765.61,
-        "throughput_tps": 11.5,
-        "cost_per_run_usd": 0,
-        "input_tokens": 58,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "skill:blue-ribbon-nearby",
       "modelId": "qwen-2.5-0.5b",
       "dataSource": "measured",
       "sampleSize": 1,
@@ -10700,6 +8988,2306 @@
         "success_rate": 95,
         "accuracy": 81.5,
         "error_rate": 5
+      }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 21316,
+        "latency_p95_ms": 38369,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.13302,
+        "input_tokens": 2353,
+        "output_tokens": 1303,
+        "success_rate": 97.7,
+        "accuracy": 90.7,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13700,
+        "latency_p95_ms": 24660,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01784,
+        "input_tokens": 2311,
+        "output_tokens": 1206,
+        "success_rate": 97.9,
+        "accuracy": 84.9,
+        "error_rate": 2.1
+      }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 6170,
+        "latency_p95_ms": 11106,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.00836,
+        "input_tokens": 1993,
+        "output_tokens": 587,
+        "success_rate": 95.7,
+        "accuracy": 83.7,
+        "error_rate": 4.3
+      }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12243,
+        "latency_p95_ms": 22037,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00172,
+        "input_tokens": 2976,
+        "output_tokens": 836,
+        "success_rate": 95.4,
+        "accuracy": 81.4,
+        "error_rate": 4.6
+      }
+    },
+    {
+      "targetId": "agent:notice",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 8977,
+        "latency_p95_ms": 16159,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.06313,
+        "input_tokens": 1519,
+        "output_tokens": 538,
+        "success_rate": 98.6,
+        "accuracy": 90.1,
+        "error_rate": 1.4
+      }
+    },
+    {
+      "targetId": "agent:notice",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 6933,
+        "latency_p95_ms": 12479,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01212,
+        "input_tokens": 2461,
+        "output_tokens": 597,
+        "success_rate": 97.9,
+        "accuracy": 87.9,
+        "error_rate": 2.1
+      }
+    },
+    {
+      "targetId": "agent:notice",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13800,
+        "latency_p95_ms": 24840,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01625,
+        "input_tokens": 2203,
+        "output_tokens": 1350,
+        "success_rate": 95.7,
+        "accuracy": 86.7,
+        "error_rate": 4.3
+      }
+    },
+    {
+      "targetId": "agent:notice",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15571,
+        "latency_p95_ms": 28028,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00169,
+        "input_tokens": 1910,
+        "output_tokens": 1069,
+        "success_rate": 95.5,
+        "accuracy": 80,
+        "error_rate": 4.5
+      }
+    },
+    {
+      "targetId": "agent:incident",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22058,
+        "latency_p95_ms": 39704,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.12963,
+        "input_tokens": 1897,
+        "output_tokens": 1349,
+        "success_rate": 98.3,
+        "accuracy": 88.3,
+        "error_rate": 1.7
+      }
+    },
+    {
+      "targetId": "agent:incident",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 10222,
+        "latency_p95_ms": 18400,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01417,
+        "input_tokens": 2095,
+        "output_tokens": 893,
+        "success_rate": 97,
+        "accuracy": 86.5,
+        "error_rate": 3
+      }
+    },
+    {
+      "targetId": "agent:incident",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 7850,
+        "latency_p95_ms": 14130,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01079,
+        "input_tokens": 2589,
+        "output_tokens": 755,
+        "success_rate": 96.1,
+        "accuracy": 86.1,
+        "error_rate": 3.9
+      }
+    },
+    {
+      "targetId": "agent:incident",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15771,
+        "latency_p95_ms": 28388,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00161,
+        "input_tokens": 1536,
+        "output_tokens": 1083,
+        "success_rate": 95.4,
+        "accuracy": 81.4,
+        "error_rate": 4.6
+      }
+    },
+    {
+      "targetId": "agent:dashboard",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22800,
+        "latency_p95_ms": 41040,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.13047,
+        "input_tokens": 1723,
+        "output_tokens": 1395,
+        "success_rate": 97.7,
+        "accuracy": 91.7,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "targetId": "agent:dashboard",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 5878,
+        "latency_p95_ms": 10580,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01185,
+        "input_tokens": 2733,
+        "output_tokens": 502,
+        "success_rate": 97.7,
+        "accuracy": 84.7,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "targetId": "agent:dashboard",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 11980,
+        "latency_p95_ms": 21564,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.0153,
+        "input_tokens": 2899,
+        "output_tokens": 1168,
+        "success_rate": 96.6,
+        "accuracy": 85.1,
+        "error_rate": 3.4
+      }
+    },
+    {
+      "targetId": "agent:dashboard",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 9671,
+        "latency_p95_ms": 17408,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00116,
+        "input_tokens": 1610,
+        "output_tokens": 656,
+        "success_rate": 95.5,
+        "accuracy": 80,
+        "error_rate": 4.5
+      }
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12735,
+        "latency_p95_ms": 22923,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.09404,
+        "input_tokens": 2414,
+        "output_tokens": 771,
+        "success_rate": 97.6,
+        "accuracy": 89.6,
+        "error_rate": 2.4
+      }
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16256,
+        "latency_p95_ms": 29261,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02389,
+        "input_tokens": 3814,
+        "output_tokens": 1436,
+        "success_rate": 97.1,
+        "accuracy": 85.6,
+        "error_rate": 2.9
+      }
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19630,
+        "latency_p95_ms": 35334,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02353,
+        "input_tokens": 3357,
+        "output_tokens": 1933,
+        "success_rate": 95.7,
+        "accuracy": 85.2,
+        "error_rate": 4.3
+      }
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 23500,
+        "latency_p95_ms": 42300,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00272,
+        "input_tokens": 3445,
+        "output_tokens": 1624,
+        "success_rate": 95.9,
+        "accuracy": 82.9,
+        "error_rate": 4.1
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12881,
+        "latency_p95_ms": 23186,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.11553,
+        "input_tokens": 3802,
+        "output_tokens": 780,
+        "success_rate": 98.9,
+        "accuracy": 88.4,
+        "error_rate": 1.1
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 20789,
+        "latency_p95_ms": 37420,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02644,
+        "input_tokens": 3198,
+        "output_tokens": 1844,
+        "success_rate": 97.6,
+        "accuracy": 87.6,
+        "error_rate": 2.4
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 14440,
+        "latency_p95_ms": 25992,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01845,
+        "input_tokens": 3452,
+        "output_tokens": 1414,
+        "success_rate": 96.4,
+        "accuracy": 86.4,
+        "error_rate": 3.6
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 14300,
+        "latency_p95_ms": 25740,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00184,
+        "input_tokens": 2818,
+        "output_tokens": 980,
+        "success_rate": 95.7,
+        "accuracy": 81.7,
+        "error_rate": 4.3
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 21994,
+        "latency_p95_ms": 39589,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.12829,
+        "input_tokens": 1828,
+        "output_tokens": 1345,
+        "success_rate": 97.7,
+        "accuracy": 91.2,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 6656,
+        "latency_p95_ms": 11981,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01087,
+        "input_tokens": 2060,
+        "output_tokens": 572,
+        "success_rate": 97.5,
+        "accuracy": 88,
+        "error_rate": 2.5
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12850,
+        "latency_p95_ms": 23130,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01453,
+        "input_tokens": 1582,
+        "output_tokens": 1255,
+        "success_rate": 96.3,
+        "accuracy": 86.8,
+        "error_rate": 3.7
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13357,
+        "latency_p95_ms": 24043,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00166,
+        "input_tokens": 2425,
+        "output_tokens": 914,
+        "success_rate": 95,
+        "accuracy": 80.5,
+        "error_rate": 5
+      }
+    },
+    {
+      "targetId": "skill:blue-ribbon-nearby",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:09.079Z",
+      "metrics": {
+        "latency_p50_ms": 2366.3,
+        "throughput_tps": 20.07,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 41,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:bunjang-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:12.345Z",
+      "metrics": {
+        "latency_p50_ms": 2965.2,
+        "throughput_tps": 21.13,
+        "cost_per_run_usd": 0,
+        "input_tokens": 90,
+        "output_tokens": 57,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:catchtable-sniper",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:16.074Z",
+      "metrics": {
+        "latency_p50_ms": 3478.73,
+        "throughput_tps": 15.95,
+        "cost_per_run_usd": 0,
+        "input_tokens": 77,
+        "output_tokens": 49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:cheap-gas-nearby",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:19.412Z",
+      "metrics": {
+        "latency_p50_ms": 2841.81,
+        "throughput_tps": 18.22,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 46,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:corporate-registration-consulting",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:23.087Z",
+      "metrics": {
+        "latency_p50_ms": 3436.33,
+        "throughput_tps": 21.62,
+        "cost_per_run_usd": 0,
+        "input_tokens": 132,
+        "output_tokens": 66,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:coupang-product-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:27.743Z",
+      "metrics": {
+        "latency_p50_ms": 4411.73,
+        "throughput_tps": 21.22,
+        "cost_per_run_usd": 0,
+        "input_tokens": 107,
+        "output_tokens": 87,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:court-auction-notice-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:32.063Z",
+      "metrics": {
+        "latency_p50_ms": 4060.02,
+        "throughput_tps": 21.4,
+        "cost_per_run_usd": 0,
+        "input_tokens": 174,
+        "output_tokens": 80,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:daangn-cars-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:35.259Z",
+      "metrics": {
+        "latency_p50_ms": 2964.38,
+        "throughput_tps": 21.25,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 57,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:daangn-jobs-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:38.101Z",
+      "metrics": {
+        "latency_p50_ms": 2603.46,
+        "throughput_tps": 20.63,
+        "cost_per_run_usd": 0,
+        "input_tokens": 96,
+        "output_tokens": 49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:daangn-realty-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:42.714Z",
+      "metrics": {
+        "latency_p50_ms": 4357.38,
+        "throughput_tps": 20.89,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 85,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:daangn-used-goods-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:45.525Z",
+      "metrics": {
+        "latency_p50_ms": 2573.84,
+        "throughput_tps": 20.69,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:daishin-report-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:49.388Z",
+      "metrics": {
+        "latency_p50_ms": 3511.76,
+        "throughput_tps": 20.39,
+        "cost_per_run_usd": 0,
+        "input_tokens": 85,
+        "output_tokens": 67,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:daiso-product-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:52.633Z",
+      "metrics": {
+        "latency_p50_ms": 3005.23,
+        "throughput_tps": 20.83,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 56,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:danawa-price-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:50:56.922Z",
+      "metrics": {
+        "latency_p50_ms": 4019.2,
+        "throughput_tps": 20.26,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 77,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:delivery-tracking",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:00.722Z",
+      "metrics": {
+        "latency_p50_ms": 3536.27,
+        "throughput_tps": 19.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 93,
+        "output_tokens": 65,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:donation-place-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:04.520Z",
+      "metrics": {
+        "latency_p50_ms": 3564.98,
+        "throughput_tps": 20.29,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 68,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:emergency-room-beds",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:08.291Z",
+      "metrics": {
+        "latency_p50_ms": 3462.74,
+        "throughput_tps": 17.76,
+        "cost_per_run_usd": 0,
+        "input_tokens": 103,
+        "output_tokens": 56,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:express-bus-booking",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:13.546Z",
+      "metrics": {
+        "latency_p50_ms": 4978.2,
+        "throughput_tps": 19.26,
+        "cost_per_run_usd": 0,
+        "input_tokens": 103,
+        "output_tokens": 90,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:fine-dust-location",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:16.893Z",
+      "metrics": {
+        "latency_p50_ms": 3052.7,
+        "throughput_tps": 20.01,
+        "cost_per_run_usd": 0,
+        "input_tokens": 93,
+        "output_tokens": 57,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:flight-ticket-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:19.852Z",
+      "metrics": {
+        "latency_p50_ms": 2713.35,
+        "throughput_tps": 19.81,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:foresttrip-vacancy",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:23.631Z",
+      "metrics": {
+        "latency_p50_ms": 3510.33,
+        "throughput_tps": 20.15,
+        "cost_per_run_usd": 0,
+        "input_tokens": 104,
+        "output_tokens": 66,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:gangnamunni-clinic-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:26.870Z",
+      "metrics": {
+        "latency_p50_ms": 2995.08,
+        "throughput_tps": 20.95,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 57,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:geeknews-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:29.633Z",
+      "metrics": {
+        "latency_p50_ms": 2530.67,
+        "throughput_tps": 20.66,
+        "cost_per_run_usd": 0,
+        "input_tokens": 86,
+        "output_tokens": 48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:gongsijiga-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:32.341Z",
+      "metrics": {
+        "latency_p50_ms": 2486.59,
+        "throughput_tps": 20.69,
+        "cost_per_run_usd": 0,
+        "input_tokens": 62,
+        "output_tokens": 47,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:han-river-water-level",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:35.357Z",
+      "metrics": {
+        "latency_p50_ms": 2776.42,
+        "throughput_tps": 20.22,
+        "cost_per_run_usd": 0,
+        "input_tokens": 104,
+        "output_tokens": 52,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:hipass-receipt",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:38.642Z",
+      "metrics": {
+        "latency_p50_ms": 3027.36,
+        "throughput_tps": 20.25,
+        "cost_per_run_usd": 0,
+        "input_tokens": 91,
+        "output_tokens": 54,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:hola-poke-yeoksam",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:42.474Z",
+      "metrics": {
+        "latency_p50_ms": 3601.35,
+        "throughput_tps": 20.4,
+        "cost_per_run_usd": 0,
+        "input_tokens": 90,
+        "output_tokens": 69,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:household-waste-info",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:46.506Z",
+      "metrics": {
+        "latency_p50_ms": 3775.02,
+        "throughput_tps": 20.17,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 65,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:hwp",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:51.243Z",
+      "metrics": {
+        "latency_p50_ms": 4472.06,
+        "throughput_tps": 20.17,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 83,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:intercity-bus-booking",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:51:55.482Z",
+      "metrics": {
+        "latency_p50_ms": 4002.46,
+        "throughput_tps": 20.47,
+        "cost_per_run_usd": 0,
+        "input_tokens": 103,
+        "output_tokens": 77,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:iros-registry-automation",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:00.397Z",
+      "metrics": {
+        "latency_p50_ms": 4669.25,
+        "throughput_tps": 20.16,
+        "cost_per_run_usd": 0,
+        "input_tokens": 114,
+        "output_tokens": 89,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:joseon-sillok-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:03.992Z",
+      "metrics": {
+        "latency_p50_ms": 3353.74,
+        "throughput_tps": 20.15,
+        "cost_per_run_usd": 0,
+        "input_tokens": 87,
+        "output_tokens": 61,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:k-dart",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:08.945Z",
+      "metrics": {
+        "latency_p50_ms": 4715.61,
+        "throughput_tps": 20.36,
+        "cost_per_run_usd": 0,
+        "input_tokens": 104,
+        "output_tokens": 90,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:k-schoollunch-menu",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:12.974Z",
+      "metrics": {
+        "latency_p50_ms": 3791.95,
+        "throughput_tps": 20.5,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 72,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:k-skill-cleaner",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:18.235Z",
+      "metrics": {
+        "latency_p50_ms": 5019.48,
+        "throughput_tps": 20.36,
+        "cost_per_run_usd": 0,
+        "input_tokens": 80,
+        "output_tokens": 96,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:k-skill-setup",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:21.137Z",
+      "metrics": {
+        "latency_p50_ms": 2650.69,
+        "throughput_tps": 20.73,
+        "cost_per_run_usd": 0,
+        "input_tokens": 91,
+        "output_tokens": 48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kakao-bar-nearby",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:24.169Z",
+      "metrics": {
+        "latency_p50_ms": 2796.17,
+        "throughput_tps": 20.69,
+        "cost_per_run_usd": 0,
+        "input_tokens": 108,
+        "output_tokens": 52,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kakaotalk-mac",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:27.076Z",
+      "metrics": {
+        "latency_p50_ms": 2676.96,
+        "throughput_tps": 20.53,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 44,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kbl-results",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:29.865Z",
+      "metrics": {
+        "latency_p50_ms": 2535.76,
+        "throughput_tps": 20.61,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kbo-results",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:32.824Z",
+      "metrics": {
+        "latency_p50_ms": 2715.93,
+        "throughput_tps": 20.42,
+        "cost_per_run_usd": 0,
+        "input_tokens": 100,
+        "output_tokens": 50,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kleague-results",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:35.811Z",
+      "metrics": {
+        "latency_p50_ms": 2750.29,
+        "throughput_tps": 20.67,
+        "cost_per_run_usd": 0,
+        "input_tokens": 89,
+        "output_tokens": 49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korea-weather",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:38.983Z",
+      "metrics": {
+        "latency_p50_ms": 2927.91,
+        "throughput_tps": 20.5,
+        "cost_per_run_usd": 0,
+        "input_tokens": 82,
+        "output_tokens": 54,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-character-count",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:41.732Z",
+      "metrics": {
+        "latency_p50_ms": 2523.39,
+        "throughput_tps": 20.75,
+        "cost_per_run_usd": 0,
+        "input_tokens": 83,
+        "output_tokens": 48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-cinema-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:45.493Z",
+      "metrics": {
+        "latency_p50_ms": 3521.3,
+        "throughput_tps": 20.64,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 67,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-jangbu-for",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:49.241Z",
+      "metrics": {
+        "latency_p50_ms": 3525.09,
+        "throughput_tps": 20.43,
+        "cost_per_run_usd": 0,
+        "input_tokens": 143,
+        "output_tokens": 65,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-law-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:52.094Z",
+      "metrics": {
+        "latency_p50_ms": 2617.69,
+        "throughput_tps": 20.39,
+        "cost_per_run_usd": 0,
+        "input_tokens": 88,
+        "output_tokens": 49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-marathon-schedule",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:56.635Z",
+      "metrics": {
+        "latency_p50_ms": 4304.79,
+        "throughput_tps": 20.18,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 82,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-patent-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:52:59.658Z",
+      "metrics": {
+        "latency_p50_ms": 2779.83,
+        "throughput_tps": 19.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 88,
+        "output_tokens": 51,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-privacy-terms",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:05.306Z",
+      "metrics": {
+        "latency_p50_ms": 5397.64,
+        "throughput_tps": 20.31,
+        "cost_per_run_usd": 0,
+        "input_tokens": 133,
+        "output_tokens": 102,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-scholarship-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:09.130Z",
+      "metrics": {
+        "latency_p50_ms": 3570.39,
+        "throughput_tps": 20.63,
+        "cost_per_run_usd": 0,
+        "input_tokens": 118,
+        "output_tokens": 68,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-slang-writing",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:13.021Z",
+      "metrics": {
+        "latency_p50_ms": 3662.02,
+        "throughput_tps": 20.24,
+        "cost_per_run_usd": 0,
+        "input_tokens": 96,
+        "output_tokens": 65,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-spell-check",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:16.276Z",
+      "metrics": {
+        "latency_p50_ms": 3031.82,
+        "throughput_tps": 20.58,
+        "cost_per_run_usd": 0,
+        "input_tokens": 89,
+        "output_tokens": 55,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-stock-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:21.214Z",
+      "metrics": {
+        "latency_p50_ms": 4683.59,
+        "throughput_tps": 20.47,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 90,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:korean-transit-route",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:24.979Z",
+      "metrics": {
+        "latency_p50_ms": 3541.4,
+        "throughput_tps": 20.47,
+        "cost_per_run_usd": 0,
+        "input_tokens": 126,
+        "output_tokens": 67,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kosis-stats",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:28.502Z",
+      "metrics": {
+        "latency_p50_ms": 3272.19,
+        "throughput_tps": 20.51,
+        "cost_per_run_usd": 0,
+        "input_tokens": 130,
+        "output_tokens": 60,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:kstartup-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:33.255Z",
+      "metrics": {
+        "latency_p50_ms": 4516.1,
+        "throughput_tps": 20.61,
+        "cost_per_run_usd": 0,
+        "input_tokens": 111,
+        "output_tokens": 88,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:ktx-booking",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:38.339Z",
+      "metrics": {
+        "latency_p50_ms": 4843.34,
+        "throughput_tps": 20.48,
+        "cost_per_run_usd": 0,
+        "input_tokens": 111,
+        "output_tokens": 93,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:lck-analytics",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:42.660Z",
+      "metrics": {
+        "latency_p50_ms": 4086.53,
+        "throughput_tps": 20.55,
+        "cost_per_run_usd": 0,
+        "input_tokens": 108,
+        "output_tokens": 78,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:lh-notice-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:46.280Z",
+      "metrics": {
+        "latency_p50_ms": 3392.02,
+        "throughput_tps": 20.64,
+        "cost_per_run_usd": 0,
+        "input_tokens": 124,
+        "output_tokens": 65,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:library-book-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:50.732Z",
+      "metrics": {
+        "latency_p50_ms": 4220.11,
+        "throughput_tps": 20.49,
+        "cost_per_run_usd": 0,
+        "input_tokens": 95,
+        "output_tokens": 81,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:local-election-candidate-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:54.367Z",
+      "metrics": {
+        "latency_p50_ms": 3381.91,
+        "throughput_tps": 20.66,
+        "cost_per_run_usd": 0,
+        "input_tokens": 90,
+        "output_tokens": 64,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:lotto-results",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:53:57.922Z",
+      "metrics": {
+        "latency_p50_ms": 3310.65,
+        "throughput_tps": 20.44,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 62,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:market-kurly-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:01.134Z",
+      "metrics": {
+        "latency_p50_ms": 2954.14,
+        "throughput_tps": 20.55,
+        "cost_per_run_usd": 0,
+        "input_tokens": 90,
+        "output_tokens": 55,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:mfds-drug-safety",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:04.363Z",
+      "metrics": {
+        "latency_p50_ms": 2982.48,
+        "throughput_tps": 20.56,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 57,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:mfds-food-safety",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:07.786Z",
+      "metrics": {
+        "latency_p50_ms": 3182.08,
+        "throughput_tps": 20.57,
+        "cost_per_run_usd": 0,
+        "input_tokens": 100,
+        "output_tokens": 57,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:myrealtrip-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:11.684Z",
+      "metrics": {
+        "latency_p50_ms": 3664.39,
+        "throughput_tps": 20.18,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 68,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:naver-blog-research",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:15.135Z",
+      "metrics": {
+        "latency_p50_ms": 3214.42,
+        "throughput_tps": 20.55,
+        "cost_per_run_usd": 0,
+        "input_tokens": 86,
+        "output_tokens": 58,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:naver-news-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:19.541Z",
+      "metrics": {
+        "latency_p50_ms": 4163.17,
+        "throughput_tps": 20.45,
+        "cost_per_run_usd": 0,
+        "input_tokens": 108,
+        "output_tokens": 79,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:naver-shopping-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:23.205Z",
+      "metrics": {
+        "latency_p50_ms": 3411.46,
+        "throughput_tps": 20.25,
+        "cost_per_run_usd": 0,
+        "input_tokens": 91,
+        "output_tokens": 63,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:nts-business-registration",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:26.449Z",
+      "metrics": {
+        "latency_p50_ms": 3015.12,
+        "throughput_tps": 20.1,
+        "cost_per_run_usd": 0,
+        "input_tokens": 91,
+        "output_tokens": 55,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:ohou-today-deal",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:29.773Z",
+      "metrics": {
+        "latency_p50_ms": 3084.89,
+        "throughput_tps": 20.37,
+        "cost_per_run_usd": 0,
+        "input_tokens": 93,
+        "output_tokens": 58,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:olive-young-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:33.143Z",
+      "metrics": {
+        "latency_p50_ms": 3140.94,
+        "throughput_tps": 20.5,
+        "cost_per_run_usd": 0,
+        "input_tokens": 83,
+        "output_tokens": 60,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:parking-lot-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:36.007Z",
+      "metrics": {
+        "latency_p50_ms": 2633.55,
+        "throughput_tps": 20.65,
+        "cost_per_run_usd": 0,
+        "input_tokens": 110,
+        "output_tokens": 49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:public-restroom-nearby",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:38.824Z",
+      "metrics": {
+        "latency_p50_ms": 2559.91,
+        "throughput_tps": 20.52,
+        "cost_per_run_usd": 0,
+        "input_tokens": 103,
+        "output_tokens": 47,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:real-estate-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:43.915Z",
+      "metrics": {
+        "latency_p50_ms": 4852.95,
+        "throughput_tps": 19.95,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 91,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:rhwp-advanced",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:49.042Z",
+      "metrics": {
+        "latency_p50_ms": 4805.67,
+        "throughput_tps": 19.38,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 87,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:rhwp-edit",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:53.814Z",
+      "metrics": {
+        "latency_p50_ms": 4512.43,
+        "throughput_tps": 19.67,
+        "cost_per_run_usd": 0,
+        "input_tokens": 104,
+        "output_tokens": 84,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:seoul-density",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:54:57.763Z",
+      "metrics": {
+        "latency_p50_ms": 3674.89,
+        "throughput_tps": 19.59,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 67,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:seoul-subway-arrival",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:01.468Z",
+      "metrics": {
+        "latency_p50_ms": 3463.79,
+        "throughput_tps": 19.43,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 62,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:sh-notice-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:06.507Z",
+      "metrics": {
+        "latency_p50_ms": 4775.15,
+        "throughput_tps": 19.94,
+        "cost_per_run_usd": 0,
+        "input_tokens": 94,
+        "output_tokens": 89,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:srt-booking",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:11.340Z",
+      "metrics": {
+        "latency_p50_ms": 4572.18,
+        "throughput_tps": 19.91,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 86,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:subway-lost-property",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:17.481Z",
+      "metrics": {
+        "latency_p50_ms": 5891.43,
+        "throughput_tps": 19.93,
+        "cost_per_run_usd": 0,
+        "input_tokens": 113,
+        "output_tokens": 112,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:ticket-availability",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:21.390Z",
+      "metrics": {
+        "latency_p50_ms": 3670.83,
+        "throughput_tps": 19.6,
+        "cost_per_run_usd": 0,
+        "input_tokens": 90,
+        "output_tokens": 66,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:toss-securities",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:24.214Z",
+      "metrics": {
+        "latency_p50_ms": 2555.45,
+        "throughput_tps": 20.15,
+        "cost_per_run_usd": 0,
+        "input_tokens": 104,
+        "output_tokens": 47,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:used-car-price-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:27.472Z",
+      "metrics": {
+        "latency_p50_ms": 3024.93,
+        "throughput_tps": 20.01,
+        "cost_per_run_usd": 0,
+        "input_tokens": 92,
+        "output_tokens": 56,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "skill:zipcode-search",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:55:30.798Z",
+      "metrics": {
+        "latency_p50_ms": 3086.19,
+        "throughput_tps": 20.29,
+        "cost_per_run_usd": 0,
+        "input_tokens": 80,
+        "output_tokens": 58,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:14.428Z",
+      "metrics": {
+        "latency_p50_ms": 5528.24,
+        "throughput_tps": 50.5,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:20.142Z",
+      "metrics": {
+        "latency_p50_ms": 5412.38,
+        "throughput_tps": 50.25,
+        "cost_per_run_usd": 0,
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:25.880Z",
+      "metrics": {
+        "latency_p50_ms": 5506.2,
+        "throughput_tps": 50.44,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:30.340Z",
+      "metrics": {
+        "latency_p50_ms": 4229.64,
+        "throughput_tps": 50.49,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 201,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:35.930Z",
+      "metrics": {
+        "latency_p50_ms": 5349.38,
+        "throughput_tps": 50.45,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:41.126Z",
+      "metrics": {
+        "latency_p50_ms": 4963.54,
+        "throughput_tps": 49.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 57,
+        "output_tokens": 233,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:00.133Z",
+      "metrics": {
+        "latency_p50_ms": 4527.19,
+        "throughput_tps": 50.38,
+        "cost_per_run_usd": 0,
+        "input_tokens": 66,
+        "output_tokens": 207,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:05.473Z",
+      "metrics": {
+        "latency_p50_ms": 5105.43,
+        "throughput_tps": 50.44,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 244,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:10.753Z",
+      "metrics": {
+        "latency_p50_ms": 5026.67,
+        "throughput_tps": 50.23,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 236,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:16.351Z",
+      "metrics": {
+        "latency_p50_ms": 5376.65,
+        "throughput_tps": 48.59,
+        "cost_per_run_usd": 0,
+        "input_tokens": 58,
+        "output_tokens": 239,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:22.105Z",
+      "metrics": {
+        "latency_p50_ms": 5501.18,
+        "throughput_tps": 50.59,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:27.665Z",
+      "metrics": {
+        "latency_p50_ms": 5318.2,
+        "throughput_tps": 50.69,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:32.562Z",
+      "metrics": {
+        "latency_p50_ms": 4662.28,
+        "throughput_tps": 50.75,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 224,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:37.550Z",
+      "metrics": {
+        "latency_p50_ms": 4757.41,
+        "throughput_tps": 50.31,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 226,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:42.374Z",
+      "metrics": {
+        "latency_p50_ms": 4600.6,
+        "throughput_tps": 50.62,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 218,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:47.572Z",
+      "metrics": {
+        "latency_p50_ms": 4975.18,
+        "throughput_tps": 47.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 58,
+        "output_tokens": 215,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:52.303Z",
+      "metrics": {
+        "latency_p50_ms": 4511.88,
+        "throughput_tps": 50.29,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 215,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:57.587Z",
+      "metrics": {
+        "latency_p50_ms": 5054.26,
+        "throughput_tps": 49.98,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 239,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:03.279Z",
+      "metrics": {
+        "latency_p50_ms": 5453.92,
+        "throughput_tps": 50.87,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:08.307Z",
+      "metrics": {
+        "latency_p50_ms": 4794.29,
+        "throughput_tps": 50.37,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 217,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:14.055Z",
+      "metrics": {
+        "latency_p50_ms": 5520.72,
+        "throughput_tps": 49.95,
+        "cost_per_run_usd": 0,
+        "input_tokens": 58,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:19.719Z",
+      "metrics": {
+        "latency_p50_ms": 5431.52,
+        "throughput_tps": 50.05,
+        "cost_per_run_usd": 0,
+        "input_tokens": 74,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:notice",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:21.350Z",
+      "metrics": {
+        "latency_p50_ms": 1390.43,
+        "throughput_tps": 49.96,
+        "cost_per_run_usd": 0,
+        "input_tokens": 72,
+        "output_tokens": 56,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:incident",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:22.685Z",
+      "metrics": {
+        "latency_p50_ms": 1073.99,
+        "throughput_tps": 51.18,
+        "cost_per_run_usd": 0,
+        "input_tokens": 77,
+        "output_tokens": 46,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:dashboard",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:28.441Z",
+      "metrics": {
+        "latency_p50_ms": 5477.6,
+        "throughput_tps": 49.71,
+        "cost_per_run_usd": 0,
+        "input_tokens": 79,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:34.763Z",
+      "metrics": {
+        "latency_p50_ms": 6081.68,
+        "throughput_tps": 47.87,
+        "cost_per_run_usd": 0,
+        "input_tokens": 75,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:40.272Z",
+      "metrics": {
+        "latency_p50_ms": 5292.45,
+        "throughput_tps": 50.4,
+        "cost_per_run_usd": 0,
+        "input_tokens": 77,
+        "output_tokens": 237,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:45.974Z",
+      "metrics": {
+        "latency_p50_ms": 5482.36,
+        "throughput_tps": 50.11,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
       }
     }
   ]

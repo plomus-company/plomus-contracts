@@ -18,8 +18,8 @@ const MODEL_STATUSES = ["frontier", "balanced", "fast", "legacy"];
 const METRIC_CATEGORIES = ["performance", "cost", "quality", "reliability"];
 const METRIC_DIRECTIONS = ["higher-better", "lower-better"];
 const UNITS = ["ms", "usd", "tokens", "percent", "tokens-per-sec"];
-const TARGET_KINDS = ["skill", "workflow"];
-const TARGET_DOMAINS = ["skills", "commerce"];
+const TARGET_KINDS = ["skill", "workflow", "agent", "playbook", "preset"];
+const TARGET_DOMAINS = ["skills", "commerce", "gameops", "distribution"];
 const DATA_SOURCES = ["measured", "illustrative", "pending"];
 
 // ---- model registry (pricing is indicative list price per 1M tokens, USD) ----
@@ -79,6 +79,10 @@ const round = (n, d = 2) => Number(n.toFixed(d));
 // ---- build targets from the skills + commerce contracts ----
 const skills = readJson("contracts/skills/v1/catalog.json").skills ?? [];
 const workflows = readJson("contracts/v1/workflows.json").workflows ?? [];
+// newly added domains contribute their LLM-executed entities as benchmark targets
+const gameopsAgents = readJson("contracts/gameops/v1/agents.json").agents ?? [];
+const gameopsPlaybooks = readJson("contracts/gameops/v1/playbooks.json").playbooks ?? [];
+const distributionPresets = readJson("contracts/distribution/v1/presets.json").presets ?? [];
 
 const targets = [
   ...skills.map((s) => ({
@@ -97,13 +101,37 @@ const targets = [
     label: w.label,
     group: w.reviewScope,
   })),
+  ...gameopsAgents.map((a) => ({
+    targetId: `agent:${a.agentId}`,
+    kind: "agent",
+    domain: "gameops",
+    ref: a.agentId,
+    label: a.agentId,
+    group: "agent",
+  })),
+  ...gameopsPlaybooks.map((p) => ({
+    targetId: `playbook:${p.playbookId}`,
+    kind: "playbook",
+    domain: "gameops",
+    ref: p.playbookId,
+    label: p.playbookId,
+    group: p.riskLevel,
+  })),
+  ...distributionPresets.map((p) => ({
+    targetId: `preset:${p.presetId}`,
+    kind: "preset",
+    domain: "distribution",
+    ref: p.presetId,
+    label: p.label,
+    group: "preset",
+  })),
 ];
 
 // ---- derive illustrative results ----
 const modelById = new Map(MODELS.map((m) => [m.modelId, m]));
 const results = [];
 for (const target of targets) {
-  const complexity = target.kind === "workflow" ? 1.4 : 1.0;
+  const complexity = target.kind === "workflow" || target.kind === "playbook" ? 1.4 : 1.0;
   for (const modelId of SEED_MODELS) {
     const model = modelById.get(modelId);
     const sim = SIM[modelId];

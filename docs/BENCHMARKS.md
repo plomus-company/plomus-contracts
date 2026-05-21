@@ -18,22 +18,23 @@
 - **results** — `target × model`의 측정 한 묶음. `dataSource`로 measured/illustrative/pending 구분.
 - **rollups** — `domain × model` 지표 평균.
 
-## 측정 베이스라인 (로컬 Ollama)
+## 측정 베이스라인 (로컬 Ollama, `qwen3.6-27b` 기준)
 
-전체 계약(스킬 86 + 워크플로 21 = **107개 타깃**)을 두 로컬 모델로 1회씩 실제 실행한 측정값이 `results.json`에 `dataSource: "measured"`로 들어 있습니다(모델당 107건, 합 214건). 전 항목 결과·카테고리별·도메인 롤업·모델 비교는 [BENCHMARK-RESULTS.md](BENCHMARK-RESULTS.md) 참조.
+**전체 114개 타깃**(스킬 86 + 커머스 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1)을 `qwen3.6-27b`로 1회씩 실제 실행했습니다 — **114/114 성공**. 새로 추가된 도메인의 LLM 실행 엔티티(에이전트·playbook·preset)도 포함합니다. 전 항목·카테고리별·전체 타깃 표는 [BENCHMARK-RESULTS.md](BENCHMARK-RESULTS.md) 참조.
 
-| 도메인 | 모델 | 지연 p50 | 처리량 | 평균 출력토큰 | 성공률 |
+| 도메인 | n | 지연 p50 | 처리량 | 평균 출력토큰 | 성공률 |
 |---|---|---|---|---|---|
-| skills | `qwen3.6-27b` | 5,317ms | 13.6 tps | 65.5 | 100% |
-| skills | `qwen-2.5-0.5b` | 539ms | 522.6 tps | 187.4 | 100% |
-| commerce | `qwen3.6-27b` | 19,762ms | 12.6 tps | 239.5 | 100% |
-| commerce | `qwen-2.5-0.5b` | 731ms | 496.3 tps | 236.5 | 100% |
+| skills | 86 | 3,520ms | 20.3 tps | 65.5 | 100% |
+| commerce | 21 | 5,056ms | 50.2 tps | 236.3 | 100% |
+| gameops | 6 | 4,125ms | 49.9 tps | 184.5 | 100% |
+| distribution | 1 | 5,482ms | 50.1 tps | 256.0 | 100% |
 
-- 두 모델 모두 107/107 성공(실패 0), 비용 $0(로컬), `num_predict=256`.
-- **27B vs 0.5B**: 0.5B는 ~10–37배 빠르고 처리량 ~38배지만, 스킬에서 출력이 더 장황(187 vs 65.5 토큰) — 소형 모델의 낮은 간결성/품질 경향. 성공률은 "비어 있지 않은 응답" 기준이며 정확도는 미측정.
+- 비용 $0(로컬), `num_predict=256`. 짧은 출력(스킬 ~65토큰)은 프롬프트 평가 오버헤드 비중이 커 유효 tps가 낮고, 긴 출력(워크플로/에이전트 ~256토큰)은 정상 생성 속도(~50 tps)에 수렴합니다.
 - qwen35(27B)는 reasoning 모델이라 `think:false`로 호출(기본 thinking 모드가 출력 토큰을 소진). 지연은 1회성 모델 로드를 제외한 추론 시간.
-- 메모리 경합으로 두 모델 동시 상주가 어려워, 모델 전환 시 `ollama stop <tag>`로 언로드 후 실행했습니다.
-- 재현: `pnpm run experiment -- --model-id <id> --ollama-tag <tag> --limit 1000` (전체) 또는 `--targets skill:k-dart,workflow:commerce-review` (부분).
+- **지연/처리량은 환경 의존적**입니다(GPU 부하·warm 상태). 정식 수치는 생성 산출물 `BENCHMARK-RESULTS.md`를 기준으로 합니다.
+- 보조 비교: `qwen-2.5-0.5b`(소형) 측정값(skills+commerce 107건)도 `results.json`에 있어 소형 vs 대형 대비를 제공합니다.
+- 메모리 경합으로 모델 동시 상주가 어려워 전환 시 `ollama stop <tag>`로 언로드 후 실행했습니다.
+- 재현: `pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest --limit 1000` (전체 114) 또는 `--targets agent:cs,playbook:daily_ops_brief_v1` (부분).
 
 ## 시드(초기 데이터) 정책
 

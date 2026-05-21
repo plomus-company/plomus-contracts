@@ -46,6 +46,9 @@ const allTargets = readJson("contracts/benchmarks/v1/targets.json").targets ?? [
 const targetById = new Map(allTargets.map((t) => [t.targetId, t]));
 const skillById = new Map((readJson("contracts/skills/v1/catalog.json").skills ?? []).map((s) => [s.skillId, s]));
 const workflowById = new Map((readJson("contracts/v1/workflows.json").workflows ?? []).map((w) => [w.workflowId, w]));
+const agentById = new Map((readJson("contracts/gameops/v1/agents.json").agents ?? []).map((a) => [a.agentId, a]));
+const playbookById = new Map((readJson("contracts/gameops/v1/playbooks.json").playbooks ?? []).map((p) => [p.playbookId, p]));
+const presetById = new Map((readJson("contracts/distribution/v1/presets.json").presets ?? []).map((p) => [p.presetId, p]));
 
 let selectedIds = TARGET_ARG ? TARGET_ARG.split(",").map((s) => s.trim()) : DEFAULT_TARGETS;
 selectedIds = selectedIds.filter((id) => targetById.has(id));
@@ -60,8 +63,21 @@ function promptFor(target) {
     const desc = skillById.get(target.ref)?.description ?? "";
     return `다음 한국형 도구 스킬로 대표적인 사용자 요청을 처리하는 간결한 실행 계획을 한국어로 작성하라.\n스킬: ${target.ref}\n설명: ${desc}\n3단계 이내, 군더더기 없이.`;
   }
-  const wf = workflowById.get(target.ref);
-  return `다음 커머스 운영 검토 워크플로의 대표 점검 결과 요약을 한국어로 작성하라.\n워크플로: ${wf?.label ?? target.ref} (scope: ${wf?.reviewScope ?? "?"})\n핵심 점검 항목 3가지와 권장 조치를 간결히.`;
+  if (target.kind === "workflow") {
+    const wf = workflowById.get(target.ref);
+    return `다음 커머스 운영 검토 워크플로의 대표 점검 결과 요약을 한국어로 작성하라.\n워크플로: ${wf?.label ?? target.ref} (scope: ${wf?.reviewScope ?? "?"})\n핵심 점검 항목 3가지와 권장 조치를 간결히.`;
+  }
+  if (target.kind === "agent") {
+    const ag = agentById.get(target.ref);
+    return `다음 게임 운영 에이전트가 대표 운영 입력을 처리하는 결과를 한국어로 작성하라.\n에이전트: ${target.ref} (intents: ${(ag?.intents ?? []).join(", ")})\n설명: ${ag?.description ?? ""}\n분류·요약·권장 조치를 간결히.`;
+  }
+  if (target.kind === "playbook") {
+    const pb = playbookById.get(target.ref);
+    return `다음 게임 운영 playbook을 실행하는 단계별 결과 요약을 한국어로 작성하라.\nplaybook: ${target.ref} (위험도: ${pb?.riskLevel ?? "?"}, 트리거: ${(pb?.triggers ?? []).join(", ")})\n각 단계(${(pb?.steps ?? []).map((s) => s.type).join("→")})의 산출을 간결히.`;
+  }
+  // preset
+  const ps = presetById.get(target.ref);
+  return `다음 유통 온보딩 preset 기준으로 초기 운영 점검 계획을 한국어로 작성하라.\npreset: ${target.ref} (${ps?.label ?? ""})\n설명: ${ps?.description ?? ""}\n우선 점검 영역 3가지를 간결히.`;
 }
 
 async function generate(prompt) {
@@ -169,7 +185,8 @@ const metricIds = (readJson("contracts/benchmarks/v1/metrics.json").metrics ?? [
 const existingRollups = readJson("contracts/benchmarks/v1/rollups.json").rollups ?? [];
 const keptRollups = existingRollups.filter((r) => !(r.dataSource === "measured" && r.modelId === MODEL_ID));
 const measuredRollups = [];
-for (const domain of ["skills", "commerce"]) {
+const ranDomains = [...new Set(newResults.map((r) => targetById.get(r.targetId)?.domain).filter(Boolean))].sort();
+for (const domain of ranDomains) {
   const rows = newResults.filter((r) => targetById.get(r.targetId)?.domain === domain);
   if (!rows.length) continue;
   const metrics = {};

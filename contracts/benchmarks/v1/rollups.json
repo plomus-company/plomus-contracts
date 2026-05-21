@@ -4,36 +4,6 @@
   "rollups": [
     {
       "domain": "skills",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "targetCount": 86,
-      "metrics": {
-        "latency_p50_ms": 5316.76,
-        "throughput_tps": 13.62,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99.98,
-        "output_tokens": 65.52,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "commerce",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "targetCount": 21,
-      "metrics": {
-        "latency_p50_ms": 19761.91,
-        "throughput_tps": 12.61,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59.9,
-        "output_tokens": 239.48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "skills",
       "modelId": "qwen-2.5-0.5b",
       "dataSource": "measured",
       "targetCount": 86,
@@ -196,6 +166,202 @@
         "success_rate": 95.29,
         "accuracy": 81.46,
         "error_rate": 4.71
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "targetCount": 6,
+      "metrics": {
+        "latency_p50_ms": 16794.5,
+        "latency_p95_ms": 30230.17,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.11097,
+        "input_tokens": 2284.67,
+        "output_tokens": 1022.67,
+        "success_rate": 98.13,
+        "accuracy": 89.8,
+        "error_rate": 1.87
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "targetCount": 6,
+      "metrics": {
+        "latency_p50_ms": 12296.33,
+        "latency_p95_ms": 22133.33,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01772,
+        "input_tokens": 2768.67,
+        "output_tokens": 1079.67,
+        "success_rate": 97.53,
+        "accuracy": 86.2,
+        "error_rate": 2.47
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "targetCount": 6,
+      "metrics": {
+        "latency_p50_ms": 12311.67,
+        "latency_p95_ms": 22161,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01545,
+        "input_tokens": 2748.83,
+        "output_tokens": 1201.17,
+        "success_rate": 96.03,
+        "accuracy": 85.53,
+        "error_rate": 3.97
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "targetCount": 6,
+      "metrics": {
+        "latency_p50_ms": 15176,
+        "latency_p95_ms": 27316.83,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00179,
+        "input_tokens": 2382.5,
+        "output_tokens": 1041.33,
+        "success_rate": 95.57,
+        "accuracy": 81.23,
+        "error_rate": 4.43
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "targetCount": 1,
+      "metrics": {
+        "latency_p50_ms": 21994,
+        "latency_p95_ms": 39589,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.12829,
+        "input_tokens": 1828,
+        "output_tokens": 1345,
+        "success_rate": 97.7,
+        "accuracy": 91.2,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "targetCount": 1,
+      "metrics": {
+        "latency_p50_ms": 6656,
+        "latency_p95_ms": 11981,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01087,
+        "input_tokens": 2060,
+        "output_tokens": 572,
+        "success_rate": 97.5,
+        "accuracy": 88,
+        "error_rate": 2.5
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "targetCount": 1,
+      "metrics": {
+        "latency_p50_ms": 12850,
+        "latency_p95_ms": 23130,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01453,
+        "input_tokens": 1582,
+        "output_tokens": 1255,
+        "success_rate": 96.3,
+        "accuracy": 86.8,
+        "error_rate": 3.7
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "targetCount": 1,
+      "metrics": {
+        "latency_p50_ms": 13357,
+        "latency_p95_ms": 24043,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00166,
+        "input_tokens": 2425,
+        "output_tokens": 914,
+        "success_rate": 95,
+        "accuracy": 80.5,
+        "error_rate": 5
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 5055.96,
+        "throughput_tps": 50.19,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59.9,
+        "output_tokens": 236.29,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 1,
+      "metrics": {
+        "latency_p50_ms": 5482.36,
+        "throughput_tps": 50.11,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 6,
+      "metrics": {
+        "latency_p50_ms": 4124.61,
+        "throughput_tps": 49.86,
+        "cost_per_run_usd": 0,
+        "input_tokens": 75.67,
+        "output_tokens": 184.5,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 3520.45,
+        "throughput_tps": 20.28,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.98,
+        "output_tokens": 65.49,
+        "success_rate": 100,
+        "error_rate": 0
       }
     }
   ]
