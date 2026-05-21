@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.0.0",
+  "pricingAsOf": "2026-05",
+  "pricingNote": "List prices are indicative and may change; treat as relative reference only.",
+  "models": [
+    {
+      "modelId": "claude-opus-4-7",
+      "vendor": "anthropic",
+      "family": "Claude",
+      "displayName": "Claude Opus 4.7",
+      "modality": "text+vision",
+      "contextWindow": 200000,
+      "maxOutputTokens": 64000,
+      "status": "frontier",
+      "pricing": {
+        "inputPerMTok": 15,
+        "outputPerMTok": 75,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "claude-sonnet-4-6",
+      "vendor": "anthropic",
+      "family": "Claude",
+      "displayName": "Claude Sonnet 4.6",
+      "modality": "text+vision",
+      "contextWindow": 200000,
+      "maxOutputTokens": 64000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 3,
+        "outputPerMTok": 15,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "claude-haiku-4-5",
+      "vendor": "anthropic",
+      "family": "Claude",
+      "displayName": "Claude Haiku 4.5",
+      "modality": "text+vision",
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 1,
+        "outputPerMTok": 5,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "gpt-4o",
+      "vendor": "openai",
+      "family": "GPT",
+      "displayName": "GPT-4o",
+      "modality": "text+vision",
+      "contextWindow": 128000,
+      "maxOutputTokens": 16384,
+      "status": "frontier",
+      "pricing": {
+        "inputPerMTok": 2.5,
+        "outputPerMTok": 10,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "vendor": "openai",
+      "family": "GPT",
+      "displayName": "GPT-4o mini",
+      "modality": "text+vision",
+      "contextWindow": 128000,
+      "maxOutputTokens": 16384,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 0.15,
+        "outputPerMTok": 0.6,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "o3-mini",
+      "vendor": "openai",
+      "family": "o-series",
+      "displayName": "OpenAI o3-mini",
+      "modality": "text",
+      "contextWindow": 200000,
+      "maxOutputTokens": 100000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 1.1,
+        "outputPerMTok": 4.4,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "gemini-2.5-pro",
+      "vendor": "google",
+      "family": "Gemini",
+      "displayName": "Gemini 2.5 Pro",
+      "modality": "text+vision",
+      "contextWindow": 1000000,
+      "maxOutputTokens": 65536,
+      "status": "frontier",
+      "pricing": {
+        "inputPerMTok": 1.25,
+        "outputPerMTok": 10,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "gemini-2.5-flash",
+      "vendor": "google",
+      "family": "Gemini",
+      "displayName": "Gemini 2.5 Flash",
+      "modality": "text+vision",
+      "contextWindow": 1000000,
+      "maxOutputTokens": 65536,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 0.3,
+        "outputPerMTok": 2.5,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "llama-3.3-70b",
+      "vendor": "meta",
+      "family": "Llama",
+      "displayName": "Llama 3.3 70B",
+      "modality": "text",
+      "contextWindow": 128000,
+      "maxOutputTokens": 32000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0.6,
+        "outputPerMTok": 0.6,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "qwen-2.5-72b",
+      "vendor": "alibaba",
+      "family": "Qwen",
+      "displayName": "Qwen 2.5 72B",
+      "modality": "text",
+      "contextWindow": 131072,
+      "maxOutputTokens": 32000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0.4,
+        "outputPerMTok": 0.4,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "deepseek-v3",
+      "vendor": "deepseek",
+      "family": "DeepSeek",
+      "displayName": "DeepSeek V3",
+      "modality": "text",
+      "contextWindow": 128000,
+      "maxOutputTokens": 8000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0.27,
+        "outputPerMTok": 1.1,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "mixtral-8x22b",
+      "vendor": "mistral",
+      "family": "Mixtral",
+      "displayName": "Mixtral 8x22B",
+      "modality": "text",
+      "contextWindow": 64000,
+      "maxOutputTokens": 16000,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 2,
+        "outputPerMTok": 6,
+        "currency": "USD"
+      }
+    }
+  ]
+}

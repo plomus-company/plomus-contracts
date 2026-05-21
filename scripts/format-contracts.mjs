@@ -11,6 +11,17 @@ const targets = [
   "examples/preset.add.json",
   "examples/review-rule.add.json",
   "examples/workflow.add.json",
+  "contracts/skills/v1/base.json",
+  "contracts/skills/v1/catalog.json",
+  "contracts/skills/v1/proxy-routes.json",
+  "contracts/skills/v1/credentials.json",
+  "contracts/skills/v1/data-sources.json",
+  "contracts/benchmarks/v1/base.json",
+  "contracts/benchmarks/v1/models.json",
+  "contracts/benchmarks/v1/metrics.json",
+  "contracts/benchmarks/v1/targets.json",
+  "contracts/benchmarks/v1/results.json",
+  "contracts/benchmarks/v1/rollups.json",
 ];
 
 const changed = [];

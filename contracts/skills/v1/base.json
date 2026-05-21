@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "k-skill",
+  "sourceImportedAt": "2026-05-21T13:34:25.611Z",
+  "categories": [
+    "commerce",
+    "finance",
+    "real-estate",
+    "travel",
+    "mobility",
+    "legal",
+    "government",
+    "health",
+    "food",
+    "documents",
+    "writing",
+    "sports",
+    "media",
+    "utility",
+    "tooling"
+  ],
+  "locales": [
+    "ko-KR"
+  ],
+  "lifecyclePhases": [
+    "v1",
+    "v1.5",
+    "v2"
+  ],
+  "implementationTypes": [
+    "npm-package",
+    "python-script",
+    "skill-md-only"
+  ],
+  "authTypes": [
+    "none",
+    "api-key",
+    "session"
+  ],
+  "upstreams": [
+    "airkorea",
+    "kma",
+    "seoul-open-data",
+    "hrfco",
+    "opinet",
+    "data-go-kr",
+    "data4library",
+    "foodsafety-korea",
+    "neis",
+    "krx",
+    "kakao",
+    "kosis",
+    "naver",
+    "blue-ribbon",
+    "dart",
+    "kipris",
+    "odsay",
+    "lolesports"
+  ]
+}
