@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "protocolVersion": "2.0",
+  "fields": [
+    {
+      "field": "event_id",
+      "type": "string",
+      "required": true,
+      "prefix": "EVT-"
+    },
+    {
+      "field": "event_type",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "source",
+      "type": "enum",
+      "enum": "eventSources",
+      "required": true
+    },
+    {
+      "field": "device_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "object_type",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "object_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "operation",
+      "type": "string",
+      "required": true
+    },
+    {
+      "field": "payload",
+      "type": "object",
+      "required": true
+    },
+    {
+      "field": "payload_hash",
+      "type": "string",
+      "required": false
+    },
+    {
+      "field": "local_version",
+      "type": "number",
+      "required": false,
+      "default": 0
+    },
+    {
+      "field": "cloud_version",
+      "type": "number",
+      "required": false,
+      "default": 0
+    },
+    {
+      "field": "schema_version",
+      "type": "string",
+      "required": false,
+      "default": "2.0"
+    },
+    {
+      "field": "occurred_at",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

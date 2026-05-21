@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "COMMERCE_PROFILE",
+      "localIdPrefix": "PROFILE-COMMERCE",
+      "requiredFields": [
+        "local_id",
+        "commerce_types",
+        "sales_channels",
+        "product_types",
+        "operation_mode",
+        "enabled_domains"
+      ]
+    },
+    {
+      "objectType": "WORKFLOW_PROFILE",
+      "localIdPrefix": "PROFILE-WORKFLOW",
+      "requiredFields": [
+        "local_id",
+        "enabled_workflows",
+        "default_review_workflow",
+        "default_apply_workflow"
+      ]
+    },
+    {
+      "objectType": "REVIEW_POLICY",
+      "localIdPrefix": "PROFILE-REVIEW-POLICY",
+      "requiredFields": [
+        "local_id"
+      ]
+    },
+    {
+      "objectType": "APPROVAL_POLICY",
+      "localIdPrefix": "PROFILE-APPROVAL-POLICY",
+      "requiredFields": [
+        "local_id"
+      ]
+    },
+    {
+      "objectType": "DOCUMENT_PROFILE",
+      "localIdPrefix": "PROFILE-DOCUMENT",
+      "requiredFields": [
+        "local_id"
+      ]
+    },
+    {
+      "objectType": "COMMERCE_REVIEW",
+      "localIdPrefix": null,
+      "requiredFields": [
+        "local_id"
+      ]
+    },
+    {
+      "objectType": "AI_RECOMMENDATION",
+      "localIdPrefix": null,
+      "requiredFields": [
+        "local_id"
+      ]
+    },
+    {
+      "objectType": "CHANGE_PLAN",
+      "localIdPrefix": null,
+      "requiredFields": [
+        "local_id"
+      ]
+    },
+    {
+      "objectType": "TASK",
+      "localIdPrefix": null,
+      "requiredFields": [
+        "local_id"
+      ]
+    }
+  ]
+}

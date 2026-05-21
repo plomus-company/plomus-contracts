@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "plomus-commerce-ai-os",
+  "sourceImportedAt": "2026-05-21T16:12:31.086Z",
+  "builtOnCommerce": "contracts/v1",
+  "protocolVersion": "2.0",
+  "eventSources": [
+    "LOCAL",
+    "CLOUD",
+    "TELEGRAM",
+    "SYSTEM"
+  ],
+  "httpMethods": [
+    "GET",
+    "POST"
+  ],
+  "telegramCommandKinds": [
+    "run_workflow",
+    "apply_change_plan",
+    "status",
+    "help"
+  ],
+  "telegramCommandStatuses": [
+    "CREATED",
+    "NOOP",
+    "REJECTED"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "commandStatuses": [
+    "CREATED",
+    "NOOP",
+    "REJECTED"
+  ],
+  "commands": [
+    {
+      "kind": "run_workflow",
+      "verbs": [
+        "/review",
+        "review",
+        "리뷰",
+        "검토",
+        "/run",
+        "run",
+        "실행"
+      ],
+      "mapsToCloudCommand": "RUN_WORKFLOW"
+    },
+    {
+      "kind": "apply_change_plan",
+      "verbs": [
+        "/apply",
+        "apply",
+        "적용",
+        "/approve",
+        "approve",
+        "승인"
+      ],
+      "mapsToCloudCommand": "APPLY_CHANGE_PLAN"
+    },
+    {
+      "kind": "status",
+      "verbs": [
+        "/status",
+        "status",
+        "상태"
+      ],
+      "mapsToCloudCommand": null
+    },
+    {
+      "kind": "help",
+      "verbs": [
+        "/help",
+        "help",
+        "도움말"
+      ],
+      "mapsToCloudCommand": null
+    }
+  ]
+}
