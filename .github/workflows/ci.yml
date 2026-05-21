@@ -20,3 +20,17 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check:ci
+      - name: Contract summary
+        if: always()
+        run: |
+          if [ -f dist/contract-summary.md ]; then
+            cat dist/contract-summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: plomus-contracts
+          path: |
+            dist/plomus-contracts.json
+            dist/contract-summary.md
+          if-no-files-found: ignore

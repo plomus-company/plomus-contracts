@@ -16,6 +16,16 @@ body:
         - document-type
     validations:
       required: true
+  - type: dropdown
+    id: compatibility
+    attributes:
+      label: Compatibility
+      options:
+        - patch
+        - minor
+        - major
+    validations:
+      required: true
   - type: textarea
     id: change
     attributes:
@@ -24,9 +34,14 @@ body:
     validations:
       required: true
   - type: textarea
-    id: compatibility
+    id: products
     attributes:
-      label: Compatibility impact
-      description: Note whether this is patch, minor, or major.
-    validations:
-      required: true
+      label: Products
+      description: List affected products or external distributors.
+      placeholder: plomus-commerce-ai-os, external distributor name
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: Note which local or product tests should pass.
+      placeholder: pnpm run check:update, product adapter tests

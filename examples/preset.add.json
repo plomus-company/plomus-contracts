@@ -1,0 +1,88 @@
+{
+  "presetId": "FINANCE_OPERATIONS",
+  "label": "재무 운영형",
+  "description": "매출채권, 매입채무, 세무 신고 준비 중심의 운영 기준",
+  "commerceTypes": [
+    "GENERAL_COMPANY"
+  ],
+  "salesChannels": [
+    "INTERNAL"
+  ],
+  "productTypes": [
+    "INTERNAL_OPERATIONS"
+  ],
+  "operationMode": "GENERAL_OPERATIONS",
+  "enabledDomains": [
+    "FINANCE",
+    "RECURRING",
+    "SYSTEM"
+  ],
+  "enabledRules": [
+    "FINANCE_RECEIVABLE_OVERDUE",
+    "FINANCE_PAYABLE_DUE",
+    "FINANCE_MONTHLY_CLOSE_DUE",
+    "FINANCE_TAX_REPORT_DUE"
+  ],
+  "highPriorityRules": [
+    "FINANCE_RECEIVABLE_OVERDUE",
+    "FINANCE_MONTHLY_CLOSE_DUE",
+    "FINANCE_TAX_REPORT_DUE"
+  ],
+  "enabledFolders": [
+    "51-finance",
+    "52-recurring",
+    "05-onboarding",
+    "60-ai-recommendations",
+    "65-change-plans",
+    "70-tasks",
+    "80-workflows",
+    "90-system/profiles",
+    "90-system/commerce-reviews",
+    "90-system/sync-events",
+    "90-system/cloud-commands",
+    "90-system/hermes-commands",
+    "90-system/hermes-results",
+    "90-system/backups",
+    "90-system/validation-errors"
+  ],
+  "enabledDocumentTypes": [
+    "accounts_receivable",
+    "accounts_payable",
+    "finance_item",
+    "invoice",
+    "vendor_bill",
+    "finance_close",
+    "monthly_close",
+    "recurring_task",
+    "periodic_task",
+    "commerce_review",
+    "ai_recommendation",
+    "change_plan",
+    "task",
+    "sync_event",
+    "cloud_command",
+    "hermes_command",
+    "hermes_result",
+    "validation_error"
+  ],
+  "enabledWorkflows": [
+    "commerce-review",
+    "apply-change-plan",
+    "finance-review",
+    "tax-report-review",
+    "daily-briefing"
+  ],
+  "requireApprovalFor": [
+    "DOCUMENT_PATCH",
+    "FRONTMATTER_UPDATE",
+    "PRICE_CHANGE",
+    "SETTLEMENT_CHANGE",
+    "CONTRACT_CHANGE",
+    "LEGAL_POLICY_CHANGE",
+    "CUSTOMER_MESSAGE"
+  ],
+  "autoApplyAllowed": [
+    "APPEND_REVIEW_MEMO",
+    "CLEANUP_DONE_TASK"
+  ]
+}

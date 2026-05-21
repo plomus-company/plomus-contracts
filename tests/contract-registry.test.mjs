@@ -15,7 +15,9 @@ function run(script) {
 }
 
 test("registry validates and builds a distributable artifact", () => {
+  assert.match(run("format:check"), /contract JSON format passed/);
   assert.match(run("validate"), /contract validation passed/);
+  assert.match(run("summary"), /built dist\/contract-summary.md/);
   assert.match(run("build"), /built dist\/plomus-contracts.json/);
 
   const dist = JSON.parse(
@@ -24,5 +26,27 @@ test("registry validates and builds a distributable artifact", () => {
   assert.equal(dist.schemaVersion, "1.0.0");
   assert.ok(dist.contracts.presets.length >= 8);
   assert.ok(dist.contracts.reviewRules.length >= 37);
-  assert.ok(dist.contracts.workflows.some((workflow) => workflow.workflowId === "apply-change-plan"));
+  assert.ok(
+    dist.contracts.workflows.some(
+      (workflow) => workflow.workflowId === "apply-change-plan",
+    ),
+  );
+
+  const summary = fs.readFileSync(
+    path.join(repoRoot, "dist/contract-summary.md"),
+    "utf8",
+  );
+  assert.match(summary, /Plomus Contract Summary/);
+  assert.match(summary, /Review rules/);
+});
+
+test("GitHub update examples are parseable JSON", () => {
+  for (const file of [
+    "examples/preset.add.json",
+    "examples/review-rule.add.json",
+    "examples/workflow.add.json",
+  ]) {
+    const parsed = JSON.parse(fs.readFileSync(path.join(repoRoot, file), "utf8"));
+    assert.equal(typeof parsed, "object");
+  }
 });

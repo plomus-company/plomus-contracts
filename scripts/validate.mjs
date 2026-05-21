@@ -26,6 +26,12 @@ function assertUnique(scope, field, values) {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 }
 
+function assertPattern(scope, field, value, pattern, label) {
+  if (typeof value === "string" && !pattern.test(value)) {
+    fail(scope, `${field} must use ${label}: ${value}`);
+  }
+}
+
 const base = readJson("contracts/v1/base.json");
 const presets = readJson("contracts/v1/presets.json").presets ?? [];
 const reviewRules = readJson("contracts/v1/review-rules.json").reviewRules ?? [];
@@ -61,10 +67,12 @@ for (const required of [
 ]) {
   if (!(required in base)) fail("base", `Missing ${required}.`);
 }
+requireString("base", base.schemaVersion, "schemaVersion");
 
 for (const rule of reviewRules) {
   const scope = `review-rule:${rule.ruleId ?? "(missing)"}`;
   requireString(scope, rule.ruleId, "ruleId");
+  assertPattern(scope, "ruleId", rule.ruleId, /^[A-Z][A-Z0-9_]*$/, "upper snake case");
   requireString(scope, rule.domain, "domain");
   requireString(scope, rule.status, "status");
   if (!["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "REMOVED"].includes(rule.status)) {
@@ -85,6 +93,7 @@ const externalAccess = new Set(["NONE", "NETWORK", "TOKEN"]);
 for (const workflow of workflows) {
   const scope = `workflow:${workflow.workflowId ?? "(missing)"}`;
   requireString(scope, workflow.workflowId, "workflowId");
+  assertPattern(scope, "workflowId", workflow.workflowId, /^[a-z][a-z0-9-]*$/, "lower kebab case");
   requireString(scope, workflow.label, "label");
   requireString(scope, workflow.reviewScope, "reviewScope");
   requireString(scope, workflow.reviewType, "reviewType");
@@ -115,6 +124,7 @@ for (const workflow of workflows) {
 for (const preset of presets) {
   const scope = `preset:${preset.presetId ?? "(missing)"}`;
   requireString(scope, preset.presetId, "presetId");
+  assertPattern(scope, "presetId", preset.presetId, /^[A-Z][A-Z0-9_]*$/, "upper snake case");
   requireString(scope, preset.label, "label");
   requireString(scope, preset.description, "description");
 

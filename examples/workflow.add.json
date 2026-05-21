@@ -1,0 +1,26 @@
+{
+  "workflowId": "tax-report-review",
+  "label": "세무 신고 준비 검토",
+  "reviewScope": "FINANCE",
+  "reviewType": "WORKFLOW",
+  "targetFolders": [
+    "51-finance"
+  ],
+  "enabledRuleIds": [
+    "FINANCE_TAX_REPORT_DUE"
+  ],
+  "safety": {
+    "executionClass": "LOCAL_WRITE",
+    "riskLevel": "HIGH",
+    "externalAccess": "NONE",
+    "requiresApprovalBeforeApply": true,
+    "sideEffects": [
+      "CREATE_COMMERCE_REVIEW",
+      "CREATE_AI_RECOMMENDATION",
+      "CREATE_CHANGE_PLAN",
+      "CREATE_TASK",
+      "CREATE_SYNC_EVENT"
+    ],
+    "notes": "검토 산출물과 변경 계획만 생성하며, 실제 파일 반영은 승인된 apply workflow에서 수행합니다."
+  }
+}

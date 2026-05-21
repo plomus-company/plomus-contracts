@@ -14,6 +14,8 @@ Plomus contracts는 제품 코드와 분리해서 배포합니다. 제품은 이
 - 삭제가 필요한 경우 deprecated 상태를 먼저 둡니다.
 - workflow safety profile이 없는 workflow는 병합하지 않습니다.
 - preset은 참조하는 rule과 workflow가 모두 registry에 있어야 합니다.
+- GitHub PR은 `pnpm run check:update`와 `pnpm run check:ci`를 통과해야 합니다.
+- GitHub Project의 `Compatibility` field는 release 판단에 사용합니다.
 
 ## 배포
 
