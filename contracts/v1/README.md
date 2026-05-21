@@ -34,7 +34,7 @@ workflows.json (workflow id ↔ rule ↔ folder) ─────┘
 - **rule/workflow 색인**: `reviewRuleIds`(현행 37), `legacyReviewRuleIds`(과거 43), `hermesWorkflows`(21), `mvpHermesWorkflows`(2), `approvalRuleIds`(9)
 - **객체/문서 모델**: `objectTypes`, `markdownObjectTypes`, `frontmatterTypes`, `syncPayloadObjectTypes`
 - **동작 enum**: `cloudCommandTypes`, `onboardingSteps`, `syncOperations`, `syncEventTypes`, `taskActionTypes`, `changePlanTypes`, `patchModes`, `priorities`, `riskLevels`, `sourceOfTruthValues`
-- **`statuses`** (9 그룹): `commerceReview`, `aiRecommendation`, `changePlan`, `task`, `sync`, `syncEvent`, `cloudCommand`, `hermesCommand`, `onboarding` 각각의 상태 전이 값
+- **`statuses`** (13 그룹): 시스템 객체 9종(`commerceReview`, `aiRecommendation`, `changePlan`, `task`, `sync`, `syncEvent`, `cloudCommand`, `hermesCommand`, `onboarding`) + **도메인 객체 4종(`product`, `order`, `claim`, `settlement`)의 lifecycle 상태**. 도메인 객체 상태는 `platform/frontmatter`와 동일하며 교차 도메인 검증기가 일치를 강제합니다.
 
 검증기는 `core.reviewRuleIds`/`core.hermesWorkflows`/`core.commercePresetIds`가 각 registry와 **양방향으로 일치**하는지(누락·잔재 모두) 확인합니다.
 

@@ -194,6 +194,11 @@ console.log(JSON.stringify({
       cloudCommand: CLOUD_COMMAND_STATUSES,
       hermesCommand: HERMES_COMMAND_STATUSES,
       onboarding: ONBOARDING_STATUSES,
+      // domain-object lifecycle statuses (from frontmatter Zod enums)
+      product: frontmatterSchemas.product?.shape?.status?._def?.values ?? [],
+      order: frontmatterSchemas.order?.shape?.order_status?._def?.values ?? [],
+      claim: frontmatterSchemas.claim?.shape?.claim_status?._def?.values ?? [],
+      settlement: frontmatterSchemas.settlement?.shape?.settlement_status?._def?.values ?? [],
     },
   },
 }));

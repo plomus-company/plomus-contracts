@@ -584,6 +584,35 @@
         "IN_PROGRESS",
         "COMPLETED",
         "CANCELLED"
+      ],
+      "product": [
+        "DRAFT",
+        "ACTIVE",
+        "PAUSED",
+        "SOLD_OUT",
+        "ARCHIVED"
+      ],
+      "order": [
+        "PAID",
+        "PREPARING",
+        "SHIPPED",
+        "DELIVERED",
+        "CANCELLED",
+        "REFUNDED"
+      ],
+      "claim": [
+        "RECEIVED",
+        "IN_REVIEW",
+        "WAITING_CUSTOMER",
+        "RESOLVED",
+        "REJECTED"
+      ],
+      "settlement": [
+        "EXPECTED",
+        "RECEIVED",
+        "MISMATCH",
+        "NEEDS_CHECK",
+        "CONFIRMED"
       ]
     }
   }

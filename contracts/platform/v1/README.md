@@ -14,7 +14,7 @@
 
 ## 무엇을 메웠나 (점검 매핑)
 
-- **P2/A2 frontmatter**: product/order/claim/settlement의 상태 enum·필수필드가 Zod(`domain.schema.ts`)에만 있던 것을 계약화. 공개 `base.json`의 `core.statuses`는 시스템 객체만 담아 도메인 객체 상태가 빈틈이었습니다. 예) order.status PAID→…→REFUNDED, claim.claim_type CANCEL/RETURN/EXCHANGE/REFUND/CS.
+- **P2/A2 frontmatter**: product/order/claim/settlement의 상태 enum·필수필드가 Zod(`domain.schema.ts`)에만 있던 것을 계약화. 이 도메인 객체 lifecycle 상태는 commerce `base.json`의 `core.statuses`로도 **승격**되어(canonical 등록), 교차 도메인 검증기가 platform과 commerce의 일치를 강제합니다. platform은 상태에 더해 필수필드·extra enum까지 담는 풍부한 문서 계약입니다.
 - **P3 event-types**: flat `syncEventTypes`(36)만 있던 것을 **객체별 소유**로 구조화. 모든 그룹 이벤트의 합집합 = commerce `syncEventTypes`(검증기가 1:1 정합 강제).
 - **P4 error-codes**: 21개 코드를 8개 카테고리(config/document/validation/workflow/changePlan/patch/sync/task)로 분류.
 
@@ -24,7 +24,7 @@ frontmatter documentType∈commerce documentTypes·필수필드에 type+local_id
 
 ## 승격 후보
 
-`frontmatter`(P2)와 `event-types`(P3)는 모든 커머스/유통 제품 공유라 **commerce baseline 승격 후보**입니다(원천 + `import-from-commerce-ai-os` 동반 갱신 필요). 이전 distribution 도메인의 `domain-statuses`(A2)는 이 `frontmatter` 계약으로 통합·승격하는 것이 정합적입니다.
+`frontmatter`의 도메인 객체 상태(A2)는 commerce `core.statuses`로 **승격 완료**(import 도구가 frontmatter Zod enum에서 추출, 교차검증으로 일치 강제). 이전 distribution `domain-statuses`도 이 `frontmatter`로 통합 완료. 남은 후보: `event-types`(P3)를 commerce `core`로 승격(`*_EVENT_TYPES` 추출 필요).
 
 ## 갱신
 

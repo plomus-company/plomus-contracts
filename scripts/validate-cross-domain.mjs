@@ -9,13 +9,20 @@ const failures = [];
 const fail = (scope, message) => failures.push({ scope, message });
 const eq = (a, b) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 
-// 1) platform.frontmatter is the single owner of domain-object lifecycle statuses
-//    (distribution no longer duplicates them). Guard that the canonical status
-//    objects remain present so consumers that previously read distribution can
-//    rely on platform.
-const platformObjs = new Set((readJson("contracts/platform/v1/frontmatter.json").documents ?? []).map((d) => d.documentType));
+// 1) domain-object lifecycle statuses appear in two places by design:
+//    commerce core.statuses (canonical enum registry) and platform.frontmatter
+//    (richer field contract). Guard that they agree for every domain object.
+const platformDocs = readJson("contracts/platform/v1/frontmatter.json").documents ?? [];
+const platformStatusByObj = new Map(platformDocs.map((d) => [d.documentType, d.statuses ?? []]));
+const commerceStatuses = readJson("contracts/v1/base.json").core?.statuses ?? {};
 for (const obj of ["product", "order", "claim", "settlement"]) {
-  if (!platformObjs.has(obj)) fail("domain-status", `platform.frontmatter must define lifecycle object '${obj}'.`);
+  const platform = platformStatusByObj.get(obj);
+  const commerce = commerceStatuses[obj];
+  if (!platform) fail("domain-status", `platform.frontmatter must define lifecycle object '${obj}'.`);
+  if (!commerce) fail("domain-status", `commerce core.statuses must define '${obj}'.`);
+  if (platform && commerce && !eq(platform, commerce)) {
+    fail("domain-status", `'${obj}' statuses differ between commerce core.statuses and platform.frontmatter.`);
+  }
 }
 
 // 2) governance is the single source of operational risk levels. gameops must not
