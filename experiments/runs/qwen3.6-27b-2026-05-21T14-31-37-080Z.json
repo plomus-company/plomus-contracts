@@ -1,0 +1,83 @@
+{
+  "modelId": "qwen3.6-27b",
+  "ollamaTag": "qwen3.6-27b:latest",
+  "baseUrl": "http://localhost:11434",
+  "startedAt": "2026-05-21T14:31:37.080Z",
+  "reps": 1,
+  "numPredict": 256,
+  "runs": [
+    {
+      "targetId": "skill:korean-spell-check",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 5814.759681,
+      "totalMs": 6191.299665,
+      "loadMs": 376.539984,
+      "inputTokens": 89,
+      "outputTokens": 55,
+      "evalSec": 5.363999326,
+      "wallMs": 6209
+    },
+    {
+      "targetId": "skill:k-dart",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 9217.15153,
+      "totalMs": 9678.002955,
+      "loadMs": 460.851425,
+      "inputTokens": 104,
+      "outputTokens": 87,
+      "evalSec": 8.758603595,
+      "wallMs": 9697
+    },
+    {
+      "targetId": "skill:naver-news-search",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 8888.249295,
+      "totalMs": 9360.167373,
+      "loadMs": 471.918078,
+      "inputTokens": 108,
+      "outputTokens": 79,
+      "evalSec": 8.448798225,
+      "wallMs": 9376
+    },
+    {
+      "targetId": "skill:seoul-subway-arrival",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 7031.396979,
+      "totalMs": 7519.741791,
+      "loadMs": 488.344812,
+      "inputTokens": 105,
+      "outputTokens": 62,
+      "evalSec": 6.577786885,
+      "wallMs": 7532
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 27864.068310000002,
+      "totalMs": 28289.904329,
+      "loadMs": 425.836019,
+      "inputTokens": 61,
+      "outputTokens": 256,
+      "evalSec": 27.271833841,
+      "wallMs": 28296
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 20788.909813000002,
+      "totalMs": 21030.934063,
+      "loadMs": 242.02425,
+      "inputTokens": 59,
+      "outputTokens": 256,
+      "evalSec": 20.36405549,
+      "wallMs": 21036
+    }
+  ],
+  "finishedAt": "2026-05-21T14:32:59.576Z"
+}

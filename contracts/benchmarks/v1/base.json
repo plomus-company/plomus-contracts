@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "source": "plomus-contracts:skills+commerce",
-  "generatedAt": "2026-05-21T13:53:03.706Z",
+  "generatedAt": "2026-05-21T15:34:03.655Z",
   "pricingAsOf": "2026-05",
   "modelVendors": [
     "anthropic",

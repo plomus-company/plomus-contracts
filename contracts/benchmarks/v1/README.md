@@ -10,9 +10,9 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
        results.json (target × model × metric)  ──aggregate──▶  rollups.json (domain × model)
 ```
 
-현재 규모: **모델 12 · 지표 9 · 타깃 107(스킬 86 + 워크플로 21) · 결과 428 · 롤업 8**.
+현재 규모: **모델 14 · 지표 9 · 타깃 107(스킬 86 + 워크플로 21) · 결과 642 · 롤업 12**.
 
-> ⚠️ 현재 결과/롤업은 모두 `dataSource: "illustrative"` — 결정론적으로 생성된 **예시 수치**이며 실측이 아닙니다. 실측 후 해당 행을 `dataSource: "measured"`로 교체합니다.
+> 결과 642건 = illustrative 시드 428 + **measured 214** (`qwen3.6-27b`·`qwen-2.5-0.5b` 각 전체 타깃 1회 실행). 롤업 12건 = illustrative 8 + measured 4. 측정 결과·모델 비교는 [docs/BENCHMARK-RESULTS.md](../../../docs/BENCHMARK-RESULTS.md), 방법론은 [docs/BENCHMARKS.md](../../../docs/BENCHMARKS.md). illustrative 행은 결정론적 합성 시드이며 실측이 아닙니다.
 
 ---
 

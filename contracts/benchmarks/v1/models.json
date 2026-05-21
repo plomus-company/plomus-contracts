@@ -182,6 +182,36 @@
         "outputPerMTok": 6,
         "currency": "USD"
       }
+    },
+    {
+      "modelId": "qwen3.6-27b",
+      "vendor": "alibaba",
+      "family": "Qwen",
+      "displayName": "Qwen3.6 27B (Ollama Q4_K_M)",
+      "modality": "text+vision",
+      "contextWindow": 262144,
+      "maxOutputTokens": 32768,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0,
+        "outputPerMTok": 0,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "qwen-2.5-0.5b",
+      "vendor": "alibaba",
+      "family": "Qwen",
+      "displayName": "Qwen2.5 0.5B (Ollama)",
+      "modality": "text",
+      "contextWindow": 32768,
+      "maxOutputTokens": 8000,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 0,
+        "outputPerMTok": 0,
+        "currency": "USD"
+      }
     }
   ]
 }

@@ -18,9 +18,26 @@
 - **results** — `target × model`의 측정 한 묶음. `dataSource`로 measured/illustrative/pending 구분.
 - **rollups** — `domain × model` 지표 평균.
 
+## 측정 베이스라인 (로컬 Ollama)
+
+전체 계약(스킬 86 + 워크플로 21 = **107개 타깃**)을 두 로컬 모델로 1회씩 실제 실행한 측정값이 `results.json`에 `dataSource: "measured"`로 들어 있습니다(모델당 107건, 합 214건). 전 항목 결과·카테고리별·도메인 롤업·모델 비교는 [BENCHMARK-RESULTS.md](BENCHMARK-RESULTS.md) 참조.
+
+| 도메인 | 모델 | 지연 p50 | 처리량 | 평균 출력토큰 | 성공률 |
+|---|---|---|---|---|---|
+| skills | `qwen3.6-27b` | 5,317ms | 13.6 tps | 65.5 | 100% |
+| skills | `qwen-2.5-0.5b` | 539ms | 522.6 tps | 187.4 | 100% |
+| commerce | `qwen3.6-27b` | 19,762ms | 12.6 tps | 239.5 | 100% |
+| commerce | `qwen-2.5-0.5b` | 731ms | 496.3 tps | 236.5 | 100% |
+
+- 두 모델 모두 107/107 성공(실패 0), 비용 $0(로컬), `num_predict=256`.
+- **27B vs 0.5B**: 0.5B는 ~10–37배 빠르고 처리량 ~38배지만, 스킬에서 출력이 더 장황(187 vs 65.5 토큰) — 소형 모델의 낮은 간결성/품질 경향. 성공률은 "비어 있지 않은 응답" 기준이며 정확도는 미측정.
+- qwen35(27B)는 reasoning 모델이라 `think:false`로 호출(기본 thinking 모드가 출력 토큰을 소진). 지연은 1회성 모델 로드를 제외한 추론 시간.
+- 메모리 경합으로 두 모델 동시 상주가 어려워, 모델 전환 시 `ollama stop <tag>`로 언로드 후 실행했습니다.
+- 재현: `pnpm run experiment -- --model-id <id> --ollama-tag <tag> --limit 1000` (전체) 또는 `--targets skill:k-dart,workflow:commerce-review` (부분).
+
 ## 시드(초기 데이터) 정책
 
-초기 결과·롤업은 **결정론적 illustrative 수치**입니다. `tools/generate-benchmarks.mjs`가 `targetId+modelId` 해시와 모델 가격·합성 속도/품질 계수로 안정적으로 생성하므로, 재실행해도 동일한 값이 나옵니다. 이는 구조를 시연하고 검증 파이프라인을 채우기 위한 것이며 **실측이 아닙니다**.
+위 measured 베이스라인 외에, 나머지 모델/조합의 초기 결과·롤업은 **결정론적 illustrative 수치**입니다. `tools/generate-benchmarks.mjs`가 `targetId+modelId` 해시와 모델 가격·합성 속도/품질 계수로 안정적으로 생성하므로, 재실행해도 동일한 값이 나옵니다. 이는 구조를 시연하고 검증 파이프라인을 채우기 위한 것이며 **실측이 아닙니다**.
 
 실측을 채우는 경로:
 

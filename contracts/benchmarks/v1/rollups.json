@@ -1,7 +1,67 @@
 {
   "schemaVersion": "1.0.0",
-  "note": "Domain rollups are means over illustrative results.",
+  "note": "Illustrative rollups are means over illustrative results; measured rollups come from experiments.",
   "rollups": [
+    {
+      "domain": "skills",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 5316.76,
+        "throughput_tps": 13.62,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.98,
+        "output_tokens": 65.52,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 19761.91,
+        "throughput_tps": 12.61,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59.9,
+        "output_tokens": 239.48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 538.51,
+        "throughput_tps": 522.57,
+        "cost_per_run_usd": 0,
+        "input_tokens": 135.43,
+        "output_tokens": 187.35,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 730.75,
+        "throughput_tps": 496.32,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.57,
+        "output_tokens": 236.48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
     {
       "domain": "skills",
       "modelId": "claude-opus-4-7",

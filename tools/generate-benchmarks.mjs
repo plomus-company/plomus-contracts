@@ -37,6 +37,9 @@ const MODELS = [
   { modelId: "qwen-2.5-72b", vendor: "alibaba", family: "Qwen", displayName: "Qwen 2.5 72B", modality: "text", contextWindow: 131072, maxOutputTokens: 32000, status: "balanced", pricing: { inputPerMTok: 0.4, outputPerMTok: 0.4, currency: "USD" } },
   { modelId: "deepseek-v3", vendor: "deepseek", family: "DeepSeek", displayName: "DeepSeek V3", modality: "text", contextWindow: 128000, maxOutputTokens: 8000, status: "balanced", pricing: { inputPerMTok: 0.27, outputPerMTok: 1.1, currency: "USD" } },
   { modelId: "mixtral-8x22b", vendor: "mistral", family: "Mixtral", displayName: "Mixtral 8x22B", modality: "text", contextWindow: 64000, maxOutputTokens: 16000, status: "fast", pricing: { inputPerMTok: 2, outputPerMTok: 6, currency: "USD" } },
+  // Local Ollama models — measured via tools/run-experiment.mjs. Monetary cost is 0 (local compute).
+  { modelId: "qwen3.6-27b", vendor: "alibaba", family: "Qwen", displayName: "Qwen3.6 27B (Ollama Q4_K_M)", modality: "text+vision", contextWindow: 262144, maxOutputTokens: 32768, status: "balanced", pricing: { inputPerMTok: 0, outputPerMTok: 0, currency: "USD" } },
+  { modelId: "qwen-2.5-0.5b", vendor: "alibaba", family: "Qwen", displayName: "Qwen2.5 0.5B (Ollama)", modality: "text", contextWindow: 32768, maxOutputTokens: 8000, status: "fast", pricing: { inputPerMTok: 0, outputPerMTok: 0, currency: "USD" } },
 ];
 
 // ---- metric registry ----
@@ -149,6 +152,22 @@ for (const domain of TARGET_DOMAINS) {
   }
 }
 
+// Preserve any previously recorded measured results/rollups so regenerating the
+// illustrative seed never wipes real experiment data.
+function readExisting(relativePath, key) {
+  try {
+    return readJson(relativePath)[key] ?? [];
+  } catch {
+    return [];
+  }
+}
+const preservedResults = readExisting("contracts/benchmarks/v1/results.json", "results").filter(
+  (r) => r.dataSource !== "illustrative",
+);
+const preservedRollups = readExisting("contracts/benchmarks/v1/rollups.json", "rollups").filter(
+  (r) => r.dataSource !== "illustrative",
+);
+
 const generatedAt = new Date().toISOString();
 const base = {
   schemaVersion: "1.0.0",
@@ -171,9 +190,10 @@ writeJson("contracts/benchmarks/v1/base.json", base);
 writeJson("contracts/benchmarks/v1/models.json", { schemaVersion: "1.0.0", pricingAsOf: PRICING_AS_OF, pricingNote: "List prices are indicative and may change; treat as relative reference only.", models: MODELS });
 writeJson("contracts/benchmarks/v1/metrics.json", { schemaVersion: "1.0.0", metrics: METRICS });
 writeJson("contracts/benchmarks/v1/targets.json", { schemaVersion: "1.0.0", targets });
-writeJson("contracts/benchmarks/v1/results.json", { schemaVersion: "1.0.0", note: "Seeded with deterministic illustrative values (dataSource: illustrative), not measured.", results });
-writeJson("contracts/benchmarks/v1/rollups.json", { schemaVersion: "1.0.0", note: "Domain rollups are means over illustrative results.", rollups });
+writeJson("contracts/benchmarks/v1/results.json", { schemaVersion: "1.0.0", note: "Illustrative rows (dataSource: illustrative) are a deterministic seed; measured rows come from tools/run-experiment.mjs.", results: [...preservedResults, ...results] });
+writeJson("contracts/benchmarks/v1/rollups.json", { schemaVersion: "1.0.0", note: "Illustrative rollups are means over illustrative results; measured rollups come from experiments.", rollups: [...preservedRollups, ...rollups] });
 
 console.log(`generated benchmarks from ${targets.length} targets`);
 console.log(`  models: ${MODELS.length}, metrics: ${METRICS.length}, seed models: ${SEED_MODELS.length}`);
-console.log(`  results: ${results.length}, rollups: ${rollups.length}`);
+console.log(`  results: ${results.length} illustrative + ${preservedResults.length} preserved measured`);
+console.log(`  rollups: ${rollups.length} illustrative + ${preservedRollups.length} preserved measured`);
