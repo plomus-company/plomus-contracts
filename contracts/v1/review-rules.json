@@ -4,187 +4,261 @@
     {
       "ruleId": "APP_PRIVACY_POLICY_MISSING",
       "domain": "APP_DISTRIBUTION",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "앱 개인정보 처리방침 연결 필요"
     },
     {
       "ruleId": "APP_RELEASE_DELAY",
       "domain": "APP_DISTRIBUTION",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "앱 릴리스 지연 확인 필요"
     },
     {
       "ruleId": "APP_STORE_METADATA_MISSING",
       "domain": "APP_DISTRIBUTION",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "앱 스토어 메타데이터 보완 필요"
     },
     {
       "ruleId": "APP_VERSION_STALE",
       "domain": "APP_DISTRIBUTION",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "앱 버전 상태 점검 필요"
     },
     {
       "ruleId": "CHANGE_PLAN_STALE",
       "domain": "SYSTEM",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "오래된 변경 계획 검토 필요"
     },
     {
       "ruleId": "CLAIM_OVERDUE",
       "domain": "CLAIM",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "클레임 처리 기한 초과"
     },
     {
       "ruleId": "EXPENSE_REPORT_PENDING",
       "domain": "FINANCE",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "비용 정산 승인 확인 필요"
     },
     {
       "ruleId": "FINANCE_MONTHLY_CLOSE_DUE",
       "domain": "FINANCE",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "월마감 작업 확인 필요"
     },
     {
       "ruleId": "FINANCE_PAYABLE_DUE",
       "domain": "FINANCE",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "미지급금 지급 확인 필요"
     },
     {
       "ruleId": "FINANCE_RECEIVABLE_OVERDUE",
       "domain": "FINANCE",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "미수금 회수 확인 필요"
     },
     {
       "ruleId": "HR_LEAVE_APPROVAL_PENDING",
       "domain": "HR",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "휴가 승인 대기 확인 필요"
     },
     {
       "ruleId": "HR_ONBOARDING_DELAY",
       "domain": "HR",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "직원 온보딩 준비 지연 확인 필요"
     },
     {
       "ruleId": "HR_PROBATION_REVIEW_DUE",
       "domain": "HR",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "수습 평가 확인 필요"
     },
     {
       "ruleId": "INCIDENT_FOLLOWUP_DUE",
       "domain": "GENERAL_OPERATIONS",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "장애 후속 조치 확인 필요"
     },
     {
       "ruleId": "INVENTORY_LOW_STOCK",
       "domain": "INVENTORY",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "재고 부족 위험 확인"
     },
     {
       "ruleId": "LEGAL_POLICY_MISSING",
       "domain": "LEGAL_POLICY",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "법적 정책 문서 보완 필요"
     },
     {
       "ruleId": "MEETING_ACTION_OVERDUE",
       "domain": "ALWAYS_ON",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "회의 후속 조치 기한 확인 필요"
     },
     {
       "ruleId": "OPERATIONS_REQUEST_SLA",
       "domain": "GENERAL_OPERATIONS",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "상시 운영 요청 SLA 확인 필요"
     },
     {
       "ruleId": "ORDER_SHIPPING_DELAY",
       "domain": "ORDER",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "배송 지연 확인 필요"
     },
     {
       "ruleId": "PARTNER_CONTRACT_MISSING",
       "domain": "PARTNER",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "파트너 계약 상태 확인 필요"
     },
     {
       "ruleId": "PARTNER_SETTLEMENT_PENDING",
       "domain": "PARTNER",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "파트너 정산 대기 확인 필요"
     },
     {
       "ruleId": "PERIODIC_REPORT_DUE",
       "domain": "RECURRING",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "정기 보고 준비 확인 필요"
     },
     {
       "ruleId": "PRIVACY_POLICY_MISSING",
       "domain": "LEGAL_POLICY",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "개인정보 처리방침 보완 필요"
     },
     {
       "ruleId": "PROCUREMENT_APPROVAL_PENDING",
       "domain": "PROCUREMENT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "구매 요청 승인 확인 필요"
     },
     {
       "ruleId": "PRODUCT_DESCRIPTION_MISSING",
       "domain": "PRODUCT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "상품 상세설명 보완 필요"
     },
     {
       "ruleId": "PRODUCT_IMAGE_NEEDS_REVIEW",
       "domain": "PRODUCT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "상품 이미지 점검 필요"
     },
     {
       "ruleId": "PRODUCT_PRICE_MISSING",
       "domain": "PRODUCT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "상품 가격 정보 확인 필요"
     },
     {
       "ruleId": "RECURRING_CHECKLIST_DUE",
       "domain": "RECURRING",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "정기 점검 실행 필요"
     },
     {
       "ruleId": "SETTLEMENT_MISMATCH",
       "domain": "SETTLEMENT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "정산 불일치 확인 필요"
     },
     {
       "ruleId": "SI_CONTRACT_MISSING",
       "domain": "SI_PROJECT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "계약 상태 확인 필요"
     },
     {
       "ruleId": "SI_DELIVERABLE_DELAY",
       "domain": "SI_PROJECT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "산출물 지연 확인 필요"
     },
     {
       "ruleId": "SI_INVOICE_PENDING",
       "domain": "SI_PROJECT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "청구 상태 확인 필요"
     },
     {
       "ruleId": "SI_MAINTENANCE_PENDING",
       "domain": "SI_PROJECT",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "유지보수 요청 확인 필요"
     },
     {
       "ruleId": "SYNC_FAILURE_DETECTED",
       "domain": "SYSTEM",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "동기화 실패 확인 필요"
     },
     {
       "ruleId": "TASK_DONE_CLEANUP",
       "domain": "SYSTEM",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "LOW",
+      "description": "완료 작업 정리 가능"
     },
     {
       "ruleId": "TASK_OVERDUE",
       "domain": "SYSTEM",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "기한 지난 작업 확인 필요"
     },
     {
       "ruleId": "TERMS_OF_SERVICE_MISSING",
       "domain": "LEGAL_POLICY",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "이용약관 보완 필요"
     }
   ]
 }

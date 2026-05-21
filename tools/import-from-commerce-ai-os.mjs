@@ -239,6 +239,39 @@ console.log(JSON.stringify({
 }));
 `);
 
+// severity/title are runtime literals inside each rule's build fn (not on the
+// registry object), so block-parse the source: from each quoted ruleId site to
+// the next, take the first severity/title.
+const rulesSource = fs.readFileSync(
+  path.join(sourceRoot, "apps/desktop/src/modules/commerce-review/rules.ts"),
+  "utf8",
+);
+const ruleIdSet = new Set(reviewRules.reviewRules.map((r) => r.ruleId));
+const sites = [];
+const seenIds = new Set();
+for (const match of rulesSource.matchAll(/"([A-Z][A-Z0-9_]+)"/g)) {
+  if (ruleIdSet.has(match[1]) && !seenIds.has(match[1])) {
+    seenIds.add(match[1]);
+    sites.push({ id: match[1], pos: match.index });
+  }
+}
+sites.sort((a, b) => a.pos - b.pos);
+const ruleMeta = {};
+for (let i = 0; i < sites.length; i += 1) {
+  const block = rulesSource.slice(sites[i].pos, sites[i + 1]?.pos ?? rulesSource.length);
+  ruleMeta[sites[i].id] = {
+    severity: block.match(/severity:\s*"(LOW|MEDIUM|HIGH)"/)?.[1] ?? null,
+    title: block.match(/title:\s*"([^"]+)"/)?.[1] ?? null,
+  };
+}
+for (const rule of reviewRules.reviewRules) {
+  const meta = ruleMeta[rule.ruleId];
+  if (meta) {
+    rule.severity = meta.severity;
+    rule.description = meta.title;
+  }
+}
+
 const workflows = tsxJson(`
 import { listHermesReviewWorkflowDefinitions } from "./apps/desktop/src/modules/hermes/workflow-definitions";
 

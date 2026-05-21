@@ -75,8 +75,12 @@ for (const rule of reviewRules) {
   assertPattern(scope, "ruleId", rule.ruleId, /^[A-Z][A-Z0-9_]*$/, "upper snake case");
   requireString(scope, rule.domain, "domain");
   requireString(scope, rule.status, "status");
+  requireString(scope, rule.description, "description");
   if (!["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "REMOVED"].includes(rule.status)) {
     fail(scope, `Unknown status: ${rule.status}`);
+  }
+  if (!["LOW", "MEDIUM", "HIGH"].includes(rule.severity)) {
+    fail(scope, `Unknown severity: ${rule.severity}`);
   }
 }
 
