@@ -19,7 +19,7 @@ commerce 계약 4파일은 `import-from-commerce-ai-os`가 소유해 하드 편�
 
 ## 승격 경로 (후속)
 
-- `platform/frontmatter`의 도메인 객체 상태(P2/A2)는 commerce `core.statuses`로 **승격 완료**(`import-from-commerce-ai-os`가 frontmatter Zod enum 추출, 교차 도메인 검증으로 일치 강제). 남은 후보: `platform/event-types`(P3)를 commerce `core`로 승격(`*_EVENT_TYPES` 추출 필요).
+- `platform/frontmatter`의 도메인 객체 상태(P2/A2)는 commerce `core.statuses`로, `platform/event-types`(P3)는 commerce `core.eventTypesByObject`로 **승격 완료**(`import-from-commerce-ai-os`가 Zod enum / `*_EVENT_TYPES` 추출, 교차 도메인 검증으로 일치 강제).
 - PLOMUS_DISTRIBUTION preset(A1)은 commerce 원천에 없어 **공개 commerce 승격 부적합**(승격 시 commerce 제품 parity 위반·import 재실행 시 유실) — distribution 도메인 유지가 정답.
 - distribution 도메인의 `domain-statuses`(A2)는 `platform/frontmatter`로 통합하는 것이 정합적입니다.
 

@@ -64,6 +64,12 @@ import {
   TASK_ACTION_TYPES,
   TASK_STATUSES,
   APPROVAL_RULE_IDS,
+  PROFILE_EVENT_TYPES,
+  COMMERCE_REVIEW_EVENT_TYPES,
+  AI_RECOMMENDATION_EVENT_TYPES,
+  CHANGE_PLAN_EVENT_TYPES,
+  TASK_EVENT_TYPES,
+  SYSTEM_EVENT_TYPES,
 } from "@plomus/core";
 import { frontmatterSchemas } from "@plomus/schemas";
 import { REVIEW_RULE_REGISTRY } from "./apps/desktop/src/modules/commerce-review/rules";
@@ -168,6 +174,14 @@ console.log(JSON.stringify({
     priorities: PRIORITIES,
     sourceOfTruthValues: SOURCE_OF_TRUTH_VALUES,
     syncEventTypes: SYNC_EVENT_TYPES,
+    eventTypesByObject: {
+      profile: PROFILE_EVENT_TYPES,
+      commerceReview: COMMERCE_REVIEW_EVENT_TYPES,
+      aiRecommendation: AI_RECOMMENDATION_EVENT_TYPES,
+      changePlan: CHANGE_PLAN_EVENT_TYPES,
+      task: TASK_EVENT_TYPES,
+      system: SYSTEM_EVENT_TYPES,
+    },
     frontmatterTypes: Object.keys(frontmatterSchemas),
     syncPayloadObjectTypes: [
       "COMMERCE_PROFILE",

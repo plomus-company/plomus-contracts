@@ -25,6 +25,17 @@ for (const obj of ["product", "order", "claim", "settlement"]) {
   }
 }
 
+// 1b) per-object event taxonomy lives in commerce core.eventTypesByObject
+//     (canonical) and platform.event-types; guard they agree group-by-group.
+const platformGroups = new Map((readJson("contracts/platform/v1/event-types.json").groups ?? []).map((g) => [g.object, g.events]));
+const commerceEventsByObj = readJson("contracts/v1/base.json").core?.eventTypesByObject ?? {};
+const allEventObjects = new Set([...platformGroups.keys(), ...Object.keys(commerceEventsByObj)]);
+for (const obj of allEventObjects) {
+  if (!eq(platformGroups.get(obj), commerceEventsByObj[obj])) {
+    fail("event-types", `'${obj}' events differ between commerce core.eventTypesByObject and platform.event-types.`);
+  }
+}
+
 // 2) governance is the single source of operational risk levels. gameops must not
 //    redefine its own risk-level enum (it should only reference governance's).
 const gameopsBase = readJson("contracts/gameops/v1/base.json");
