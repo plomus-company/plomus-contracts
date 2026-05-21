@@ -53,14 +53,19 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 ```bash
 pnpm install
 pnpm run check:update
+pnpm test
 pnpm run check:ci
 ```
 
 `pnpm run check:update`는 외부 PR에서 가장 먼저 실행할 검증입니다. JSON 포맷, 계약 참조, core parity, 요약 생성을 확인합니다.
 
-`pnpm run check:ci`는 배포 전 전체 검증입니다. 두 도메인을 모두 검증·빌드하며 `dist/plomus-contracts.json`, `dist/plomus-skills.json`, `dist/contract-summary.md`를 생성하고 테스트까지 실행합니다.
+`pnpm test`는 Node 22 내장 test runner로 smoke test와 validator 회귀 테스트를 실행합니다. 로컬 반복 실행은 `pnpm run test:watch`, 커버리지 확인은 `pnpm run test:coverage`를 사용합니다.
 
-도메인별 명령도 따로 제공합니다: `validate:commerce`/`validate:skills`, `build:commerce`/`build:skills`.
+`pnpm run check:ci`는 배포 전 전체 검증입니다. 세 도메인을 모두 검증·빌드하며 `dist/plomus-contracts.json`, `dist/plomus-skills.json`, `dist/plomus-benchmarks.json`, `dist/contract-summary.md`를 생성하고 테스트까지 실행합니다.
+
+도메인별 명령도 따로 제공합니다: `validate:commerce`/`validate:skills`/`validate:benchmarks`, `build:commerce`/`build:skills`/`build:benchmarks`.
+
+테스트에서 실제 계약 파일을 오염시키지 않고 validator/build script를 실행해야 할 때는 `PLOMUS_CONTRACTS_ROOT=/path/to/fixture`를 지정합니다. `tests/helpers/registry-test-utils.mjs`가 이 방식으로 임시 fixture를 구성합니다.
 
 ## 변경 절차
 

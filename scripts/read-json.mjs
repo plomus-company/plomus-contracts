@@ -1,7 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
+const defaultRepoRoot = path.resolve(new URL("..", import.meta.url).pathname);
+
+export const repoRoot = process.env.PLOMUS_CONTRACTS_ROOT
+  ? path.resolve(process.env.PLOMUS_CONTRACTS_ROOT)
+  : defaultRepoRoot;
 
 export function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), "utf8"));

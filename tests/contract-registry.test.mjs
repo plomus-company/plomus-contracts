@@ -1,24 +1,14 @@
 import assert from "node:assert/strict";
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
-
-const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
-
-function run(script) {
-  return execFileSync("pnpm", ["run", script], {
-    cwd: repoRoot,
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"],
-  });
-}
+import { repoRoot, runPnpm } from "./helpers/registry-test-utils.mjs";
 
 test("registry validates and builds a distributable artifact", () => {
-  assert.match(run("format:check"), /contract JSON format passed/);
-  assert.match(run("validate"), /contract validation passed/);
-  assert.match(run("summary"), /built dist\/contract-summary.md/);
-  assert.match(run("build"), /built dist\/plomus-contracts.json/);
+  assert.match(runPnpm("format:check"), /contract JSON format passed/);
+  assert.match(runPnpm("validate"), /contract validation passed/);
+  assert.match(runPnpm("summary"), /built dist\/contract-summary.md/);
+  assert.match(runPnpm("build"), /built dist\/plomus-contracts.json/);
 
   const dist = JSON.parse(
     fs.readFileSync(path.join(repoRoot, "dist/plomus-contracts.json"), "utf8"),
