@@ -1,0 +1,145 @@
+import path from "node:path";
+import { readJson, writeJson } from "../scripts/read-json.mjs";
+
+// Single source of truth for the `distribution` contract domain.
+//
+// plomus-distribution-ai-os is a SUPERSET of the public commerce contract
+// (its check-contract-parity enforces public ⊆ product). So its review rules,
+// workflows, folders, and document types already live in contracts/v1/. This
+// domain captures the parts that are NOT yet contracted anywhere:
+//   A1. the PLOMUS_DISTRIBUTION onboarding preset (not in commerce presets.json)
+//   A2. domain-object lifecycle statuses (only in product Zod schemas today)
+//   B.  distribution-specific vocabularies (거래처 types, pricing tiers,
+//       payment terms, receivable aging, purchase-order/inbound, return reasons)
+//   C.  defined-but-unimplemented, distribution-relevant rules as EXPERIMENTAL
+//
+// Commerce contracts are read READ-ONLY for cross-reference integrity; this tool
+// never edits them (keeps the consuming product's parity baseline intact).
+//
+// Run with: pnpm run import:distribution
+
+const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
+const distRepo = process.env.PLOMUS_DISTRIBUTION_DIR ?? path.resolve(repoRoot, "../plomus-distribution-ai-os");
+const generatedAt = new Date().toISOString();
+
+// Commerce baseline (read-only) — used to keep the preset's system folders and
+// base document types in sync with the shared contract.
+const commerceBase = readJson("contracts/v1/base.json");
+const SYSTEM_FOLDERS = commerceBase.systemFolders ?? [];
+const BASE_DOC_TYPES = [
+  "commerce_review",
+  "ai_recommendation",
+  "change_plan",
+  "task",
+  "sync_event",
+  "cloud_command",
+  "hermes_command",
+  "hermes_result",
+  "validation_error",
+];
+
+// ---- B. controlled vocabularies (distribution-specific) ----
+const PARTNER_TYPES = ["WHOLESALE_BUYER", "RETAIL_BUYER", "CONSIGNMENT_PARTNER", "SUPPLIER"];
+const PAYMENT_TERMS = ["PREPAID", "COD", "NET_15", "NET_30", "NET_60", "MONTHLY_CLOSE"];
+const PRICE_TIERS = ["SUPPLY", "WHOLESALE", "RETAIL", "ONLINE", "PARTNER"];
+const RECEIVABLE_AGING_BUCKETS = ["CURRENT", "DUE_0_30", "DUE_31_60", "DUE_61_90", "OVERDUE_90_PLUS"];
+const PURCHASE_ORDER_STATUSES = ["DRAFT", "ORDERED", "PARTIALLY_RECEIVED", "RECEIVED", "CANCELLED"];
+const RETURN_REASONS = ["DEFECT", "WRONG_ITEM", "CHANGE_OF_MIND", "DELIVERY_DAMAGE", "OVER_SHIPMENT", "EXPIRED"];
+const RULE_STATUSES = ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "REMOVED"];
+// Document type proposed by the distribution domain (not in the commerce baseline yet).
+const DISTRIBUTION_DOC_TYPES = ["purchase_order"];
+const LIFECYCLE_OBJECTS = ["product", "order", "claim", "settlement"];
+
+// ---- A1. PLOMUS_DISTRIBUTION preset (folders/doctypes expanded against commerce) ----
+const PRESET_FOLDERS = ["10-products", "20-orders", "30-inventory", "35-partners", "40-claims", "50-settlements", "51-finance"];
+const PRESET_DOC_TYPES = ["product", "order", "stock", "claim", "settlement", "partner", "commission", "accounts_receivable", "finance_item", "invoice"];
+const distributionPreset = {
+  presetId: "PLOMUS_DISTRIBUTION",
+  label: "플로머스 탁구 유통형",
+  description: "탁구 용품 도소매 유통: 상품, 주문, 재고, 거래처, 정산, 미수금 점검 중심의 운영 기준",
+  commerceTypes: ["INVENTORY_BASED_SALES", "CONSIGNMENT_SALES"],
+  salesChannels: ["OWN_WEB", "NAVER_SMARTSTORE", "B2B_DIRECT", "OFFLINE_MANUAL"],
+  productTypes: ["PHYSICAL_PRODUCT"],
+  operationMode: "INVENTORY_CONTROLLED",
+  enabledDomains: ["PRODUCT", "ORDER", "INVENTORY", "SHIPPING", "CLAIM", "SETTLEMENT", "PARTNER", "SYSTEM"],
+  enabledRules: [
+    "PRODUCT_DESCRIPTION_MISSING",
+    "PRODUCT_IMAGE_NEEDS_REVIEW",
+    "PRODUCT_PRICE_MISSING",
+    "ORDER_SHIPPING_DELAY",
+    "INVENTORY_LOW_STOCK",
+    "CLAIM_OVERDUE",
+    "SETTLEMENT_MISMATCH",
+    "PARTNER_CONTRACT_MISSING",
+    "PARTNER_SETTLEMENT_PENDING",
+    "FINANCE_RECEIVABLE_OVERDUE",
+    "TASK_OVERDUE",
+    "TASK_DONE_CLEANUP",
+    "CHANGE_PLAN_STALE",
+    "SYNC_FAILURE_DETECTED",
+  ],
+  highPriorityRules: ["INVENTORY_LOW_STOCK", "ORDER_SHIPPING_DELAY", "SETTLEMENT_MISMATCH", "FINANCE_RECEIVABLE_OVERDUE", "PARTNER_SETTLEMENT_PENDING"],
+  enabledFolders: [...PRESET_FOLDERS, ...SYSTEM_FOLDERS],
+  enabledDocumentTypes: [...PRESET_DOC_TYPES, ...BASE_DOC_TYPES],
+  enabledWorkflows: ["commerce-review", "apply-change-plan", "inventory-review", "order-delay-review", "settlement-check", "partner-review", "daily-briefing"],
+};
+
+// ---- A2. domain-object lifecycle statuses (from packages/schemas/src/domain.schema.ts) ----
+const DOMAIN_STATUSES = [
+  { object: "product", statusField: "status", statuses: ["DRAFT", "ACTIVE", "PAUSED", "SOLD_OUT", "ARCHIVED"], extraEnums: { content_quality_status: ["GOOD", "NEEDS_SUPPLEMENT", "MISSING_REQUIRED_INFO"], image_status: ["READY", "MISSING", "NEEDS_REVIEW"] } },
+  { object: "order", statusField: "order_status", statuses: ["PAID", "PREPARING", "SHIPPED", "DELIVERED", "CANCELLED", "REFUNDED"], extraEnums: {} },
+  { object: "claim", statusField: "claim_status", statuses: ["RECEIVED", "IN_REVIEW", "WAITING_CUSTOMER", "RESOLVED", "REJECTED"], extraEnums: { claim_type: ["CANCEL", "RETURN", "EXCHANGE", "REFUND", "CS"] } },
+  { object: "settlement", statusField: "settlement_status", statuses: ["EXPECTED", "RECEIVED", "MISMATCH", "NEEDS_CHECK", "CONFIRMED"], extraEnums: {} },
+];
+
+// ---- B. distribution frontmatter fields and the vocabulary each binds to ----
+const FIELDS = [
+  { documentType: "partner", field: "partner_type", enum: "partnerTypes", required: true },
+  { documentType: "partner", field: "payment_terms", enum: "paymentTerms", required: false },
+  { documentType: "partner", field: "credit_limit", valueType: "number", required: false },
+  { documentType: "product", field: "price_tier", enum: "priceTiers", required: false },
+  { documentType: "accounts_receivable", field: "aging_bucket", enum: "receivableAgingBuckets", required: false },
+  { documentType: "purchase_order", field: "po_status", enum: "purchaseOrderStatuses", required: true },
+  { documentType: "claim", field: "return_reason", enum: "returnReasons", required: false },
+];
+
+// ---- C. defined-but-unimplemented, distribution-relevant rules (proposed EXPERIMENTAL) ----
+const EXPERIMENTAL_RULES = [
+  { ruleId: "INVENTORY_OUT_OF_STOCK", domain: "INVENTORY", status: "EXPERIMENTAL" },
+  { ruleId: "INVENTORY_OVER_STOCK", domain: "INVENTORY", status: "EXPERIMENTAL" },
+  { ruleId: "INVENTORY_SYNC_MISMATCH", domain: "INVENTORY", status: "EXPERIMENTAL" },
+  { ruleId: "SUPPLIER_RESPONSE_DELAY", domain: "SUPPLIER", status: "EXPERIMENTAL" },
+  { ruleId: "SUPPLIER_STOCK_UNCONFIRMED", domain: "SUPPLIER", status: "EXPERIMENTAL" },
+  { ruleId: "ORDER_STATUS_STALE", domain: "ORDER", status: "EXPERIMENTAL" },
+  { ruleId: "ORDER_PAYMENT_MISMATCH", domain: "ORDER", status: "EXPERIMENTAL" },
+  { ruleId: "PRODUCT_OPTION_MISSING", domain: "PRODUCT", status: "EXPERIMENTAL" },
+  { ruleId: "PRODUCT_STATUS_INCONSISTENT", domain: "PRODUCT", status: "EXPERIMENTAL" },
+  { ruleId: "SETTLEMENT_NOT_CONFIRMED", domain: "SETTLEMENT", status: "EXPERIMENTAL" },
+  { ruleId: "CLAIM_WAITING_CUSTOMER", domain: "CLAIM", status: "EXPERIMENTAL" },
+  { ruleId: "REFUND_DELAY", domain: "CLAIM", status: "EXPERIMENTAL" },
+];
+
+const base = {
+  schemaVersion: "1.0.0",
+  source: "plomus-distribution-ai-os",
+  sourceImportedAt: generatedAt,
+  builtOnCommerce: "contracts/v1",
+  partnerTypes: PARTNER_TYPES,
+  paymentTerms: PAYMENT_TERMS,
+  priceTiers: PRICE_TIERS,
+  receivableAgingBuckets: RECEIVABLE_AGING_BUCKETS,
+  purchaseOrderStatuses: PURCHASE_ORDER_STATUSES,
+  returnReasons: RETURN_REASONS,
+  ruleStatuses: RULE_STATUSES,
+  documentTypes: DISTRIBUTION_DOC_TYPES,
+  lifecycleObjects: LIFECYCLE_OBJECTS,
+};
+
+writeJson("contracts/distribution/v1/base.json", base);
+writeJson("contracts/distribution/v1/presets.json", { schemaVersion: "1.0.0", presets: [distributionPreset] });
+writeJson("contracts/distribution/v1/domain-statuses.json", { schemaVersion: "1.0.0", objects: DOMAIN_STATUSES });
+writeJson("contracts/distribution/v1/fields.json", { schemaVersion: "1.0.0", note: "Distribution frontmatter fields and the controlled vocabulary each binds to.", fields: FIELDS });
+writeJson("contracts/distribution/v1/experimental-rules.json", { schemaVersion: "1.0.0", note: "Defined-but-unimplemented rules proposed for distribution; not part of the commerce ACTIVE baseline.", rules: EXPERIMENTAL_RULES });
+
+console.log(`imported distribution contracts (source: ${distRepo})`);
+console.log(`  preset: ${distributionPreset.presetId}, domain-statuses: ${DOMAIN_STATUSES.length}, fields: ${FIELDS.length}, experimental rules: ${EXPERIMENTAL_RULES.length}`);

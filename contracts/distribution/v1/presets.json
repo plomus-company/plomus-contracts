@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "presets": [
+    {
+      "presetId": "PLOMUS_DISTRIBUTION",
+      "label": "플로머스 탁구 유통형",
+      "description": "탁구 용품 도소매 유통: 상품, 주문, 재고, 거래처, 정산, 미수금 점검 중심의 운영 기준",
+      "commerceTypes": [
+        "INVENTORY_BASED_SALES",
+        "CONSIGNMENT_SALES"
+      ],
+      "salesChannels": [
+        "OWN_WEB",
+        "NAVER_SMARTSTORE",
+        "B2B_DIRECT",
+        "OFFLINE_MANUAL"
+      ],
+      "productTypes": [
+        "PHYSICAL_PRODUCT"
+      ],
+      "operationMode": "INVENTORY_CONTROLLED",
+      "enabledDomains": [
+        "PRODUCT",
+        "ORDER",
+        "INVENTORY",
+        "SHIPPING",
+        "CLAIM",
+        "SETTLEMENT",
+        "PARTNER",
+        "SYSTEM"
+      ],
+      "enabledRules": [
+        "PRODUCT_DESCRIPTION_MISSING",
+        "PRODUCT_IMAGE_NEEDS_REVIEW",
+        "PRODUCT_PRICE_MISSING",
+        "ORDER_SHIPPING_DELAY",
+        "INVENTORY_LOW_STOCK",
+        "CLAIM_OVERDUE",
+        "SETTLEMENT_MISMATCH",
+        "PARTNER_CONTRACT_MISSING",
+        "PARTNER_SETTLEMENT_PENDING",
+        "FINANCE_RECEIVABLE_OVERDUE",
+        "TASK_OVERDUE",
+        "TASK_DONE_CLEANUP",
+        "CHANGE_PLAN_STALE",
+        "SYNC_FAILURE_DETECTED"
+      ],
+      "highPriorityRules": [
+        "INVENTORY_LOW_STOCK",
+        "ORDER_SHIPPING_DELAY",
+        "SETTLEMENT_MISMATCH",
+        "FINANCE_RECEIVABLE_OVERDUE",
+        "PARTNER_SETTLEMENT_PENDING"
+      ],
+      "enabledFolders": [
+        "10-products",
+        "20-orders",
+        "30-inventory",
+        "35-partners",
+        "40-claims",
+        "50-settlements",
+        "51-finance",
+        "05-onboarding",
+        "60-ai-recommendations",
+        "65-change-plans",
+        "70-tasks",
+        "80-workflows",
+        "90-system/profiles",
+        "90-system/commerce-reviews",
+        "90-system/sync-events",
+        "90-system/cloud-commands",
+        "90-system/hermes-commands",
+        "90-system/hermes-results",
+        "90-system/backups",
+        "90-system/validation-errors"
+      ],
+      "enabledDocumentTypes": [
+        "product",
+        "order",
+        "stock",
+        "claim",
+        "settlement",
+        "partner",
+        "commission",
+        "accounts_receivable",
+        "finance_item",
+        "invoice",
+        "commerce_review",
+        "ai_recommendation",
+        "change_plan",
+        "task",
+        "sync_event",
+        "cloud_command",
+        "hermes_command",
+        "hermes_result",
+        "validation_error"
+      ],
+      "enabledWorkflows": [
+        "commerce-review",
+        "apply-change-plan",
+        "inventory-review",
+        "order-delay-review",
+        "settlement-check",
+        "partner-review",
+        "daily-briefing"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "note": "Distribution frontmatter fields and the controlled vocabulary each binds to.",
+  "fields": [
+    {
+      "documentType": "partner",
+      "field": "partner_type",
+      "enum": "partnerTypes",
+      "required": true
+    },
+    {
+      "documentType": "partner",
+      "field": "payment_terms",
+      "enum": "paymentTerms",
+      "required": false
+    },
+    {
+      "documentType": "partner",
+      "field": "credit_limit",
+      "valueType": "number",
+      "required": false
+    },
+    {
+      "documentType": "product",
+      "field": "price_tier",
+      "enum": "priceTiers",
+      "required": false
+    },
+    {
+      "documentType": "accounts_receivable",
+      "field": "aging_bucket",
+      "enum": "receivableAgingBuckets",
+      "required": false
+    },
+    {
+      "documentType": "purchase_order",
+      "field": "po_status",
+      "enum": "purchaseOrderStatuses",
+      "required": true
+    },
+    {
+      "documentType": "claim",
+      "field": "return_reason",
+      "enum": "returnReasons",
+      "required": false
+    }
+  ]
+}

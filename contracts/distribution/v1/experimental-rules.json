@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "note": "Defined-but-unimplemented rules proposed for distribution; not part of the commerce ACTIVE baseline.",
+  "rules": [
+    {
+      "ruleId": "INVENTORY_OUT_OF_STOCK",
+      "domain": "INVENTORY",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "INVENTORY_OVER_STOCK",
+      "domain": "INVENTORY",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "INVENTORY_SYNC_MISMATCH",
+      "domain": "INVENTORY",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "SUPPLIER_RESPONSE_DELAY",
+      "domain": "SUPPLIER",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "SUPPLIER_STOCK_UNCONFIRMED",
+      "domain": "SUPPLIER",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "ORDER_STATUS_STALE",
+      "domain": "ORDER",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "ORDER_PAYMENT_MISMATCH",
+      "domain": "ORDER",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "PRODUCT_OPTION_MISSING",
+      "domain": "PRODUCT",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "PRODUCT_STATUS_INCONSISTENT",
+      "domain": "PRODUCT",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "SETTLEMENT_NOT_CONFIRMED",
+      "domain": "SETTLEMENT",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "CLAIM_WAITING_CUSTOMER",
+      "domain": "CLAIM",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "ruleId": "REFUND_DELAY",
+      "domain": "CLAIM",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

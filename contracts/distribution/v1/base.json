@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "plomus-distribution-ai-os",
+  "sourceImportedAt": "2026-05-21T15:50:06.441Z",
+  "builtOnCommerce": "contracts/v1",
+  "partnerTypes": [
+    "WHOLESALE_BUYER",
+    "RETAIL_BUYER",
+    "CONSIGNMENT_PARTNER",
+    "SUPPLIER"
+  ],
+  "paymentTerms": [
+    "PREPAID",
+    "COD",
+    "NET_15",
+    "NET_30",
+    "NET_60",
+    "MONTHLY_CLOSE"
+  ],
+  "priceTiers": [
+    "SUPPLY",
+    "WHOLESALE",
+    "RETAIL",
+    "ONLINE",
+    "PARTNER"
+  ],
+  "receivableAgingBuckets": [
+    "CURRENT",
+    "DUE_0_30",
+    "DUE_31_60",
+    "DUE_61_90",
+    "OVERDUE_90_PLUS"
+  ],
+  "purchaseOrderStatuses": [
+    "DRAFT",
+    "ORDERED",
+    "PARTIALLY_RECEIVED",
+    "RECEIVED",
+    "CANCELLED"
+  ],
+  "returnReasons": [
+    "DEFECT",
+    "WRONG_ITEM",
+    "CHANGE_OF_MIND",
+    "DELIVERY_DAMAGE",
+    "OVER_SHIPMENT",
+    "EXPIRED"
+  ],
+  "ruleStatuses": [
+    "ACTIVE",
+    "EXPERIMENTAL",
+    "DEPRECATED",
+    "REMOVED"
+  ],
+  "documentTypes": [
+    "purchase_order"
+  ],
+  "lifecycleObjects": [
+    "product",
+    "order",
+    "claim",
+    "settlement"
+  ]
+}
