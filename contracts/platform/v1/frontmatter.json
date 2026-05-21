@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "product",
+      "localIdPrefix": "PROD-",
+      "statusField": "status",
+      "statuses": [
+        "DRAFT",
+        "ACTIVE",
+        "PAUSED",
+        "SOLD_OUT",
+        "ARCHIVED"
+      ],
+      "extraEnums": {
+        "content_quality_status": [
+          "GOOD",
+          "NEEDS_SUPPLEMENT",
+          "MISSING_REQUIRED_INFO"
+        ],
+        "image_status": [
+          "READY",
+          "MISSING",
+          "NEEDS_REVIEW"
+        ]
+      },
+      "requiredFields": [
+        "type",
+        "local_id",
+        "product_name",
+        "status"
+      ]
+    },
+    {
+      "documentType": "order",
+      "localIdPrefix": "ORDER-",
+      "statusField": "order_status",
+      "statuses": [
+        "PAID",
+        "PREPARING",
+        "SHIPPED",
+        "DELIVERED",
+        "CANCELLED",
+        "REFUNDED"
+      ],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "order_number",
+        "order_status",
+        "payment_amount"
+      ]
+    },
+    {
+      "documentType": "claim",
+      "localIdPrefix": "CLAIM-",
+      "statusField": "claim_status",
+      "statuses": [
+        "RECEIVED",
+        "IN_REVIEW",
+        "WAITING_CUSTOMER",
+        "RESOLVED",
+        "REJECTED"
+      ],
+      "extraEnums": {
+        "claim_type": [
+          "CANCEL",
+          "RETURN",
+          "EXCHANGE",
+          "REFUND",
+          "CS"
+        ]
+      },
+      "requiredFields": [
+        "type",
+        "local_id",
+        "claim_type",
+        "claim_status"
+      ]
+    },
+    {
+      "documentType": "settlement",
+      "localIdPrefix": "SETTLE-",
+      "statusField": "settlement_status",
+      "statuses": [
+        "EXPECTED",
+        "RECEIVED",
+        "MISMATCH",
+        "NEEDS_CHECK",
+        "CONFIRMED"
+      ],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "settlement_period",
+        "expected_amount",
+        "settlement_status"
+      ]
+    }
+  ]
+}

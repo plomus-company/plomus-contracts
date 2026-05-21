@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "plomus-commerce-ai-os",
+  "sourceImportedAt": "2026-05-21T16:12:31.215Z",
+  "builtOnCommerce": "contracts/v1",
+  "lifecycleObjects": [
+    "product",
+    "order",
+    "claim",
+    "settlement"
+  ],
+  "eventObjects": [
+    "profile",
+    "commerceReview",
+    "aiRecommendation",
+    "changePlan",
+    "task",
+    "system"
+  ],
+  "errorCategories": [
+    "config",
+    "document",
+    "validation",
+    "workflow",
+    "changePlan",
+    "patch",
+    "sync",
+    "task"
+  ]
+}
