@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "plomus-gameops-ai-os",
+  "sourceImportedAt": "2026-05-21T16:30:29.359Z",
+  "builtOnBenchmarks": "contracts/benchmarks/v1",
+  "riskLevels": [
+    "low",
+    "medium",
+    "high",
+    "critical"
+  ],
+  "roles": [
+    "owner",
+    "admin",
+    "operation_pm",
+    "operator",
+    "viewer",
+    "bot"
+  ],
+  "approvalPolicies": [
+    "admin_multi",
+    "operation_pm",
+    "single"
+  ],
+  "approvalStatuses": [
+    "pending",
+    "approved",
+    "rejected"
+  ],
+  "approvalChannels": [
+    "WEB",
+    "TELEGRAM"
+  ],
+  "executionStates": [
+    "created",
+    "dry_run_required",
+    "dry_running",
+    "dry_run_succeeded",
+    "dry_run_failed",
+    "approval_required",
+    "approved",
+    "execution_queued",
+    "executing",
+    "execution_succeeded",
+    "execution_failed",
+    "verification_running",
+    "verified",
+    "verification_failed",
+    "completed",
+    "rollback_required",
+    "rollback_running",
+    "rollback_succeeded",
+    "rollback_failed"
+  ],
+  "commandStates": [
+    "created",
+    "parsed",
+    "permission_checked",
+    "approval_required",
+    "approved",
+    "queued",
+    "claimed",
+    "running",
+    "succeeded",
+    "failed",
+    "synced",
+    "archived",
+    "rejected"
+  ]
+}

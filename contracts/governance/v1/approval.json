@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "policies": [
+    {
+      "policy": "admin_multi",
+      "requiredApprovals": 2
+    },
+    {
+      "policy": "operation_pm",
+      "requiredApprovals": 1
+    },
+    {
+      "policy": "single",
+      "requiredApprovals": 1
+    }
+  ],
+  "riskPolicy": [
+    {
+      "riskLevel": "critical",
+      "requiresApproval": true,
+      "approvalPolicy": "admin_multi"
+    },
+    {
+      "riskLevel": "high",
+      "requiresApproval": true,
+      "approvalPolicy": "operation_pm"
+    },
+    {
+      "riskLevel": "medium",
+      "requiresApproval": false,
+      "approvalPolicy": null
+    },
+    {
+      "riskLevel": "low",
+      "requiresApproval": false,
+      "approvalPolicy": null
+    }
+  ]
+}

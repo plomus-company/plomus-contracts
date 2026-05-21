@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "roles": [
+    {
+      "role": "owner",
+      "rank": 5
+    },
+    {
+      "role": "admin",
+      "rank": 4
+    },
+    {
+      "role": "operation_pm",
+      "rank": 3
+    },
+    {
+      "role": "operator",
+      "rank": 2
+    },
+    {
+      "role": "viewer",
+      "rank": 1
+    },
+    {
+      "role": "bot",
+      "rank": 0
+    }
+  ],
+  "approvalCapability": [
+    {
+      "riskLevel": "critical",
+      "allowedRoles": [
+        "owner",
+        "admin"
+      ]
+    },
+    {
+      "riskLevel": "high",
+      "allowedRoles": [
+        "owner",
+        "admin",
+        "operation_pm"
+      ]
+    },
+    {
+      "riskLevel": "medium",
+      "allowedRoles": [
+        "operator",
+        "operation_pm",
+        "admin",
+        "owner"
+      ]
+    },
+    {
+      "riskLevel": "low",
+      "allowedRoles": [
+        "operator",
+        "operation_pm",
+        "admin",
+        "owner"
+      ]
+    }
+  ]
+}

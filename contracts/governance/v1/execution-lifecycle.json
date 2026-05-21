@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0.0",
+  "states": [
+    "created",
+    "dry_run_required",
+    "dry_running",
+    "dry_run_succeeded",
+    "dry_run_failed",
+    "approval_required",
+    "approved",
+    "execution_queued",
+    "executing",
+    "execution_succeeded",
+    "execution_failed",
+    "verification_running",
+    "verified",
+    "verification_failed",
+    "completed",
+    "rollback_required",
+    "rollback_running",
+    "rollback_succeeded",
+    "rollback_failed"
+  ],
+  "transitions": {
+    "created": [
+      "dry_run_required"
+    ],
+    "dry_run_required": [
+      "dry_running"
+    ],
+    "dry_running": [
+      "dry_run_succeeded",
+      "dry_run_failed"
+    ],
+    "dry_run_succeeded": [
+      "approval_required",
+      "execution_queued"
+    ],
+    "dry_run_failed": [],
+    "approval_required": [
+      "approved"
+    ],
+    "approved": [
+      "execution_queued"
+    ],
+    "execution_queued": [
+      "executing"
+    ],
+    "executing": [
+      "execution_succeeded",
+      "execution_failed"
+    ],
+    "execution_succeeded": [
+      "verification_running"
+    ],
+    "execution_failed": [
+      "rollback_required"
+    ],
+    "verification_running": [
+      "verified",
+      "verification_failed"
+    ],
+    "verified": [
+      "completed"
+    ],
+    "verification_failed": [
+      "rollback_required"
+    ],
+    "completed": [],
+    "rollback_required": [
+      "rollback_running"
+    ],
+    "rollback_running": [
+      "rollback_succeeded",
+      "rollback_failed"
+    ],
+    "rollback_succeeded": [],
+    "rollback_failed": []
+  },
+  "commandStates": [
+    "created",
+    "parsed",
+    "permission_checked",
+    "approval_required",
+    "approved",
+    "queued",
+    "claimed",
+    "running",
+    "succeeded",
+    "failed",
+    "synced",
+    "archived",
+    "rejected"
+  ],
+  "commandTransitions": {
+    "created": [
+      "parsed"
+    ],
+    "parsed": [
+      "permission_checked"
+    ],
+    "permission_checked": [
+      "approval_required",
+      "queued",
+      "rejected"
+    ],
+    "approval_required": [
+      "approved",
+      "rejected"
+    ],
+    "approved": [
+      "queued"
+    ],
+    "queued": [
+      "claimed"
+    ],
+    "claimed": [
+      "running"
+    ],
+    "running": [
+      "succeeded",
+      "failed"
+    ],
+    "succeeded": [
+      "synced"
+    ],
+    "failed": [
+      "synced",
+      "archived"
+    ],
+    "synced": [
+      "archived"
+    ],
+    "rejected": [
+      "archived"
+    ],
+    "archived": []
+  },
+  "executionSteps": [
+    {
+      "step": "validate",
+      "required": true
+    },
+    {
+      "step": "dryRun",
+      "required": true
+    },
+    {
+      "step": "execute",
+      "required": true
+    },
+    {
+      "step": "verify",
+      "required": true
+    },
+    {
+      "step": "rollback",
+      "required": false
+    }
+  ]
+}
