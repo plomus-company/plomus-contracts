@@ -1,0 +1,32 @@
+name: Contract change
+description: Propose a preset, workflow, rule, or core contract change.
+title: "[contract] "
+labels:
+  - contract
+body:
+  - type: dropdown
+    id: contract_type
+    attributes:
+      label: Contract type
+      options:
+        - preset
+        - workflow
+        - review-rule
+        - core-enum
+        - document-type
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Change
+      description: Describe the new or updated contract.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      description: Note whether this is patch, minor, or major.
+    validations:
+      required: true

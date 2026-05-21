@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "APP_PRIVACY_POLICY_MISSING",
+      "domain": "APP_DISTRIBUTION",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "APP_RELEASE_DELAY",
+      "domain": "APP_DISTRIBUTION",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "APP_STORE_METADATA_MISSING",
+      "domain": "APP_DISTRIBUTION",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "APP_VERSION_STALE",
+      "domain": "APP_DISTRIBUTION",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "CHANGE_PLAN_STALE",
+      "domain": "SYSTEM",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "CLAIM_OVERDUE",
+      "domain": "CLAIM",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "EXPENSE_REPORT_PENDING",
+      "domain": "FINANCE",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "FINANCE_MONTHLY_CLOSE_DUE",
+      "domain": "FINANCE",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "FINANCE_PAYABLE_DUE",
+      "domain": "FINANCE",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "FINANCE_RECEIVABLE_OVERDUE",
+      "domain": "FINANCE",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "HR_LEAVE_APPROVAL_PENDING",
+      "domain": "HR",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "HR_ONBOARDING_DELAY",
+      "domain": "HR",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "HR_PROBATION_REVIEW_DUE",
+      "domain": "HR",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "INCIDENT_FOLLOWUP_DUE",
+      "domain": "GENERAL_OPERATIONS",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "INVENTORY_LOW_STOCK",
+      "domain": "INVENTORY",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "LEGAL_POLICY_MISSING",
+      "domain": "LEGAL_POLICY",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "MEETING_ACTION_OVERDUE",
+      "domain": "ALWAYS_ON",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "OPERATIONS_REQUEST_SLA",
+      "domain": "GENERAL_OPERATIONS",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "ORDER_SHIPPING_DELAY",
+      "domain": "ORDER",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PARTNER_CONTRACT_MISSING",
+      "domain": "PARTNER",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PARTNER_SETTLEMENT_PENDING",
+      "domain": "PARTNER",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PERIODIC_REPORT_DUE",
+      "domain": "RECURRING",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PRIVACY_POLICY_MISSING",
+      "domain": "LEGAL_POLICY",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PROCUREMENT_APPROVAL_PENDING",
+      "domain": "PROCUREMENT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PRODUCT_DESCRIPTION_MISSING",
+      "domain": "PRODUCT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PRODUCT_IMAGE_NEEDS_REVIEW",
+      "domain": "PRODUCT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "PRODUCT_PRICE_MISSING",
+      "domain": "PRODUCT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "RECURRING_CHECKLIST_DUE",
+      "domain": "RECURRING",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "SETTLEMENT_MISMATCH",
+      "domain": "SETTLEMENT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "SI_CONTRACT_MISSING",
+      "domain": "SI_PROJECT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "SI_DELIVERABLE_DELAY",
+      "domain": "SI_PROJECT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "SI_INVOICE_PENDING",
+      "domain": "SI_PROJECT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "SI_MAINTENANCE_PENDING",
+      "domain": "SI_PROJECT",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "SYNC_FAILURE_DETECTED",
+      "domain": "SYSTEM",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "TASK_DONE_CLEANUP",
+      "domain": "SYSTEM",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "TASK_OVERDUE",
+      "domain": "SYSTEM",
+      "status": "ACTIVE"
+    },
+    {
+      "ruleId": "TERMS_OF_SERVICE_MISSING",
+      "domain": "LEGAL_POLICY",
+      "status": "ACTIVE"
+    }
+  ]
+}

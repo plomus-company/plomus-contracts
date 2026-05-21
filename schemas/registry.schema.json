@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/plomus-company/plomus-contracts/schemas/registry.schema.json",
+  "title": "Plomus Contract Registry",
+  "type": "object",
+  "required": ["schemaVersion", "contracts"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "contracts": {
+      "type": "object"
+    }
+  }
+}
