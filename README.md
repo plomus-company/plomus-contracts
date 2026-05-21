@@ -9,7 +9,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | **Commerce** | `contracts/v1/` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/v1/README.md](contracts/v1/README.md) |
 | **Skills** | `contracts/skills/v1/` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15 | [contracts/skills/v1/README.md](contracts/skills/v1/README.md) |
 | **Benchmarks** | `contracts/benchmarks/v1/` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks/v1/README.md](contracts/benchmarks/v1/README.md) |
-| **Distribution** | `contracts/distribution/v1/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 도메인상태 4 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/v1/README.md](contracts/distribution/v1/README.md) |
+| **Distribution** | `contracts/distribution/v1/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/v1/README.md](contracts/distribution/v1/README.md) |
 | **Protocol** | `contracts/protocol/v1/` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [contracts/protocol/v1/README.md](contracts/protocol/v1/README.md) |
 | **Platform** | `contracts/platform/v1/` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [contracts/platform/v1/README.md](contracts/platform/v1/README.md) |
 | **Governance** | `contracts/governance/v1/` | `plomus-gameops-ai-os` (benchmarks 교차참조) | role 6 · 실행상태 19 · 승인정책 3 · risk→model 4 | [contracts/governance/v1/README.md](contracts/governance/v1/README.md) |
@@ -61,7 +61,6 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 |---|---|
 | `base.json` | 유통 어휘 — 거래처유형·결제조건·가격티어·미수금aging·발주상태·반품사유 |
 | `presets.json` | `PLOMUS_DISTRIBUTION` preset (A1) — commerce 규칙/워크플로/폴더 교차검증 |
-| `domain-statuses.json` | 도메인 객체 lifecycle 상태(4) — product/order/claim/settlement (A2) |
 | `fields.json` | 유통 frontmatter 필드 ↔ 어휘 바인딩(7) (B) |
 | `experimental-rules.json` | 미구현 유통 규칙(12) — EXPERIMENTAL (C) |
 

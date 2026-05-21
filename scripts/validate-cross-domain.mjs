@@ -9,31 +9,13 @@ const failures = [];
 const fail = (scope, message) => failures.push({ scope, message });
 const eq = (a, b) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 
-// 1) domain-object statuses must agree between platform.frontmatter (canonical)
-//    and distribution.domain-statuses (duplicate). They are both derived from the
-//    same product Zod schemas, so any divergence is a drift bug.
-const platformDocs = readJson("contracts/platform/v1/frontmatter.json").documents ?? [];
-const distObjects = readJson("contracts/distribution/v1/domain-statuses.json").objects ?? [];
-const platformByObj = new Map(platformDocs.map((d) => [d.documentType, d]));
-const distByObj = new Map(distObjects.map((o) => [o.object, o]));
-
-for (const obj of distByObj.keys()) {
-  const scope = `domain-status:${obj}`;
-  const p = platformByObj.get(obj);
-  const d = distByObj.get(obj);
-  if (!p) {
-    fail(scope, `distribution defines '${obj}' statuses but platform.frontmatter does not (platform is canonical).`);
-    continue;
-  }
-  if (!eq(p.statuses, d.statuses)) {
-    fail(scope, `statuses differ between platform.frontmatter and distribution.domain-statuses.`);
-  }
-  if (p.statusField !== d.statusField) {
-    fail(scope, `statusField differs: platform='${p.statusField}' distribution='${d.statusField}'.`);
-  }
-  if (!eq(p.extraEnums ?? {}, d.extraEnums ?? {})) {
-    fail(scope, `extraEnums differ between platform.frontmatter and distribution.domain-statuses.`);
-  }
+// 1) platform.frontmatter is the single owner of domain-object lifecycle statuses
+//    (distribution no longer duplicates them). Guard that the canonical status
+//    objects remain present so consumers that previously read distribution can
+//    rely on platform.
+const platformObjs = new Set((readJson("contracts/platform/v1/frontmatter.json").documents ?? []).map((d) => d.documentType));
+for (const obj of ["product", "order", "claim", "settlement"]) {
+  if (!platformObjs.has(obj)) fail("domain-status", `platform.frontmatter must define lifecycle object '${obj}'.`);
 }
 
 // 2) governance is the single source of operational risk levels. gameops must not

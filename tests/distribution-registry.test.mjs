@@ -25,8 +25,6 @@ test("distribution registry validates and builds a distributable artifact", () =
 
   // A1: the PLOMUS_DISTRIBUTION preset is present
   assert.ok(dist.contracts.presets.some((p) => p.presetId === "PLOMUS_DISTRIBUTION"));
-  // A2: domain-object lifecycle statuses captured
-  assert.ok(dist.contracts.domainStatuses.some((o) => o.object === "order"));
   // C: experimental rules captured
   assert.ok(dist.contracts.experimentalRules.length >= 8);
 

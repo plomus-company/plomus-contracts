@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "source": "plomus-distribution-ai-os",
-  "sourceImportedAt": "2026-05-21T15:50:06.441Z",
+  "sourceImportedAt": "2026-05-21T23:16:05.166Z",
   "builtOnCommerce": "contracts/v1",
   "partnerTypes": [
     "WHOLESALE_BUYER",
@@ -54,11 +54,5 @@
   ],
   "documentTypes": [
     "purchase_order"
-  ],
-  "lifecycleObjects": [
-    "product",
-    "order",
-    "claim",
-    "settlement"
   ]
 }

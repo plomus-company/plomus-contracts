@@ -16,7 +16,7 @@
 | 코드 | 점검에서 발견 | 계약 |
 |---|---|---|
 | **A1** | `PLOMUS_DISTRIBUTION` preset이 공개 registry에 없음 | `presets.json` |
-| **A2** | product/order/claim/settlement lifecycle 상태가 Zod 스키마에만 존재(`domain.schema.ts`), 어떤 계약에도 없음 | `domain-statuses.json` |
+| **A2** | product/order/claim/settlement lifecycle 상태가 Zod 스키마에만 존재(`domain.schema.ts`) | **platform/frontmatter로 통합**(중복 제거) |
 | **B** | 거래처 유형·결제조건·여신·가격티어·미수금 aging·발주/입고·반품사유가 자유형 frontmatter로만 존재 | `base.json` 어휘 + `fields.json` 바인딩 |
 | **C** | 59개 정의 규칙 중 미구현 ~22개에 유통 핵심(품절/과재고/공급사/주문상태…) 포함 | `experimental-rules.json` (EXPERIMENTAL) |
 
@@ -24,7 +24,7 @@
 
 - 모든 base 어휘 고유.
 - **A1 preset**: commerceType/channel/productType/operationMode/domain은 commerce `core.*`에, enabledRules는 commerce `review-rules`에, enabledWorkflows는 commerce `workflows`에, folders는 commerce(system∪watch)에, docTypes는 commerce∪distribution 문서타입에 존재.
-- **A2**: object는 `lifecycleObjects`에, statuses 비어있지 않고 고유, extraEnums 고유.
+- **A2**: 도메인 객체 상태는 platform/frontmatter가 단일 보유(이 도메인은 더 이상 중복하지 않음); 교차 도메인 검증기가 platform 보유를 보장.
 - **B fields**: documentType은 commerce∪distribution에, enum은 base 어휘 키 또는 valueType primitive.
 - **C experimental-rules**: ruleId 고유·commerce ACTIVE와 비충돌(추가 제안), domain은 commerce `commerceDomains`에, status는 `ruleStatuses`에.
 

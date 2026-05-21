@@ -48,7 +48,8 @@ const RETURN_REASONS = ["DEFECT", "WRONG_ITEM", "CHANGE_OF_MIND", "DELIVERY_DAMA
 const RULE_STATUSES = ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "REMOVED"];
 // Document type proposed by the distribution domain (not in the commerce baseline yet).
 const DISTRIBUTION_DOC_TYPES = ["purchase_order"];
-const LIFECYCLE_OBJECTS = ["product", "order", "claim", "settlement"];
+// NOTE: domain-object lifecycle statuses (product/order/claim/settlement) are no
+// longer duplicated here — they are owned by contracts/platform/v1/frontmatter.json.
 
 // ---- A1. PLOMUS_DISTRIBUTION preset (folders/doctypes expanded against commerce) ----
 const PRESET_FOLDERS = ["10-products", "20-orders", "30-inventory", "35-partners", "40-claims", "50-settlements", "51-finance"];
@@ -83,14 +84,6 @@ const distributionPreset = {
   enabledDocumentTypes: [...PRESET_DOC_TYPES, ...BASE_DOC_TYPES],
   enabledWorkflows: ["commerce-review", "apply-change-plan", "inventory-review", "order-delay-review", "settlement-check", "partner-review", "daily-briefing"],
 };
-
-// ---- A2. domain-object lifecycle statuses (from packages/schemas/src/domain.schema.ts) ----
-const DOMAIN_STATUSES = [
-  { object: "product", statusField: "status", statuses: ["DRAFT", "ACTIVE", "PAUSED", "SOLD_OUT", "ARCHIVED"], extraEnums: { content_quality_status: ["GOOD", "NEEDS_SUPPLEMENT", "MISSING_REQUIRED_INFO"], image_status: ["READY", "MISSING", "NEEDS_REVIEW"] } },
-  { object: "order", statusField: "order_status", statuses: ["PAID", "PREPARING", "SHIPPED", "DELIVERED", "CANCELLED", "REFUNDED"], extraEnums: {} },
-  { object: "claim", statusField: "claim_status", statuses: ["RECEIVED", "IN_REVIEW", "WAITING_CUSTOMER", "RESOLVED", "REJECTED"], extraEnums: { claim_type: ["CANCEL", "RETURN", "EXCHANGE", "REFUND", "CS"] } },
-  { object: "settlement", statusField: "settlement_status", statuses: ["EXPECTED", "RECEIVED", "MISMATCH", "NEEDS_CHECK", "CONFIRMED"], extraEnums: {} },
-];
 
 // ---- B. distribution frontmatter fields and the vocabulary each binds to ----
 const FIELDS = [
@@ -132,14 +125,12 @@ const base = {
   returnReasons: RETURN_REASONS,
   ruleStatuses: RULE_STATUSES,
   documentTypes: DISTRIBUTION_DOC_TYPES,
-  lifecycleObjects: LIFECYCLE_OBJECTS,
 };
 
 writeJson("contracts/distribution/v1/base.json", base);
 writeJson("contracts/distribution/v1/presets.json", { schemaVersion: "1.0.0", presets: [distributionPreset] });
-writeJson("contracts/distribution/v1/domain-statuses.json", { schemaVersion: "1.0.0", objects: DOMAIN_STATUSES });
 writeJson("contracts/distribution/v1/fields.json", { schemaVersion: "1.0.0", note: "Distribution frontmatter fields and the controlled vocabulary each binds to.", fields: FIELDS });
 writeJson("contracts/distribution/v1/experimental-rules.json", { schemaVersion: "1.0.0", note: "Defined-but-unimplemented rules proposed for distribution; not part of the commerce ACTIVE baseline.", rules: EXPERIMENTAL_RULES });
 
 console.log(`imported distribution contracts (source: ${distRepo})`);
-console.log(`  preset: ${distributionPreset.presetId}, domain-statuses: ${DOMAIN_STATUSES.length}, fields: ${FIELDS.length}, experimental rules: ${EXPERIMENTAL_RULES.length}`);
+console.log(`  preset: ${distributionPreset.presetId}, fields: ${FIELDS.length}, experimental rules: ${EXPERIMENTAL_RULES.length} (domain statuses now in platform/frontmatter)`);

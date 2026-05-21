@@ -24,7 +24,6 @@ const targets = [
   "contracts/benchmarks/v1/rollups.json",
   "contracts/distribution/v1/base.json",
   "contracts/distribution/v1/presets.json",
-  "contracts/distribution/v1/domain-statuses.json",
   "contracts/distribution/v1/fields.json",
   "contracts/distribution/v1/experimental-rules.json",
   "contracts/protocol/v1/base.json",

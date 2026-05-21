@@ -15,11 +15,9 @@ const registry = {
     returnReasons: base.returnReasons ?? [],
     ruleStatuses: base.ruleStatuses ?? [],
     documentTypes: base.documentTypes ?? [],
-    lifecycleObjects: base.lifecycleObjects ?? [],
   },
   contracts: {
     presets: readJson("contracts/distribution/v1/presets.json").presets ?? [],
-    domainStatuses: readJson("contracts/distribution/v1/domain-statuses.json").objects ?? [],
     fields: readJson("contracts/distribution/v1/fields.json").fields ?? [],
     experimentalRules: readJson("contracts/distribution/v1/experimental-rules.json").rules ?? [],
   },

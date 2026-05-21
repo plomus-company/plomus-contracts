@@ -10,9 +10,9 @@ contracts/v1/ (commerce baseline) ──(read-only cross-ref)──▶ presets/e
 contracts/distribution/v1/
   base.json            # 유통 통제 어휘
   presets.json         # PLOMUS_DISTRIBUTION preset (A1)
-  domain-statuses.json # 도메인 객체 lifecycle 상태 (A2)
   fields.json          # 유통 frontmatter 필드 ↔ 어휘 바인딩 (B)
   experimental-rules.json # 정의됐으나 미구현인 유통 규칙 (C, EXPERIMENTAL)
+  # A2(도메인 객체 lifecycle 상태)는 platform/frontmatter로 통합됨
 ```
 
 ---
@@ -43,18 +43,9 @@ contracts/distribution/v1/
 
 ---
 
-## domain-statuses.json — 도메인 객체 lifecycle (A2)
+## 도메인 객체 lifecycle 상태 (A2) — platform으로 통합됨
 
-`packages/schemas/src/domain.schema.ts`에만 있고 어떤 계약에도 없던 상태 어휘입니다. 공개 `base.json`의 `core.statuses`는 **시스템 객체**(commerceReview/task…)만 담아 도메인 객체 상태는 빈틈이었습니다.
-
-| object | statusField | statuses | extraEnums |
-|---|---|---|---|
-| product | status | DRAFT/ACTIVE/PAUSED/SOLD_OUT/ARCHIVED | content_quality_status, image_status |
-| order | order_status | PAID/PREPARING/SHIPPED/DELIVERED/CANCELLED/REFUNDED | — |
-| claim | claim_status | RECEIVED/IN_REVIEW/WAITING_CUSTOMER/RESOLVED/REJECTED | claim_type |
-| settlement | settlement_status | EXPECTED/RECEIVED/MISMATCH/NEEDS_CHECK/CONFIRMED | — |
-
-> 모든 커머스/유통 제품이 공유하는 어휘라, 향후 공개 commerce baseline(`core.statuses`)으로 승격 후보입니다.
+product/order/claim/settlement의 상태 어휘는 이전에 이 도메인의 `domain-statuses.json`에 있었으나, 모든 커머스/유통 제품이 공유하는 어휘이므로 **[platform/frontmatter](../../platform/v1/frontmatter.json)** 단일 출처로 통합했습니다(중복 제거). 교차 도메인 검증기가 platform이 해당 객체를 계속 보유하는지 보장합니다.
 
 ---
 

@@ -19,7 +19,6 @@ const assertUnique = (scope, field, values) => {
 // ---- distribution domain ----
 const base = readJson("contracts/distribution/v1/base.json");
 const presets = readJson("contracts/distribution/v1/presets.json").presets ?? [];
-const domainStatuses = readJson("contracts/distribution/v1/domain-statuses.json").objects ?? [];
 const fields = readJson("contracts/distribution/v1/fields.json").fields ?? [];
 const experimentalRules = readJson("contracts/distribution/v1/experimental-rules.json").rules ?? [];
 
@@ -47,7 +46,7 @@ const ENUM_KEYS = {
 };
 
 // ---- base enums unique ----
-for (const [field, values] of Object.entries({ ...ENUM_KEYS, ruleStatuses: base.ruleStatuses ?? [], documentTypes: distributionDocTypes, lifecycleObjects: base.lifecycleObjects ?? [] })) {
+for (const [field, values] of Object.entries({ ...ENUM_KEYS, ruleStatuses: base.ruleStatuses ?? [], documentTypes: distributionDocTypes })) {
   assertUnique("base", field, values);
 }
 
@@ -89,20 +88,7 @@ for (const preset of presets) {
   if (unknownDoc.length) fail(scope, `enabledDocumentTypes unknown: ${unknownDoc.join(", ")}`);
 }
 
-// ---- A2. domain-object statuses ----
-assertUnique("domain-statuses", "object", domainStatuses.map((o) => o.object));
-const lifecycleObjects = new Set(base.lifecycleObjects ?? []);
-for (const obj of domainStatuses) {
-  const scope = `domain-status:${obj.object ?? "(missing)"}`;
-  if (!lifecycleObjects.has(obj.object)) fail(scope, `object not in base.lifecycleObjects: ${obj.object}`);
-  requireString(scope, obj.statusField, "statusField");
-  const statuses = requireArray(scope, obj.statuses, "statuses");
-  if (statuses.length === 0) fail(scope, "statuses must not be empty.");
-  assertUnique(scope, "statuses", statuses);
-  for (const [name, values] of Object.entries(obj.extraEnums ?? {})) {
-    assertUnique(scope, `extraEnums.${name}`, requireArray(scope, values, `extraEnums.${name}`));
-  }
-}
+// A2. domain-object statuses are owned by platform/frontmatter (not duplicated here).
 
 // ---- B. fields bind to a known vocabulary or a primitive type ----
 const validValueTypes = new Set(["number", "string", "boolean", "date"]);

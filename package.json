@@ -45,7 +45,6 @@
     "./distribution": "./dist/plomus-distribution.json",
     "./distribution/base": "./contracts/distribution/v1/base.json",
     "./distribution/presets": "./contracts/distribution/v1/presets.json",
-    "./distribution/domain-statuses": "./contracts/distribution/v1/domain-statuses.json",
     "./distribution/fields": "./contracts/distribution/v1/fields.json",
     "./distribution/experimental-rules": "./contracts/distribution/v1/experimental-rules.json",
     "./protocol": "./dist/plomus-protocol.json",
