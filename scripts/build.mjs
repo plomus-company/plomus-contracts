@@ -5,10 +5,10 @@ const registry = {
   name: "plomus-contracts",
   generatedAt: new Date().toISOString(),
   contracts: {
-    base: readJson("contracts/v1/base.json"),
-    presets: readJson("contracts/v1/presets.json").presets ?? [],
-    reviewRules: readJson("contracts/v1/review-rules.json").reviewRules ?? [],
-    workflows: readJson("contracts/v1/workflows.json").workflows ?? [],
+    base: readJson("contracts/commerce/v1/base.json"),
+    presets: readJson("contracts/commerce/v1/presets.json").presets ?? [],
+    reviewRules: readJson("contracts/commerce/v1/review-rules.json").reviewRules ?? [],
+    workflows: readJson("contracts/commerce/v1/workflows.json").workflows ?? [],
   },
 };
 

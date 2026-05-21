@@ -23,9 +23,9 @@ const fields = readJson("contracts/distribution/v1/fields.json").fields ?? [];
 const experimentalRules = readJson("contracts/distribution/v1/experimental-rules.json").rules ?? [];
 
 // ---- commerce baseline (read-only cross-reference) ----
-const commerceBase = readJson("contracts/v1/base.json");
-const commerceRuleIds = new Set((readJson("contracts/v1/review-rules.json").reviewRules ?? []).map((r) => r.ruleId));
-const commerceWorkflowIds = new Set((readJson("contracts/v1/workflows.json").workflows ?? []).map((w) => w.workflowId));
+const commerceBase = readJson("contracts/commerce/v1/base.json");
+const commerceRuleIds = new Set((readJson("contracts/commerce/v1/review-rules.json").reviewRules ?? []).map((r) => r.ruleId));
+const commerceWorkflowIds = new Set((readJson("contracts/commerce/v1/workflows.json").workflows ?? []).map((w) => w.workflowId));
 const commerceDomains = new Set(commerceBase.core?.commerceDomains ?? []);
 const commerceTypes = new Set(commerceBase.core?.commerceTypes ?? []);
 const salesChannels = new Set(commerceBase.core?.salesChannels ?? []);

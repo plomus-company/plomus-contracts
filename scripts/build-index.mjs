@@ -7,7 +7,7 @@ import { readJson, repoRoot, writeJson } from "./read-json.mjs";
 // its cross-domain dependency graph from one file.
 
 const DOMAINS = [
-  { name: "commerce", dir: "contracts/v1", dependsOn: [], source: "plomus-commerce-ai-os" },
+  { name: "commerce", dir: "contracts/commerce/v1", dependsOn: [], source: "plomus-commerce-ai-os" },
   { name: "skills", dir: "contracts/skills/v1", dependsOn: [], source: "k-skill" },
   { name: "benchmarks", dir: "contracts/benchmarks/v1", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
   { name: "distribution", dir: "contracts/distribution/v1", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },

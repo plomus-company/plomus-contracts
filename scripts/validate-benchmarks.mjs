@@ -27,7 +27,7 @@ const rollups = readJson("contracts/benchmarks/v1/rollups.json").rollups ?? [];
 
 // referenced contracts (cross-domain integrity)
 const skillIds = new Set((readJson("contracts/skills/v1/catalog.json").skills ?? []).map((s) => s.skillId));
-const workflowIds = new Set((readJson("contracts/v1/workflows.json").workflows ?? []).map((w) => w.workflowId));
+const workflowIds = new Set((readJson("contracts/commerce/v1/workflows.json").workflows ?? []).map((w) => w.workflowId));
 const agentIds = new Set((readJson("contracts/gameops/v1/agents.json").agents ?? []).map((a) => a.agentId));
 const playbookIds = new Set((readJson("contracts/gameops/v1/playbooks.json").playbooks ?? []).map((p) => p.playbookId));
 const presetIds = new Set((readJson("contracts/distribution/v1/presets.json").presets ?? []).map((p) => p.presetId));

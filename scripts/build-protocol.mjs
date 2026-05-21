@@ -6,7 +6,7 @@ writeJson("dist/plomus-protocol.json", {
   name: "plomus-protocol",
   generatedAt: new Date().toISOString(),
   protocolVersion: base.protocolVersion ?? null,
-  builtOnCommerce: base.builtOnCommerce ?? "contracts/v1",
+  builtOnCommerce: base.builtOnCommerce ?? "contracts/commerce/v1",
   enums: {
     eventSources: base.eventSources ?? [],
     httpMethods: base.httpMethods ?? [],

@@ -5,7 +5,7 @@ import { readJson, writeJson } from "../scripts/read-json.mjs";
 //
 // plomus-distribution-ai-os is a SUPERSET of the public commerce contract
 // (its check-contract-parity enforces public ⊆ product). So its review rules,
-// workflows, folders, and document types already live in contracts/v1/. This
+// workflows, folders, and document types already live in contracts/commerce/v1/. This
 // domain captures the parts that are NOT yet contracted anywhere:
 //   A1. the PLOMUS_DISTRIBUTION onboarding preset (not in commerce presets.json)
 //   A2. domain-object lifecycle statuses (only in product Zod schemas today)
@@ -24,7 +24,7 @@ const generatedAt = new Date().toISOString();
 
 // Commerce baseline (read-only) — used to keep the preset's system folders and
 // base document types in sync with the shared contract.
-const commerceBase = readJson("contracts/v1/base.json");
+const commerceBase = readJson("contracts/commerce/v1/base.json");
 const SYSTEM_FOLDERS = commerceBase.systemFolders ?? [];
 const BASE_DOC_TYPES = [
   "commerce_review",
@@ -116,7 +116,7 @@ const base = {
   schemaVersion: "1.0.0",
   source: "plomus-distribution-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnCommerce: "contracts/v1",
+  builtOnCommerce: "contracts/commerce/v1",
   partnerTypes: PARTNER_TYPES,
   paymentTerms: PAYMENT_TERMS,
   priceTiers: PRICE_TIERS,

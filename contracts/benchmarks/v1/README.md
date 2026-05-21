@@ -75,7 +75,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 | `targetId` | 네임스페이스 id (`skill:<id>` 또는 `workflow:<id>`) |
 | `kind` | `skill` 또는 `workflow` |
 | `domain` | `skills`(스킬 86) 또는 `commerce`(워크플로 21) |
-| `ref` | 참조 대상 — `skill`이면 `contracts/skills/v1/catalog.json`의 `skillId`, `workflow`이면 `contracts/v1/workflows.json`의 `workflowId`에 존재해야 함 |
+| `ref` | 참조 대상 — `skill`이면 `contracts/skills/v1/catalog.json`의 `skillId`, `workflow`이면 `contracts/commerce/v1/workflows.json`의 `workflowId`에 존재해야 함 |
 | `label` / `group` | 표시명과 분류(스킬 category / 워크플로 reviewScope) |
 
 ---

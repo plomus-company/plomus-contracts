@@ -22,7 +22,7 @@ const groups = readJson("contracts/platform/v1/event-types.json").groups ?? [];
 const errorCodes = readJson("contracts/platform/v1/error-codes.json").errorCodes ?? [];
 
 // commerce baseline (read-only)
-const commerceBase = readJson("contracts/v1/base.json");
+const commerceBase = readJson("contracts/commerce/v1/base.json");
 const commerceDocTypes = new Set([...(commerceBase.documentTypes ?? []), ...(commerceBase.core?.markdownObjectTypes ?? [])]);
 const commerceEventTypes = new Set(commerceBase.core?.syncEventTypes ?? []);
 

@@ -45,7 +45,7 @@ if (!model) {
 const allTargets = readJson("contracts/benchmarks/v1/targets.json").targets ?? [];
 const targetById = new Map(allTargets.map((t) => [t.targetId, t]));
 const skillById = new Map((readJson("contracts/skills/v1/catalog.json").skills ?? []).map((s) => [s.skillId, s]));
-const workflowById = new Map((readJson("contracts/v1/workflows.json").workflows ?? []).map((w) => [w.workflowId, w]));
+const workflowById = new Map((readJson("contracts/commerce/v1/workflows.json").workflows ?? []).map((w) => [w.workflowId, w]));
 const agentById = new Map((readJson("contracts/gameops/v1/agents.json").agents ?? []).map((a) => [a.agentId, a]));
 const playbookById = new Map((readJson("contracts/gameops/v1/playbooks.json").playbooks ?? []).map((p) => [p.playbookId, p]));
 const presetById = new Map((readJson("contracts/distribution/v1/presets.json").presets ?? []).map((p) => [p.presetId, p]));

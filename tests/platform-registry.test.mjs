@@ -20,7 +20,7 @@ test("platform registry validates and builds a distributable artifact", () => {
 
   // P3: every grouped event type is a real commerce sync event type
   const commerceEvents = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/v1/base.json"), "utf8")).core.syncEventTypes,
+    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce/v1/base.json"), "utf8")).core.syncEventTypes,
   );
   for (const group of dist.contracts.eventTypes) {
     for (const ev of group.events) {

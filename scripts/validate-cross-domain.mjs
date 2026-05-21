@@ -14,7 +14,7 @@ const eq = (a, b) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 //    (richer field contract). Guard that they agree for every domain object.
 const platformDocs = readJson("contracts/platform/v1/frontmatter.json").documents ?? [];
 const platformStatusByObj = new Map(platformDocs.map((d) => [d.documentType, d.statuses ?? []]));
-const commerceStatuses = readJson("contracts/v1/base.json").core?.statuses ?? {};
+const commerceStatuses = readJson("contracts/commerce/v1/base.json").core?.statuses ?? {};
 for (const obj of ["product", "order", "claim", "settlement"]) {
   const platform = platformStatusByObj.get(obj);
   const commerce = commerceStatuses[obj];
@@ -28,7 +28,7 @@ for (const obj of ["product", "order", "claim", "settlement"]) {
 // 1b) per-object event taxonomy lives in commerce core.eventTypesByObject
 //     (canonical) and platform.event-types; guard they agree group-by-group.
 const platformGroups = new Map((readJson("contracts/platform/v1/event-types.json").groups ?? []).map((g) => [g.object, g.events]));
-const commerceEventsByObj = readJson("contracts/v1/base.json").core?.eventTypesByObject ?? {};
+const commerceEventsByObj = readJson("contracts/commerce/v1/base.json").core?.eventTypesByObject ?? {};
 const allEventObjects = new Set([...platformGroups.keys(), ...Object.keys(commerceEventsByObj)]);
 for (const obj of allEventObjects) {
   if (!eq(platformGroups.get(obj), commerceEventsByObj[obj])) {

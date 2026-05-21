@@ -5,7 +5,7 @@ const registry = {
   schemaVersion: "1.0.0",
   name: "plomus-distribution",
   generatedAt: new Date().toISOString(),
-  builtOnCommerce: base.builtOnCommerce ?? "contracts/v1",
+  builtOnCommerce: base.builtOnCommerce ?? "contracts/commerce/v1",
   enums: {
     partnerTypes: base.partnerTypes ?? [],
     paymentTerms: base.paymentTerms ?? [],

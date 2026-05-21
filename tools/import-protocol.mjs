@@ -74,7 +74,7 @@ writeJson("contracts/protocol/v1/base.json", {
   schemaVersion: "1.0.0",
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnCommerce: "contracts/v1",
+  builtOnCommerce: "contracts/commerce/v1",
   protocolVersion: PROTOCOL_VERSION,
   eventSources: EVENT_SOURCES,
   httpMethods: HTTP_METHODS,

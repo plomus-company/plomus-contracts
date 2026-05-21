@@ -30,7 +30,7 @@ test("distribution registry validates and builds a distributable artifact", () =
 
   // every preset enabledRule resolves against the public commerce review-rules contract
   const commerceRules = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/v1/review-rules.json"), "utf8")).reviewRules.map((r) => r.ruleId),
+    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce/v1/review-rules.json"), "utf8")).reviewRules.map((r) => r.ruleId),
   );
   for (const preset of dist.contracts.presets) {
     for (const ruleId of preset.enabledRules) {

@@ -1,9 +1,9 @@
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/v1/base.json");
-const presets = readJson("contracts/v1/presets.json").presets ?? [];
-const reviewRules = readJson("contracts/v1/review-rules.json").reviewRules ?? [];
-const workflows = readJson("contracts/v1/workflows.json").workflows ?? [];
+const base = readJson("contracts/commerce/v1/base.json");
+const presets = readJson("contracts/commerce/v1/presets.json").presets ?? [];
+const reviewRules = readJson("contracts/commerce/v1/review-rules.json").reviewRules ?? [];
+const workflows = readJson("contracts/commerce/v1/workflows.json").workflows ?? [];
 
 function countBy(values, field) {
   return values.reduce((acc, value) => {

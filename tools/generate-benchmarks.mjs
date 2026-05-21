@@ -78,7 +78,7 @@ const round = (n, d = 2) => Number(n.toFixed(d));
 
 // ---- build targets from the skills + commerce contracts ----
 const skills = readJson("contracts/skills/v1/catalog.json").skills ?? [];
-const workflows = readJson("contracts/v1/workflows.json").workflows ?? [];
+const workflows = readJson("contracts/commerce/v1/workflows.json").workflows ?? [];
 // newly added domains contribute their LLM-executed entities as benchmark targets
 const gameopsAgents = readJson("contracts/gameops/v1/agents.json").agents ?? [];
 const gameopsPlaybooks = readJson("contracts/gameops/v1/playbooks.json").playbooks ?? [];

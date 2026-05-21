@@ -4,10 +4,10 @@ import { repoRoot } from "./read-json.mjs";
 
 const checkOnly = process.argv.includes("--check");
 const targets = [
-  "contracts/v1/base.json",
-  "contracts/v1/presets.json",
-  "contracts/v1/review-rules.json",
-  "contracts/v1/workflows.json",
+  "contracts/commerce/v1/base.json",
+  "contracts/commerce/v1/presets.json",
+  "contracts/commerce/v1/review-rules.json",
+  "contracts/commerce/v1/workflows.json",
   "examples/preset.add.json",
   "examples/review-rule.add.json",
   "examples/workflow.add.json",

@@ -23,7 +23,7 @@ const payloads = readJson("contracts/protocol/v1/payloads.json").payloads ?? [];
 const telegram = readJson("contracts/protocol/v1/telegram.json");
 
 // commerce baseline (read-only)
-const commerceCore = readJson("contracts/v1/base.json").core ?? {};
+const commerceCore = readJson("contracts/commerce/v1/base.json").core ?? {};
 const commercePayloadTypes = new Set(commerceCore.syncPayloadObjectTypes ?? []);
 const commerceCloudCommands = new Set(commerceCore.cloudCommandTypes ?? []);
 

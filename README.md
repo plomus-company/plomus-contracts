@@ -6,7 +6,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 | 도메인 | 위치 | 출처 | 규모 | 상세 문서 |
 |---|---|---|---|---|
-| **Commerce** | `contracts/v1/` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/v1/README.md](contracts/v1/README.md) |
+| **Commerce** | `contracts/commerce/v1/` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/commerce/v1/README.md](contracts/commerce/v1/README.md) |
 | **Skills** | `contracts/skills/v1/` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15 | [contracts/skills/v1/README.md](contracts/skills/v1/README.md) |
 | **Benchmarks** | `contracts/benchmarks/v1/` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks/v1/README.md](contracts/benchmarks/v1/README.md) |
 | **Distribution** | `contracts/distribution/v1/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/v1/README.md](contracts/distribution/v1/README.md) |
@@ -17,9 +17,9 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 ## 계약 범위
 
-### Commerce (`contracts/v1/`)
+### Commerce (`contracts/commerce/v1/`)
 
-커머스 운영체제의 온보딩·검토·승인 계약입니다. 필드별 상세는 [contracts/v1/README.md](contracts/v1/README.md).
+커머스 운영체제의 온보딩·검토·승인 계약입니다. 필드별 상세는 [contracts/commerce/v1/README.md](contracts/commerce/v1/README.md).
 
 | 파일 | 내용 |
 |---|---|

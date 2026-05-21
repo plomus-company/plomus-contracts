@@ -16,9 +16,9 @@ function assertScriptFails(result, pattern) {
 
 test("commerce validator rejects duplicate preset ids", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const presets = readFixtureJson(fixtureRoot, "contracts/v1/presets.json");
+  const presets = readFixtureJson(fixtureRoot, "contracts/commerce/v1/presets.json");
   presets.presets[1].presetId = presets.presets[0].presetId;
-  writeFixtureJson(fixtureRoot, "contracts/v1/presets.json", presets);
+  writeFixtureJson(fixtureRoot, "contracts/commerce/v1/presets.json", presets);
 
   const result = runNodeScript("scripts/validate.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /presetId has duplicate values/);
@@ -26,9 +26,9 @@ test("commerce validator rejects duplicate preset ids", (t) => {
 
 test("commerce validator rejects workflow rule references that are not registered", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const workflows = readFixtureJson(fixtureRoot, "contracts/v1/workflows.json");
+  const workflows = readFixtureJson(fixtureRoot, "contracts/commerce/v1/workflows.json");
   workflows.workflows[0].enabledRuleIds.push("UNKNOWN_RULE_FOR_TEST");
-  writeFixtureJson(fixtureRoot, "contracts/v1/workflows.json", workflows);
+  writeFixtureJson(fixtureRoot, "contracts/commerce/v1/workflows.json", workflows);
 
   const result = runNodeScript("scripts/validate.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /Unknown enabledRuleIds: UNKNOWN_RULE_FOR_TEST/);

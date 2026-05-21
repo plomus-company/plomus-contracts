@@ -5,7 +5,7 @@ writeJson("dist/plomus-platform.json", {
   schemaVersion: "1.0.0",
   name: "plomus-platform",
   generatedAt: new Date().toISOString(),
-  builtOnCommerce: base.builtOnCommerce ?? "contracts/v1",
+  builtOnCommerce: base.builtOnCommerce ?? "contracts/commerce/v1",
   enums: {
     lifecycleObjects: base.lifecycleObjects ?? [],
     eventObjects: base.eventObjects ?? [],

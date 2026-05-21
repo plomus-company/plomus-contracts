@@ -73,7 +73,7 @@ writeJson("contracts/platform/v1/base.json", {
   schemaVersion: "1.0.0",
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnCommerce: "contracts/v1",
+  builtOnCommerce: "contracts/commerce/v1",
   lifecycleObjects: FRONTMATTER.filter((f) => (f.statuses ?? []).length > 0).map((f) => f.documentType),
   eventObjects: EVENT_TYPES.map((e) => e.object),
   errorCategories: ERROR_CATEGORIES,
