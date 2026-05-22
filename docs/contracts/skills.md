@@ -28,6 +28,51 @@ catalog의 각 스킬에는 `subcategory`(원시 카테고리)와 `usesMcp`가 �
 
 ---
 
+## skill 소비 경로 (who uses a skill)
+
+skill을 **계약으로 직접 참조**하는 곳은 두 군데입니다 — 같은 tool role 내부 배선과, 교차 role인 benchmarks. 그 외(commerce preset·workflow·review-rule, transaction, legal, foundation)는 skill을 직접 참조하지 않습니다. skills는 독립 capability 레지스트리이기 때문입니다.
+
+```
+                       category / subcategory   (분류 축)
+                               │
+   data-source ──(1:1)──▶ ┌──────────────┐ ◀──(N:1)── package
+   {skillId, authType,    │    skill     │           {skillId, packageName, dir}
+    proxyBacked,          │  (catalog,    │
+    upstreams}            │   skillId)    │
+   proxy-route ──(N:M)───▶│ usesProxy ⇄   │
+   {routeId, path,        │  route.skills │
+    upstream, credential, └──────┬───────┘
+    skills:[...]}                │
+        │                        ▼
+        ▼            benchmarks target {targetId:"skill:<id>", kind:"skill",
+   credential ─▶ upstream                domain:"skills", ref:"<skillId>"}
+   {envVar}                              │
+                                         ▼
+                              benchmarks result (target × model × metric)
+```
+
+### A. 같은 tool role 내부 — "이 도구를 실제로 어떻게 호출하나"
+
+skill이 허브이고 나머지 파일이 이를 가리킵니다(호출 사슬 = `skill → data-source / proxy-route → credential → upstream`):
+
+- **data-source** (스킬당 정확히 1개): `skillId → upstreams · authType · proxyBacked`.
+- **proxy-route**: `route.skills[]`가 소비 스킬을 나열하고, **`catalog.usesProxy` ↔ `route.skills` 양방향 일치를 `validate:skills`가 강제**. 라우트는 `credential` · `upstream`을 가리킴.
+- **credential → upstream**: 실제 키·외부 엔드포인트. 스킬의 `requiredEnv`는 `credentials.envVar`에 존재해야 함.
+- **package**: `package.skillId`로 스킬을 배포 단위로 묶음.
+
+### B. 교차 role — benchmarks가 skill을 "측정 대상"으로 참조 (유일한 cross-role 계약 참조)
+
+각 스킬은 benchmark **target**이 됩니다 — `{ targetId: "skill:<skillId>", kind: "skill", domain: "skills", ref: "<skillId>" }`. `validate:benchmarks`가 **`target.ref`가 실제 `skills-catalog`의 `skillId`인지** 검사하고(`kind:skill`은 `domain:"skills"` 강제), 그 target에 **result**(모델 × 지표)가 붙어 스킬별 비용·성능·성공률을 모델 비교합니다. 상세는 [benchmarks.md](benchmarks.md).
+
+### C. 런타임 소비 (계약 참조는 아님)
+
+- **gameops**: 제품의 `sync-contracts.mjs`가 `contracts/tool/skills-catalog`를 vendor하고 `PINNED.json`으로 고정해 소비합니다([GAMEOPS.md](../GAMEOPS.md)). repo 안 계약끼리의 참조는 아닙니다.
+- **에이전트**: `@plomus/contracts/tool` 번들의 `.members.skills`를 읽어 어떤 스킬을 어떤 인자·auth로 호출할지 결정합니다.
+
+연관관계 일반론은 [CONTRACT-GLOSSARY.md](../CONTRACT-GLOSSARY.md)의 "용어 연관관계"(관계 #3 benchmarks target → skill, #4 호출 사슬)를 보세요.
+
+---
+
 ## base.json
 
 전 계약이 참조하는 통제 어휘(enum)입니다. k-skill의 파편화된 분류를 정규화한 결과입니다.
