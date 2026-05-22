@@ -1,0 +1,71 @@
+{
+  "modelId": "qwen3.6-27b",
+  "ollamaTag": "qwen3.6-27b:latest",
+  "baseUrl": "http://localhost:11434",
+  "startedAt": "2026-05-22T19:17:40.589Z",
+  "reps": 1,
+  "numPredict": 256,
+  "runs": [
+    {
+      "targetId": "skill:korean-spell-check",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 1370.034028,
+      "totalMs": 1681.233454,
+      "loadMs": 311.199426,
+      "inputTokens": 89,
+      "outputTokens": 55,
+      "evalSec": 0.985269768,
+      "wallMs": 1687
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 4354.544639000001,
+      "totalMs": 4581.516534,
+      "loadMs": 226.971895,
+      "inputTokens": 59,
+      "outputTokens": 226,
+      "evalSec": 4.04622918,
+      "wallMs": 4586
+    },
+    {
+      "targetId": "agent:cs",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 4862.676337,
+      "totalMs": 5085.973984,
+      "loadMs": 223.297647,
+      "inputTokens": 74,
+      "outputTokens": 256,
+      "evalSec": 4.57838185,
+      "wallMs": 5091
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 4767.105974,
+      "totalMs": 4992.999695,
+      "loadMs": 225.893721,
+      "inputTokens": 77,
+      "outputTokens": 237,
+      "evalSec": 4.307935127,
+      "wallMs": 4999
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 4936.124673,
+      "totalMs": 5158.394448,
+      "loadMs": 222.269775,
+      "inputTokens": 99,
+      "outputTokens": 256,
+      "evalSec": 4.581446386,
+      "wallMs": 5164
+    }
+  ],
+  "finishedAt": "2026-05-22T19:18:02.127Z"
+}

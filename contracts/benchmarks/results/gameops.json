@@ -2,22 +2,6 @@
   "schemaVersion": "1.0.0",
   "results": [
     {
-      "targetId": "agent:cs",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T20:58:19.719Z",
-      "metrics": {
-        "latency_p50_ms": 5431.52,
-        "throughput_tps": 50.05,
-        "cost_per_run_usd": 0,
-        "input_tokens": 74,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
       "targetId": "agent:notice",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
@@ -77,22 +61,6 @@
         "cost_per_run_usd": 0,
         "input_tokens": 75,
         "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "playbook:daily_ops_brief_v1",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T20:58:40.272Z",
-      "metrics": {
-        "latency_p50_ms": 5292.45,
-        "throughput_tps": 50.4,
-        "cost_per_run_usd": 0,
-        "input_tokens": 77,
-        "output_tokens": 237,
         "success_rate": 100,
         "error_rate": 0
       }
@@ -597,6 +565,38 @@
         "cost_per_run_usd": 0,
         "input_tokens": 99,
         "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:17:51.955Z",
+      "metrics": {
+        "latency_p50_ms": 4862.68,
+        "throughput_tps": 55.91,
+        "cost_per_run_usd": 0,
+        "input_tokens": 74,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:17:56.954Z",
+      "metrics": {
+        "latency_p50_ms": 4767.11,
+        "throughput_tps": 55.01,
+        "cost_per_run_usd": 0,
+        "input_tokens": 77,
+        "output_tokens": 237,
         "success_rate": 100,
         "error_rate": 0
       }

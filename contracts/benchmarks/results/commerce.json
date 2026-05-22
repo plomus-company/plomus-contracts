@@ -546,22 +546,6 @@
       }
     },
     {
-      "targetId": "workflow:order-delay-review",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T20:57:37.550Z",
-      "metrics": {
-        "latency_p50_ms": 4757.41,
-        "throughput_tps": 50.31,
-        "cost_per_run_usd": 0,
-        "input_tokens": 59,
-        "output_tokens": 226,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
       "targetId": "workflow:partner-review",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
@@ -2099,6 +2083,22 @@
         "success_rate": 95.1,
         "accuracy": 81.6,
         "error_rate": 4.9
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:17:46.864Z",
+      "metrics": {
+        "latency_p50_ms": 4354.54,
+        "throughput_tps": 55.85,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 226,
+        "success_rate": 100,
+        "error_rate": 0
       }
     }
   ]

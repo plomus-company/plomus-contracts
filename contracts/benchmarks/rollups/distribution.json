@@ -3,21 +3,6 @@
   "rollups": [
     {
       "domain": "distribution",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "targetCount": 1,
-      "metrics": {
-        "latency_p50_ms": 5482.36,
-        "throughput_tps": 50.11,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "distribution",
       "modelId": "claude-opus-4-7",
       "dataSource": "illustrative",
       "targetCount": 1,
@@ -95,6 +80,21 @@
         "output_tokens": 256,
         "latency_p50_ms": 3870.16,
         "throughput_tps": 72.25,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 1,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "latency_p50_ms": 4936.12,
+        "throughput_tps": 55.88,
         "success_rate": 100,
         "error_rate": 0
       }

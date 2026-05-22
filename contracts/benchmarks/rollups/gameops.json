@@ -3,21 +3,6 @@
   "rollups": [
     {
       "domain": "gameops",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "targetCount": 6,
-      "metrics": {
-        "latency_p50_ms": 4124.61,
-        "throughput_tps": 49.86,
-        "cost_per_run_usd": 0,
-        "input_tokens": 75.67,
-        "output_tokens": 184.5,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "gameops",
       "modelId": "claude-opus-4-7",
       "dataSource": "illustrative",
       "targetCount": 6,
@@ -95,6 +80,21 @@
         "output_tokens": 134.5,
         "latency_p50_ms": 2214.92,
         "throughput_tps": 70.55,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 6,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 75.67,
+        "output_tokens": 184.5,
+        "latency_p50_ms": 3942.25,
+        "throughput_tps": 51.61,
         "success_rate": 100,
         "error_rate": 0
       }

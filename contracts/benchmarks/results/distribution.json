@@ -3,22 +3,6 @@
   "results": [
     {
       "targetId": "preset:PLOMUS_DISTRIBUTION",
-      "modelId": "qwen3.6-27b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T20:58:45.974Z",
-      "metrics": {
-        "latency_p50_ms": 5482.36,
-        "throughput_tps": 50.11,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "preset:PLOMUS_DISTRIBUTION",
       "modelId": "claude-opus-4-7",
       "dataSource": "illustrative",
       "sampleSize": 50,
@@ -96,6 +80,22 @@
         "throughput_tps": 72.25,
         "cost_per_run_usd": 0,
         "input_tokens": 139,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:18:02.118Z",
+      "metrics": {
+        "latency_p50_ms": 4936.12,
+        "throughput_tps": 55.88,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
         "output_tokens": 256,
         "success_rate": 100,
         "error_rate": 0
