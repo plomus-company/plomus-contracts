@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "kbl-results",
+      "packageName": "kbl-results",
+      "dir": "packages/kbl-results",
+      "category": "sports"
+    },
+    {
+      "skillId": "kleague-results",
+      "packageName": "kleague-results",
+      "dir": "packages/kleague-results",
+      "category": "sports"
+    },
+    {
+      "skillId": "korean-marathon-schedule",
+      "packageName": "korean-marathon-schedule",
+      "dir": "packages/korean-marathon-schedule",
+      "category": "sports"
+    },
+    {
+      "skillId": "lck-analytics",
+      "packageName": "lck-analytics",
+      "dir": "packages/lck-analytics",
+      "category": "sports"
+    }
+  ]
+}

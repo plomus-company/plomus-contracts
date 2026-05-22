@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "blue-ribbon-nearby",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "blue-ribbon"
+      ],
+      "category": "food"
+    },
+    {
+      "skillId": "catchtable-sniper",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "food"
+    },
+    {
+      "skillId": "hola-poke-yeoksam",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "food"
+    },
+    {
+      "skillId": "k-schoollunch-menu",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "neis"
+      ],
+      "category": "food"
+    },
+    {
+      "skillId": "kakao-bar-nearby",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "food"
+    }
+  ]
+}

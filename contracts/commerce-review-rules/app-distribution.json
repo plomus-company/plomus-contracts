@@ -6,28 +6,32 @@
       "domain": "APP_DISTRIBUTION",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "앱 개인정보 처리방침 연결 필요"
+      "description": "앱 개인정보 처리방침 연결 필요",
+      "businessUnit": "app-distribution"
     },
     {
       "ruleId": "APP_RELEASE_DELAY",
       "domain": "APP_DISTRIBUTION",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "앱 릴리스 지연 확인 필요"
+      "description": "앱 릴리스 지연 확인 필요",
+      "businessUnit": "app-distribution"
     },
     {
       "ruleId": "APP_STORE_METADATA_MISSING",
       "domain": "APP_DISTRIBUTION",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "앱 스토어 메타데이터 보완 필요"
+      "description": "앱 스토어 메타데이터 보완 필요",
+      "businessUnit": "app-distribution"
     },
     {
       "ruleId": "APP_VERSION_STALE",
       "domain": "APP_DISTRIBUTION",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "앱 버전 상태 점검 필요"
+      "description": "앱 버전 상태 점검 필요",
+      "businessUnit": "app-distribution"
     }
   ]
 }

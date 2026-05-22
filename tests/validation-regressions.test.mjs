@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import test from "node:test";
 import {
   createContractsFixture,
   mutateFixtureItem,
   readFixtureCollection,
   readFixtureJson,
+  repoRoot,
   runNodeScript,
   scriptOutput,
   writeFixtureJson,
@@ -48,6 +51,59 @@ test("commerce validator rejects workflow rule references that are not registere
 
   const result = runNodeScript("scripts/validate.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /Unknown enabledRuleIds: UNKNOWN_RULE_FOR_TEST/);
+});
+
+test("commerce validator rejects a rule placed in the wrong business-unit file", (t) => {
+  const fixtureRoot = createContractsFixture(t);
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "commerce-review-rules",
+    "reviewRules",
+    (r) => typeof r.businessUnit === "string",
+    (r) => {
+      // placement holds in the fixture, so businessUnit == file stem; move it to
+      // a different (still canonical) unit to force a placement mismatch.
+      r.businessUnit = r.businessUnit === "order" ? "product" : "order";
+    },
+  );
+  assert.ok(ok, "fixture needs a review rule with a businessUnit");
+
+  const result = runNodeScript("scripts/validate.mjs", { registryRoot: fixtureRoot });
+  assertScriptFails(result, /does not match its folder file/);
+});
+
+test("doc validator rejects a stale count in the docs", (t) => {
+  const fixtureRoot = createContractsFixture(t);
+  // counts come from the fixture's (real) contracts; corrupt the matching token
+  // in a copied README so the rendered needle is no longer found.
+  const readme = fs.readFileSync(path.join(repoRoot, "README.md"), "utf8");
+  assert.match(readme, /도메인 롤업\(\d+\)/, "README needs the rollups count token");
+  fs.writeFileSync(
+    path.join(fixtureRoot, "README.md"),
+    readme.replace(/도메인 롤업\(\d+\)/, "도메인 롤업(999)"),
+  );
+
+  const result = runNodeScript("scripts/validate-docs.mjs", { registryRoot: fixtureRoot });
+  assertScriptFails(result, /도메인 롤업/);
+});
+
+test("placement validator rejects an item filed under the wrong split key", (t) => {
+  const fixtureRoot = createContractsFixture(t);
+  // a protocol endpoint splits by `kind`; changing it without moving the file
+  // leaves the item misfiled relative to its folder stem.
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "protocol-endpoints",
+    "endpoints",
+    (e) => typeof e.kind === "string",
+    (e) => {
+      e.kind = "wrong-kind-for-test";
+    },
+  );
+  assert.ok(ok, "fixture needs a protocol endpoint with a kind");
+
+  const result = runNodeScript("scripts/validate-placement.mjs", { registryRoot: fixtureRoot });
+  assertScriptFails(result, /belongs in/);
 });
 
 test("skills validator rejects proxy route mismatches", (t) => {

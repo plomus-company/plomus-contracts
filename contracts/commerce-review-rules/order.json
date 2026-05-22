@@ -6,7 +6,8 @@
       "domain": "ORDER",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "배송 지연 확인 필요"
+      "description": "배송 지연 확인 필요",
+      "businessUnit": "order"
     }
   ]
 }

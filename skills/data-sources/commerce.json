@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "bunjang-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "coupang-product-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "daangn-cars-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "daangn-jobs-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "daangn-used-goods-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "daiso-product-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "danawa-price-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "market-kurly-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "naver-shopping-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "naver"
+      ],
+      "category": "commerce"
+    },
+    {
+      "skillId": "ohou-today-deal",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "olive-young-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    },
+    {
+      "skillId": "used-car-price-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "commerce"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "MEETING_ACTION_OVERDUE",
+      "domain": "ALWAYS_ON",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "회의 후속 조치 기한 확인 필요",
+      "businessUnit": "operations"
+    },
+    {
+      "ruleId": "INCIDENT_FOLLOWUP_DUE",
+      "domain": "GENERAL_OPERATIONS",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "장애 후속 조치 확인 필요",
+      "businessUnit": "operations"
+    },
+    {
+      "ruleId": "OPERATIONS_REQUEST_SLA",
+      "domain": "GENERAL_OPERATIONS",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "상시 운영 요청 SLA 확인 필요",
+      "businessUnit": "operations"
+    }
+  ]
+}

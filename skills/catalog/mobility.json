@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "delivery-tracking",
+      "description": "Track CJ대한통운 and 우체국 parcels by invoice number with official carrier endpoints, and structure the workflow around a carrier adapter that can grow to more couriers later.",
+      "category": "mobility",
+      "subcategory": "logistics",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "korean-transit-route",
+      "description": "Korean door-to-door public transit routing (subway + bus + walking) via ODsay LIVE API with Kakao geocoding for address-to-address queries. Use when the user asks for 지하철/버스/대중교통 길찾기, 환승 경로, 소요시간, or transit directions between two places in Korea.",
+      "category": "mobility",
+      "subcategory": "transit",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "kakao-local-geocode"
+      ],
+      "requiredEnv": [
+        "ODSAY_API_KEY"
+      ]
+    },
+    {
+      "skillId": "seoul-subway-arrival",
+      "description": "Look up Seoul real-time subway arrival information with the official Seoul Open Data API. Use when the user asks when a train arrives, which trains are approaching a station, or how crowded Seoul subway timing looks right now.",
+      "category": "mobility",
+      "subcategory": "transit",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "seoul-subway-arrival"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "subway-lost-property",
+      "description": "Use when the user asks how to look up 지하철 분실물 or 유실물 by 역명/물품명. v1 is an 안내형/하이브리드 skill that structures the official LOST112 + 서울교통공사 flow conservatively.",
+      "category": "mobility",
+      "subcategory": "transit",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "cheap-gas-nearby",
+      "description": "Use when the user asks for nearby cheapest gas stations or 근처 가장 싼 주유소. Always ask the user's current location first, then use Kakao Map anchor resolution plus official Opinet fuel-price APIs.",
+      "category": "mobility",
+      "subcategory": "transport",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/cheap-gas-nearby",
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "opinet-around",
+        "opinet-detail"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "hipass-receipt",
+      "description": "공식 하이패스 홈페이지에서 사용자가 직접 로그인한 Chrome 세션을 재사용해 사용내역 조회와 영수증 팝업 진입을 돕는다.",
+      "category": "mobility",
+      "subcategory": "transport",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/hipass-receipt",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "emergency-room-beds",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "health"
+    },
+    {
+      "skillId": "gangnamunni-clinic-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "health"
+    },
+    {
+      "skillId": "mfds-drug-safety",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "health"
+    },
+    {
+      "skillId": "mfds-food-safety",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "foodsafety-korea"
+      ],
+      "category": "health"
+    }
+  ]
+}

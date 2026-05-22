@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "court-auction-notice-search",
+      "packageName": "court-auction-notice-search",
+      "dir": "packages/court-auction-notice-search",
+      "category": "real-estate"
+    },
+    {
+      "skillId": "gongsijiga-search",
+      "packageName": "gongsijiga-search",
+      "dir": "packages/gongsijiga-search",
+      "category": "real-estate"
+    },
+    {
+      "skillId": "sh-notice-search",
+      "packageName": "sh-notice-search",
+      "dir": "packages/sh-notice-search",
+      "category": "real-estate"
+    }
+  ]
+}

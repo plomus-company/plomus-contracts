@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "court-auction-notice-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "real-estate"
+    },
+    {
+      "skillId": "daangn-realty-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "real-estate"
+    },
+    {
+      "skillId": "gongsijiga-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "real-estate"
+    },
+    {
+      "skillId": "lh-notice-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "real-estate"
+    },
+    {
+      "skillId": "real-estate-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "real-estate"
+    },
+    {
+      "skillId": "sh-notice-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "real-estate"
+    }
+  ]
+}

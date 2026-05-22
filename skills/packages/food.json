@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "blue-ribbon-nearby",
+      "packageName": "blue-ribbon-nearby",
+      "dir": "packages/blue-ribbon-nearby",
+      "category": "food"
+    },
+    {
+      "skillId": "kakao-bar-nearby",
+      "packageName": "kakao-bar-nearby",
+      "dir": "packages/kakao-bar-nearby",
+      "category": "food"
+    }
+  ]
+}

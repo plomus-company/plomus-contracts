@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "hwp",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "documents"
+    },
+    {
+      "skillId": "rhwp-advanced",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "documents"
+    },
+    {
+      "skillId": "rhwp-edit",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "documents"
+    }
+  ]
+}

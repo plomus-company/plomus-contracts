@@ -2,6 +2,40 @@
   "schemaVersion": "1.0.0",
   "skills": [
     {
+      "skillId": "parking-lot-search",
+      "description": "Use when the user asks for nearby parking lots or 근처 주차장/공영주차장. Always ask the user's current location first, then use official Data.go.kr public parking data through k-skill-proxy or the parking-lot-search package.",
+      "category": "utility",
+      "subcategory": "convenience",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/parking-lot-search",
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "parking-lot-search"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "public-restroom-nearby",
+      "description": "Use when the user asks for nearby public/open restrooms or 근처 화장실. Always ask the user's current location first, then use the official nationwide public-restroom standard dataset plus Kakao anchor resolution.",
+      "category": "utility",
+      "subcategory": "convenience",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/public-restroom-nearby",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": [
+        "KAKAO_REST_API_KEY"
+      ]
+    },
+    {
       "skillId": "donation-place-search",
       "description": "Use when the user asks where to donate, 기부처 조회, or donation place recommendations by Korean location and category. Recommend recipients with best-effort 1365 verification-assist links and never execute donations.",
       "category": "utility",
@@ -64,24 +98,6 @@
       "usesMcp": false,
       "proxyRoutes": [
         "household-waste-info"
-      ],
-      "requiredEnv": []
-    },
-    {
-      "skillId": "k-schoollunch-menu",
-      "description": "Use when the user asks for Korean school meal menus (급식 식단) by natural-language education office and school name, via k-skill-proxy NEIS school-search and school-meal routes.",
-      "category": "food",
-      "subcategory": "utility",
-      "locale": "ko-KR",
-      "phase": "v1",
-      "license": "MIT",
-      "implementationType": "skill-md-only",
-      "package": null,
-      "usesProxy": true,
-      "usesMcp": false,
-      "proxyRoutes": [
-        "neis-school-meal",
-        "neis-school-search"
       ],
       "requiredEnv": []
     },
@@ -151,6 +167,23 @@
       "usesProxy": false,
       "usesMcp": false,
       "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "korea-weather",
+      "description": "한국 날씨를 기상청 단기예보 조회서비스와 프록시 경유로 조회해 요약한다.",
+      "category": "utility",
+      "subcategory": "weather",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "korea-weather-forecast"
+      ],
       "requiredEnv": []
     }
   ]

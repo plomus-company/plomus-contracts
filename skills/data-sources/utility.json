@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "public-restroom-nearby",
+      "authType": "api-key",
+      "proxyBacked": false,
+      "upstreams": [
+        "kakao"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "donation-place-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "utility"
+    },
+    {
+      "skillId": "fine-dust-location",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "airkorea"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "han-river-water-level",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "hrfco"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "household-waste-info",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "korea-weather",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "kma"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "library-book-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data4library"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "lotto-results",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "utility"
+    },
+    {
+      "skillId": "parking-lot-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "seoul-density",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "seoul-open-data"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "zipcode-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "utility"
+    }
+  ]
+}

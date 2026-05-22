@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "kstartup-search",
+      "description": "공공데이터포털 창업진흥원 K-Startup Open API(15125364)로 통합 공고 사업 정보·지원사업 공고·창업 콘텐츠·통계보고서를 k-skill-proxy 경유로 조회한다. 검색 전용.",
+      "category": "government",
+      "subcategory": "business",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "kstartup-announcements",
+        "kstartup-business-info",
+        "kstartup-contents",
+        "kstartup-statistics"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "nts-business-registration",
+      "description": "국세청 사업자등록정보 진위확인 및 사업자등록 상태조회를 공공데이터포털 API(k-skill-proxy 경유)로 수행한다.",
+      "category": "government",
+      "subcategory": "business",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "nts-business-status",
+        "nts-business-validate"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "local-election-candidate-search",
+      "description": "중앙선거관리위원회 선거통계시스템 공개 통합검색으로 한국 지방선거 후보자 정보를 이름/선거종류/지역 기준으로 조회한다.",
+      "category": "government",
+      "subcategory": "civic",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/local-election-candidate-search",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "kosis-stats",
+      "description": "국가데이터처가 운영하는 KOSIS(국가통계포털, kosis.kr) Open API로 한국 공식 통계표를 검색하고 메타데이터·데이터·대용량 자료를 조회한다. Use when the user asks for 한국 공식 통계 (인구, 가구, 물가, 고용 등) 수치 조회, not for analysis or visualization.",
+      "category": "government",
+      "subcategory": "data",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "kosis-search",
+        "kosis-meta",
+        "kosis-data"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "korean-scholarship-search",
+      "description": "Search Korean scholarship announcements across official KOSAF, university, foundation, company, and public-sector sources, extract amount and eligibility, and filter results by school, income band, student level, and organization type. Users may invoke it with the phrase 장학금 검색 및 조회.",
+      "category": "government",
+      "subcategory": "education",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

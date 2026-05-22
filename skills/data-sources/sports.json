@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "lck-analytics",
+      "authType": "api-key",
+      "proxyBacked": false,
+      "upstreams": [
+        "lolesports"
+      ],
+      "category": "sports"
+    },
+    {
+      "skillId": "kbl-results",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "sports"
+    },
+    {
+      "skillId": "kbo-results",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "sports"
+    },
+    {
+      "skillId": "kleague-results",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "sports"
+    },
+    {
+      "skillId": "korean-marathon-schedule",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "sports"
+    }
+  ]
+}

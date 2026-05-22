@@ -6,7 +6,8 @@
       "domain": "CLAIM",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "클레임 처리 기한 초과"
+      "description": "클레임 처리 기한 초과",
+      "businessUnit": "claim"
     }
   ]
 }

@@ -25,7 +25,8 @@
           "CREATE_SYNC_EVENT"
         ],
         "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
-      }
+      },
+      "businessUnit": "inventory"
     },
     {
       "workflowId": "stock-low",
@@ -51,7 +52,8 @@
           "CREATE_SYNC_EVENT"
         ],
         "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
-      }
+      },
+      "businessUnit": "inventory"
     }
   ]
 }

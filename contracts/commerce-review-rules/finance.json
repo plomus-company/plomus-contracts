@@ -6,28 +6,32 @@
       "domain": "FINANCE",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "비용 정산 승인 확인 필요"
+      "description": "비용 정산 승인 확인 필요",
+      "businessUnit": "finance"
     },
     {
       "ruleId": "FINANCE_MONTHLY_CLOSE_DUE",
       "domain": "FINANCE",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "월마감 작업 확인 필요"
+      "description": "월마감 작업 확인 필요",
+      "businessUnit": "finance"
     },
     {
       "ruleId": "FINANCE_PAYABLE_DUE",
       "domain": "FINANCE",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "미지급금 지급 확인 필요"
+      "description": "미지급금 지급 확인 필요",
+      "businessUnit": "finance"
     },
     {
       "ruleId": "FINANCE_RECEIVABLE_OVERDUE",
       "domain": "FINANCE",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "미수금 회수 확인 필요"
+      "description": "미수금 회수 확인 필요",
+      "businessUnit": "finance"
     }
   ]
 }

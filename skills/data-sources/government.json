@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "korean-scholarship-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "government"
+    },
+    {
+      "skillId": "kosis-stats",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "kosis"
+      ],
+      "category": "government"
+    },
+    {
+      "skillId": "kstartup-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "government"
+    },
+    {
+      "skillId": "local-election-candidate-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "government"
+    },
+    {
+      "skillId": "nts-business-registration",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "data-go-kr"
+      ],
+      "category": "government"
+    }
+  ]
+}

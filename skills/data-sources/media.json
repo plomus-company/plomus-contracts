@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "geeknews-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "media"
+    },
+    {
+      "skillId": "joseon-sillok-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "media"
+    },
+    {
+      "skillId": "korean-cinema-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "media"
+    },
+    {
+      "skillId": "naver-blog-research",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "media"
+    },
+    {
+      "skillId": "naver-news-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "naver"
+      ],
+      "category": "media"
+    },
+    {
+      "skillId": "ticket-availability",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "media"
+    }
+  ]
+}

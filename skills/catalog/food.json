@@ -47,6 +47,39 @@
       "usesMcp": false,
       "proxyRoutes": [],
       "requiredEnv": []
+    },
+    {
+      "skillId": "catchtable-sniper",
+      "description": "Monitor Catchtable for open reservation slots and attempt booking using a logged-in Chrome session.",
+      "category": "food",
+      "subcategory": "lifestyle",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": true,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "k-schoollunch-menu",
+      "description": "Use when the user asks for Korean school meal menus (급식 식단) by natural-language education office and school name, via k-skill-proxy NEIS school-search and school-meal routes.",
+      "category": "food",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "neis-school-meal",
+        "neis-school-search"
+      ],
+      "requiredEnv": []
     }
   ]
 }

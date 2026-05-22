@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "cheap-gas-nearby",
+      "packageName": "cheap-gas-nearby",
+      "dir": "packages/cheap-gas-nearby",
+      "category": "mobility"
+    },
+    {
+      "skillId": "hipass-receipt",
+      "packageName": "hipass-receipt",
+      "dir": "packages/hipass-receipt",
+      "category": "mobility"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "k-dart",
+      "authType": "api-key",
+      "proxyBacked": false,
+      "upstreams": [
+        "dart"
+      ],
+      "category": "finance"
+    },
+    {
+      "skillId": "daishin-report-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "finance"
+    },
+    {
+      "skillId": "korean-jangbu-for",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "finance"
+    },
+    {
+      "skillId": "korean-stock-search",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "krx"
+      ],
+      "category": "finance"
+    },
+    {
+      "skillId": "toss-securities",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "finance"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "k-skill-cleaner",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "tooling"
+    },
+    {
+      "skillId": "k-skill-setup",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "tooling"
+    },
+    {
+      "skillId": "kakaotalk-mac",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "tooling"
+    }
+  ]
+}

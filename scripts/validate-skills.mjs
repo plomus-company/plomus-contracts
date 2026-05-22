@@ -1,5 +1,6 @@
 import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
+import { placementErrors } from "./taxonomy.mjs";
 
 const failures = [];
 const fail = (scope, message) => failures.push({ scope, message });
@@ -178,6 +179,17 @@ for (const skillId of routeSkillSet) {
   if (skill && !skill.usesProxy) {
     fail("proxy-routes", `Route maps to ${skillId} but catalog marks usesProxy=false.`);
   }
+}
+
+// ---- folder-placement: catalog/data-sources/packages split by category ----
+// Each item lives in the <category>.json file it declares, and that category is
+// in base.categories. See docs/CONTRACT-TAXONOMY.md.
+for (const [scope, message] of [
+  ...placementErrors("skills-catalog", "skills", "category", categories),
+  ...placementErrors("skills-data-sources", "sources", "category", categories),
+  ...placementErrors("skills-packages", "packages", "category", categories),
+]) {
+  fail(scope, message);
 }
 
 // ---- coverage: every controlled category is used by at least one skill ----

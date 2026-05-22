@@ -2,6 +2,36 @@
   "schemaVersion": "1.0.0",
   "skills": [
     {
+      "skillId": "kakaotalk-mac",
+      "description": "Use kakaocli on macOS to read KakaoTalk chats, search messages, send replies after explicit confirmation, and delete sent messages with explicit operator intent.",
+      "category": "tooling",
+      "subcategory": "messaging",
+      "locale": "ko-KR",
+      "phase": "v1.5",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "k-skill-setup",
+      "description": "After installing the full k-skill bundle, configure and verify the shared cross-platform setup, then optionally wire update checks and GitHub starring with explicit user consent.",
+      "category": "tooling",
+      "subcategory": "setup",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": true,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
       "skillId": "k-skill-cleaner",
       "description": "Interview the user and inspect coding-agent skill trigger counts to recommend unused K-skills for removal.",
       "category": "tooling",

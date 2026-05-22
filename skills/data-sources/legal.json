@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "korean-patent-search",
+      "authType": "api-key",
+      "proxyBacked": false,
+      "upstreams": [
+        "kipris"
+      ],
+      "category": "legal"
+    },
+    {
+      "skillId": "corporate-registration-consulting",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "legal"
+    },
+    {
+      "skillId": "iros-registry-automation",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "legal"
+    },
+    {
+      "skillId": "korean-law-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "legal"
+    },
+    {
+      "skillId": "korean-privacy-terms",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "legal"
+    }
+  ]
+}

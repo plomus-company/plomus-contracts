@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "daishin-report-search",
+      "packageName": "daishin-report-search",
+      "dir": "packages/daishin-report-search",
+      "category": "finance"
+    },
+    {
+      "skillId": "toss-securities",
+      "packageName": "toss-securities",
+      "dir": "packages/toss-securities",
+      "category": "finance"
+    }
+  ]
+}

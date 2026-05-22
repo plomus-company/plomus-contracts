@@ -6,7 +6,8 @@
       "domain": "SETTLEMENT",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "정산 불일치 확인 필요"
+      "description": "정산 불일치 확인 필요",
+      "businessUnit": "settlement"
     }
   ]
 }

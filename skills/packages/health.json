@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "emergency-room-beds",
+      "packageName": "emergency-room-beds",
+      "dir": "packages/emergency-room-beds",
+      "category": "health"
+    },
+    {
+      "skillId": "gangnamunni-clinic-search",
+      "packageName": "gangnamunni-clinic-search",
+      "dir": "packages/gangnamunni-clinic-search",
+      "category": "health"
+    }
+  ]
+}

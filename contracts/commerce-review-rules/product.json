@@ -6,21 +6,24 @@
       "domain": "PRODUCT",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "상품 상세설명 보완 필요"
+      "description": "상품 상세설명 보완 필요",
+      "businessUnit": "product"
     },
     {
       "ruleId": "PRODUCT_IMAGE_NEEDS_REVIEW",
       "domain": "PRODUCT",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "상품 이미지 점검 필요"
+      "description": "상품 이미지 점검 필요",
+      "businessUnit": "product"
     },
     {
       "ruleId": "PRODUCT_PRICE_MISSING",
       "domain": "PRODUCT",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "상품 가격 정보 확인 필요"
+      "description": "상품 가격 정보 확인 필요",
+      "businessUnit": "product"
     }
   ]
 }

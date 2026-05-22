@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "express-bus-booking",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    },
+    {
+      "skillId": "flight-ticket-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    },
+    {
+      "skillId": "foresttrip-vacancy",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    },
+    {
+      "skillId": "intercity-bus-booking",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    },
+    {
+      "skillId": "ktx-booking",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    },
+    {
+      "skillId": "myrealtrip-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    },
+    {
+      "skillId": "srt-booking",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "travel"
+    }
+  ]
+}

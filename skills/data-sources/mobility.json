@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "skillId": "korean-transit-route",
+      "authType": "api-key",
+      "proxyBacked": true,
+      "upstreams": [
+        "kakao",
+        "odsay"
+      ],
+      "category": "mobility"
+    },
+    {
+      "skillId": "cheap-gas-nearby",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "opinet"
+      ],
+      "category": "mobility"
+    },
+    {
+      "skillId": "delivery-tracking",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "mobility"
+    },
+    {
+      "skillId": "hipass-receipt",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "mobility"
+    },
+    {
+      "skillId": "seoul-subway-arrival",
+      "authType": "none",
+      "proxyBacked": true,
+      "upstreams": [
+        "seoul-open-data"
+      ],
+      "category": "mobility"
+    },
+    {
+      "skillId": "subway-lost-property",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "mobility"
+    }
+  ]
+}

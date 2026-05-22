@@ -6,21 +6,24 @@
       "domain": "HR",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "휴가 승인 대기 확인 필요"
+      "description": "휴가 승인 대기 확인 필요",
+      "businessUnit": "hr"
     },
     {
       "ruleId": "HR_ONBOARDING_DELAY",
       "domain": "HR",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "직원 온보딩 준비 지연 확인 필요"
+      "description": "직원 온보딩 준비 지연 확인 필요",
+      "businessUnit": "hr"
     },
     {
       "ruleId": "HR_PROBATION_REVIEW_DUE",
       "domain": "HR",
       "status": "ACTIVE",
       "severity": "HIGH",
-      "description": "수습 평가 확인 필요"
+      "description": "수습 평가 확인 필요",
+      "businessUnit": "hr"
     }
   ]
 }

@@ -34,7 +34,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 
 ---
 
-## models.json — 모델 레지스트리 (12)
+## models.json — 모델 레지스트리 (14)
 
 벤더별 유명 모델과 공개 스펙입니다. **가격은 1M 토큰당 USD 기준의 indicative(참고용) 값**으로, 절대 비교가 아닌 상대 참조로만 사용합니다 (`pricingNote`).
 
@@ -47,7 +47,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 | `status` | `frontier` / `balanced` / `fast` / `legacy` |
 | `pricing` | `{ inputPerMTok, outputPerMTok, currency }` |
 
-수록 모델: Claude(Opus 4.7·Sonnet 4.6·Haiku 4.5), GPT(4o·4o-mini·o3-mini), Gemini(2.5 Pro·2.5 Flash), 오픈(Llama 3.3 70B·Qwen 2.5 72B·DeepSeek V3·Mixtral 8x22B).
+수록 모델: Claude(Opus 4.7·Sonnet 4.6·Haiku 4.5), GPT(4o·4o-mini·o3-mini), Gemini(2.5 Pro·2.5 Flash), 오픈(Llama 3.3 70B·Qwen 2.5 72B·DeepSeek V3·Mixtral 8x22B), 로컬 measured 베이스라인(Qwen3.6 27B·Qwen 2.5 0.5B).
 
 ---
 
@@ -66,21 +66,21 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 
 ---
 
-## targets.json — 벤치마크 대상 (107)
+## targets.json — 벤치마크 대상 (114)
 
 모델이 실제 실행하는 단위입니다. 각 타깃은 **실재하는 계약을 참조**해야 합니다(검증기가 강제).
 
 | 필드 | 설명 |
 |---|---|
-| `targetId` | 네임스페이스 id (`skill:<id>` 또는 `workflow:<id>`) |
-| `kind` | `skill` 또는 `workflow` |
-| `domain` | `skills`(스킬 86) 또는 `commerce`(워크플로 21) |
-| `ref` | 참조 대상 — `skill`이면 `contracts/skills-catalog.json`의 `skillId`, `workflow`이면 `contracts/commerce-workflows.json`의 `workflowId`에 존재해야 함 |
-| `label` / `group` | 표시명과 분류(스킬 category / 워크플로 reviewScope) |
+| `targetId` | 네임스페이스 id (`<kind>:<id>`) |
+| `kind` | `skill`(86) · `workflow`(21) · `agent`(4) · `playbook`(2) · `preset`(1) |
+| `domain` | `skills` · `commerce` · `gameops` · `distribution` |
+| `ref` | 참조 대상 — kind에 맞는 registry(skills catalog·commerce workflows·gameops agents/playbooks·distribution presets)에 존재해야 함 |
+| `label` / `group` | 표시명과 분류(스킬 category / 워크플로 reviewScope 등) |
 
 ---
 
-## results.json — 측정값 (428)
+## results.json — 측정값 (677)
 
 타깃 × 모델 한 조합의 측정 한 묶음입니다.
 
@@ -95,9 +95,9 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 
 ---
 
-## rollups.json — 도메인 롤업 (8)
+## rollups.json — 도메인 롤업 (22)
 
-도메인 × 모델 단위의 지표 평균입니다 (results를 집계).
+도메인 × 모델 × dataSource 단위의 지표 평균입니다 (results를 집계; 도메인 commerce·distribution·gameops·skills).
 
 | 필드 | 설명 |
 |---|---|

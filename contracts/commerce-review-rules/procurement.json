@@ -6,7 +6,8 @@
       "domain": "PROCUREMENT",
       "status": "ACTIVE",
       "severity": "MEDIUM",
-      "description": "구매 요청 승인 확인 필요"
+      "description": "구매 요청 승인 확인 필요",
+      "businessUnit": "procurement"
     }
   ]
 }

@@ -2,12 +2,12 @@
 
 Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부 배포 주체가 preset, workflow, review rule, skill 계약을 추가하거나 갱신할 때 이 저장소를 기준으로 검토합니다.
 
-**모든 계약은 폴더**입니다(loose 파일 없음). 각 계약은 세부 업무 단위로 분할된 파일들의 폴더이고(`commerce-review-rules/settlement.json` — rule은 domain, skill은 subcategory, benchmark는 domain·vendor·category 등), 단일 객체 계약(base 등)은 그 폴더에 한 파일로 들어갑니다(`commerce-base/base.json`). 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
+**모든 계약은 폴더**입니다(loose 파일 없음). 각 계약은 세부 업무 단위로 분할된 파일들의 폴더이고(`commerce-review-rules/settlement.json` — review rule·workflow는 `businessUnit`, skill은 `category`로 분할; benchmark는 domain·vendor·category 등), 단일 객체 계약(base 등)은 그 폴더에 한 파일로 들어갑니다(`commerce-base/base.json`). 분류 규칙(15개 business unit·15개 category)은 [docs/CONTRACT-TAXONOMY.md](docs/CONTRACT-TAXONOMY.md)에 정의되어 있고 validator가 폴더 배치를 강제합니다. 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
 
 배치:
 - `contracts/<도메인>-<계약>/…` — commerce·distribution·protocol·platform·governance·gameops
 - `skills/<계약>/…`, `benchmarks/<계약>/…` — 루트로 분리된 도메인
-- `workflows/<reviewScope>.json` — 루트로 분리된 워크플로
+- `workflows/<businessUnit>.json` — 루트로 분리된 워크플로
 
 빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만들므로 소비자(`@plomus/contracts/*`)는 영향받지 않습니다. 저장소는 **여덟 개의 계약 도메인**으로 구성되며, 각 도메인은 서로 참조하는 JSON 계약 + 통제 어휘(enum) + 교차참조 검증기 + import/generate 도구를 갖습니다. 도메인별 상세는 [docs/contracts/](docs/contracts/).
 
@@ -15,7 +15,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 |---|---|---|---|---|
 | **Commerce** | `contracts/commerce-` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [docs/contracts/commerce.md](docs/contracts/commerce.md) |
 | **Skills** | `skills/` (루트) | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15(subcat 37) · upstream 18 · package 22 · mcp 11 | [docs/contracts/skills.md](docs/contracts/skills.md) |
-| **Benchmarks** | `benchmarks/` (루트) | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [docs/contracts/benchmarks.md](docs/contracts/benchmarks.md) |
+| **Benchmarks** | `benchmarks/` (루트) | skills + commerce 계약 참조 | model 14 · metric 9 · target 114 · result 677 | [docs/contracts/benchmarks.md](docs/contracts/benchmarks.md) |
 | **Distribution** | `contracts/distribution-` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [docs/contracts/distribution.md](docs/contracts/distribution.md) |
 | **Protocol** | `contracts/protocol-` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [docs/contracts/protocol.md](docs/contracts/protocol.md) |
 | **Platform** | `contracts/platform-` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [docs/contracts/platform.md](docs/contracts/platform.md) |
@@ -50,16 +50,16 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 ### Benchmarks (`benchmarks/` — 루트)
 
-각 실행 가능한 계약(스킬·워크플로)을 유명 모델로 벤치마킹하는 성능·비용·품질 지표 구조입니다. 설계/사용은 [docs/BENCHMARKS.md](docs/BENCHMARKS.md), 측정 결과는 [docs/BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md). 전체 107개 타깃을 로컬 `qwen3.6-27b`로 1회 실행한 measured 베이스라인(전부 성공)이 포함되며, 나머지는 illustrative 시드입니다.
+각 실행 가능한 계약(스킬·워크플로)을 유명 모델로 벤치마킹하는 성능·비용·품질 지표 구조입니다. 설계/사용은 [docs/BENCHMARKS.md](docs/BENCHMARKS.md), 측정 결과는 [docs/BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md). 전체 114개 타깃을 로컬 `qwen3.6-27b`로 1회 실행한 measured 베이스라인(전부 성공)이 포함되며, 나머지는 illustrative 시드입니다.
 
 | 파일 | 내용 |
 |---|---|
 | `base.json` | 어휘 — vendor·metric category·unit·direction·target kind·data source |
-| `models.json` | 유명 모델 레지스트리(12) — 가격(indicative)·컨텍스트·status |
+| `models.json` | 유명 모델 레지스트리(14) — 가격(indicative)·컨텍스트·status |
 | `metrics.json` | 지표 정의(9) — performance/cost/quality/reliability, 단위, 방향 |
-| `targets.json` | 벤치마크 대상(107) — 스킬 86 + 워크플로 21, 실재 계약 참조 |
-| `results.json` | 측정값(428) — target × model × metric |
-| `rollups.json` | 도메인 롤업(8) — domain × model 지표 평균 |
+| `targets.json` | 벤치마크 대상(114) — 스킬 86 + 워크플로 21 + agent 4 + playbook 2 + preset 1, 실재 계약 참조 |
+| `results.json` | 측정값(677) — target × model × metric (measured 221 + illustrative 456) |
+| `rollups.json` | 도메인 롤업(22) — domain × model 지표 평균 |
 
 ### Distribution (`contracts/distribution-`)
 
@@ -96,7 +96,7 @@ pnpm test
 pnpm run check:ci
 ```
 
-`pnpm run check:update`는 외부 PR에서 가장 먼저 실행할 검증입니다. JSON 포맷, 계약 참조, core parity, 요약 생성을 확인합니다.
+`pnpm run check:update`는 외부 PR에서 가장 먼저 실행할 검증입니다. JSON 포맷, 계약 참조, core parity, 폴더 배치 정합(`validate:placement` — 모든 폴더형 컬렉션의 항목이 분할 키에 맞는 파일에 있는지), 문서 카운트 정합(`validate:docs` — README·docs의 (N) 카운트가 실제 계약 수와 일치하는지), 요약 생성을 확인합니다.
 
 `pnpm test`는 Node 22 내장 test runner로 smoke test와 validator 회귀 테스트를 실행합니다. 로컬 반복 실행은 `pnpm run test:watch`, 커버리지 확인은 `pnpm run test:coverage`를 사용합니다.
 
@@ -119,7 +119,7 @@ pnpm run check:ci
 
 - Commerce 계약은 `plomus-commerce-ai-os`의 내부 registry에서 추출했습니다 (`pnpm run import:commerce-ai-os`).
 - Skills 계약은 `k-skill` 저장소를 참고해 새로 설계했습니다 (`pnpm run import:k-skill`).
-- Benchmarks 계약은 skills + commerce 계약에서 타깃을 생성합니다 (`pnpm run generate:benchmarks`). 측정값은 `pnpm run experiment`로 채우며, 현재 `qwen3.6-27b` 전체 107타깃 measured + illustrative 시드를 함께 보관합니다.
+- Benchmarks 계약은 skills + commerce 계약에서 타깃을 생성합니다 (`pnpm run generate:benchmarks`). 측정값은 `pnpm run experiment`로 채우며, 현재 measured 221건(`qwen3.6-27b` 114 + `qwen-2.5-0.5b` 107) + illustrative 시드를 함께 보관합니다.
 - Distribution 계약은 `plomus-distribution-ai-os`를 참고해 만들었습니다 (`pnpm run import:distribution`). commerce 계약은 읽기 전용 교차참조만 합니다.
 - Protocol·Platform 계약은 `plomus-commerce-ai-os`에서 import가 추출하지 않던 표면을 계약화했습니다 (`pnpm run import:protocol`, `pnpm run import:platform`).
 - Governance·GameOps 계약은 `plomus-gameops-ai-os`를 참고해 만들었습니다 (`pnpm run import:governance`, `pnpm run import:gameops`). governance는 benchmarks, gameops는 governance를 읽기 전용 교차참조합니다.

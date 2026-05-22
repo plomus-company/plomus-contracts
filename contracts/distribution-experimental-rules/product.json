@@ -5,13 +5,15 @@
       "ruleId": "PRODUCT_OPTION_MISSING",
       "domain": "PRODUCT",
       "status": "EXPERIMENTAL",
-      "description": "필수 상품 옵션(사이즈/색상 등) 정보가 누락된 상태."
+      "description": "필수 상품 옵션(사이즈/색상 등) 정보가 누락된 상태.",
+      "businessUnit": "product"
     },
     {
       "ruleId": "PRODUCT_STATUS_INCONSISTENT",
       "domain": "PRODUCT",
       "status": "EXPERIMENTAL",
-      "description": "판매 상태와 재고·노출 설정이 상호 모순되는 상태."
+      "description": "판매 상태와 재고·노출 설정이 상호 모순되는 상태.",
+      "businessUnit": "product"
     }
   ]
 }

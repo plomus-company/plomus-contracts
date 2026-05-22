@@ -5,7 +5,8 @@
       "ruleId": "SETTLEMENT_NOT_CONFIRMED",
       "domain": "SETTLEMENT",
       "status": "EXPERIMENTAL",
-      "description": "정산 예정 건이 기한 내 확정되지 않은 상태."
+      "description": "정산 예정 건이 기한 내 확정되지 않은 상태.",
+      "businessUnit": "settlement"
     }
   ]
 }

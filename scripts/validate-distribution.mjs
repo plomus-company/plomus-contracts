@@ -1,5 +1,6 @@
 import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
+import { BUSINESS_UNITS, placementErrors } from "./taxonomy.mjs";
 
 const failures = [];
 const fail = (scope, message) => failures.push({ scope, message });
@@ -108,6 +109,11 @@ for (const field of fields) {
 }
 
 // ---- C. experimental rules: new, distribution-relevant, valid domain ----
+// Folder-placement: each rule lives in the <businessUnit>.json it declares
+// (SUPPLIER rules fold into partner). See docs/CONTRACT-TAXONOMY.md.
+for (const [scope, message] of placementErrors("distribution-experimental-rules", "rules", "businessUnit", BUSINESS_UNITS)) {
+  fail(scope, message);
+}
 assertUnique("experimental-rules", "ruleId", experimentalRules.map((r) => r.ruleId));
 const ruleStatuses = new Set(base.ruleStatuses ?? []);
 for (const rule of experimentalRules) {

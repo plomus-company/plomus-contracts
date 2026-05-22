@@ -1,5 +1,6 @@
 import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
+import { BUSINESS_UNITS, placementErrors } from "./taxonomy.mjs";
 
 const failures = [];
 
@@ -37,6 +38,15 @@ const base = readDoc("commerce-base");
 const presets = readContract("commerce-presets", "presets");
 const reviewRules = readContract("commerce-review-rules", "reviewRules");
 const workflows = readContract("commerce-workflows", "workflows");
+
+// Folder-placement: every rule/workflow lives in the <businessUnit>.json file
+// it declares, and that unit is canonical. See docs/CONTRACT-TAXONOMY.md.
+for (const [scope, message] of [
+  ...placementErrors("commerce-review-rules", "reviewRules", "businessUnit", BUSINESS_UNITS),
+  ...placementErrors("commerce-workflows", "workflows", "businessUnit", BUSINESS_UNITS),
+]) {
+  fail(scope, message);
+}
 
 const presetIds = presets.map((preset) => preset.presetId);
 const reviewRuleIds = reviewRules.map((rule) => rule.ruleId);

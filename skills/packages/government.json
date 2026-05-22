@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "local-election-candidate-search",
+      "packageName": "local-election-candidate-search",
+      "dir": "packages/local-election-candidate-search",
+      "category": "government"
+    }
+  ]
+}

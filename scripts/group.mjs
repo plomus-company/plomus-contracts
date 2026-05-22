@@ -39,6 +39,22 @@ export function readContract(name, key) {
     .flatMap((f) => JSON.parse(fs.readFileSync(path.join(folder, f), "utf8"))[key] ?? []);
 }
 
+// Like readContract, but preserves which file each item came from. Returns
+// [{ unit, items }] where unit is the file stem (the business unit / category
+// the file is named for). Used to enforce folder-placement invariants.
+export function readGroups(name, key) {
+  const folder = folderFor(name);
+  if (!fs.existsSync(folder)) return [];
+  return fs
+    .readdirSync(folder)
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .map((f) => ({
+      unit: f.replace(/\.json$/, ""),
+      items: JSON.parse(fs.readFileSync(path.join(folder, f), "utf8"))[key] ?? [],
+    }));
+}
+
 const innerName = (name) => name.split("-").slice(1).join("-");
 
 // Read a single-object (config) contract — either a flat <name>.json file or the
