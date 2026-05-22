@@ -31,6 +31,6 @@ jobs:
         with:
           name: plomus-contracts
           path: |
-            dist/plomus-contracts.json
+            dist/plomus-*.json
             dist/contract-summary.md
           if-no-files-found: ignore

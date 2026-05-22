@@ -1,3 +1,4 @@
+import { readContract } from "../scripts/group.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -14,36 +15,32 @@ function run(script) {
   });
 }
 
-test("distribution registry validates and builds a distributable artifact", () => {
+test("distribution validates and splits across the task (preset) and governance (rules) bundles", () => {
   assert.match(run("validate:distribution"), /distribution contract validation passed/);
-  assert.match(run("build:distribution"), /built dist\/plomus-distribution.json/);
+  assert.match(run("build:task"), /built dist\/plomus-task.json/);
+  assert.match(run("build:governance"), /built dist\/plomus-governance.json/);
 
-  const dist = JSON.parse(
-    fs.readFileSync(path.join(repoRoot, "dist/plomus-distribution.json"), "utf8"),
-  );
-  assert.equal(dist.schemaVersion, "1.0.0");
+  // A1: the PLOMUS_DISTRIBUTION onboarding preset ships in the task bundle
+  const task = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-task.json"), "utf8"));
+  const presets = task.members.distribution.contracts.presets;
+  assert.ok(presets.some((p) => p.presetId === "PLOMUS_DISTRIBUTION"));
 
-  // A1: the PLOMUS_DISTRIBUTION preset is present
-  assert.ok(dist.contracts.presets.some((p) => p.presetId === "PLOMUS_DISTRIBUTION"));
-  // C: experimental rules captured
-  assert.ok(dist.contracts.experimentalRules.length >= 8);
+  // C: experimental rules are governance and ship in the governance bundle
+  const governance = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-governance.json"), "utf8"));
+  const experimentalRules = governance.members.distribution.contracts.experimentalRules;
+  assert.ok(experimentalRules.length >= 8);
 
   // every preset enabledRule resolves against the public commerce review-rules
-  // contract (split by business unit into a folder of files)
-  const rulesDir = path.join(repoRoot, "contracts/commerce-review-rules");
   const commerceRules = new Set(
-    fs
-      .readdirSync(rulesDir)
-      .filter((f) => f.endsWith(".json"))
-      .flatMap((f) => JSON.parse(fs.readFileSync(path.join(rulesDir, f), "utf8")).reviewRules.map((r) => r.ruleId)),
+    readContract("commerce-review-rules", "reviewRules").map((r) => r.ruleId),
   );
-  for (const preset of dist.contracts.presets) {
+  for (const preset of presets) {
     for (const ruleId of preset.enabledRules) {
       assert.ok(commerceRules.has(ruleId), `preset rule ${ruleId} missing from commerce baseline`);
     }
   }
   // experimental rules must be additive (not already ACTIVE in commerce)
-  for (const rule of dist.contracts.experimentalRules) {
+  for (const rule of experimentalRules) {
     assert.ok(!commerceRules.has(rule.ruleId), `experimental rule ${rule.ruleId} collides with commerce baseline`);
   }
 });

@@ -142,10 +142,10 @@ test("benchmarks validator rejects results for unknown targets", (t) => {
 
 test("build scripts can write artifacts in an isolated registry root", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const result = runNodeScript("scripts/build-skills.mjs", { registryRoot: fixtureRoot });
+  const result = runNodeScript("scripts/build-tool.mjs", { registryRoot: fixtureRoot });
   assert.equal(result.status, 0, scriptOutput(result));
 
-  const dist = readFixtureJson(fixtureRoot, "dist/plomus-skills.json");
-  assert.equal(dist.name, "plomus-skills");
-  assert.ok(dist.contracts.skills.length > 0);
+  const dist = readFixtureJson(fixtureRoot, "dist/plomus-tool.json");
+  assert.equal(dist.name, "plomus-tool");
+  assert.ok(dist.members.skills.contracts.skills.length > 0);
 });

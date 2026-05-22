@@ -3,6 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { TYPE_OF } from "../../scripts/group.mjs";
 
 const helperDir = path.dirname(fileURLToPath(import.meta.url));
 
@@ -30,26 +31,20 @@ export function runNodeScript(relativePath, { env = {}, registryRoot } = {}) {
   });
 }
 
-// Contracts that live at the repo root rather than under contracts/: a single
-// contract mapped to a folder (workflows), or a whole domain (benchmarks, skills).
-const ROOT_DIRS = { "commerce-workflows": "workflows" };
-const ROOT_DOMAINS = new Set(["benchmarks", "skills"]);
-const ROOT_TOP = ["workflows", "benchmarks", "skills"];
+// Contract-type roots holding every contract folder, plus the benchmarks
+// measurement layer at the repo root. Mirrors scripts/group.mjs.
+const SOURCE_ROOTS = ["tool", "agent", "task", "governance", "foundation", "benchmarks"];
 
 // Resolve a contract's folder inside a fixture, mirroring scripts/group.mjs.
 function fixtureFolderFor(fixtureRoot, name) {
-  if (ROOT_DIRS[name]) return path.join(fixtureRoot, ROOT_DIRS[name]);
   const [domain, ...rest] = name.split("-");
-  if (ROOT_DOMAINS.has(domain)) return path.join(fixtureRoot, domain, rest.join("-"));
-  return path.join(fixtureRoot, "contracts", name);
+  if (domain === "benchmarks") return path.join(fixtureRoot, "benchmarks", rest.join("-"));
+  return path.join(fixtureRoot, TYPE_OF[name], name);
 }
 
 export function createContractsFixture(t) {
   const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "plomus-contracts-test-"));
-  fs.cpSync(path.join(repoRoot, "contracts"), path.join(fixtureRoot, "contracts"), {
-    recursive: true,
-  });
-  for (const dir of ROOT_TOP) {
+  for (const dir of SOURCE_ROOTS) {
     const src = path.join(repoRoot, dir);
     if (fs.existsSync(src)) fs.cpSync(src, path.join(fixtureRoot, dir), { recursive: true });
   }

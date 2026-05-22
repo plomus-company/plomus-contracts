@@ -12,18 +12,19 @@ test("governance registry validates and builds a distributable artifact", () => 
   assert.match(run("validate:governance"), /governance contract validation passed/);
   assert.match(run("build:governance"), /built dist\/plomus-governance.json/);
 
-  const dist = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-governance.json"), "utf8"));
-  assert.equal(dist.schemaVersion, "1.0.0");
+  const bundle = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-governance.json"), "utf8"));
+  assert.equal(bundle.schemaVersion, "1.0.0");
+  const gov = bundle.members.governance;
   // A2: execution state machine
-  assert.ok(dist.enums.executionStates.includes("rollback_required"));
+  assert.ok(gov.enums.executionStates.includes("rollback_required"));
   // A3: multi-party approval policy
-  assert.ok(dist.contracts.approval.policies.some((p) => p.policy === "admin_multi" && p.requiredApprovals === 2));
+  assert.ok(gov.contracts.approval.policies.some((p) => p.policy === "admin_multi" && p.requiredApprovals === 2));
 
   // A1: every risk→model status resolves to a real benchmarks model status
   const benchStatuses = new Set(
     readContract("benchmarks-models", "models").map((m) => m.status),
   );
-  for (const r of dist.contracts.modelRouting.riskModelStatus) {
+  for (const r of gov.contracts.modelRouting.riskModelStatus) {
     assert.ok(benchStatuses.has(r.modelStatus), `risk ${r.riskLevel} → ${r.modelStatus} has no model`);
   }
 });

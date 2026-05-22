@@ -10,17 +10,44 @@ import { repoRoot } from "./read-json.mjs";
 
 export const safeUnit = (u) => String(u).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
-// Some contracts live in their own top-level folder at the repo root rather than
-// under contracts/. ROOT_DIRS maps a single contract to a root folder
-// (workflows); ROOT_DOMAINS places a whole domain at the root as
-// <domain>/<contract>/ (benchmarks, skills).
-const ROOT_DIRS = { "commerce-workflows": "workflows" };
-const ROOT_DOMAINS = new Set(["benchmarks", "skills"]);
+// Contract-type layout: every contract folder lives under its contract-role root
+// — tool/ (Tool & API), agent/ (Agent capability), task/ (Task & delegation),
+// governance/ (Behavioral & governance), foundation/ (shared vocabulary). The
+// folder name keeps its <domain>-<contract> logical id so the source system stays
+// legible. benchmarks is a measurement layer, not a contract role, so it stays at
+// the repo root as benchmarks/<collection>/. This map is the single source of
+// truth for placement; see docs/CONTRACT-GLOSSARY.md and docs/CONTRACT-TAXONOMY.md.
+export const TYPE_OF = {
+  // tool — how to call tools, APIs, and wire protocols
+  "skills-base": "tool", "skills-catalog": "tool", "skills-categories": "tool",
+  "skills-credentials": "tool", "skills-data-sources": "tool", "skills-mcp": "tool",
+  "skills-packages": "tool", "skills-proxy": "tool", "skills-proxy-routes": "tool",
+  "skills-upstreams": "tool",
+  "protocol-base": "tool", "protocol-endpoints": "tool", "protocol-payloads": "tool",
+  "protocol-sync-event": "tool", "protocol-telegram": "tool",
+  "gameops-adapters": "tool",
+  // agent — what an agent is and what it can do
+  "gameops-base": "agent", "gameops-agents": "agent", "gameops-playbooks": "agent",
+  "gameops-fields": "agent",
+  // task — what work runs, under what recipe and safety profile
+  "commerce-presets": "task", "commerce-workflows": "task", "distribution-presets": "task",
+  // governance — rules, roles, lifecycle, recovery the agent must obey
+  "governance-base": "governance", "governance-roles": "governance",
+  "governance-approval": "governance", "governance-execution-lifecycle": "governance",
+  "governance-model-routing": "governance",
+  "commerce-review-rules": "governance", "distribution-experimental-rules": "governance",
+  // foundation — shared vocabulary (not a contract role itself)
+  "commerce-base": "foundation", "distribution-base": "foundation", "distribution-fields": "foundation",
+  "platform-base": "foundation", "platform-frontmatter": "foundation",
+  "platform-event-types": "foundation", "platform-error-codes": "foundation",
+};
+
 function folderFor(name) {
-  if (ROOT_DIRS[name]) return path.join(repoRoot, ROOT_DIRS[name]);
   const [domain, ...rest] = name.split("-");
-  if (ROOT_DOMAINS.has(domain)) return path.join(repoRoot, domain, rest.join("-"));
-  return path.join(repoRoot, "contracts", name);
+  if (domain === "benchmarks") return path.join(repoRoot, "benchmarks", rest.join("-"));
+  const type = TYPE_OF[name];
+  if (!type) throw new Error(`group.mjs: no contract-type mapping for "${name}" (add it to TYPE_OF)`);
+  return path.join(repoRoot, type, name);
 }
 // Every contract is foldered, so there is no flat single file to prefer.
 const singleFor = () => null;

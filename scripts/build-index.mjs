@@ -1,52 +1,48 @@
 import fs from "node:fs";
 import path from "node:path";
 import { repoRoot, writeJson } from "./read-json.mjs";
-import { readDoc } from "./group.mjs";
 
-// Top-level manifest of every contract domain: location, dependency edges, and
-// the contract folders each ships. Lets a consumer discover the whole registry
-// and its cross-domain dependency graph from one file.
+// Top-level manifest of the contract registry, organised by contract type. Each
+// type ships one dist bundle assembled from one or more source domains; the
+// dependsOn edges are read-only cross-references between types. Lets a consumer
+// discover the whole registry and its dependency graph from one file. See
+// docs/CONTRACT-GLOSSARY.md and docs/CONTRACT-TAXONOMY.md.
 
-const DOMAINS = [
-  { name: "commerce", root: "contracts", dependsOn: [], source: "plomus-commerce-ai-os" },
-  { name: "skills", root: "skills", dependsOn: [], source: "k-skill" },
-  { name: "benchmarks", root: "benchmarks", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
-  { name: "distribution", root: "contracts", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
-  { name: "protocol", root: "contracts", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "platform", root: "contracts", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "governance", root: "contracts", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
-  { name: "gameops", root: "contracts", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
+const TYPES = [
+  { type: "foundation", artifact: "dist/plomus-foundation.json", domains: ["commerce", "distribution", "platform"], dependsOn: [] },
+  { type: "tool", artifact: "dist/plomus-tool.json", domains: ["skills", "protocol", "gameops"], dependsOn: ["foundation"] },
+  { type: "governance", artifact: "dist/plomus-governance.json", domains: ["governance", "commerce", "distribution"], dependsOn: ["foundation", "benchmarks"] },
+  { type: "agent", artifact: "dist/plomus-agent.json", domains: ["gameops"], dependsOn: ["governance", "foundation"] },
+  { type: "task", artifact: "dist/plomus-task.json", domains: ["commerce", "distribution"], dependsOn: ["foundation", "governance"] },
+  { type: "benchmarks", artifact: "dist/plomus-benchmarks.json", domains: ["benchmarks"], dependsOn: ["tool", "task"] },
 ];
 
-// Every contract is a folder. Domains live under contracts/<domain>-<contract>/,
-// except skills and benchmarks which are split out to <domain>/<contract>/.
-const folders = (rel) => fs.readdirSync(path.join(repoRoot, rel), { withFileTypes: true })
-  .filter((e) => e.isDirectory())
-  .map((e) => e.name)
-  .sort();
+const ROOT_OF = { benchmarks: "benchmarks" }; // benchmarks stays at the repo root
 
-const domains = DOMAINS.map((d) => {
-  const collections = d.root === "contracts"
-    ? folders("contracts").filter((f) => f.startsWith(`${d.name}-`)).map((f) => `contracts/${f}/`)
-    : folders(d.root).map((f) => `${d.root}/${f}/`);
-  // workflows are separated into a top-level workflows/ folder (commerce concern)
-  if (d.name === "commerce" && fs.existsSync(path.join(repoRoot, "workflows"))) {
-    collections.push("workflows/");
-  }
-  let schemaVersion = null;
-  try {
-    schemaVersion = readDoc(`${d.name}-base`).schemaVersion ?? null;
-  } catch {
-    schemaVersion = "1.0.0";
-  }
-  return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, collections };
-});
+const folders = (type) => {
+  const root = path.join(repoRoot, ROOT_OF[type] ?? type);
+  if (!fs.existsSync(root)) return [];
+  return fs
+    .readdirSync(root, { withFileTypes: true })
+    .filter((e) => e.isDirectory())
+    .map((e) => `${ROOT_OF[type] ?? type}/${e.name}/`)
+    .sort();
+};
+
+const types = TYPES.map((t) => ({
+  type: t.type,
+  artifact: t.artifact,
+  domains: t.domains,
+  dependsOn: t.dependsOn,
+  folders: folders(t.type),
+}));
 
 writeJson("dist/plomus-contracts-index.json", {
   schemaVersion: "1.0.0",
   name: "plomus-contracts",
+  layout: "contract-type",
   generatedAt: new Date().toISOString(),
-  domainCount: domains.length,
-  domains,
+  typeCount: types.length,
+  types,
 });
-console.log(`built dist/plomus-contracts-index.json (${domains.length} domains)`);
+console.log(`built dist/plomus-contracts-index.json (${types.length} contract types)`);

@@ -12,13 +12,14 @@ test("cross-domain consistency holds and the registry index builds", () => {
   assert.match(run("build:index"), /built dist\/plomus-contracts-index.json/);
 
   const index = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-contracts-index.json"), "utf8"));
-  assert.equal(index.domainCount, 8);
-  // every contract is now a business-unit folder, so each domain ships >=1 collection
-  assert.ok(index.domains.every((d) => d.collections.length > 0));
+  assert.equal(index.layout, "contract-type");
+  assert.equal(index.typeCount, 6);
+  // every contract type ships at least one folder
+  assert.ok(index.types.every((t) => t.folders.length > 0));
 
-  // dependency edges only reference declared domains (acyclic-ish manifest sanity)
-  const names = new Set(index.domains.map((d) => d.name));
-  for (const d of index.domains) {
-    for (const dep of d.dependsOn) assert.ok(names.has(dep), `${d.name} depends on unknown ${dep}`);
+  // dependency edges only reference declared contract types (manifest sanity)
+  const names = new Set(index.types.map((t) => t.type));
+  for (const t of index.types) {
+    for (const dep of t.dependsOn) assert.ok(names.has(dep), `${t.type} depends on unknown ${dep}`);
   }
 });

@@ -39,7 +39,13 @@ jobs:
             flags+=(--prerelease)
           fi
           gh release create "$TAG" \
-            dist/plomus-contracts.json \
+            dist/plomus-tool.json \
+            dist/plomus-agent.json \
+            dist/plomus-task.json \
+            dist/plomus-governance.json \
+            dist/plomus-foundation.json \
+            dist/plomus-benchmarks.json \
+            dist/plomus-contracts-index.json \
             dist/contract-summary.md \
             --title "$TAG" \
             --notes-file dist/contract-summary.md \

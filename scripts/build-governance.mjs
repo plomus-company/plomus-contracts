@@ -1,26 +1,17 @@
-import { readDoc } from "./group.mjs";
-import { readJson, writeJson } from "./read-json.mjs";
+import { writeJson } from "./read-json.mjs";
+import {
+  bundle,
+  commerceGovernanceRegistry,
+  distributionGovernanceRegistry,
+  governanceRegistry,
+} from "./registries.mjs";
 
-const base = readDoc("governance-base");
-writeJson("dist/plomus-governance.json", {
-  schemaVersion: "1.0.0",
-  name: "plomus-governance",
-  generatedAt: new Date().toISOString(),
-  builtOnBenchmarks: base.builtOnBenchmarks ?? "benchmarks",
-  enums: {
-    riskLevels: base.riskLevels ?? [],
-    roles: base.roles ?? [],
-    approvalPolicies: base.approvalPolicies ?? [],
-    approvalStatuses: base.approvalStatuses ?? [],
-    approvalChannels: base.approvalChannels ?? [],
-    executionStates: base.executionStates ?? [],
-    commandStates: base.commandStates ?? [],
-  },
-  contracts: {
-    roles: readDoc("governance-roles"),
-    approval: readDoc("governance-approval"),
-    executionLifecycle: readDoc("governance-execution-lifecycle"),
-    modelRouting: readDoc("governance-model-routing"),
-  },
-});
+// Behavioral & governance contracts: the rules, roles, lifecycle, and recovery an
+// agent must obey. Cross-cutting governance plus the per-domain review rules that
+// constrain operational behaviour.
+writeJson("dist/plomus-governance.json", bundle("governance", {
+  governance: governanceRegistry(),
+  commerce: commerceGovernanceRegistry(),
+  distribution: distributionGovernanceRegistry(),
+}));
 console.log("built dist/plomus-governance.json");
