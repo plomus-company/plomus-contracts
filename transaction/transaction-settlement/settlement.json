@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "settlements": [
+    {
+      "settlementId": "marketplace-sale-commission",
+      "businessUnit": "settlement",
+      "appliesTo": "상품판매 (직접 판매 거래)",
+      "commissionRateBps": 500,
+      "cycle": "MONTHLY_CLOSE",
+      "payoutRail": "BANK_TRANSFER",
+      "currency": "KRW",
+      "refundWindowDays": 7,
+      "refundReasons": [
+        "CUSTOMER_REQUEST",
+        "DEFECT",
+        "DELIVERY_FAILURE"
+      ],
+      "onPaymentFailure": "ROLLBACK",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

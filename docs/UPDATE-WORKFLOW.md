@@ -47,7 +47,7 @@ main에 병합되면 `Contract CI`가 실행됩니다. 배포가 필요하면 `C
 
 배포 artifact:
 
-- role별 `dist/plomus-{tool,agent,task,governance,foundation,benchmarks}.json`
+- role별 `dist/plomus-{tool,agent,task,governance,transaction,legal,foundation,benchmarks}.json`
 - `dist/plomus-contracts-index.json`
 - `dist/contract-summary.md`
 

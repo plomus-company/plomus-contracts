@@ -23,7 +23,7 @@
 
 ## 계약 도메인과 contract role
 
-저장소의 최상위 폴더는 **contract role**(tool·agent·task·governance·foundation, + 측정층 benchmarks)이고, 각 계약은 그 안에서 출처 도메인을 드러내는 논리 id(`<domain>-<contract>`) 폴더로 유지됩니다([CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)). **검증은 출처 도메인 단위**(distribution·protocol·platform → commerce, benchmarks → skills·commerce, governance → benchmarks, gameops → governance의 읽기 전용 교차참조)이고, **빌드는 role 단위**로 dist 번들을 만듭니다. 따라서 한 출처 도메인이 여러 role 번들에 걸칠 수 있습니다.
+저장소의 최상위 폴더는 **contract role**(tool·agent·task·governance·transaction·legal·foundation, + 측정층 benchmarks)이고, 각 계약은 그 안에서 출처 도메인을 드러내는 논리 id(`<domain>-<contract>`) 폴더로 유지됩니다([CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)). **검증은 출처 도메인 단위**(distribution·protocol·platform → commerce, benchmarks → skills·commerce, governance → benchmarks, gameops·transaction → governance의 읽기 전용 교차참조)이고, **빌드는 role 단위**로 dist 번들을 만듭니다. 따라서 한 출처 도메인이 여러 role 번들에 걸칠 수 있습니다.
 
 | 도메인 | role 폴더 | dist 번들 | 현재 규모 |
 |---|---|---|---|
@@ -35,6 +35,8 @@
 | Platform | `foundation/platform-*` | `plomus-foundation` | frontmatter 10, event 6, error code 21 |
 | Governance | `governance/governance-*` | `plomus-governance` | role 6, lifecycle 19, 승인정책 3, 라우팅 4 |
 | GameOps | `agent/gameops-*`(agent·playbook·field), `tool/gameops-adapters` | `plomus-agent` · `plomus-tool` | adapter 7, intent 16, agent 4, playbook 2, field 6 |
+| Transaction | `transaction/` | `plomus-transaction` | budget 4, settlement 3 (EXPERIMENTAL) |
+| Legal | `legal/` | `plomus-legal` | document 6, disclosure 4 (DRAFT) |
 
 계약은 버전 폴더 없이 `<role>/<domain>-<contract>/` 단위로 관리합니다(버전관리는 git/GitHub). review rule·workflow는 `businessUnit`으로, skill은 `category`로 파일이 나뉘며, role 매핑·분류 규칙은 [CONTRACT-TAXONOMY.md](CONTRACT-TAXONOMY.md)에 정의되고 validator가 강제합니다. 본 문서는 Commerce·Skills·Benchmarks 세 도메인을 중심으로 기술하며, 나머지는 [docs/contracts/](contracts/)에 상세가 있습니다.
 
@@ -115,6 +117,8 @@ Benchmarks 도메인은 skills와 commerce workflow를 모델별로 비교하기
 | `@plomus/contracts/agent` | `dist/plomus-agent.json` |
 | `@plomus/contracts/task` | `dist/plomus-task.json` |
 | `@plomus/contracts/governance` | `dist/plomus-governance.json` |
+| `@plomus/contracts/transaction` | `dist/plomus-transaction.json` |
+| `@plomus/contracts/legal` | `dist/plomus-legal.json` |
 | `@plomus/contracts/foundation` | `dist/plomus-foundation.json` |
 | `@plomus/contracts/benchmarks` | `dist/plomus-benchmarks.json` |
 
@@ -153,6 +157,7 @@ pnpm run check:ci
 | `validate:skills` | Skills catalog, proxy, credential, data-source 무결성 검증 |
 | `validate:benchmarks` | Benchmark target, model, metric, result, rollup 무결성 검증 |
 | `validate:distribution` · `validate:protocol` · `validate:platform` · `validate:governance` · `validate:gameops` | 각 도메인 무결성 + commerce 교차참조 |
+| `validate:transaction` · `validate:legal` | 예산·정산·문서·고지 무결성 + governance/business-unit 교차참조 |
 | `validate:cross-domain` | platform↔distribution 상태 드리프트, governance↔benchmarks·gameops 정합 |
 | `validate:placement` | 모든 폴더형 컬렉션의 항목이 분할 키(`FOLDER_SPLIT`)에 맞는 파일에 있는지 검증 |
 | `validate:docs` | README·docs의 (N) 카운트가 실제 계약 수와 일치하는지 검증(문서 드리프트 차단) |
@@ -167,9 +172,11 @@ role별 빌드:
 | `build:agent` | `dist/plomus-agent.json` (gameops agent·playbook) |
 | `build:task` | `dist/plomus-task.json` (commerce·distribution preset·workflow) |
 | `build:governance` | `dist/plomus-governance.json` (governance + commerce·distribution rule) |
+| `build:transaction` | `dist/plomus-transaction.json` (예산·정산·수수료, EXPERIMENTAL) |
+| `build:legal` | `dist/plomus-legal.json` (법적 문서·전자상거래 고지, DRAFT) |
 | `build:foundation` | `dist/plomus-foundation.json` (commerce·distribution·platform 어휘) |
 | `build:benchmarks` | `dist/plomus-benchmarks.json` |
-| `build:index` | `dist/plomus-contracts-index.json` (6 contract-type 의존 그래프 매니페스트) |
+| `build:index` | `dist/plomus-contracts-index.json` (8 contract-type 의존 그래프 매니페스트) |
 
 ## GitHub 기반 갱신 흐름
 
@@ -186,7 +193,7 @@ role별 빌드:
 
 GitHub Actions 산출물:
 
-- role별 `dist/plomus-{tool,agent,task,governance,foundation,benchmarks}.json`
+- role별 `dist/plomus-{tool,agent,task,governance,transaction,legal,foundation,benchmarks}.json`
 - `dist/plomus-contracts-index.json`
 - `dist/contract-summary.md`
 
@@ -236,7 +243,7 @@ major 변경은 제품별 migration 계획이 있어야 합니다. 기존 id는 
 
 | 산출물 | 설명 |
 |---|---|
-| `dist/plomus-{tool,agent,task,governance,foundation}.json` | contract-role별 통합 번들 |
+| `dist/plomus-{tool,agent,task,governance,transaction,legal,foundation}.json` | contract-role별 통합 번들 |
 | `dist/plomus-benchmarks.json` | Benchmarks 측정 통합 파일 |
 | `dist/plomus-contracts-index.json` | role 의존 그래프 매니페스트 |
 | `dist/contract-summary.md` | CI step summary와 release note에 사용할 요약 |

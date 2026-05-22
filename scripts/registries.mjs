@@ -137,6 +137,49 @@ export function distributionGovernanceRegistry() {
   return { contracts: { experimentalRules: readContract("distribution-experimental-rules", "rules") } };
 }
 
+// ---- transaction ----
+
+export function transactionRegistry() {
+  const base = readDoc("transaction-base");
+  return {
+    status: base.status ?? "EXPERIMENTAL",
+    builtOnGovernance: base.builtOnGovernance ?? "governance",
+    enums: {
+      paymentRails: base.paymentRails ?? [],
+      currencies: base.currencies ?? [],
+      budgetScopes: base.budgetScopes ?? [],
+      settlementCycles: base.settlementCycles ?? [],
+      proofTypes: base.proofTypes ?? [],
+      failureModes: base.failureModes ?? [],
+      refundReasons: base.refundReasons ?? [],
+      onFailureActions: base.onFailureActions ?? [],
+    },
+    contracts: {
+      budgets: readContract("transaction-budgets", "budgets"),
+      settlements: readContract("transaction-settlement", "settlements"),
+    },
+  };
+}
+
+// ---- legal ----
+
+export function legalRegistry() {
+  const base = readDoc("legal-base");
+  return {
+    status: base.status ?? "EXPERIMENTAL",
+    enums: {
+      documentTypes: base.documentTypes ?? [],
+      jurisdictions: base.jurisdictions ?? [],
+      audiences: base.audiences ?? [],
+      consentTypes: base.consentTypes ?? [],
+    },
+    contracts: {
+      documents: readContract("legal-documents", "documents"),
+      disclosures: readContract("legal-disclosures", "disclosures"),
+    },
+  };
+}
+
 // ---- foundation ----
 
 export function commerceFoundationRegistry() {

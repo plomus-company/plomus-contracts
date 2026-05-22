@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentId": "tos-consumer",
+      "documentType": "TERMS_OF_SERVICE",
+      "version": "1.0.0",
+      "audience": "CONSUMER",
+      "jurisdiction": "KR",
+      "requiredConsent": "REQUIRED",
+      "governsBusinessUnits": [
+        "order",
+        "claim",
+        "settlement"
+      ],
+      "summary": "서비스 이용 조건, 계정, 금지행위, 면책 — 소비자 대상 이용약관.",
+      "status": "DRAFT"
+    }
+  ]
+}

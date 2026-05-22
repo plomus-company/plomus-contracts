@@ -16,7 +16,7 @@ function listJson(relDir) {
   }
   return out;
 }
-const ROOTS = ["tool", "agent", "task", "governance", "foundation", "benchmarks", "examples"];
+const ROOTS = ["tool", "agent", "task", "governance", "transaction", "legal", "foundation", "benchmarks", "examples"];
 const targets = ROOTS.flatMap((root) => listJson(root)).sort();
 
 const changed = [];

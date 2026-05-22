@@ -33,7 +33,7 @@ export function runNodeScript(relativePath, { env = {}, registryRoot } = {}) {
 
 // Contract-type roots holding every contract folder, plus the benchmarks
 // measurement layer at the repo root. Mirrors scripts/group.mjs.
-const SOURCE_ROOTS = ["tool", "agent", "task", "governance", "foundation", "benchmarks"];
+const SOURCE_ROOTS = ["tool", "agent", "task", "governance", "transaction", "legal", "foundation", "benchmarks"];
 
 // Resolve a contract's folder inside a fixture, mirroring scripts/group.mjs.
 function fixtureFolderFor(fixtureRoot, name) {

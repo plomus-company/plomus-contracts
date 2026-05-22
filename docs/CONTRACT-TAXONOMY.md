@@ -2,8 +2,8 @@
 
 이 문서는 계약 폴더 분류 규칙을 정의합니다. 분류는 **두 축**입니다.
 
-1. **contract role (최상위 폴더 축)** — `tool/`·`agent/`·`task/`·`governance/`·`foundation/`(+ 측정층 `benchmarks/`). 각 계약을 역할에 매핑하는 단일 소스는 `scripts/group.mjs`의 `TYPE_OF`이고, 의미는 [CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)에 있습니다.
-2. **business unit / category (role 내부 분할 축)** — **task·governance 계약**(review rule·workflow·distribution rule)은 운영 *business unit*으로, **skill 계약**(catalog·data-source·package)은 *category*로 파일이 나뉩니다. 단일 소스는 `scripts/taxonomy.mjs`입니다.
+1. **contract role (최상위 폴더 축)** — `tool/`·`agent/`·`task/`·`governance/`·`transaction/`·`legal/`·`foundation/`(+ 측정층 `benchmarks/`). 각 계약을 역할에 매핑하는 단일 소스는 `scripts/group.mjs`의 `TYPE_OF`이고, 의미는 [CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)에 있습니다.
+2. **business unit / category (role 내부 분할 축)** — **task·governance·transaction·legal 계약**(review rule·workflow·distribution rule·settlement·disclosure)은 운영 *business unit*으로, **skill 계약**(catalog·data-source·package)은 *category*로 파일이 나뉩니다(그 외 transaction-budgets는 `scope`, legal-documents는 `documentType`로 분할). 단일 소스는 `scripts/taxonomy.mjs`입니다.
 
 두 축 모두 validator가 CI에서 강제합니다.
 
@@ -38,7 +38,9 @@
 | 컬렉션 | 분할 필드 |
 |---|---|
 | `commerce-presets` | `presetId` |
-| `commerce-review-rules`, `commerce-workflows`, `distribution-experimental-rules` | `businessUnit` |
+| `commerce-review-rules`, `commerce-workflows`, `distribution-experimental-rules`, `transaction-settlement`, `legal-disclosures` | `businessUnit` |
+| `transaction-budgets` | `scope` |
+| `legal-documents` | `documentType` |
 | `distribution-fields`, `platform-frontmatter`, `gameops-fields` | `documentType` |
 | `platform-event-types` | `object` |
 | `platform-error-codes`, `benchmarks-metrics` | `category` |

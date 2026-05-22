@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentId": "marketing-consent-optin",
+      "documentType": "MARKETING_CONSENT",
+      "version": "1.0.0",
+      "audience": "CONSUMER",
+      "jurisdiction": "KR",
+      "requiredConsent": "OPTIONAL",
+      "governsBusinessUnits": [
+        "operations"
+      ],
+      "summary": "광고성 정보 수신 동의(이메일·SMS·푸시) — 선택 동의, 철회 가능.",
+      "status": "DRAFT"
+    }
+  ]
+}

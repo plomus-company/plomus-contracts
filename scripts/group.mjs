@@ -36,6 +36,11 @@ export const TYPE_OF = {
   "governance-approval": "governance", "governance-execution-lifecycle": "governance",
   "governance-model-routing": "governance",
   "commerce-review-rules": "governance", "distribution-experimental-rules": "governance",
+  // transaction — machine payment/settlement: budgets, commission, refund, proof
+  "transaction-base": "transaction", "transaction-budgets": "transaction",
+  "transaction-settlement": "transaction",
+  // legal — legal document contracts: ToS, privacy, disclosure, partner, refund
+  "legal-base": "legal", "legal-documents": "legal", "legal-disclosures": "legal",
   // foundation — shared vocabulary (not a contract role itself)
   "commerce-base": "foundation", "distribution-base": "foundation", "distribution-fields": "foundation",
   "platform-base": "foundation", "platform-frontmatter": "foundation",

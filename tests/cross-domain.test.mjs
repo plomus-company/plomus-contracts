@@ -13,7 +13,7 @@ test("cross-domain consistency holds and the registry index builds", () => {
 
   const index = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-contracts-index.json"), "utf8"));
   assert.equal(index.layout, "contract-type");
-  assert.equal(index.typeCount, 6);
+  assert.equal(index.typeCount, 8);
   // every contract type ships at least one folder
   assert.ok(index.types.every((t) => t.folders.length > 0));
 

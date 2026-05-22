@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentId": "partner-agreement-standard",
+      "documentType": "PARTNER_AGREEMENT",
+      "version": "1.0.0",
+      "audience": "PARTNER",
+      "jurisdiction": "KR",
+      "requiredConsent": "REQUIRED",
+      "governsBusinessUnits": [
+        "partner",
+        "settlement",
+        "si-project"
+      ],
+      "summary": "업체주선·SI 파트너 권리·의무, 수수료·정산, 비밀유지, 해지 — 파트너 계약.",
+      "status": "DRAFT"
+    }
+  ]
+}

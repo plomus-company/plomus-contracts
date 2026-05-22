@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentId": "refund-policy-consumer",
+      "documentType": "REFUND_POLICY",
+      "version": "1.0.0",
+      "audience": "CONSUMER",
+      "jurisdiction": "KR",
+      "requiredConsent": "OPTIONAL",
+      "governsBusinessUnits": [
+        "claim",
+        "settlement"
+      ],
+      "summary": "청약철회 기간, 환불 방법·기한, 반품 배송비 부담 — 환불·교환 정책. 거래 처리는 transaction-settlement 참조.",
+      "status": "DRAFT"
+    }
+  ]
+}

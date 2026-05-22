@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentId": "ecommerce-seller-disclosure",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "version": "1.0.0",
+      "audience": "CONSUMER",
+      "jurisdiction": "KR",
+      "requiredConsent": "REQUIRED",
+      "governsBusinessUnits": [
+        "legal-policy",
+        "order"
+      ],
+      "summary": "통신판매업자 신원·연락처·청약철회·교환반품 고지 (전자상거래법 표시의무). 항목은 legal-disclosures 참조.",
+      "status": "DRAFT"
+    }
+  ]
+}

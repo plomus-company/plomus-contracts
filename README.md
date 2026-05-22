@@ -14,12 +14,14 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | **Agent** | `agent/` | 에이전트 능력·정체성 | agent 4 · playbook 2 · intent 16 · field 6 | `plomus-agent.json` |
 | **Task** | `task/` | 위임 작업·워크플로 | preset 8 · workflow 21 · dist-preset 1 | `plomus-task.json` |
 | **Governance** | `governance/` | 규칙·역할·라이프사이클·복구 | rule 37 · role 6 · 실행상태 19 · 승인정책 3 · EXPERIMENTAL 규칙 12 | `plomus-governance.json` |
+| **Transaction** | `transaction/` | 결제·정산·수수료·예산 (EXPERIMENTAL) | budget 4 · settlement 3 | `plomus-transaction.json` |
+| **Legal** | `legal/` | 법적 문서·약관·고지 (DRAFT) | document 6 · disclosure 4 | `plomus-legal.json` |
 | **Foundation** | `foundation/` | 공유 어휘(역할 아님) | frontmatter 10 · 이벤트그룹 6 · error code 21 · 필드 7 | `plomus-foundation.json` |
 | **Benchmarks** | `benchmarks/` | 측정층(역할 아님) | model 14 · metric 9 · target 114 · result 677 | `plomus-benchmarks.json` |
 
 분류 규칙(role 매핑 + 15 business unit · 15 category 2차 축)은 [docs/CONTRACT-TAXONOMY.md](docs/CONTRACT-TAXONOMY.md)에 정의되고 validator가 폴더 배치를 강제합니다. 빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만듭니다. 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다. 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
 
-> **payment·legal**은 폴더로 두지 않습니다. settlement·finance·claim·legal-policy는 *business unit*(governance review-rule)이지 계약 역할이 아니며, 기계 결제 프로토콜·법적 문서 계약은 아직 없습니다(frontier gap — [GLOSSARY](docs/CONTRACT-GLOSSARY.md)).
+> **transaction·legal**은 `EXPERIMENTAL`/`DRAFT`입니다 — 구조는 검증되지만 값(수수료율·약관 문구)은 권위 데이터가 아닌 scaffold입니다. governance review-rule(settlement·finance·claim·legal-policy 행동 규칙)은 그대로 두고, transaction은 그 위에 *기계 거래 규격*(예산·결제증명·정산)을, legal은 *법적 문서 계약*을 더합니다([GLOSSARY](docs/CONTRACT-GLOSSARY.md)). smart contract는 범위 밖.
 > **소비자 이전**: dist·export가 변경(breaking)되었습니다 — [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md).
 
 ## 계약 역할 상세
@@ -48,6 +50,14 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 에이전트가 *지켜야 할 규칙·역할·라이프사이클·복구*. risk→model 라우팅, 실행 lifecycle 상태기계(19: dry-run→approve→execute→verify→rollback), RBAC 역할(6) + 다자승인 정책(3), commerce review rule(37), distribution EXPERIMENTAL 규칙(12) — [governance.md](docs/contracts/governance.md), [distribution.md](docs/contracts/distribution.md).
 
+### Transaction (`transaction/`) → `plomus-transaction.json` (EXPERIMENTAL)
+
+*얼마를·어떻게·어떤 증명으로 결제·정산하는가* — 기계 거래 규격. x402식 spending budget(4: 세션/일/월, 예산 한도·결제레일·결제증명, 승인 게이트는 governance 교차참조)과 settlement(3: 수수료율·정산 주기·환불, businessUnit별). governance review-rule(행동 규칙) 위에 더하는 층입니다 — [GLOSSARY](docs/CONTRACT-GLOSSARY.md).
+
+### Legal (`legal/`) → `plomus-legal.json` (DRAFT)
+
+*어떤 법적 문서를 제시·준수해야 하는가*. legal document(6: 이용약관·개인정보처리방침·전자상거래 고지·파트너 계약·환불 정책·마케팅 동의, documentType별)과 전자상거래법 표시의무 disclosure(4). 값은 법률 검토 전 scaffold입니다 — [GLOSSARY](docs/CONTRACT-GLOSSARY.md).
+
 ### Foundation (`foundation/`) → `plomus-foundation.json`
 
 모든 역할이 참조하는 *공유 어휘*. commerce core enum, distribution 어휘 + frontmatter 필드(7), platform frontmatter 상태(10)·이벤트 분류(6 그룹)·error code(21) — [platform.md](docs/contracts/platform.md).
@@ -71,7 +81,7 @@ pnpm run check:ci
 
 `pnpm run check:ci`는 배포 전 전체 검증입니다. 모든 도메인을 검증·빌드하고 **교차 도메인 일관성**(`validate:cross-domain` — platform↔distribution 상태 드리프트, governance↔benchmarks·gameops 정합)을 확인하며, role별 `dist/plomus-*.json`과 매니페스트 `dist/plomus-contracts-index.json`(role 의존 그래프), `dist/contract-summary.md`를 생성하고 테스트까지 실행합니다.
 
-도메인별 명령도 따로 제공합니다: `validate:commerce`/`validate:skills`/`validate:benchmarks` 등(검증은 출처 도메인 단위), `build:tool`/`build:agent`/`build:task`/`build:governance`/`build:foundation`/`build:benchmarks`(빌드는 role 단위).
+도메인별 명령도 따로 제공합니다: `validate:commerce`/`validate:skills`/`validate:transaction`/`validate:legal` 등(검증은 출처 도메인 단위), `build:tool`/`build:agent`/`build:task`/`build:governance`/`build:transaction`/`build:legal`/`build:foundation`/`build:benchmarks`(빌드는 role 단위).
 
 테스트에서 실제 계약 파일을 오염시키지 않고 validator/build script를 실행해야 할 때는 `PLOMUS_CONTRACTS_ROOT=/path/to/fixture`를 지정합니다. `tests/helpers/registry-test-utils.mjs`가 이 방식으로 임시 fixture를 구성합니다.
 

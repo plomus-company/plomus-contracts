@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "settlements": [
+    {
+      "settlementId": "app-store-revenue-share",
+      "businessUnit": "app-distribution",
+      "appliesTo": "앱유통 (인앱 결제 수익 배분)",
+      "commissionRateBps": 3000,
+      "cycle": "MONTHLY_CLOSE",
+      "payoutRail": "BANK_TRANSFER",
+      "currency": "USD",
+      "refundWindowDays": 30,
+      "refundReasons": [
+        "CUSTOMER_REQUEST",
+        "DUPLICATE_CHARGE"
+      ],
+      "onPaymentFailure": "ESCALATE",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

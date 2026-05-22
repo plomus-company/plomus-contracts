@@ -63,6 +63,12 @@ const c = {
   playbooks: n("gameops-playbooks", "playbooks"),
   gameFields: n("gameops-fields", "fields"),
   intents: (readDoc("gameops-base").intents ?? []).length,
+  // transaction
+  txBudgets: n("transaction-budgets", "budgets"),
+  txSettlements: n("transaction-settlement", "settlements"),
+  // legal
+  legalDocs: n("legal-documents", "documents"),
+  legalDisclosures: n("legal-disclosures", "disclosures"),
 };
 
 // Each entry: a doc file and the exact substrings that must appear, rendered
@@ -75,6 +81,8 @@ const docChecks = {
     `agent ${c.agents} · playbook ${c.playbooks} · intent ${c.intents} · field ${c.gameFields}`,
     `preset ${c.presets} · workflow ${c.workflows} · dist-preset ${c.distPresets}`,
     `rule ${c.rules} · role ${c.roles} · 실행상태 ${c.execStates} · 승인정책 ${c.approvalPolicies} · EXPERIMENTAL 규칙 ${c.distRules}`,
+    `budget ${c.txBudgets} · settlement ${c.txSettlements}`,
+    `document ${c.legalDocs} · disclosure ${c.legalDisclosures}`,
     `frontmatter ${c.frontmatter} · 이벤트그룹 ${c.eventGroups} · error code ${c.errorCodes} · 필드 ${c.distFields}`,
     `model ${c.models} · metric ${c.metrics} · target ${c.targets} · result ${c.results}`,
     // tool detail
@@ -95,6 +103,10 @@ const docChecks = {
     `frontmatter 필드(${c.distFields})`,
     `이벤트 분류(${c.eventGroups} 그룹)`,
     `model(${c.models})·metric(${c.metrics})·target(${c.targets})·result(${c.results})·rollup(${c.rollups})`,
+    `spending budget(${c.txBudgets}`,
+    `settlement(${c.txSettlements}`,
+    `legal document(${c.legalDocs}`,
+    `disclosure(${c.legalDisclosures})`,
   ],
   "docs/IMPLEMENTATION-SPEC.md": [
     `preset ${c.presets}, rule ${c.rules}, workflow ${c.workflows}`,

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "budgets": [
+    {
+      "budgetId": "agent-daily-api-spend",
+      "scope": "DAILY",
+      "currency": "USD",
+      "limit": 50,
+      "rails": [
+        "X402"
+      ],
+      "requiresProof": true,
+      "proofType": "HTTP_402_RECEIPT",
+      "approvalPolicy": "single",
+      "riskLevel": "low",
+      "expirySeconds": 86400,
+      "onFailure": "HOLD",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

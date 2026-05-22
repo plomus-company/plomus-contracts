@@ -15,6 +15,8 @@
 | `@plomus/contracts/governance` | `@plomus/contracts/governance` | `.members.governance` |
 | `@plomus/contracts/distribution` | `/task` + `/governance` + `/foundation` | preset/규칙/어휘로 분할 |
 | `@plomus/contracts/benchmarks` | `@plomus/contracts/benchmarks` | **변경 없음** |
+| — (신규) | `@plomus/contracts/transaction` | 신규 role(EXPERIMENTAL). 이전할 옛 export 없음 |
+| — (신규) | `@plomus/contracts/legal` | 신규 role(DRAFT). 이전할 옛 export 없음 |
 
 ## 필드 경로 매핑
 

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "settlements": [
+    {
+      "settlementId": "matchmaking-referral-fee",
+      "businessUnit": "partner",
+      "appliesTo": "업체주선 (매칭 성사 수수료)",
+      "commissionRateBps": 1000,
+      "cycle": "T_7",
+      "payoutRail": "PLATFORM_CREDIT",
+      "currency": "KRW",
+      "refundWindowDays": 14,
+      "refundReasons": [
+        "POLICY_VIOLATION",
+        "AGENT_ERROR"
+      ],
+      "onPaymentFailure": "HOLD",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "EXPERIMENTAL",
+  "note": "Legal document contract surface (ToS, privacy, e-commerce disclosure, partner, refund). DRAFT — summaries are scaffolds, not legally reviewed text.",
+  "documentTypes": [
+    "TERMS_OF_SERVICE",
+    "PRIVACY_POLICY",
+    "ECOMMERCE_DISCLOSURE",
+    "PARTNER_AGREEMENT",
+    "REFUND_POLICY",
+    "MARKETING_CONSENT"
+  ],
+  "jurisdictions": [
+    "KR"
+  ],
+  "audiences": [
+    "CONSUMER",
+    "PARTNER",
+    "SELLER"
+  ],
+  "consentTypes": [
+    "REQUIRED",
+    "OPTIONAL"
+  ],
+  "statuses": [
+    "ACTIVE",
+    "DRAFT",
+    "EXPERIMENTAL",
+    "DEPRECATED"
+  ]
+}

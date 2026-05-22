@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "budgets": [
+    {
+      "budgetId": "agent-session-default",
+      "scope": "SESSION",
+      "currency": "KRW",
+      "limit": 100000,
+      "rails": [
+        "PLATFORM_CREDIT",
+        "X402"
+      ],
+      "requiresProof": true,
+      "proofType": "PLATFORM_LEDGER_ENTRY",
+      "approvalPolicy": "single",
+      "riskLevel": "low",
+      "expirySeconds": 3600,
+      "onFailure": "ROLLBACK",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "budgetId": "agent-session-high-value",
+      "scope": "SESSION",
+      "currency": "KRW",
+      "limit": 1000000,
+      "rails": [
+        "ESCROW",
+        "BANK_TRANSFER"
+      ],
+      "requiresProof": true,
+      "proofType": "PSP_TRANSACTION_ID",
+      "approvalPolicy": "operation_pm",
+      "riskLevel": "high",
+      "expirySeconds": 1800,
+      "onFailure": "ESCALATE",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

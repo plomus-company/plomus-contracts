@@ -14,6 +14,8 @@ const TYPES = [
   { type: "governance", artifact: "dist/plomus-governance.json", domains: ["governance", "commerce", "distribution"], dependsOn: ["foundation", "benchmarks"] },
   { type: "agent", artifact: "dist/plomus-agent.json", domains: ["gameops"], dependsOn: ["governance", "foundation"] },
   { type: "task", artifact: "dist/plomus-task.json", domains: ["commerce", "distribution"], dependsOn: ["foundation", "governance"] },
+  { type: "transaction", artifact: "dist/plomus-transaction.json", domains: ["transaction"], dependsOn: ["governance", "foundation"] },
+  { type: "legal", artifact: "dist/plomus-legal.json", domains: ["legal"], dependsOn: ["foundation"] },
   { type: "benchmarks", artifact: "dist/plomus-benchmarks.json", domains: ["benchmarks"], dependsOn: ["tool", "task"] },
 ];
 

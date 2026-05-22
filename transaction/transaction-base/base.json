@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "EXPERIMENTAL",
+  "builtOnGovernance": "governance",
+  "note": "Machine payment/transaction contract surface (x402-style). EXPERIMENTAL — values are a structural scaffold, not authoritative Plomus rates/terms.",
+  "paymentRails": [
+    "X402",
+    "CARD",
+    "BANK_TRANSFER",
+    "VIRTUAL_ACCOUNT",
+    "PLATFORM_CREDIT",
+    "ESCROW"
+  ],
+  "currencies": [
+    "KRW",
+    "USD"
+  ],
+  "budgetScopes": [
+    "PER_CALL",
+    "SESSION",
+    "DAILY",
+    "MONTHLY"
+  ],
+  "settlementCycles": [
+    "INSTANT",
+    "T_1",
+    "T_7",
+    "WEEKLY",
+    "MONTHLY_CLOSE"
+  ],
+  "proofTypes": [
+    "HTTP_402_RECEIPT",
+    "PSP_TRANSACTION_ID",
+    "ONCHAIN_TX",
+    "PLATFORM_LEDGER_ENTRY"
+  ],
+  "failureModes": [
+    "INSUFFICIENT_BUDGET",
+    "AUTH_FAILED",
+    "RAIL_UNAVAILABLE",
+    "PROOF_INVALID",
+    "TIMEOUT",
+    "DECLINED"
+  ],
+  "refundReasons": [
+    "CUSTOMER_REQUEST",
+    "DEFECT",
+    "DELIVERY_FAILURE",
+    "DUPLICATE_CHARGE",
+    "POLICY_VIOLATION",
+    "AGENT_ERROR"
+  ],
+  "onFailureActions": [
+    "ROLLBACK",
+    "HOLD",
+    "RETRY",
+    "ESCALATE"
+  ],
+  "statuses": [
+    "ACTIVE",
+    "EXPERIMENTAL",
+    "DEPRECATED"
+  ]
+}

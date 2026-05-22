@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "budgets": [
+    {
+      "budgetId": "tenant-monthly-cap",
+      "scope": "MONTHLY",
+      "currency": "KRW",
+      "limit": 5000000,
+      "rails": [
+        "PLATFORM_CREDIT",
+        "CARD",
+        "BANK_TRANSFER"
+      ],
+      "requiresProof": true,
+      "proofType": "PLATFORM_LEDGER_ENTRY",
+      "approvalPolicy": "admin_multi",
+      "riskLevel": "critical",
+      "expirySeconds": 2592000,
+      "onFailure": "ESCALATE",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}

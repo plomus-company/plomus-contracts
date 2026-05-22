@@ -91,6 +91,7 @@ export function unitFrom(map, key) {
 const idOf = (it) =>
   it.ruleId ?? it.workflowId ?? it.skillId ?? it.presetId ?? it.upstreamId ?? it.agentId ??
   it.adapterId ?? it.playbookId ?? it.targetId ?? it.modelId ?? it.metricId ?? it.code ??
+  it.budgetId ?? it.settlementId ?? it.documentId ?? it.disclosureId ??
   it.objectType ?? it.documentType ?? it.object ?? it.id ?? "(unknown)";
 
 // Folder-placement invariant: in a foldered contract, every item's taxonomy
@@ -129,6 +130,10 @@ export const FOLDER_SPLIT = {
   "commerce-review-rules": ["reviewRules", "businessUnit"],
   "commerce-workflows": ["workflows", "businessUnit"],
   "distribution-experimental-rules": ["rules", "businessUnit"],
+  "transaction-budgets": ["budgets", "scope"],
+  "transaction-settlement": ["settlements", "businessUnit"],
+  "legal-documents": ["documents", "documentType"],
+  "legal-disclosures": ["disclosures", "businessUnit"],
   "distribution-fields": ["fields", "documentType"],
   "platform-frontmatter": ["documents", "documentType"],
   "platform-event-types": ["groups", "object"],

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "disclosures": [
+    {
+      "disclosureId": "seller-identity",
+      "businessUnit": "legal-policy",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "상호·대표자·사업자등록번호·통신판매업 신고번호",
+      "legalBasis": "전자상거래법 제13조 제1항",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "disclosureId": "contact-channel",
+      "businessUnit": "legal-policy",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "주소·전화번호·전자우편 주소",
+      "legalBasis": "전자상거래법 제13조 제1항",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "disclosureId": "withdrawal-of-offer",
+      "businessUnit": "legal-policy",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "청약철회의 기한·행사방법·효과",
+      "legalBasis": "전자상거래법 제13조 제2항",
+      "status": "EXPERIMENTAL"
+    },
+    {
+      "disclosureId": "exchange-return-cost",
+      "businessUnit": "legal-policy",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "교환·반품·보증 조건 및 비용 부담",
+      "legalBasis": "전자상거래법 제13조 제2항",
+      "status": "EXPERIMENTAL"
+    }
+  ]
+}
