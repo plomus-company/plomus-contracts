@@ -7,6 +7,46 @@
 
 두 축 모두 validator가 CI에서 강제합니다.
 
+## 구조 시각화 (ASCII)
+
+### 폴더 트리 (1차 축 = 최상위 = contract role)
+
+```
+ plomus-contracts/
+ ├─ tool/         (Tool/API)     ── skills-*, protocol-*, gameops-adapters
+ ├─ agent/        (Agent)        ── gameops-{base,agents,playbooks,fields}
+ ├─ task/         (Task)         ── commerce-{presets,workflows}, distribution-presets
+ ├─ governance/   (Behavioral)   ── governance-*, commerce-review-rules,
+ │                                  distribution-experimental-rules
+ ├─ transaction/  (Payment) ⚗    ── transaction-{base,budgets,settlement}
+ ├─ legal/        (Legal)   ⚗    ── legal-{base,documents,disclosures}
+ ├─ foundation/   (공유 어휘)     ── commerce-base, distribution-{base,fields}, platform-*
+ └─ benchmarks/   (측정층)        ── base, models, metrics, targets, results, rollups
+
+   <role>/ <domain>-<contract>/ <splitKey>.json
+      │          │                   └ 2차 축: businessUnit | category | scope |
+      │          │                            documentType | kind | objectType | …
+      │          └ 논리 id (출처 보존; validator·build가 읽는 키, 폴더 이동에 불변)
+      └ contract role (TYPE_OF in scripts/group.mjs)
+```
+
+### 2축 격자 (role × 분할 키)
+
+```
+                    2차 축 (파일 분할)  ─────────────────────────────────▶
+                    businessUnit            category           기타 split 키
+  1차 축 (role)     product·order·…         commerce·finance·…  scope·documentType·…
+  ───────────       ───────────────────     ─────────────────   ───────────────────
+  governance/   │   commerce-review-rules/{product,order,…}.json
+  task/         │   commerce-workflows/{product,order,…}.json
+  transaction/  │   transaction-settlement/{settlement,partner,…}.json
+                │                                               transaction-budgets/
+                │                                                 {session,daily,…}.json (scope)
+  legal/        │   legal-disclosures/{legal-policy,…}.json     legal-documents/
+                │                                                 {terms-of-service,…}.json (documentType)
+  tool/         │                           skills-catalog/{commerce,finance,…}.json
+```
+
 ## 폴더 배치 불변 조건
 
 모든 계약은 `<role>/<domain>-<contract>/` 폴더입니다(loose 파일 없음). 큰 컬렉션은 `<unit>.json` 파일들로 나뉩니다 — 예: `governance/commerce-review-rules/settlement.json`, `tool/skills-catalog/finance.json`.
