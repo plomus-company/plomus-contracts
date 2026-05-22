@@ -1,6 +1,6 @@
 # Protocol & Platform Contracts
 
-`plomus-commerce-ai-os`(commerce 계약의 원천) 점검에서, import 도구가 추출하지 않던 표면을 두 도메인으로 계약화했습니다. 필드별 상세는 [contracts/protocol-README.md](../contracts/protocol-README.md), [contracts/platform-README.md](../contracts/platform-README.md).
+`plomus-commerce-ai-os`(commerce 계약의 원천) 점검에서, import 도구가 추출하지 않던 표면을 두 도메인으로 계약화했습니다. 필드별 상세는 [contracts/protocol.md](contracts/protocol.md), [contracts/platform.md](contracts/platform.md).
 
 ## 점검 → 계약 매핑
 
@@ -25,4 +25,4 @@ commerce 계약 4파일은 `import-from-commerce-ai-os`가 소유해 하드 편�
 
 ## 산출물
 
-`pnpm run build:protocol`→`dist/plomus-protocol.json`, `pnpm run build:platform`→`dist/plomus-platform.json`. import: `@plomus/contracts/protocol`, `@plomus/contracts/platform` (및 하위 경로).
+protocol은 tool role로, platform은 foundation role로 빌드됩니다 — `build:tool`→`plomus-tool.json`(`@plomus/contracts/tool`, `.members.protocol`), `build:foundation`→`plomus-foundation.json`(`@plomus/contracts/foundation`, `.members.platform`). 매핑은 [CONTRACT-MIGRATION.md](CONTRACT-MIGRATION.md).

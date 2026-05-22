@@ -1,6 +1,6 @@
 # Distribution Contracts
 
-`contracts/distribution-`는 `plomus-distribution-ai-os`(탁구 용품 도소매 유통 OS) 점검에서 도출한 추가 계약입니다. 필드별 상세는 [contracts/distribution-README.md](../contracts/distribution-README.md).
+`distribution-`는 `plomus-distribution-ai-os`(탁구 용품 도소매 유통 OS) 점검에서 도출한 추가 계약입니다. 필드별 상세는 [contracts/distribution.md](contracts/distribution.md).
 
 ## 왜 별도 도메인인가
 
@@ -30,7 +30,7 @@
 
 ## 산출물
 
-`pnpm run build:distribution` → `dist/plomus-distribution.json`. 소비자는 `@plomus/contracts/distribution` 또는 하위 경로(`./distribution/presets` 등)로 import.
+distribution은 role로 갈라집니다 — preset은 `build:task`→`plomus-task.json`(`@plomus/contracts/task`), EXPERIMENTAL 규칙은 `build:governance`→`plomus-governance.json`(`@plomus/contracts/governance`), 어휘·fields는 `build:foundation`→`plomus-foundation.json`(`@plomus/contracts/foundation`). 매핑은 [CONTRACT-MIGRATION.md](CONTRACT-MIGRATION.md).
 
 ## 승격 후보 (후속)
 

@@ -1,4 +1,4 @@
-# GameOps Contracts (`contracts/gameops-`)
+# GameOps Contracts (`gameops-`)
 
 `plomus-gameops-ai-os`(게임 라이브 운영 OS) 전용 어휘 계약입니다. governance 도메인을 **읽기 전용 교차참조**(playbook의 riskLevel·approvalPolicy가 거기 존재하는지)합니다.
 

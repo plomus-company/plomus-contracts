@@ -1,6 +1,6 @@
 # Contract Update Workflow
 
-이 저장소는 GitHub PR을 기준으로 contract를 추가하고 갱신합니다. source JSON은 `contracts/v1`에 있고, CI는 참조 무결성, 포맷, 배포 artifact 생성을 확인합니다.
+이 저장소는 GitHub PR을 기준으로 contract를 추가하고 갱신합니다. source JSON은 contract-role 폴더(`tool/`·`agent/`·`task/`·`governance/`·`foundation/`, + `benchmarks/`)에 있고, CI는 참조 무결성, 포맷, 배포 artifact 생성을 확인합니다.
 
 ## 1. 변경 요청
 
@@ -47,7 +47,8 @@ main에 병합되면 `Contract CI`가 실행됩니다. 배포가 필요하면 `C
 
 배포 artifact:
 
-- `dist/plomus-contracts.json`
+- role별 `dist/plomus-{tool,agent,task,governance,foundation,benchmarks}.json`
+- `dist/plomus-contracts-index.json`
 - `dist/contract-summary.md`
 
 제품 저장소는 release tag 또는 npm package 기준으로 contract를 동기화합니다.

@@ -56,6 +56,7 @@ const c = {
   roles: n("governance-roles", "roles"),
   execStates: (readDoc("governance-execution-lifecycle").states ?? []).length,
   cmdStates: (readDoc("governance-base").commandStates ?? []).length,
+  approvalPolicies: (readDoc("governance-approval").policies ?? []).length,
   // gameops
   adapters: n("gameops-adapters", "adapters"),
   agents: n("gameops-agents", "agents"),
@@ -69,37 +70,31 @@ const c = {
 // stale doc no longer contains it.
 const docChecks = {
   "README.md": [
-    // scale table (freeform aggregate cells)
-    `preset ${c.presets} · rule ${c.rules} · workflow ${c.workflows}`,
-    `skill ${c.catalog} · route ${c.routes} · credential ${c.creds} · category ${c.categories}(subcat ${c.subcat}) · upstream ${c.upstreams} · package ${c.packages} · mcp ${c.usesMcp}`,
+    // contract-role scale table (aggregate cells)
+    `skill ${c.catalog} · route ${c.routes} · credential ${c.creds} · upstream ${c.upstreams} · package ${c.packages} · endpoint ${c.endpoints} · payload ${c.payloads} · adapter ${c.adapters}`,
+    `agent ${c.agents} · playbook ${c.playbooks} · intent ${c.intents} · field ${c.gameFields}`,
+    `preset ${c.presets} · workflow ${c.workflows} · dist-preset ${c.distPresets}`,
+    `rule ${c.rules} · role ${c.roles} · 실행상태 ${c.execStates} · 승인정책 ${c.approvalPolicies} · EXPERIMENTAL 규칙 ${c.distRules}`,
+    `frontmatter ${c.frontmatter} · 이벤트그룹 ${c.eventGroups} · error code ${c.errorCodes} · 필드 ${c.distFields}`,
     `model ${c.models} · metric ${c.metrics} · target ${c.targets} · result ${c.results}`,
-    `preset ${c.distPresets} · 필드 ${c.distFields} · EXPERIMENTAL 규칙 ${c.distRules}`,
-    `endpoint ${c.endpoints} · sync-event 필드 ${c.syncFields} · payload ${c.payloads} · telegram ${c.telegram}`,
-    `frontmatter ${c.frontmatter} · 이벤트그룹 ${c.eventGroups} · error code ${c.errorCodes}`,
-    // commerce per-file table
-    `온보딩 preset(${c.presets})`,
-    `review rule(${c.rules})`,
-    `hermes workflow(${c.workflows})`,
-    // skills per-file table
+    // tool detail
     `카탈로그(${c.catalog})`,
     `allowlist(${c.routes})`,
     `레지스트리(${c.creds})`,
     `의존(${c.sources})`,
-    `category(${c.categories})`,
-    `(subcat ${c.subcat})`,
-    `upstream(${c.upstreams})`,
-    `\`packages.json\`(${c.packages})`,
-    `mcp.json\`(${c.usesMcp})`,
-    // benchmarks per-file table
-    `레지스트리(${c.models})`,
-    `지표 정의(${c.metrics})`,
-    `벤치마크 대상(${c.targets})`,
-    `측정값(${c.results})`,
-    `도메인 롤업(${c.rollups})`,
-    `전체 ${c.targets}개 타깃`,
-    // distribution per-file table
-    `바인딩(${c.distFields})`,
-    `유통 규칙(${c.distRules})`,
+    `category(${c.categories})·subcategory(${c.subcat})`,
+    `packages.json(${c.packages})`,
+    `사용 스킬(${c.usesMcp})`,
+    `sync-event 필드(${c.syncFields})`,
+    // agent / task / governance / foundation / benchmarks detail
+    `에이전트(${c.agents})·playbook(${c.playbooks})·intent(${c.intents})·게임 필드(${c.gameFields})`,
+    `preset(${c.presets})·hermes workflow(${c.workflows})`,
+    `상태기계(${c.execStates}`,
+    `review rule(${c.rules})`,
+    `EXPERIMENTAL 규칙(${c.distRules})`,
+    `frontmatter 필드(${c.distFields})`,
+    `이벤트 분류(${c.eventGroups} 그룹)`,
+    `model(${c.models})·metric(${c.metrics})·target(${c.targets})·result(${c.results})·rollup(${c.rollups})`,
   ],
   "docs/IMPLEMENTATION-SPEC.md": [
     `preset ${c.presets}, rule ${c.rules}, workflow ${c.workflows}`,

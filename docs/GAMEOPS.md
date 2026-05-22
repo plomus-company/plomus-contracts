@@ -1,10 +1,10 @@
 # Governance & GameOps Contracts
 
-`plomus-gameops-ai-os` 점검에서 도출한 두 도메인입니다. 필드별 상세는 [contracts/governance-README.md](../contracts/governance-README.md), [contracts/gameops-README.md](../contracts/gameops-README.md).
+`plomus-gameops-ai-os` 점검에서 도출한 두 도메인입니다. 필드별 상세는 [contracts/governance.md](contracts/governance.md), [contracts/gameops.md](contracts/gameops.md).
 
 ## 점검 핵심
 
-gameops는 distribution의 parity와 달리 **공개 계약을 vendor**합니다 — `scripts/sync-contracts.mjs`가 `contracts/benchmarks-models.json`과 `contracts/skills-catalog.json`을 `packages/registry/contracts/`로 복사하고 commit을 `PINNED.json`에 고정합니다. 또 `selectClaudeModelForRisk`가 benchmarks `models.status`(frontier/balanced/fast)로 위험도별 모델을 고릅니다. → **benchmarks·skills 계약이 실제 소비되고 있음**이 확인됐고, gameops가 로컬에 정의한 풍부한 어휘는 미계약 상태였습니다.
+gameops는 distribution의 parity와 달리 **공개 계약을 vendor**합니다 — `scripts/sync-contracts.mjs`가 `benchmarks/models`과 `tool/skills-catalog`을 `packages/registry/contracts/`로 복사하고 commit을 `PINNED.json`에 고정합니다. 또 `selectClaudeModelForRisk`가 benchmarks `models.status`(frontier/balanced/fast)로 위험도별 모델을 고릅니다. → **benchmarks·skills 계약이 실제 소비되고 있음**이 확인됐고, gameops가 로컬에 정의한 풍부한 어휘는 미계약 상태였습니다.
 
 ## 점검 → 계약 매핑
 
@@ -29,4 +29,4 @@ A1·A2·A3(governance)는 게임 전용이 아니라 **모든 ops OS 공통**입
 
 ## 산출물
 
-`pnpm run build:governance`→`dist/plomus-governance.json`, `pnpm run build:gameops`→`dist/plomus-gameops.json`. import: `@plomus/contracts/governance`, `@plomus/contracts/gameops` (및 하위 경로).
+governance는 `pnpm run build:governance`→`dist/plomus-governance.json`(`@plomus/contracts/governance`). gameops는 role로 갈라집니다 — adapter는 `build:tool`→`plomus-tool.json`(`@plomus/contracts/tool`), agent·playbook은 `build:agent`→`plomus-agent.json`(`@plomus/contracts/agent`). 매핑은 [CONTRACT-MIGRATION.md](CONTRACT-MIGRATION.md).

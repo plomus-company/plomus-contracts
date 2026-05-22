@@ -1,4 +1,4 @@
-# Commerce Contracts (`contracts/commerce-`)
+# Commerce Contracts (`commerce-`)
 
 `plomus-commerce-ai-os`의 내부 registry에서 추출한 커머스 운영 계약입니다. 온보딩 preset, review rule, hermes workflow, core enum을 정의하며 `pnpm run import:commerce-ai-os`로 재생성하고 `scripts/validate.mjs`로 무결성을 검증합니다.
 

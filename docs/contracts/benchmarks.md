@@ -1,4 +1,4 @@
-# Benchmarks Contracts (`contracts/benchmarks-`)
+# Benchmarks Contracts (`benchmarks-`)
 
 각 실행 가능한 계약(스킬·커머스 워크플로)을 **유명 모델**로 실행했을 때의 성능·비용·품질 지표를 정의하고 기록하는 도메인입니다. `tools/generate-benchmarks.mjs`가 단일 진실원천(모델·지표 큐레이션 + 타깃/결과/롤업 생성)이며, `scripts/validate-benchmarks.mjs`가 무결성을 검증합니다.
 

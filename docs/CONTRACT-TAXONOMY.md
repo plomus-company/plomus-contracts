@@ -1,10 +1,15 @@
 # Contract Taxonomy
 
-이 문서는 계약 폴더 분류 규칙을 정의합니다. **task 계약**(review rule·workflow·distribution rule)은 운영 *business unit*으로, **skill 계약**(catalog·data-source·package)은 *category*로 폴더가 나뉩니다. 단일 소스는 `scripts/taxonomy.mjs`이고, 분류 규칙은 validator가 CI에서 강제합니다.
+이 문서는 계약 폴더 분류 규칙을 정의합니다. 분류는 **두 축**입니다.
+
+1. **contract role (최상위 폴더 축)** — `tool/`·`agent/`·`task/`·`governance/`·`foundation/`(+ 측정층 `benchmarks/`). 각 계약을 역할에 매핑하는 단일 소스는 `scripts/group.mjs`의 `TYPE_OF`이고, 의미는 [CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)에 있습니다.
+2. **business unit / category (role 내부 분할 축)** — **task·governance 계약**(review rule·workflow·distribution rule)은 운영 *business unit*으로, **skill 계약**(catalog·data-source·package)은 *category*로 파일이 나뉩니다. 단일 소스는 `scripts/taxonomy.mjs`입니다.
+
+두 축 모두 validator가 CI에서 강제합니다.
 
 ## 폴더 배치 불변 조건
 
-모든 계약은 폴더입니다(loose 파일 없음). 큰 컬렉션은 `<unit>.json` 파일들로 나뉩니다 — 예: `contracts/commerce-review-rules/settlement.json`, `skills/catalog/finance.json`.
+모든 계약은 `<role>/<domain>-<contract>/` 폴더입니다(loose 파일 없음). 큰 컬렉션은 `<unit>.json` 파일들로 나뉩니다 — 예: `governance/commerce-review-rules/settlement.json`, `tool/skills-catalog/finance.json`.
 
 배치 불변 조건(validator가 강제):
 
@@ -111,11 +116,11 @@
 
 ## Skills category (15)
 
-`skills/base/base.json`의 `categories`:
+`tool/skills-base/base.json`의 `categories`:
 
 `commerce` · `finance` · `real-estate` · `travel` · `mobility` · `legal` · `government` · `health` · `food` · `documents` · `writing` · `sports` · `media` · `utility` · `tooling`
 
-skill은 `category`(폴더 축)와 `subcategory`(더 세분된 분류, `skills/categories/`에서 grouping)를 모두 가집니다. 폴더는 `category`로만 나뉘고, `subcategory`는 `categories.json`이 따로 검증합니다. data-source·package 항목은 자신이 참조하는 skill의 `category`를 복사해 같은 축으로 배치됩니다(미지의 skill은 `tooling`).
+skill은 `category`(폴더 축)와 `subcategory`(더 세분된 분류, `tool/skills-categories/`에서 grouping)를 모두 가집니다. 폴더는 `category`로만 나뉘고, `subcategory`는 `categories.json`이 따로 검증합니다. data-source·package 항목은 자신이 참조하는 skill의 `category`를 복사해 같은 축으로 배치됩니다(미지의 skill은 `tooling`).
 
 ## 재분류(one-time)
 

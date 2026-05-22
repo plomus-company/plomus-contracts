@@ -1,4 +1,4 @@
-# Skills Contracts (`contracts/skills-`)
+# Skills Contracts (`skills-`)
 
 `k-skill` 스킬 생태계를 **데이터 출처로 참고**해 새로 설계한 계약 도메인입니다. `tools/import-from-k-skill.mjs`가 단일 진실원천이며(카테고리 매핑·credential·proxy 라우트 표를 큐레이션하고 SKILL.md를 자동 추출), `scripts/validate-skills.mjs`가 무결성을 검증합니다.
 

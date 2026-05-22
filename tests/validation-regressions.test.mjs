@@ -77,14 +77,14 @@ test("doc validator rejects a stale count in the docs", (t) => {
   // counts come from the fixture's (real) contracts; corrupt the matching token
   // in a copied README so the rendered needle is no longer found.
   const readme = fs.readFileSync(path.join(repoRoot, "README.md"), "utf8");
-  assert.match(readme, /도메인 롤업\(\d+\)/, "README needs the rollups count token");
+  assert.match(readme, /카탈로그\(\d+\)/, "README needs the skills catalog count token");
   fs.writeFileSync(
     path.join(fixtureRoot, "README.md"),
-    readme.replace(/도메인 롤업\(\d+\)/, "도메인 롤업(999)"),
+    readme.replace(/카탈로그\(\d+\)/, "카탈로그(999)"),
   );
 
   const result = runNodeScript("scripts/validate-docs.mjs", { registryRoot: fixtureRoot });
-  assertScriptFails(result, /도메인 롤업/);
+  assertScriptFails(result, /카탈로그/);
 });
 
 test("placement validator rejects an item filed under the wrong split key", (t) => {
