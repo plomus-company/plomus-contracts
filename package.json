@@ -39,7 +39,7 @@
   "scripts": {
     "format:contracts": "node scripts/format-contracts.mjs",
     "format:check": "node scripts/format-contracts.mjs --check",
-    "validate": "pnpm run validate:commerce && pnpm run validate:skills && pnpm run validate:benchmarks && pnpm run validate:distribution && pnpm run validate:protocol && pnpm run validate:platform && pnpm run validate:governance && pnpm run validate:gameops && pnpm run validate:transaction && pnpm run validate:legal && pnpm run validate:cross-domain && pnpm run validate:placement && pnpm run validate:docs",
+    "validate": "pnpm run validate:commerce && pnpm run validate:skills && pnpm run validate:benchmarks && pnpm run validate:distribution && pnpm run validate:protocol && pnpm run validate:platform && pnpm run validate:governance && pnpm run validate:gameops && pnpm run validate:transaction && pnpm run validate:legal && pnpm run validate:cross-domain && pnpm run validate:placement && pnpm run validate:docs && pnpm run validate:benchmark-doc",
     "validate:commerce": "node scripts/validate.mjs",
     "validate:skills": "node scripts/validate-skills.mjs",
     "validate:benchmarks": "node scripts/validate-benchmarks.mjs",
@@ -53,6 +53,7 @@
     "validate:cross-domain": "node scripts/validate-cross-domain.mjs",
     "validate:placement": "node scripts/validate-placement.mjs",
     "validate:docs": "node scripts/validate-docs.mjs",
+    "validate:benchmark-doc": "node scripts/summary-benchmarks.mjs --check",
     "build": "node scripts/build-all.mjs",
     "build:foundation": "node scripts/build-foundation.mjs",
     "build:tool": "node scripts/build-tool.mjs",

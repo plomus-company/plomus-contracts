@@ -161,6 +161,7 @@ pnpm run check:ci
 | `validate:cross-domain` | platform↔distribution 상태 드리프트, governance↔benchmarks·gameops 정합 |
 | `validate:placement` | 모든 폴더형 컬렉션의 항목이 분할 키(`FOLDER_SPLIT`)에 맞는 파일에 있는지 검증 |
 | `validate:docs` | README·docs의 (N) 카운트가 실제 계약 수와 일치하는지 검증(문서 드리프트 차단) |
+| `validate:benchmark-doc` | 생성 문서 `BENCHMARK-RESULTS.md`가 벤치마크 계약 데이터와 일치하는지 검증(`summary-benchmarks --check`) |
 
 `validate`는 위 명령을 모두 실행합니다. 폴더 배치(`businessUnit`·`category`)는 commerce/distribution/skills validator가 함께 강제합니다([CONTRACT-TAXONOMY.md](CONTRACT-TAXONOMY.md)).
 

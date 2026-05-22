@@ -117,7 +117,7 @@ pnpm test
 pnpm run check:ci
 ```
 
-`pnpm run check:update`는 외부 PR에서 가장 먼저 실행할 검증입니다. JSON 포맷, 계약 참조, core parity, 폴더 배치 정합(`validate:placement` — 모든 폴더형 컬렉션의 항목이 분할 키에 맞는 파일에 있는지), 문서 카운트 정합(`validate:docs` — README·docs의 (N) 카운트가 실제 계약 수와 일치하는지), 요약 생성을 확인합니다.
+`pnpm run check:update`는 외부 PR에서 가장 먼저 실행할 검증입니다. JSON 포맷, 계약 참조, core parity, 폴더 배치 정합(`validate:placement` — 모든 폴더형 컬렉션의 항목이 분할 키에 맞는 파일에 있는지), 문서 카운트 정합(`validate:docs` — README·docs의 (N) 카운트가 실제 계약 수와 일치하는지), 벤치마크 문서 신선도(`validate:benchmark-doc` — `BENCHMARK-RESULTS.md`가 계약 데이터와 일치하는지), 요약 생성을 확인합니다.
 
 `pnpm test`는 Node 22 내장 test runner로 smoke test와 validator 회귀 테스트를 실행합니다. 로컬 반복 실행은 `pnpm run test:watch`, 커버리지 확인은 `pnpm run test:coverage`.
 

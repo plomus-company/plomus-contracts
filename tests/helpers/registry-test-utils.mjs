@@ -18,12 +18,12 @@ export function runPnpm(script, { env = {} } = {}) {
   });
 }
 
-export function runNodeScript(relativePath, { env = {}, registryRoot } = {}) {
+export function runNodeScript(relativePath, { env = {}, registryRoot, args = [] } = {}) {
   const scriptPath = path.join(repoRoot, relativePath);
   const runEnv = { ...process.env, ...env };
   if (registryRoot) runEnv.PLOMUS_CONTRACTS_ROOT = registryRoot;
 
-  return spawnSync(process.execPath, [scriptPath], {
+  return spawnSync(process.execPath, [scriptPath, ...args], {
     cwd: repoRoot,
     encoding: "utf8",
     env: runEnv,

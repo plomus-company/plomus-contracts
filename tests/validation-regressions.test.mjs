@@ -149,3 +149,20 @@ test("build scripts can write artifacts in an isolated registry root", (t) => {
   assert.equal(dist.name, "plomus-tool");
   assert.ok(dist.members.skills.contracts.skills.length > 0);
 });
+
+test("benchmark-doc check passes when fresh and fails when BENCHMARK-RESULTS.md drifts", (t) => {
+  const fixtureRoot = createContractsFixture(t);
+  const docRel = "docs/BENCHMARK-RESULTS.md";
+  fs.mkdirSync(path.join(fixtureRoot, "docs"), { recursive: true });
+  fs.copyFileSync(path.join(repoRoot, docRel), path.join(fixtureRoot, docRel));
+
+  // committed doc matches the contract data → --check passes
+  const fresh = runNodeScript("scripts/summary-benchmarks.mjs", { registryRoot: fixtureRoot, args: ["--check"] });
+  assert.equal(fresh.status, 0, scriptOutput(fresh));
+
+  // mutate the doc so it no longer matches → --check fails
+  const doc = fs.readFileSync(path.join(fixtureRoot, docRel), "utf8");
+  fs.writeFileSync(path.join(fixtureRoot, docRel), doc.replace(/measured/, "MUTATED"));
+  const stale = runNodeScript("scripts/summary-benchmarks.mjs", { registryRoot: fixtureRoot, args: ["--check"] });
+  assertScriptFails(stale, /stale/);
+});

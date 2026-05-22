@@ -193,8 +193,21 @@ if (ir.length) {
 }
 
 const markdown = `${lines.join("\n")}\n`;
-fs.writeFileSync(path.join(repoRoot, "docs/BENCHMARK-RESULTS.md"), markdown);
-fs.mkdirSync(path.join(repoRoot, "dist"), { recursive: true });
-fs.writeFileSync(path.join(repoRoot, "dist/benchmark-summary.md"), markdown);
+const docPath = path.join(repoRoot, "docs/BENCHMARK-RESULTS.md");
 
-console.log(`built docs/BENCHMARK-RESULTS.md (measured models: ${measuredModelIds.length || "none"})`);
+// --check: fail (don't write) if the committed doc has drifted from the contract
+// data, so CI catches a stale BENCHMARK-RESULTS.md. The markdown is a pure function
+// of the contracts (no timestamps), so this comparison is deterministic.
+if (process.argv.includes("--check")) {
+  const current = fs.existsSync(docPath) ? fs.readFileSync(docPath, "utf8") : "";
+  if (current !== markdown) {
+    console.error("benchmark results doc is stale — run `pnpm run summary:benchmarks` and commit docs/BENCHMARK-RESULTS.md");
+    process.exit(1);
+  }
+  console.log("benchmark results doc is up to date");
+} else {
+  fs.writeFileSync(docPath, markdown);
+  fs.mkdirSync(path.join(repoRoot, "dist"), { recursive: true });
+  fs.writeFileSync(path.join(repoRoot, "dist/benchmark-summary.md"), markdown);
+  console.log(`built docs/BENCHMARK-RESULTS.md (measured models: ${measuredModelIds.length || "none"})`);
+}
