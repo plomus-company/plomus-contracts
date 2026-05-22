@@ -66,6 +66,48 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 실행 가능한 계약(스킬·워크플로)을 유명 모델로 측정. model(14)·metric(9)·target(114)·result(677)·rollup(22). 측정/사용은 [BENCHMARKS.md](docs/BENCHMARKS.md), 결과는 [BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md), 필드 상세는 [benchmarks.md](docs/contracts/benchmarks.md).
 
+## 외부 애플리케이션에서 활용 (consuming the contracts)
+
+이 저장소는 **언어 무관 JSON 계약 레지스트리**입니다(런타임 의존성 없음). 외부 앱은 빌드 산출물 `dist/plomus-*.json`을 읽어 씁니다. 필드 경로 예시는 [docs/CONTRACT-GLOSSARY.md](docs/CONTRACT-GLOSSARY.md)의 "사용 예시", 옛 export에서의 이전은 [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md).
+
+### 1. 획득 — 세 경로
+
+- **npm**: `npm i @plomus/contracts` (public). publish 시 빌드된 `dist/`가 포함됩니다.
+- **GitHub Release**: `Contract Release` workflow가 role별 `dist/plomus-*.json` + 매니페스트 + `contract-summary.md`를 첨부합니다.
+- **git ref / commit SHA 고정**: `npm i github:plomus-company/plomus-contracts#<sha>`. `dist/`는 git에 커밋되지 않지만(빌드 산출물), 설치 시 `prepare`(node 단독, pnpm 불필요)가 소스에서 `dist/`를 재현합니다.
+
+### 2. import — export 맵
+
+기본 형태는 `@plomus/contracts/<role>`입니다.
+
+| import | 대상 |
+|---|---|
+| `@plomus/contracts` · `/index` | 매니페스트 — role·artifact·dependsOn·folders로 전체 discovery |
+| `@plomus/contracts/tool` | 도구·API (skills·protocol·gameops adapter) |
+| `/agent` · `/task` · `/governance` · `/transaction` · `/legal` · `/foundation` | 각 role 번들 |
+| `/benchmarks` | 측정값 |
+
+JS(ESM, Node ≥22)는 JSON import attribute가 필요합니다:
+
+```js
+import index from "@plomus/contracts" with { type: "json" };
+import tool  from "@plomus/contracts/tool" with { type: "json" };
+const skills = tool.members.skills.contracts.skills;   // members.<domain>.contracts.<x>
+```
+
+JS가 아니어도 됩니다 — Python·Go 등은 `dist/plomus-tool.json`(또는 release asset)을 파일/HTTP로 읽으면 그만입니다.
+
+### 3. discovery & 자기서술 형태
+
+`@plomus/contracts/index`(`plomus-contracts-index.json`)는 각 role의 `{ artifact, domains, dependsOn, folders }`를 담아 한 파일로 전체 구성·의존 그래프를 발견하게 합니다. 각 role 번들은 자기서술적입니다: `{ schemaVersion, name, type, generatedAt, members }`. (benchmarks는 측정층이라 `{ …, enums, contracts }` 형태.)
+
+### 4. 버전 고정 & 호환성 (consumer가 지켜야 할 것)
+
+- **고정(pin)**: release tag · npm version · commit SHA 중 하나로 고정해 재현성을 확보하세요.
+- **호환성**: `patch`(라벨·설명·status) · `minor`(추가) · `major`(id 삭제·의미 변경·필수 필드)는 [docs/CONTRACT-LIFECYCLE.md](docs/CONTRACT-LIFECYCLE.md)를 따릅니다. major는 [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md)에 이전 절차를 둡니다.
+- **`status`를 반드시 확인**: production에는 `ACTIVE`만 쓰세요. `EXPERIMENTAL`/`DRAFT`(현재 `transaction`·`legal`)는 구조는 검증되지만 값(수수료율·약관 문구)이 권위 데이터가 아닌 scaffold입니다. `DEPRECATED`는 다음 major에서 `REMOVED`됩니다.
+- **교차참조 해소**: 한 번들의 참조(예: transaction budget의 `approvalPolicy`)는 의존 번들(governance)에서 해소합니다 — `dependsOn`(매니페스트)대로 함께 가져오세요.
+
 ## 검증
 
 ```bash
