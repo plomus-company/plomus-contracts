@@ -106,6 +106,74 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 - **member (dist)** — 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다(예: `plomus-tool.json.members.skills`).
 - **status** — `transaction`·`legal`은 현재 `EXPERIMENTAL`/`DRAFT`입니다. 구조는 검증되지만 값(수수료율·약관 문구)은 권위 있는 데이터가 아닌 scaffold이며, 제품 확정 시 `ACTIVE`로 승격합니다.
 
+## 용어 연관관계 (relationships)
+
+용어들이 서로 어떻게 묶이는지를 다섯 관계로 설명합니다 — **배치 · 집계 · 참조 · 구성 · 생애**.
+
+### 한눈에 — 관계 맵
+
+```
+   status (ACTIVE/⚗) ──┐        ┌─────────────┐
+                       └───────│   contract  │   (JSON 항목 1개)
+                               └──────┬──────┘
+        배치 = 두 직교(⟂) 축 + 출처    │
+     ┌──────────────┬─────────────────┼──────────────────┐
+   role (1차)    splitKey (2차)    logical id          domain
+   TYPE_OF       FOLDER_SPLIT      <domain>-<contract>  (출처)
+     │           businessUnit |        │                  │
+     │           category | scope |    │                  │
+     │           documentType | …      │                  │
+     ▼                                 ▼                  │
+   파일:  contracts/<role>/<domain>-<contract>/<splitKey>.json
+     │                                                    │
+     │ build (role 단위)                  한 domain이 여러 role에 걸침
+     ▼                                                    │
+   dist/plomus-<role>.json  ◀────── members.<domain> ◀────┘
+```
+
+### 1. 배치 관계 — role ⟂ splitKey (직교)
+
+모든 contract는 **두 독립 좌표**로 놓입니다: **role**(1차, `TYPE_OF`→최상위 폴더)과 **splitKey**(2차, `FOLDER_SPLIT`→파일). 직교한다 = role은 "어떤 경계인가", splitKey는 "어느 운영/기능 조각인가". splitKey는 계약 종류에 따라 다릅니다 — task·governance·transaction·legal → **businessUnit**(운영), skills → **category**(기능), 그 외 → 자연 키(scope·documentType·kind·objectType). **logical id**(`<domain>-<contract>`)는 **domain**(출처)을 보존하고, role·splitKey는 거기서 파생됩니다. validator·build는 logical id로 읽으므로 폴더가 이동해도 본체는 불변입니다.
+
+### 2. 집계 관계 — domain ↔ role ↔ member (다대다)
+
+한 **domain**(commerce·gameops…)이 여러 **role**에 기여할 수 있고, **dist 번들**은 그 기여를 `members.<domain>`으로 모읍니다. 예: commerce → task(preset·workflow) + governance(review-rule) + foundation(base). 즉 domain과 role은 다대다이며 member가 그 조인입니다.
+
+### 3. 참조 관계 — "한 곳에 정의, 여러 곳서 참조" (읽기 전용)
+
+- **riskLevel · approvalPolicy** — governance(base)가 단일 출처 → transaction budget · agent playbook · workflow safety가 참조.
+- **model status** — benchmarks가 출처 → governance model-routing이 참조.
+- **enum 어휘** — foundation이 출처 → 모든 role이 참조.
+- **frontmatter 상태 ↔ commerce core.statuses** — 교차 도메인 parity로 일치 강제(`validate:cross-domain`).
+- 의존 방향(비순환): foundation ← 전부 · governance ← benchmarks · agent·transaction → governance · benchmarks → tool·task.
+
+### 4. 구성 관계 — 무엇이 무엇을 품나
+
+- **preset** ⊃ { review rule, workflow } — 온보딩이 활성화할 집합.
+- **workflow** → enabledRuleIds(review rule 참조) + **safety profile**(executionClass · riskLevel · externalAccess · sideEffects).
+- **benchmarks target** → skill | workflow — 측정점이 실행 가능한 계약을 가리킴.
+- **skill** → proxy route → credential → upstream — 도구 호출 사슬.
+- **transaction budget** → approvalPolicy(governance) · **settlement** → businessUnit.
+- **legal document** → governsBusinessUnits · **disclosure** → documentType + businessUnit.
+
+### 5. 생애 관계 — status ↔ 호환성
+
+**status**(ACTIVE · EXPERIMENTAL · DRAFT · DEPRECATED · REMOVED)는 호환성 정책(patch · minor · major)과 연결됩니다. EXPERIMENTAL/DRAFT = 비권위 scaffold, DEPRECATED →(major)→ REMOVED. 자세히는 [CONTRACT-LIFECYCLE.md](CONTRACT-LIFECYCLE.md).
+
+### 요약표 — 용어 → 연관 → 관계
+
+| 용어 | 연관 용어 | 관계 |
+|---|---|---|
+| contract | role · splitKey · logical id · status | 배치 좌표 |
+| role | domain · dist 번들 | 집계(`members`) |
+| domain | role (다대다) | members로 합쳐짐 |
+| businessUnit / category | splitKey(2차 축) | role 내부 파일 분할 |
+| riskLevel · approvalPolicy | governance → transaction · agent · workflow | 단일 출처 참조 |
+| preset | review rule · workflow | 구성(⊃) |
+| benchmarks target | skill · workflow | 측정 참조 |
+| skill | proxy route · credential · upstream | 호출 사슬 |
+| status | 호환성(patch/minor/major) | 생애주기 |
+
 ## 사용 예시 (usage)
 
 ### 소비자 import 패턴
