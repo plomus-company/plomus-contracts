@@ -81,6 +81,7 @@
     "import:gameops": "node tools/import-gameops.mjs",
     "generate:benchmarks": "node tools/generate-benchmarks.mjs",
     "summary:benchmarks": "node scripts/summary-benchmarks.mjs",
+    "analyze:benchmarks": "node scripts/analyze-benchmarks.mjs",
     "experiment": "node tools/run-experiment.mjs"
   }
 }

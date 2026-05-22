@@ -89,16 +89,19 @@
       "targetId": "preset:PLOMUS_DISTRIBUTION",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-22T19:18:02.118Z",
+      "sampleSize": 5,
+      "measuredAt": "2026-05-22T19:33:24.737Z",
       "metrics": {
-        "latency_p50_ms": 4936.12,
-        "throughput_tps": 55.88,
+        "latency_p50_ms": 4962.79,
+        "throughput_tps": 55.81,
         "cost_per_run_usd": 0,
         "input_tokens": 99,
         "output_tokens": 256,
         "success_rate": 100,
-        "error_rate": 0
+        "error_rate": 0,
+        "latency_p95_ms": 5233.26,
+        "output_consistency": 100,
+        "latency_stddev_ms": 118.14
       }
     }
   ]

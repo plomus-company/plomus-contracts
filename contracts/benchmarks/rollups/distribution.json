@@ -93,10 +93,13 @@
         "cost_per_run_usd": 0,
         "input_tokens": 99,
         "output_tokens": 256,
-        "latency_p50_ms": 4936.12,
-        "throughput_tps": 55.88,
+        "latency_p50_ms": 4962.79,
+        "latency_p95_ms": 5233.26,
+        "throughput_tps": 55.81,
+        "latency_stddev_ms": 118.14,
         "success_rate": 100,
-        "error_rate": 0
+        "error_rate": 0,
+        "output_consistency": 100
       }
     }
   ]

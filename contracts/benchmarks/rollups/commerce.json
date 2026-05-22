@@ -92,14 +92,14 @@
       "metrics": {
         "cost_per_run_usd": 0,
         "input_tokens": 59.9,
-        "output_tokens": 236.29,
-        "latency_p50_ms": 5038.48,
-        "latency_p95_ms": 4894.21,
-        "throughput_tps": 50.42,
-        "latency_stddev_ms": 193.56,
+        "output_tokens": 236.05,
+        "latency_p50_ms": 5035.29,
+        "latency_p95_ms": 4382.97,
+        "throughput_tps": 50.43,
+        "latency_stddev_ms": 124.38,
         "success_rate": 100,
         "error_rate": 0,
-        "output_consistency": 100
+        "output_consistency": 60
       }
     }
   ]

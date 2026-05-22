@@ -573,32 +573,38 @@
       "targetId": "agent:cs",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-22T19:17:51.955Z",
+      "sampleSize": 5,
+      "measuredAt": "2026-05-22T19:32:34.609Z",
       "metrics": {
-        "latency_p50_ms": 4862.68,
-        "throughput_tps": 55.91,
+        "latency_p50_ms": 4988.98,
+        "throughput_tps": 55.48,
         "cost_per_run_usd": 0,
         "input_tokens": 74,
-        "output_tokens": 256,
+        "output_tokens": 255,
         "success_rate": 100,
-        "error_rate": 0
+        "error_rate": 0,
+        "latency_p95_ms": 5283.1,
+        "output_consistency": 80,
+        "latency_stddev_ms": 143.96
       }
     },
     {
       "targetId": "playbook:daily_ops_brief_v1",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-22T19:17:56.954Z",
+      "sampleSize": 5,
+      "measuredAt": "2026-05-22T19:32:58.592Z",
       "metrics": {
-        "latency_p50_ms": 4767.11,
-        "throughput_tps": 55.01,
+        "latency_p50_ms": 4573.32,
+        "throughput_tps": 55.6,
         "cost_per_run_usd": 0,
         "input_tokens": 77,
-        "output_tokens": 237,
+        "output_tokens": 238,
         "success_rate": 100,
-        "error_rate": 0
+        "error_rate": 0,
+        "latency_p95_ms": 4631.14,
+        "output_consistency": 80,
+        "latency_stddev_ms": 44.38
       }
     }
   ]

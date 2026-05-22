@@ -144,11 +144,15 @@ console.error("Warming up model...");
 await generate("Reply with: ready");
 
 const newResults = [];
-const runRecord = { modelId: MODEL_ID, ollamaTag: OLLAMA_TAG, baseUrl: BASE_URL, startedAt: new Date().toISOString(), reps: REPS, numPredict: NUM_PREDICT, runs: [] };
+// prompts + targetMeta make each run record self-contained for debugging/analysis
+// (you can see exactly what was sent and which contract it resolved from).
+const runRecord = { modelId: MODEL_ID, ollamaTag: OLLAMA_TAG, baseUrl: BASE_URL, startedAt: new Date().toISOString(), reps: REPS, numPredict: NUM_PREDICT, prompts: {}, targetMeta: {}, runs: [] };
 
 for (const targetId of selectedIds) {
   const target = targetById.get(targetId);
   const prompt = promptFor(target);
+  runRecord.prompts[targetId] = prompt;
+  runRecord.targetMeta[targetId] = { kind: target.kind, ref: target.ref, domain: target.domain };
   const samples = [];
   for (let r = 0; r < REPS; r += 1) {
     const out = await generate(prompt); // eslint-disable-line no-await-in-loop

@@ -114,6 +114,41 @@ pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest \
 
 **회귀(regression) 추적**: 같은 모델·타깃을 다시 측정해 이전 baseline과 비교합니다. 매 실행은 `experiments/runs/<model>-<ts>.json`에 원시 run record로 보존되고, `results`·`rollups`의 measured 값 변화로 드리프트가 드러납니다. 측정 후 `pnpm run summary:benchmarks`로 문서를 재생성하지 않으면 `validate:benchmark-doc`가 CI에서 차단합니다.
 
+## 디버깅·분석·개선 루프
+
+집계된 `results`/`rollups`만으로는 "왜 그런 수치가 나왔는가"를 알기 어렵습니다. 그래서 매 실험은 **원시 run record**를 남기고, 그것을 읽어 분석하는 도구를 제공합니다.
+
+### 기록 — `experiments/runs/<model>-<ts>.json`
+
+자기완결적 디버깅 기록입니다(git에 보존). 담는 것:
+
+- `modelId`·`ollamaTag`·`baseUrl`·`reps`·`numPredict`·`startedAt`/`finishedAt` — 실험 조건
+- `prompts[targetId]` — 실제로 보낸 프롬프트, `targetMeta[targetId]` — `{kind, ref, domain}`(어느 계약에서 나왔는지)
+- `runs[]` — **반복 단위 원시 데이터**: `targetId`·`rep`·`ok`·`text`(출력 전문)·`inferMs`/`totalMs`/`loadMs`·`inputTokens`/`outputTokens`·`evalSec`·`error`
+
+→ "이 입력에 모델이 매 회 무슨 출력을 냈는지", "어느 반복이 느렸/실패했는지"를 그대로 추적할 수 있습니다.
+
+### 분석 — `pnpm run analyze:benchmarks` (`[-- --model <id>]`)
+
+run record들을 읽어 집계 행이 못 보여주는 신호를 표면화합니다(`dist/benchmark-analysis.md`로도 출력):
+
+- **Runs** — 실행 인벤토리(모델·reps·타깃·실패 수)
+- **Failures** — `ok:false` 반복(모델·타깃·rep·error)
+- **Reproducibility & latency stability** — reps≥2 기록의 타깃별 일관성(distinct 출력 수)·지연 cv, 임계 초과 시 ⚠
+- **Regression** — 모델별 최근 두 실행의 공유 타깃 비교(p50·consistency 델타, 20%/-10%p 초과 시 ⚠)
+- **Improvement candidates** — 위 신호에서 도출한 조치 후보
+
+### 개선 플레이북 (신호 → 조치)
+
+| 신호 | 해석 | 조치 |
+|---|---|---|
+| `output_consistency` < 100% | 같은 입력에 다른 출력(비결정성) | reps↑로 재확인 · 프롬프트에 출력 형식/길이 제약 추가 · temperature/seed 고정 점검 |
+| `latency_stddev`/`cv` 큼 | 응답시간 불안정 | 워밍업·동시 모델 상주·GPU 부하 점검, 측정 환경 고정 |
+| Regression ⚠ | 직전 대비 악화 | 직전 run record와 출력/조건 diff, 모델·프롬프트·환경 변화 bisect |
+| Failure | 빈/미완 응답 | 프롬프트·타임아웃(`--num-predict`)·모델 가용성 점검 |
+
+**실측 인사이트**: qwen3.6-27b를 reps=5로 측정하니 **긴 출력일수록 재현성이 낮았습니다** — 짧은 skill·preset은 100%, `workflow:order-delay-review`는 60%(5회 중 3가지 출력)·`agent:cs`/`playbook`은 80%. 즉 출력이 길고 자유서술일수록 토큰 단위 흔들림이 누적됩니다. → 재현성이 중요한 계약은 **출력 형식을 강하게 제약**하는 프롬프트 설계가 개선 방향입니다.
+
 ## 시드(초기 데이터) 정책
 
 위 measured 베이스라인 외에, 나머지 모델/조합의 초기 결과·롤업은 **결정론적 illustrative 수치**입니다. `tools/generate-benchmarks.mjs`가 `targetId+modelId` 해시와 모델 가격·합성 속도/품질 계수로 안정적으로 생성하므로, 재실행해도 동일한 값이 나옵니다. 이는 구조를 시연하고 검증 파이프라인을 채우기 위한 것이며 **실측이 아닙니다**.
