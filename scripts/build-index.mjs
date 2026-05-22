@@ -32,6 +32,10 @@ const domains = DOMAINS.map((d) => {
   } catch {
     schemaVersion = files[0] ? readJson(`contracts/${files[0]}`).schemaVersion ?? null : null;
   }
+  // workflows are separated into a top-level workflows/ folder (commerce concern)
+  if (d.name === "commerce" && fs.existsSync(path.join(repoRoot, "workflows"))) {
+    collections.push("workflows/ (root)");
+  }
   return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, files, collections };
 });
 

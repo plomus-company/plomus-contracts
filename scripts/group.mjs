@@ -8,16 +8,20 @@ import { repoRoot } from "./read-json.mjs";
 // single contracts/<domain>-<contract>.json file. readContract reads either
 // shape transparently; the build re-assembles everything into dist artifacts.
 
-const contractsDir = () => path.join(repoRoot, "contracts");
 export const safeUnit = (u) => String(u).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
-// Read a collection's items, whether a single <name>.json file or a <name>/
-// folder of per-unit files. Returns the concatenated array under `key`.
+// Contracts that live in their own top-level folder at the repo root rather than
+// under contracts/ (workflows are separated out as a first-class concern).
+const ROOT_DIRS = { "commerce-workflows": "workflows" };
+const folderFor = (name) => (ROOT_DIRS[name] ? path.join(repoRoot, ROOT_DIRS[name]) : path.join(repoRoot, "contracts", name));
+const singleFor = (name) => (ROOT_DIRS[name] ? null : path.join(repoRoot, "contracts", `${name}.json`));
+
+// Read a collection's items, whether a single <name>.json file or a folder of
+// per-unit files. Returns the concatenated array under `key`.
 export function readContract(name, key) {
-  const dir = contractsDir();
-  const single = path.join(dir, `${name}.json`);
-  if (fs.existsSync(single)) return JSON.parse(fs.readFileSync(single, "utf8"))[key] ?? [];
-  const folder = path.join(dir, name);
+  const single = singleFor(name);
+  if (single && fs.existsSync(single)) return JSON.parse(fs.readFileSync(single, "utf8"))[key] ?? [];
+  const folder = folderFor(name);
   if (!fs.existsSync(folder)) return [];
   return fs
     .readdirSync(folder)
@@ -26,10 +30,9 @@ export function readContract(name, key) {
     .flatMap((f) => JSON.parse(fs.readFileSync(path.join(folder, f), "utf8"))[key] ?? []);
 }
 
-// Write a collection split by business unit into contracts/<name>/<unit>.json,
-// pruning stale unit files.
+// Write a collection split by business unit into its folder, pruning stale files.
 export function writeGroup(name, key, items, unitOf) {
-  const dir = path.join(contractsDir(), name);
+  const dir = folderFor(name);
   fs.mkdirSync(dir, { recursive: true });
   const groups = {};
   for (const item of items) {

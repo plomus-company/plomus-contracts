@@ -30,11 +30,18 @@ export function runNodeScript(relativePath, { env = {}, registryRoot } = {}) {
   });
 }
 
+// Collections that live in a top-level folder at the repo root (not contracts/).
+const ROOT_DIRS = { "commerce-workflows": "workflows" };
+
 export function createContractsFixture(t) {
   const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "plomus-contracts-test-"));
   fs.cpSync(path.join(repoRoot, "contracts"), path.join(fixtureRoot, "contracts"), {
     recursive: true,
   });
+  for (const dir of new Set(Object.values(ROOT_DIRS))) {
+    const src = path.join(repoRoot, dir);
+    if (fs.existsSync(src)) fs.cpSync(src, path.join(fixtureRoot, dir), { recursive: true });
+  }
   fs.mkdirSync(path.join(fixtureRoot, "dist"), { recursive: true });
 
   t.after(() => fs.rmSync(fixtureRoot, { force: true, recursive: true }));
@@ -67,9 +74,9 @@ export function mutateFixtureItem(fixtureRoot, name, key, matchFn, mutateFn) {
     fs.writeFileSync(file, `${JSON.stringify(doc, null, 2)}\n`);
     return true;
   };
-  const single = path.join(fixtureRoot, "contracts", `${name}.json`);
-  if (fs.existsSync(single)) return apply(single);
-  const dir = path.join(fixtureRoot, "contracts", name);
+  const single = ROOT_DIRS[name] ? null : path.join(fixtureRoot, "contracts", `${name}.json`);
+  if (single && fs.existsSync(single)) return apply(single);
+  const dir = ROOT_DIRS[name] ? path.join(fixtureRoot, ROOT_DIRS[name]) : path.join(fixtureRoot, "contracts", name);
   for (const f of fs.readdirSync(dir).filter((f) => f.endsWith(".json"))) {
     if (apply(path.join(dir, f))) return true;
   }

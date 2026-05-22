@@ -16,7 +16,7 @@ function listJson(relDir) {
   }
   return out;
 }
-const targets = [...listJson("contracts"), ...listJson("examples")].sort();
+const targets = [...listJson("contracts"), ...listJson("workflows"), ...listJson("examples")].sort();
 
 const changed = [];
 
