@@ -32,10 +32,10 @@ function assertPattern(scope, field, value, pattern, label) {
   }
 }
 
-const base = readJson("contracts/commerce/base.json");
-const presets = readJson("contracts/commerce/presets.json").presets ?? [];
-const reviewRules = readJson("contracts/commerce/review-rules.json").reviewRules ?? [];
-const workflows = readJson("contracts/commerce/workflows.json").workflows ?? [];
+const base = readJson("contracts/commerce-base.json");
+const presets = readJson("contracts/commerce-presets.json").presets ?? [];
+const reviewRules = readJson("contracts/commerce-review-rules.json").reviewRules ?? [];
+const workflows = readJson("contracts/commerce-workflows.json").workflows ?? [];
 
 const presetIds = presets.map((preset) => preset.presetId);
 const reviewRuleIds = reviewRules.map((rule) => rule.ruleId);

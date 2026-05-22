@@ -1,4 +1,4 @@
-# Platform Contracts (`contracts/platform/`)
+# Platform Contracts (`contracts/platform-`)
 
 `plomus-commerce-ai-os`가 정의하지만 commerce import 도구가 추출하지 않는 **공유 플랫폼 어휘**입니다 — 문서별 frontmatter 상태/필수필드, 객체별 이벤트 분류, error code 분류.
 

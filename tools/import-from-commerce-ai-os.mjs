@@ -327,9 +327,9 @@ console.log(JSON.stringify({
 }));
 `);
 
-writeJson("contracts/commerce/base.json", base);
-writeJson("contracts/commerce/presets.json", presets);
-writeJson("contracts/commerce/review-rules.json", reviewRules);
-writeJson("contracts/commerce/workflows.json", workflows);
+writeJson("contracts/commerce-base.json", base);
+writeJson("contracts/commerce-presets.json", presets);
+writeJson("contracts/commerce-review-rules.json", reviewRules);
+writeJson("contracts/commerce-workflows.json", workflows);
 
 console.log(`imported contracts from ${sourceRoot}`);

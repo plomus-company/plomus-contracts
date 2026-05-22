@@ -20,7 +20,7 @@ test("governance registry validates and builds a distributable artifact", () => 
 
   // A1: every risk→model status resolves to a real benchmarks model status
   const benchStatuses = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/benchmarks/models.json"), "utf8")).models.map((m) => m.status),
+    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/benchmarks-models.json"), "utf8")).models.map((m) => m.status),
   );
   for (const r of dist.contracts.modelRouting.riskModelStatus) {
     assert.ok(benchStatuses.has(r.modelStatus), `risk ${r.riskLevel} → ${r.modelStatus} has no model`);

@@ -6,11 +6,11 @@ import { readJson, repoRoot } from "./read-json.mjs";
 // Writes the committed docs/BENCHMARK-RESULTS.md and the CI artifact
 // dist/benchmark-summary.md. Run with: pnpm run summary:benchmarks
 
-const models = readJson("contracts/benchmarks/models.json").models ?? [];
-const metrics = readJson("contracts/benchmarks/metrics.json").metrics ?? [];
-const targets = readJson("contracts/benchmarks/targets.json").targets ?? [];
-const results = readJson("contracts/benchmarks/results.json").results ?? [];
-const rollups = readJson("contracts/benchmarks/rollups.json").rollups ?? [];
+const models = readJson("contracts/benchmarks-models.json").models ?? [];
+const metrics = readJson("contracts/benchmarks-metrics.json").metrics ?? [];
+const targets = readJson("contracts/benchmarks-targets.json").targets ?? [];
+const results = readJson("contracts/benchmarks-results.json").results ?? [];
+const rollups = readJson("contracts/benchmarks-rollups.json").rollups ?? [];
 
 const targetById = new Map(targets.map((t) => [t.targetId, t]));
 const modelById = new Map(models.map((m) => [m.modelId, m]));
@@ -30,7 +30,7 @@ const lines = [];
 const p = (...s) => lines.push(...s);
 
 p("# Benchmark Results", "");
-p("`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks/`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.", "");
+p("`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks-`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.", "");
 
 p("## Methodology", "");
 p("- **대상(targets)**: 실행 가능한 계약 = 스킬 + 커머스 워크플로. 각 타깃은 실재 계약을 참조합니다.");

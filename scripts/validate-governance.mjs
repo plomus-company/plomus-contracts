@@ -13,15 +13,15 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/governance/base.json");
-const rolesDoc = readJson("contracts/governance/roles.json");
-const approval = readJson("contracts/governance/approval.json");
-const lifecycle = readJson("contracts/governance/execution-lifecycle.json");
-const routing = readJson("contracts/governance/model-routing.json");
+const base = readJson("contracts/governance-base.json");
+const rolesDoc = readJson("contracts/governance-roles.json");
+const approval = readJson("contracts/governance-approval.json");
+const lifecycle = readJson("contracts/governance-execution-lifecycle.json");
+const routing = readJson("contracts/governance-model-routing.json");
 
 // benchmarks baseline (read-only)
-const benchModelStatuses = new Set(readJson("contracts/benchmarks/base.json").modelStatuses ?? []);
-const benchModelStatusesPresent = new Set((readJson("contracts/benchmarks/models.json").models ?? []).map((m) => m.status));
+const benchModelStatuses = new Set(readJson("contracts/benchmarks-base.json").modelStatuses ?? []);
+const benchModelStatusesPresent = new Set((readJson("contracts/benchmarks-models.json").models ?? []).map((m) => m.status));
 
 const riskLevels = base.riskLevels ?? [];
 const roles = base.roles ?? [];

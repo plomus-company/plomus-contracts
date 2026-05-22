@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "plomus-commerce-ai-os",
   "sourceImportedAt": "2026-05-21T21:42:53.704Z",
-  "builtOnCommerce": "contracts/commerce",
+  "builtOnCommerce": "commerce",
   "lifecycleObjects": [
     "product",
     "order",

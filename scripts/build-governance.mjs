@@ -1,11 +1,11 @@
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/governance/base.json");
+const base = readJson("contracts/governance-base.json");
 writeJson("dist/plomus-governance.json", {
   schemaVersion: "1.0.0",
   name: "plomus-governance",
   generatedAt: new Date().toISOString(),
-  builtOnBenchmarks: base.builtOnBenchmarks ?? "contracts/benchmarks",
+  builtOnBenchmarks: base.builtOnBenchmarks ?? "benchmarks",
   enums: {
     riskLevels: base.riskLevels ?? [],
     roles: base.roles ?? [],
@@ -16,10 +16,10 @@ writeJson("dist/plomus-governance.json", {
     commandStates: base.commandStates ?? [],
   },
   contracts: {
-    roles: readJson("contracts/governance/roles.json"),
-    approval: readJson("contracts/governance/approval.json"),
-    executionLifecycle: readJson("contracts/governance/execution-lifecycle.json"),
-    modelRouting: readJson("contracts/governance/model-routing.json"),
+    roles: readJson("contracts/governance-roles.json"),
+    approval: readJson("contracts/governance-approval.json"),
+    executionLifecycle: readJson("contracts/governance-execution-lifecycle.json"),
+    modelRouting: readJson("contracts/governance-model-routing.json"),
   },
 });
 console.log("built dist/plomus-governance.json");

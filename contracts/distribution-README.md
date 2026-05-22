@@ -1,13 +1,13 @@
-# Distribution Contracts (`contracts/distribution/`)
+# Distribution Contracts (`contracts/distribution-`)
 
 `plomus-distribution-ai-os`(탁구 용품 도소매 유통 OS) 점검 결과를 바탕으로 만든 계약 도메인입니다. 유통 제품은 공개 commerce 계약의 **superset**(제품의 `check-contract-parity`가 "공개 ⊆ 제품" 강제)이라, 유통 규칙·워크플로·문서타입은 대부분 이미 commerce 계약에 있습니다. 이 도메인은 **아직 어디에도 계약되지 않은 부분**만 담습니다.
 
 - `tools/import-from-distribution-ai-os.mjs`가 단일 진실원천, `scripts/validate-distribution.mjs`가 검증.
-- **commerce 계약(`contracts/commerce/`)은 읽기 전용으로 교차참조**만 합니다 — 절대 수정하지 않아 소비 제품의 parity baseline을 깨지 않습니다.
+- **commerce 계약(`contracts/commerce-`)은 읽기 전용으로 교차참조**만 합니다 — 절대 수정하지 않아 소비 제품의 parity baseline을 깨지 않습니다.
 
 ```
-contracts/commerce/ (commerce baseline) ──(read-only cross-ref)──▶ presets/experimental-rules/fields 검증
-contracts/distribution/
+contracts/commerce- (commerce baseline) ──(read-only cross-ref)──▶ presets/experimental-rules/fields 검증
+contracts/distribution-
   base.json            # 유통 통제 어휘
   presets.json         # PLOMUS_DISTRIBUTION preset (A1)
   fields.json          # 유통 frontmatter 필드 ↔ 어휘 바인딩 (B)

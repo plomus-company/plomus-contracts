@@ -18,7 +18,7 @@ test("protocol registry validates and builds a distributable artifact", () => {
 
   // every sync payload object type resolves against the commerce baseline
   const commercePayloadTypes = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce/base.json"), "utf8")).core.syncPayloadObjectTypes,
+    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce-base.json"), "utf8")).core.syncPayloadObjectTypes,
   );
   for (const p of dist.contracts.payloads) {
     assert.ok(commercePayloadTypes.has(p.objectType), `payload ${p.objectType} missing from commerce baseline`);

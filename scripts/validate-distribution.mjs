@@ -17,15 +17,15 @@ const assertUnique = (scope, field, values) => {
 };
 
 // ---- distribution domain ----
-const base = readJson("contracts/distribution/base.json");
-const presets = readJson("contracts/distribution/presets.json").presets ?? [];
-const fields = readJson("contracts/distribution/fields.json").fields ?? [];
-const experimentalRules = readJson("contracts/distribution/experimental-rules.json").rules ?? [];
+const base = readJson("contracts/distribution-base.json");
+const presets = readJson("contracts/distribution-presets.json").presets ?? [];
+const fields = readJson("contracts/distribution-fields.json").fields ?? [];
+const experimentalRules = readJson("contracts/distribution-experimental-rules.json").rules ?? [];
 
 // ---- commerce baseline (read-only cross-reference) ----
-const commerceBase = readJson("contracts/commerce/base.json");
-const commerceRuleIds = new Set((readJson("contracts/commerce/review-rules.json").reviewRules ?? []).map((r) => r.ruleId));
-const commerceWorkflowIds = new Set((readJson("contracts/commerce/workflows.json").workflows ?? []).map((w) => w.workflowId));
+const commerceBase = readJson("contracts/commerce-base.json");
+const commerceRuleIds = new Set((readJson("contracts/commerce-review-rules.json").reviewRules ?? []).map((r) => r.ruleId));
+const commerceWorkflowIds = new Set((readJson("contracts/commerce-workflows.json").workflows ?? []).map((w) => w.workflowId));
 const commerceDomains = new Set(commerceBase.core?.commerceDomains ?? []);
 const commerceTypes = new Set(commerceBase.core?.commerceTypes ?? []);
 const salesChannels = new Set(commerceBase.core?.salesChannels ?? []);

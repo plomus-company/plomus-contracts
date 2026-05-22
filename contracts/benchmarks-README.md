@@ -1,4 +1,4 @@
-# Benchmarks Contracts (`contracts/benchmarks/`)
+# Benchmarks Contracts (`contracts/benchmarks-`)
 
 각 실행 가능한 계약(스킬·커머스 워크플로)을 **유명 모델**로 실행했을 때의 성능·비용·품질 지표를 정의하고 기록하는 도메인입니다. `tools/generate-benchmarks.mjs`가 단일 진실원천(모델·지표 큐레이션 + 타깃/결과/롤업 생성)이며, `scripts/validate-benchmarks.mjs`가 무결성을 검증합니다.
 
@@ -75,7 +75,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 | `targetId` | 네임스페이스 id (`skill:<id>` 또는 `workflow:<id>`) |
 | `kind` | `skill` 또는 `workflow` |
 | `domain` | `skills`(스킬 86) 또는 `commerce`(워크플로 21) |
-| `ref` | 참조 대상 — `skill`이면 `contracts/skills/catalog.json`의 `skillId`, `workflow`이면 `contracts/commerce/workflows.json`의 `workflowId`에 존재해야 함 |
+| `ref` | 참조 대상 — `skill`이면 `contracts/skills-catalog.json`의 `skillId`, `workflow`이면 `contracts/commerce-workflows.json`의 `workflowId`에 존재해야 함 |
 | `label` / `group` | 표시명과 분류(스킬 category / 워크플로 reviewScope) |
 
 ---

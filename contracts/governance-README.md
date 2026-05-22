@@ -1,4 +1,4 @@
-# Governance Contracts (`contracts/governance/`)
+# Governance Contracts (`contracts/governance-`)
 
 `plomus-gameops-ai-os` 점검에서 도출한 **횡단 "안전 운영" 제어 계약**입니다 — 어느 AI ops OS(commerce/distribution/gameops)든 재사용할 수 있습니다.
 

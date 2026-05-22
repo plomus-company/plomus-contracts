@@ -7,29 +7,31 @@ import { readJson, repoRoot, writeJson } from "./read-json.mjs";
 // its cross-domain dependency graph from one file.
 
 const DOMAINS = [
-  { name: "commerce", dir: "contracts/commerce", dependsOn: [], source: "plomus-commerce-ai-os" },
-  { name: "skills", dir: "contracts/skills", dependsOn: [], source: "k-skill" },
-  { name: "benchmarks", dir: "contracts/benchmarks", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
-  { name: "distribution", dir: "contracts/distribution", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
-  { name: "protocol", dir: "contracts/protocol", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "platform", dir: "contracts/platform", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "governance", dir: "contracts/governance", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
-  { name: "gameops", dir: "contracts/gameops", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
+  { name: "commerce", dir: "commerce", dependsOn: [], source: "plomus-commerce-ai-os" },
+  { name: "skills", dir: "skills", dependsOn: [], source: "k-skill" },
+  { name: "benchmarks", dir: "benchmarks", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
+  { name: "distribution", dir: "distribution", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
+  { name: "protocol", dir: "protocol", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
+  { name: "platform", dir: "platform", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
+  { name: "governance", dir: "governance", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
+  { name: "gameops", dir: "gameops", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
 ];
 
+// Contracts live in one flat folder as <domain>-<contract>.json.
+const allFiles = fs
+  .readdirSync(path.join(repoRoot, "contracts"))
+  .filter((f) => f.endsWith(".json"))
+  .sort();
+
 const domains = DOMAINS.map((d) => {
-  const abs = path.join(repoRoot, d.dir);
-  const files = fs
-    .readdirSync(abs)
-    .filter((f) => f.endsWith(".json"))
-    .sort();
+  const files = allFiles.filter((f) => f.startsWith(`${d.name}-`));
   let schemaVersion = null;
   try {
-    schemaVersion = readJson(path.join(d.dir, "base.json")).schemaVersion ?? null;
+    schemaVersion = readJson(`contracts/${d.name}-base.json`).schemaVersion ?? null;
   } catch {
-    schemaVersion = readJson(path.join(d.dir, files[0])).schemaVersion ?? null;
+    schemaVersion = files[0] ? readJson(`contracts/${files[0]}`).schemaVersion ?? null : null;
   }
-  return { ...d, schemaVersion, files };
+  return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, files };
 });
 
 writeJson("dist/plomus-contracts-index.json", {

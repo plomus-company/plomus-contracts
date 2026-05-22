@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "plomus-gameops-ai-os",
   "sourceImportedAt": "2026-05-21T21:42:53.832Z",
-  "builtOnGovernance": "contracts/governance",
+  "builtOnGovernance": "governance",
   "intents": [
     "status.check",
     "report.today.brief",

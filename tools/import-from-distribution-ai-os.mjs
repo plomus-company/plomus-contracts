@@ -5,7 +5,7 @@ import { readJson, writeJson } from "../scripts/read-json.mjs";
 //
 // plomus-distribution-ai-os is a SUPERSET of the public commerce contract
 // (its check-contract-parity enforces public ⊆ product). So its review rules,
-// workflows, folders, and document types already live in contracts/commerce/. This
+// workflows, folders, and document types already live in contracts/commerce-. This
 // domain captures the parts that are NOT yet contracted anywhere:
 //   A1. the PLOMUS_DISTRIBUTION onboarding preset (not in commerce presets.json)
 //   A2. domain-object lifecycle statuses (only in product Zod schemas today)
@@ -24,7 +24,7 @@ const generatedAt = new Date().toISOString();
 
 // Commerce baseline (read-only) — used to keep the preset's system folders and
 // base document types in sync with the shared contract.
-const commerceBase = readJson("contracts/commerce/base.json");
+const commerceBase = readJson("contracts/commerce-base.json");
 const SYSTEM_FOLDERS = commerceBase.systemFolders ?? [];
 const BASE_DOC_TYPES = [
   "commerce_review",
@@ -49,7 +49,7 @@ const RULE_STATUSES = ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "REMOVED"];
 // Document type proposed by the distribution domain (not in the commerce baseline yet).
 const DISTRIBUTION_DOC_TYPES = ["purchase_order"];
 // NOTE: domain-object lifecycle statuses (product/order/claim/settlement) are no
-// longer duplicated here — they are owned by contracts/platform/frontmatter.json.
+// longer duplicated here — they are owned by contracts/platform-frontmatter.json.
 
 // ---- A1. PLOMUS_DISTRIBUTION preset (folders/doctypes expanded against commerce) ----
 const PRESET_FOLDERS = ["10-products", "20-orders", "30-inventory", "35-partners", "40-claims", "50-settlements", "51-finance"];
@@ -116,7 +116,7 @@ const base = {
   schemaVersion: "1.0.0",
   source: "plomus-distribution-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnCommerce: "contracts/commerce",
+  builtOnCommerce: "commerce",
   partnerTypes: PARTNER_TYPES,
   paymentTerms: PAYMENT_TERMS,
   priceTiers: PRICE_TIERS,
@@ -127,10 +127,10 @@ const base = {
   documentTypes: DISTRIBUTION_DOC_TYPES,
 };
 
-writeJson("contracts/distribution/base.json", base);
-writeJson("contracts/distribution/presets.json", { schemaVersion: "1.0.0", presets: [distributionPreset] });
-writeJson("contracts/distribution/fields.json", { schemaVersion: "1.0.0", note: "Distribution frontmatter fields and the controlled vocabulary each binds to.", fields: FIELDS });
-writeJson("contracts/distribution/experimental-rules.json", { schemaVersion: "1.0.0", note: "Defined-but-unimplemented rules proposed for distribution; not part of the commerce ACTIVE baseline.", rules: EXPERIMENTAL_RULES });
+writeJson("contracts/distribution-base.json", base);
+writeJson("contracts/distribution-presets.json", { schemaVersion: "1.0.0", presets: [distributionPreset] });
+writeJson("contracts/distribution-fields.json", { schemaVersion: "1.0.0", note: "Distribution frontmatter fields and the controlled vocabulary each binds to.", fields: FIELDS });
+writeJson("contracts/distribution-experimental-rules.json", { schemaVersion: "1.0.0", note: "Defined-but-unimplemented rules proposed for distribution; not part of the commerce ACTIVE baseline.", rules: EXPERIMENTAL_RULES });
 
 console.log(`imported distribution contracts (source: ${distRepo})`);
 console.log(`  preset: ${distributionPreset.presetId}, fields: ${FIELDS.length}, experimental rules: ${EXPERIMENTAL_RULES.length} (domain statuses now in platform/frontmatter)`);

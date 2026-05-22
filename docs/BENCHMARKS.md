@@ -1,6 +1,6 @@
 # Benchmarks
 
-`contracts/benchmarks/`는 각 실행 가능한 계약을 유명 모델로 벤치마킹하기 위한 구조입니다. 필드별 상세는 [contracts/benchmarks/README.md](../contracts/benchmarks/README.md).
+`contracts/benchmarks-`는 각 실행 가능한 계약을 유명 모델로 벤치마킹하기 위한 구조입니다. 필드별 상세는 [contracts/benchmarks-README.md](../contracts/benchmarks-README.md).
 
 ## 목적
 

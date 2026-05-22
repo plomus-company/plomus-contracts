@@ -6,7 +6,7 @@ import { writeJson } from "../scripts/read-json.mjs";
 //
 // This tool reads the sibling k-skill repository (per-skill SKILL.md frontmatter)
 // and combines it with the curated maps below to emit the committed contracts in
-// contracts/skills/. It references k-skill as a data source; it does not copy
+// contracts/skills-. It references k-skill as a data source; it does not copy
 // k-skill's directory layout. Run with: pnpm run import:k-skill
 //
 // CI validates the committed JSON, so k-skill does not need to be present there.
@@ -436,16 +436,16 @@ const upstreamRegistry = UPSTREAMS.map((upstreamId) => {
   };
 });
 
-writeJson("contracts/skills/base.json", base);
-writeJson("contracts/skills/catalog.json", { schemaVersion: "1.0.0", skills });
-writeJson("contracts/skills/proxy-routes.json", { schemaVersion: "1.0.0", routes: PROXY_ROUTES });
-writeJson("contracts/skills/credentials.json", { schemaVersion: "1.0.0", credentials: CREDENTIALS });
-writeJson("contracts/skills/data-sources.json", { schemaVersion: "1.0.0", sources });
-writeJson("contracts/skills/categories.json", { schemaVersion: "1.0.0", note: "Canonical category -> raw k-skill subcategories consolidated under it.", categories });
-writeJson("contracts/skills/upstreams.json", { schemaVersion: "1.0.0", upstreams: upstreamRegistry });
-writeJson("contracts/skills/packages.json", { schemaVersion: "1.0.0", packages });
-writeJson("contracts/skills/mcp.json", { schemaVersion: "1.0.0", servers: MCP_SERVERS, mcpSkills: skills.filter((s) => s.usesMcp).map((s) => s.skillId) });
-writeJson("contracts/skills/proxy.json", { schemaVersion: "1.0.0", ...PROXY_CONFIG, upstreamBaseUrls: UPSTREAM_BASE_URLS });
+writeJson("contracts/skills-base.json", base);
+writeJson("contracts/skills-catalog.json", { schemaVersion: "1.0.0", skills });
+writeJson("contracts/skills-proxy-routes.json", { schemaVersion: "1.0.0", routes: PROXY_ROUTES });
+writeJson("contracts/skills-credentials.json", { schemaVersion: "1.0.0", credentials: CREDENTIALS });
+writeJson("contracts/skills-data-sources.json", { schemaVersion: "1.0.0", sources });
+writeJson("contracts/skills-categories.json", { schemaVersion: "1.0.0", note: "Canonical category -> raw k-skill subcategories consolidated under it.", categories });
+writeJson("contracts/skills-upstreams.json", { schemaVersion: "1.0.0", upstreams: upstreamRegistry });
+writeJson("contracts/skills-packages.json", { schemaVersion: "1.0.0", packages });
+writeJson("contracts/skills-mcp.json", { schemaVersion: "1.0.0", servers: MCP_SERVERS, mcpSkills: skills.filter((s) => s.usesMcp).map((s) => s.skillId) });
+writeJson("contracts/skills-proxy.json", { schemaVersion: "1.0.0", ...PROXY_CONFIG, upstreamBaseUrls: UPSTREAM_BASE_URLS });
 
 console.log(`imported ${skills.length} skills from ${kSkillRoot}`);
 console.log(`  routes ${PROXY_ROUTES.length}, creds ${CREDENTIALS.length}, categories ${CATEGORIES.length} (subcats ${new Set(skills.map((s) => s.subcategory)).size})`);
