@@ -50,7 +50,7 @@
 ## 검증 무결성 (`scripts/validate-benchmarks.mjs`)
 
 - 모든 enum 고유, 모델/지표/결과/롤업의 enum 참조는 `base.json` 어휘에 속함.
-- **타깃은 실재 계약을 참조해야 함**: `kind: skill`은 `skills/v1/catalog.json`, `kind: workflow`은 `v1/workflows.json`에 존재. (도메인 간 무결성)
+- **타깃은 실재 계약을 참조해야 함**: `kind: skill`은 `contracts/tool/skills-catalog/`, `kind: workflow`은 `contracts/task/commerce-workflows/`에 존재. (도메인 간 무결성)
 - 결과·롤업의 `targetId`/`modelId`/`metricId`는 모두 등록된 값.
 - percent 지표는 0–100, 모든 지표 값은 음수 불가.
 - `(targetId, modelId, dataSource)` 조합 고유, `seedModels` ⊆ 모델 레지스트리.

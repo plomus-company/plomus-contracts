@@ -6,8 +6,9 @@ import { readJson, writeJson } from "../scripts/read-json.mjs";
 //
 // plomus-distribution-ai-os is a SUPERSET of the public commerce contract
 // (its check-contract-parity enforces public ⊆ product). So its review rules,
-// workflows, folders, and document types already live in contracts/commerce-. This
-// domain captures the parts that are NOT yet contracted anywhere:
+// workflows, folders, and document types already live in the commerce contracts
+// (contracts/{task,governance,foundation}/commerce-*). This domain captures the
+// parts that are NOT yet contracted anywhere:
 //   A1. the PLOMUS_DISTRIBUTION onboarding preset (not in commerce presets.json)
 //   A2. domain-object lifecycle statuses (only in product Zod schemas today)
 //   B.  distribution-specific vocabularies (거래처 types, pricing tiers,
@@ -50,7 +51,7 @@ const RULE_STATUSES = ["ACTIVE", "EXPERIMENTAL", "DEPRECATED", "REMOVED"];
 // Document type proposed by the distribution domain (not in the commerce baseline yet).
 const DISTRIBUTION_DOC_TYPES = ["purchase_order"];
 // NOTE: domain-object lifecycle statuses (product/order/claim/settlement) are no
-// longer duplicated here — they are owned by contracts/platform-frontmatter.json.
+// longer duplicated here — they are owned by contracts/foundation/platform-frontmatter.
 
 // ---- A1. PLOMUS_DISTRIBUTION preset (folders/doctypes expanded against commerce) ----
 const PRESET_FOLDERS = ["10-products", "20-orders", "30-inventory", "35-partners", "40-claims", "50-settlements", "51-finance"];

@@ -45,7 +45,7 @@ distribution-
 
 ## 도메인 객체 lifecycle 상태 (A2) — platform으로 통합됨
 
-product/order/claim/settlement의 상태 어휘는 이전에 이 도메인의 `domain-statuses.json`에 있었으나, 모든 커머스/유통 제품이 공유하는 어휘이므로 **[platform/frontmatter](../../platform/v1/frontmatter.json)** 단일 출처로 통합했습니다(중복 제거). 교차 도메인 검증기가 platform이 해당 객체를 계속 보유하는지 보장합니다.
+product/order/claim/settlement의 상태 어휘는 이전에 이 도메인의 `domain-statuses.json`에 있었으나, 모든 커머스/유통 제품이 공유하는 어휘이므로 **[platform frontmatter](platform.md)**(`contracts/foundation/platform-frontmatter/`) 단일 출처로 통합했습니다(중복 제거). 교차 도메인 검증기가 platform이 해당 객체를 계속 보유하는지 보장합니다.
 
 ---
 

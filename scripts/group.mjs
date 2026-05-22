@@ -3,10 +3,10 @@ import path from "node:path";
 import { repoRoot } from "./read-json.mjs";
 
 // Business-unit splitting: large collections are stored as a folder of unit
-// files — contracts/<domain>-<contract>/<unit>.json (e.g.
-// contracts/commerce-review-rules/settlement.json). Small collections stay a
-// single contracts/<domain>-<contract>.json file. readContract reads either
-// shape transparently; the build re-assembles everything into dist artifacts.
+// files — contracts/<role>/<domain>-<contract>/<unit>.json (e.g.
+// contracts/governance/commerce-review-rules/settlement.json). Single-object
+// collections stay one file in that folder. readContract reads either shape
+// transparently; the build re-assembles everything into dist artifacts.
 
 export const safeUnit = (u) => String(u).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
@@ -91,7 +91,7 @@ export function readGroups(name, key) {
 const innerName = (name) => name.split("-").slice(1).join("-");
 
 // Read a single-object (config) contract — either a flat <name>.json file or the
-// one file inside its contracts/<name>/ folder.
+// one file inside its contracts/<role>/<name>/ folder.
 export function readDoc(name) {
   const single = singleFor(name);
   if (single && fs.existsSync(single)) return JSON.parse(fs.readFileSync(single, "utf8"));
@@ -100,7 +100,7 @@ export function readDoc(name) {
   return JSON.parse(fs.readFileSync(path.join(folder, file), "utf8"));
 }
 
-// Write a single-object contract as the one file inside contracts/<name>/.
+// Write a single-object contract as the one file inside contracts/<role>/<name>/.
 export function writeDoc(name, obj) {
   const dir = folderFor(name);
   fs.mkdirSync(dir, { recursive: true });

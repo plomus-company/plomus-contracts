@@ -138,7 +138,7 @@ writeDoc("governance-execution-lifecycle", {
 });
 writeDoc("governance-model-routing", {
   schemaVersion: "1.0.0",
-  note: "risk_level → preferred benchmarks model status; resolves against contracts/benchmarks-models.json.",
+  note: "risk_level → preferred benchmarks model status; resolves against contracts/benchmarks/models/.",
   fallbackStatus: "frontier",
   riskModelStatus: RISK_MODEL_STATUS,
 });

@@ -31,7 +31,7 @@ const lines = [];
 const p = (...s) => lines.push(...s);
 
 p("# Benchmark Results", "");
-p("`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks-`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.", "");
+p("`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks/`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.", "");
 
 p("## Methodology", "");
 p("- **대상(targets)**: 실행 가능한 계약 = 스킬 + 커머스 워크플로. 각 타깃은 실재 계약을 참조합니다.");

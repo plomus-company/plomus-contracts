@@ -39,7 +39,7 @@ const DEFAULT_TARGETS = [
 const models = readContract("benchmarks-models", "models");
 const model = models.find((m) => m.modelId === MODEL_ID);
 if (!model) {
-  console.error(`Unknown modelId '${MODEL_ID}'. Add it to contracts/benchmarks-models.json (run generate:benchmarks).`);
+  console.error(`Unknown modelId '${MODEL_ID}'. Add it to contracts/benchmarks/models/ (run generate:benchmarks).`);
   process.exit(1);
 }
 
