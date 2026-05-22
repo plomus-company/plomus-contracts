@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "bunjang-search",
+      "description": "번개장터 검색, 상세조회, 찜, 채팅, 대량 수집, AI TOON export를 bunjang-cli로 안내한다.",
+      "category": "commerce",
+      "subcategory": "marketplace",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "daangn-used-goods-search",
+      "description": "당근 중고거래 공개 웹 데이터 표면으로 키워드·지역 기반 매물 검색과 상세 조회를 수행한다. 로그인/채팅/찜/구매 자동화는 제외한다.",
+      "category": "commerce",
+      "subcategory": "marketplace",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

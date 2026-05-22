@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "blue-ribbon-nearby",
+      "description": "Use when the user asks for nearby restaurants or 근처 맛집 and wants 블루리본 picks. Always ask the user's current location first, then search official Blue Ribbon nearby restaurants via k-skill-proxy.",
+      "category": "food",
+      "subcategory": "food",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/blue-ribbon-nearby",
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "blue-ribbon-nearby"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "hola-poke-yeoksam",
+      "description": "올라포케 역삼점의 메뉴·매장 정보·이벤트 참여 흐름을 remote MCP 서버 기준으로 안내한다.",
+      "category": "food",
+      "subcategory": "food",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": true,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "kakao-bar-nearby",
+      "description": "Use when the user asks for nearby bars or 근처 술집. Always ask the user's current location first, then use Kakao Map search + place detail panels to find open-now bars with menu, seating, and phone hints.",
+      "category": "food",
+      "subcategory": "food",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/kakao-bar-nearby",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

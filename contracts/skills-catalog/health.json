@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "emergency-room-beds",
+      "description": "Use when the user asks for nearby Korean emergency rooms, 응급실, ER, or emergency bed/병상 status near a location. Ask for the user's current location first unless a location was already provided.",
+      "category": "health",
+      "subcategory": "health",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/emergency-room-beds",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

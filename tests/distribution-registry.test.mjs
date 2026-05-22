@@ -28,9 +28,14 @@ test("distribution registry validates and builds a distributable artifact", () =
   // C: experimental rules captured
   assert.ok(dist.contracts.experimentalRules.length >= 8);
 
-  // every preset enabledRule resolves against the public commerce review-rules contract
+  // every preset enabledRule resolves against the public commerce review-rules
+  // contract (split by business unit into a folder of files)
+  const rulesDir = path.join(repoRoot, "contracts/commerce-review-rules");
   const commerceRules = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce-review-rules.json"), "utf8")).reviewRules.map((r) => r.ruleId),
+    fs
+      .readdirSync(rulesDir)
+      .filter((f) => f.endsWith(".json"))
+      .flatMap((f) => JSON.parse(fs.readFileSync(path.join(rulesDir, f), "utf8")).reviewRules.map((r) => r.ruleId)),
   );
   for (const preset of dist.contracts.presets) {
     for (const ruleId of preset.enabledRules) {

@@ -54,3 +54,24 @@ export function writeFixtureJson(fixtureRoot, relativePath, value) {
 export function scriptOutput(result) {
   return [result.stdout, result.stderr].filter(Boolean).join("\n");
 }
+
+// Mutate the first matching item of a collection in the fixture, whether it is a
+// single contracts/<name>.json file or a contracts/<name>/ folder of
+// business-unit files. Returns true if an item was mutated.
+export function mutateFixtureItem(fixtureRoot, name, key, matchFn, mutateFn) {
+  const apply = (file) => {
+    const doc = JSON.parse(fs.readFileSync(file, "utf8"));
+    const item = (doc[key] ?? []).find(matchFn);
+    if (!item) return false;
+    mutateFn(item, doc[key]);
+    fs.writeFileSync(file, `${JSON.stringify(doc, null, 2)}\n`);
+    return true;
+  };
+  const single = path.join(fixtureRoot, "contracts", `${name}.json`);
+  if (fs.existsSync(single)) return apply(single);
+  const dir = path.join(fixtureRoot, "contracts", name);
+  for (const f of fs.readdirSync(dir).filter((f) => f.endsWith(".json"))) {
+    if (apply(path.join(dir, f))) return true;
+  }
+  return false;
+}

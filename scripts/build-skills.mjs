@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
 const base = readJson("contracts/skills-base.json");
@@ -14,7 +15,7 @@ const registry = {
     upstreams: base.upstreams ?? [],
   },
   contracts: {
-    skills: readJson("contracts/skills-catalog.json").skills ?? [],
+    skills: readContract("skills-catalog", "skills"),
     proxyRoutes: readJson("contracts/skills-proxy-routes.json").routes ?? [],
     credentials: readJson("contracts/skills-credentials.json").credentials ?? [],
     dataSources: readJson("contracts/skills-data-sources.json").sources ?? [],

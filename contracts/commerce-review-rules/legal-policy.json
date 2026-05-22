@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "LEGAL_POLICY_MISSING",
+      "domain": "LEGAL_POLICY",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "법적 정책 문서 보완 필요"
+    },
+    {
+      "ruleId": "PRIVACY_POLICY_MISSING",
+      "domain": "LEGAL_POLICY",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "개인정보 처리방침 보완 필요"
+    },
+    {
+      "ruleId": "TERMS_OF_SERVICE_MISSING",
+      "domain": "LEGAL_POLICY",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "이용약관 보완 필요"
+    }
+  ]
+}

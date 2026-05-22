@@ -1,0 +1,2105 @@
+{
+  "schemaVersion": "1.0.0",
+  "results": [
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:14.088Z",
+      "metrics": {
+        "latency_p50_ms": 747.86,
+        "throughput_tps": 515.2,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:15.150Z",
+      "metrics": {
+        "latency_p50_ms": 798.3,
+        "throughput_tps": 518.71,
+        "cost_per_run_usd": 0,
+        "input_tokens": 103,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:16.124Z",
+      "metrics": {
+        "latency_p50_ms": 712.46,
+        "throughput_tps": 505.64,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 231,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:17.154Z",
+      "metrics": {
+        "latency_p50_ms": 776.55,
+        "throughput_tps": 527.81,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:18.263Z",
+      "metrics": {
+        "latency_p50_ms": 848.95,
+        "throughput_tps": 468.16,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:19.244Z",
+      "metrics": {
+        "latency_p50_ms": 718.49,
+        "throughput_tps": 502.59,
+        "cost_per_run_usd": 0,
+        "input_tokens": 96,
+        "output_tokens": 228,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:20.192Z",
+      "metrics": {
+        "latency_p50_ms": 684.92,
+        "throughput_tps": 562.1,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:21.184Z",
+      "metrics": {
+        "latency_p50_ms": 729.28,
+        "throughput_tps": 549.36,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:22.219Z",
+      "metrics": {
+        "latency_p50_ms": 765.09,
+        "throughput_tps": 505.11,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:23.356Z",
+      "metrics": {
+        "latency_p50_ms": 876.31,
+        "throughput_tps": 442.34,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:24.372Z",
+      "metrics": {
+        "latency_p50_ms": 757.46,
+        "throughput_tps": 470.27,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 233,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:24.977Z",
+      "metrics": {
+        "latency_p50_ms": 332.63,
+        "throughput_tps": 559.56,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 113,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:25.891Z",
+      "metrics": {
+        "latency_p50_ms": 729.4,
+        "throughput_tps": 483.03,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 233,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:26.816Z",
+      "metrics": {
+        "latency_p50_ms": 662.04,
+        "throughput_tps": 466.36,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 199,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:27.864Z",
+      "metrics": {
+        "latency_p50_ms": 785.83,
+        "throughput_tps": 479.96,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:28.631Z",
+      "metrics": {
+        "latency_p50_ms": 484.87,
+        "throughput_tps": 443.92,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 145,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:29.666Z",
+      "metrics": {
+        "latency_p50_ms": 758.2,
+        "throughput_tps": 504.51,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:30.758Z",
+      "metrics": {
+        "latency_p50_ms": 844.44,
+        "throughput_tps": 451.11,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:31.767Z",
+      "metrics": {
+        "latency_p50_ms": 759.39,
+        "throughput_tps": 490.02,
+        "cost_per_run_usd": 0,
+        "input_tokens": 100,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:32.821Z",
+      "metrics": {
+        "latency_p50_ms": 790.45,
+        "throughput_tps": 490.09,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T15:32:33.848Z",
+      "metrics": {
+        "latency_p50_ms": 782.84,
+        "throughput_tps": 486.77,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:14.428Z",
+      "metrics": {
+        "latency_p50_ms": 5528.24,
+        "throughput_tps": 50.5,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:20.142Z",
+      "metrics": {
+        "latency_p50_ms": 5412.38,
+        "throughput_tps": 50.25,
+        "cost_per_run_usd": 0,
+        "input_tokens": 63,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:25.880Z",
+      "metrics": {
+        "latency_p50_ms": 5506.2,
+        "throughput_tps": 50.44,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:30.340Z",
+      "metrics": {
+        "latency_p50_ms": 4229.64,
+        "throughput_tps": 50.49,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 201,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:35.930Z",
+      "metrics": {
+        "latency_p50_ms": 5349.38,
+        "throughput_tps": 50.45,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:56:41.126Z",
+      "metrics": {
+        "latency_p50_ms": 4963.54,
+        "throughput_tps": 49.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 57,
+        "output_tokens": 233,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:00.133Z",
+      "metrics": {
+        "latency_p50_ms": 4527.19,
+        "throughput_tps": 50.38,
+        "cost_per_run_usd": 0,
+        "input_tokens": 66,
+        "output_tokens": 207,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:05.473Z",
+      "metrics": {
+        "latency_p50_ms": 5105.43,
+        "throughput_tps": 50.44,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 244,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:10.753Z",
+      "metrics": {
+        "latency_p50_ms": 5026.67,
+        "throughput_tps": 50.23,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 236,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:16.351Z",
+      "metrics": {
+        "latency_p50_ms": 5376.65,
+        "throughput_tps": 48.59,
+        "cost_per_run_usd": 0,
+        "input_tokens": 58,
+        "output_tokens": 239,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:22.105Z",
+      "metrics": {
+        "latency_p50_ms": 5501.18,
+        "throughput_tps": 50.59,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:27.665Z",
+      "metrics": {
+        "latency_p50_ms": 5318.2,
+        "throughput_tps": 50.69,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:32.562Z",
+      "metrics": {
+        "latency_p50_ms": 4662.28,
+        "throughput_tps": 50.75,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 224,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:37.550Z",
+      "metrics": {
+        "latency_p50_ms": 4757.41,
+        "throughput_tps": 50.31,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 226,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:42.374Z",
+      "metrics": {
+        "latency_p50_ms": 4600.6,
+        "throughput_tps": 50.62,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 218,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:47.572Z",
+      "metrics": {
+        "latency_p50_ms": 4975.18,
+        "throughput_tps": 47.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 58,
+        "output_tokens": 215,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:52.303Z",
+      "metrics": {
+        "latency_p50_ms": 4511.88,
+        "throughput_tps": 50.29,
+        "cost_per_run_usd": 0,
+        "input_tokens": 61,
+        "output_tokens": 215,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:57:57.587Z",
+      "metrics": {
+        "latency_p50_ms": 5054.26,
+        "throughput_tps": 49.98,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 239,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:03.279Z",
+      "metrics": {
+        "latency_p50_ms": 5453.92,
+        "throughput_tps": 50.87,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:08.307Z",
+      "metrics": {
+        "latency_p50_ms": 4794.29,
+        "throughput_tps": 50.37,
+        "cost_per_run_usd": 0,
+        "input_tokens": 60,
+        "output_tokens": 217,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:14.055Z",
+      "metrics": {
+        "latency_p50_ms": 5520.72,
+        "throughput_tps": 49.95,
+        "cost_per_run_usd": 0,
+        "input_tokens": 58,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19590,
+        "latency_p95_ms": 35262,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.15227,
+        "input_tokens": 4171,
+        "output_tokens": 1196,
+        "success_rate": 98.1,
+        "accuracy": 88.1,
+        "error_rate": 1.9
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 9911,
+        "latency_p95_ms": 17840,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01422,
+        "input_tokens": 2230,
+        "output_tokens": 865,
+        "success_rate": 97.7,
+        "accuracy": 86.7,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16340,
+        "latency_p95_ms": 29412,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01945,
+        "input_tokens": 2731,
+        "output_tokens": 1604,
+        "success_rate": 96.9,
+        "accuracy": 83.9,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 26157,
+        "latency_p95_ms": 47083,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00259,
+        "input_tokens": 2237,
+        "output_tokens": 1810,
+        "success_rate": 95.2,
+        "accuracy": 81.2,
+        "error_rate": 4.8
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13332,
+        "latency_p95_ms": 23998,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.09284,
+        "input_tokens": 2149,
+        "output_tokens": 808,
+        "success_rate": 98.5,
+        "accuracy": 88.5,
+        "error_rate": 1.5
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17722,
+        "latency_p95_ms": 31900,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.0252,
+        "input_tokens": 3809,
+        "output_tokens": 1568,
+        "success_rate": 97.4,
+        "accuracy": 87.9,
+        "error_rate": 2.6
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 14610,
+        "latency_p95_ms": 26298,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01792,
+        "input_tokens": 2888,
+        "output_tokens": 1431,
+        "success_rate": 96.2,
+        "accuracy": 86.7,
+        "error_rate": 3.8
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 18343,
+        "latency_p95_ms": 33017,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00246,
+        "input_tokens": 3984,
+        "output_tokens": 1263,
+        "success_rate": 94.9,
+        "accuracy": 82.4,
+        "error_rate": 5.1
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15816,
+        "latency_p95_ms": 28469,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.10995,
+        "input_tokens": 2520,
+        "output_tokens": 962,
+        "success_rate": 99,
+        "accuracy": 92,
+        "error_rate": 1
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 10222,
+        "latency_p95_ms": 18400,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01774,
+        "input_tokens": 3522,
+        "output_tokens": 893,
+        "success_rate": 96.9,
+        "accuracy": 86.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13470,
+        "latency_p95_ms": 24246,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01607,
+        "input_tokens": 2321,
+        "output_tokens": 1317,
+        "success_rate": 96.2,
+        "accuracy": 85.2,
+        "error_rate": 3.8
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17657,
+        "latency_p95_ms": 31783,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00198,
+        "input_tokens": 2365,
+        "output_tokens": 1215,
+        "success_rate": 95.1,
+        "accuracy": 82.1,
+        "error_rate": 4.9
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17171,
+        "latency_p95_ms": 30908,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.11112,
+        "input_tokens": 2178,
+        "output_tokens": 1046,
+        "success_rate": 97.9,
+        "accuracy": 88.4,
+        "error_rate": 2.1
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 10422,
+        "latency_p95_ms": 18760,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01761,
+        "input_tokens": 3399,
+        "output_tokens": 911,
+        "success_rate": 96.7,
+        "accuracy": 85.2,
+        "error_rate": 3.3
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15920,
+        "latency_p95_ms": 28656,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.0187,
+        "input_tokens": 2467,
+        "output_tokens": 1562,
+        "success_rate": 96.3,
+        "accuracy": 84.8,
+        "error_rate": 3.7
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 18257,
+        "latency_p95_ms": 32863,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00209,
+        "input_tokens": 2633,
+        "output_tokens": 1257,
+        "success_rate": 95.4,
+        "accuracy": 80.9,
+        "error_rate": 4.6
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 30832,
+        "latency_p95_ms": 55498,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.1954,
+        "input_tokens": 3562,
+        "output_tokens": 1893,
+        "success_rate": 98.1,
+        "accuracy": 91.6,
+        "error_rate": 1.9
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 10056,
+        "latency_p95_ms": 18101,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01695,
+        "input_tokens": 3270,
+        "output_tokens": 878,
+        "success_rate": 96.9,
+        "accuracy": 84.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17670,
+        "latency_p95_ms": 31806,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02239,
+        "input_tokens": 4018,
+        "output_tokens": 1737,
+        "success_rate": 96.5,
+        "accuracy": 84,
+        "error_rate": 3.5
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 23000,
+        "latency_p95_ms": 41400,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00276,
+        "input_tokens": 3731,
+        "output_tokens": 1589,
+        "success_rate": 95,
+        "accuracy": 82.5,
+        "error_rate": 5
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 26026,
+        "latency_p95_ms": 46847,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.15795,
+        "input_tokens": 2555,
+        "output_tokens": 1595,
+        "success_rate": 98,
+        "accuracy": 89.5,
+        "error_rate": 2
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 8533,
+        "latency_p95_ms": 15359,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01324,
+        "input_tokens": 2334,
+        "output_tokens": 741,
+        "success_rate": 97.8,
+        "accuracy": 85.3,
+        "error_rate": 2.2
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12170,
+        "latency_p95_ms": 21906,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.0169,
+        "input_tokens": 4022,
+        "output_tokens": 1187,
+        "success_rate": 96.2,
+        "accuracy": 85.7,
+        "error_rate": 3.8
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 28000,
+        "latency_p95_ms": 50400,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00295,
+        "input_tokens": 3041,
+        "output_tokens": 1939,
+        "success_rate": 94.8,
+        "accuracy": 81.8,
+        "error_rate": 5.2
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 23897,
+        "latency_p95_ms": 43015,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.16685,
+        "input_tokens": 3808,
+        "output_tokens": 1463,
+        "success_rate": 98.5,
+        "accuracy": 92,
+        "error_rate": 1.5
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19367,
+        "latency_p95_ms": 34861,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02527,
+        "input_tokens": 3242,
+        "output_tokens": 1716,
+        "success_rate": 97.4,
+        "accuracy": 86.4,
+        "error_rate": 2.6
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16120,
+        "latency_p95_ms": 29016,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01878,
+        "input_tokens": 2366,
+        "output_tokens": 1582,
+        "success_rate": 96,
+        "accuracy": 86,
+        "error_rate": 4
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 24743,
+        "latency_p95_ms": 44537,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00262,
+        "input_tokens": 2745,
+        "output_tokens": 1711,
+        "success_rate": 94.9,
+        "accuracy": 82.9,
+        "error_rate": 5.1
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12171,
+        "latency_p95_ms": 21908,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.09561,
+        "input_tokens": 2694,
+        "output_tokens": 736,
+        "success_rate": 98.6,
+        "accuracy": 89.6,
+        "error_rate": 1.4
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16989,
+        "latency_p95_ms": 30580,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02298,
+        "input_tokens": 3186,
+        "output_tokens": 1502,
+        "success_rate": 96.9,
+        "accuracy": 86.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 9570,
+        "latency_p95_ms": 17226,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01434,
+        "input_tokens": 4052,
+        "output_tokens": 927,
+        "success_rate": 95.6,
+        "accuracy": 83.6,
+        "error_rate": 4.4
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22357,
+        "latency_p95_ms": 40243,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.0024,
+        "input_tokens": 2589,
+        "output_tokens": 1544,
+        "success_rate": 95.6,
+        "accuracy": 82.1,
+        "error_rate": 4.4
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19945,
+        "latency_p95_ms": 35901,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.14007,
+        "input_tokens": 3248,
+        "output_tokens": 1218,
+        "success_rate": 98,
+        "accuracy": 92,
+        "error_rate": 2
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 10300,
+        "latency_p95_ms": 18540,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01911,
+        "input_tokens": 4043,
+        "output_tokens": 900,
+        "success_rate": 97.2,
+        "accuracy": 87.2,
+        "error_rate": 2.8
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 11630,
+        "latency_p95_ms": 20934,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01528,
+        "input_tokens": 3156,
+        "output_tokens": 1133,
+        "success_rate": 96.6,
+        "accuracy": 83.6,
+        "error_rate": 3.4
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13157,
+        "latency_p95_ms": 23683,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00163,
+        "input_tokens": 2376,
+        "output_tokens": 900,
+        "success_rate": 95.8,
+        "accuracy": 81.3,
+        "error_rate": 4.2
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 20010,
+        "latency_p95_ms": 36018,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.14142,
+        "input_tokens": 3318,
+        "output_tokens": 1222,
+        "success_rate": 99,
+        "accuracy": 91,
+        "error_rate": 1
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 18433,
+        "latency_p95_ms": 33179,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02319,
+        "input_tokens": 2747,
+        "output_tokens": 1632,
+        "success_rate": 96.8,
+        "accuracy": 85.8,
+        "error_rate": 3.2
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 18330,
+        "latency_p95_ms": 32994,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02121,
+        "input_tokens": 2542,
+        "output_tokens": 1803,
+        "success_rate": 96.9,
+        "accuracy": 85.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13943,
+        "latency_p95_ms": 25097,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.0017,
+        "input_tokens": 2401,
+        "output_tokens": 955,
+        "success_rate": 95.5,
+        "accuracy": 79.5,
+        "error_rate": 4.5
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17913,
+        "latency_p95_ms": 32243,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.12558,
+        "input_tokens": 2912,
+        "output_tokens": 1092,
+        "success_rate": 98,
+        "accuracy": 92,
+        "error_rate": 2
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19233,
+        "latency_p95_ms": 34619,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02569,
+        "input_tokens": 3461,
+        "output_tokens": 1704,
+        "success_rate": 96.8,
+        "accuracy": 84.8,
+        "error_rate": 3.2
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 10420,
+        "latency_p95_ms": 18756,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01323,
+        "input_tokens": 2489,
+        "output_tokens": 1012,
+        "success_rate": 96.2,
+        "accuracy": 85.2,
+        "error_rate": 3.8
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 14314,
+        "latency_p95_ms": 25765,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00196,
+        "input_tokens": 3255,
+        "output_tokens": 981,
+        "success_rate": 96,
+        "accuracy": 80.5,
+        "error_rate": 4
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19655,
+        "latency_p95_ms": 35379,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.14696,
+        "input_tokens": 3797,
+        "output_tokens": 1200,
+        "success_rate": 97.8,
+        "accuracy": 88.8,
+        "error_rate": 2.2
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17011,
+        "latency_p95_ms": 30620,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02409,
+        "input_tokens": 3618,
+        "output_tokens": 1504,
+        "success_rate": 97.6,
+        "accuracy": 85.6,
+        "error_rate": 2.4
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 14380,
+        "latency_p95_ms": 25884,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01881,
+        "input_tokens": 3788,
+        "output_tokens": 1408,
+        "success_rate": 96.4,
+        "accuracy": 84.4,
+        "error_rate": 3.6
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 20500,
+        "latency_p95_ms": 36900,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00226,
+        "input_tokens": 2617,
+        "output_tokens": 1414,
+        "success_rate": 95.1,
+        "accuracy": 82.1,
+        "error_rate": 4.9
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22558,
+        "latency_p95_ms": 40604,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.14079,
+        "input_tokens": 2486,
+        "output_tokens": 1380,
+        "success_rate": 98.4,
+        "accuracy": 90.4,
+        "error_rate": 1.6
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12478,
+        "latency_p95_ms": 22460,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01631,
+        "input_tokens": 2139,
+        "output_tokens": 1096,
+        "success_rate": 96.7,
+        "accuracy": 87.2,
+        "error_rate": 3.3
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12350,
+        "latency_p95_ms": 22230,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01692,
+        "input_tokens": 3900,
+        "output_tokens": 1205,
+        "success_rate": 95.9,
+        "accuracy": 84.4,
+        "error_rate": 4.1
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 20043,
+        "latency_p95_ms": 36077,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00243,
+        "input_tokens": 3361,
+        "output_tokens": 1382,
+        "success_rate": 95.9,
+        "accuracy": 82.9,
+        "error_rate": 4.1
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 24784,
+        "latency_p95_ms": 44611,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.14636,
+        "input_tokens": 2167,
+        "output_tokens": 1518,
+        "success_rate": 98.7,
+        "accuracy": 89.2,
+        "error_rate": 1.3
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 11689,
+        "latency_p95_ms": 21040,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01804,
+        "input_tokens": 3114,
+        "output_tokens": 1025,
+        "success_rate": 97.6,
+        "accuracy": 87.6,
+        "error_rate": 2.4
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 9750,
+        "latency_p95_ms": 17550,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01278,
+        "input_tokens": 2668,
+        "output_tokens": 945,
+        "success_rate": 96.9,
+        "accuracy": 86.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16043,
+        "latency_p95_ms": 28877,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00182,
+        "input_tokens": 2247,
+        "output_tokens": 1102,
+        "success_rate": 96,
+        "accuracy": 82.5,
+        "error_rate": 4
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 26816,
+        "latency_p95_ms": 48269,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.18613,
+        "input_tokens": 4189,
+        "output_tokens": 1644,
+        "success_rate": 98.3,
+        "accuracy": 88.8,
+        "error_rate": 1.7
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13567,
+        "latency_p95_ms": 24421,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01809,
+        "input_tokens": 2458,
+        "output_tokens": 1194,
+        "success_rate": 97.9,
+        "accuracy": 86.4,
+        "error_rate": 2.1
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17180,
+        "latency_p95_ms": 30924,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02038,
+        "input_tokens": 2797,
+        "output_tokens": 1688,
+        "success_rate": 96.7,
+        "accuracy": 85.2,
+        "error_rate": 3.3
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16357,
+        "latency_p95_ms": 29443,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00205,
+        "input_tokens": 3009,
+        "output_tokens": 1124,
+        "success_rate": 95.6,
+        "accuracy": 82.1,
+        "error_rate": 4.4
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15977,
+        "latency_p95_ms": 28759,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.11951,
+        "input_tokens": 3107,
+        "output_tokens": 972,
+        "success_rate": 97.6,
+        "accuracy": 88.1,
+        "error_rate": 2.4
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15822,
+        "latency_p95_ms": 28480,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02088,
+        "input_tokens": 2762,
+        "output_tokens": 1397,
+        "success_rate": 97.2,
+        "accuracy": 86.7,
+        "error_rate": 2.8
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19090,
+        "latency_p95_ms": 34362,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02192,
+        "input_tokens": 2502,
+        "output_tokens": 1879,
+        "success_rate": 96.8,
+        "accuracy": 86.3,
+        "error_rate": 3.2
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 20486,
+        "latency_p95_ms": 36875,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00214,
+        "input_tokens": 2176,
+        "output_tokens": 1413,
+        "success_rate": 95.1,
+        "accuracy": 79.6,
+        "error_rate": 4.9
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12090,
+        "latency_p95_ms": 21762,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.10008,
+        "input_tokens": 3017,
+        "output_tokens": 731,
+        "success_rate": 98,
+        "accuracy": 88.5,
+        "error_rate": 2
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22033,
+        "latency_p95_ms": 39659,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02569,
+        "input_tokens": 2454,
+        "output_tokens": 1956,
+        "success_rate": 96.7,
+        "accuracy": 84.7,
+        "error_rate": 3.3
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 9500,
+        "latency_p95_ms": 17100,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01256,
+        "input_tokens": 2692,
+        "output_tokens": 920,
+        "success_rate": 96.7,
+        "accuracy": 86.7,
+        "error_rate": 3.3
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15400,
+        "latency_p95_ms": 27720,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00214,
+        "input_tokens": 3632,
+        "output_tokens": 1057,
+        "success_rate": 94.6,
+        "accuracy": 81.6,
+        "error_rate": 5.4
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 21074,
+        "latency_p95_ms": 37933,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.13077,
+        "input_tokens": 2278,
+        "output_tokens": 1288,
+        "success_rate": 98.3,
+        "accuracy": 91.3,
+        "error_rate": 1.7
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15778,
+        "latency_p95_ms": 28400,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02175,
+        "input_tokens": 3126,
+        "output_tokens": 1393,
+        "success_rate": 96.7,
+        "accuracy": 86.7,
+        "error_rate": 3.3
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 17580,
+        "latency_p95_ms": 31644,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02052,
+        "input_tokens": 2591,
+        "output_tokens": 1728,
+        "success_rate": 96.4,
+        "accuracy": 83.9,
+        "error_rate": 3.6
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 15586,
+        "latency_p95_ms": 28055,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00175,
+        "input_tokens": 2136,
+        "output_tokens": 1070,
+        "success_rate": 94.9,
+        "accuracy": 80.4,
+        "error_rate": 5.1
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 20123,
+        "latency_p95_ms": 36221,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.15002,
+        "input_tokens": 3856,
+        "output_tokens": 1229,
+        "success_rate": 98.1,
+        "accuracy": 90.6,
+        "error_rate": 1.9
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16478,
+        "latency_p95_ms": 29660,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02171,
+        "input_tokens": 2859,
+        "output_tokens": 1456,
+        "success_rate": 97.8,
+        "accuracy": 87.8,
+        "error_rate": 2.2
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 19020,
+        "latency_p95_ms": 34236,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02379,
+        "input_tokens": 4054,
+        "output_tokens": 1872,
+        "success_rate": 96.9,
+        "accuracy": 83.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22243,
+        "latency_p95_ms": 40037,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00281,
+        "input_tokens": 4143,
+        "output_tokens": 1536,
+        "success_rate": 95.6,
+        "accuracy": 79.1,
+        "error_rate": 4.4
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 24235,
+        "latency_p95_ms": 43623,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.16098,
+        "input_tokens": 3312,
+        "output_tokens": 1484,
+        "success_rate": 97.9,
+        "accuracy": 91.4,
+        "error_rate": 2.1
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 9856,
+        "latency_p95_ms": 17741,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01604,
+        "input_tokens": 2976,
+        "output_tokens": 860,
+        "success_rate": 96.9,
+        "accuracy": 85.4,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 16470,
+        "latency_p95_ms": 29646,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.02034,
+        "input_tokens": 3338,
+        "output_tokens": 1617,
+        "success_rate": 95.6,
+        "accuracy": 86.6,
+        "error_rate": 4.4
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 22357,
+        "latency_p95_ms": 40243,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00251,
+        "input_tokens": 3017,
+        "output_tokens": 1544,
+        "success_rate": 95,
+        "accuracy": 81.5,
+        "error_rate": 5
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 27687,
+        "latency_p95_ms": 49837,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.18428,
+        "input_tokens": 3795,
+        "output_tokens": 1698,
+        "success_rate": 97.9,
+        "accuracy": 90.9,
+        "error_rate": 2.1
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12367,
+        "latency_p95_ms": 22261,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01687,
+        "input_tokens": 2404,
+        "output_tokens": 1086,
+        "success_rate": 97.3,
+        "accuracy": 86.3,
+        "error_rate": 2.7
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12200,
+        "latency_p95_ms": 21960,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01489,
+        "input_tokens": 2395,
+        "output_tokens": 1190,
+        "success_rate": 96.9,
+        "accuracy": 85.9,
+        "error_rate": 3.1
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12900,
+        "latency_p95_ms": 23220,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00199,
+        "input_tokens": 3772,
+        "output_tokens": 882,
+        "success_rate": 95.1,
+        "accuracy": 81.6,
+        "error_rate": 4.9
+      }
+    }
+  ]
+}

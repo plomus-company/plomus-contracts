@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "SETTLEMENT_MISMATCH",
+      "domain": "SETTLEMENT",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "정산 불일치 확인 필요"
+    }
+  ]
+}

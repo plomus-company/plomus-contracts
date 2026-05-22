@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -24,7 +25,7 @@ function assertUnique(scope, field, values) {
 }
 
 const base = readJson("contracts/skills-base.json");
-const skills = readJson("contracts/skills-catalog.json").skills ?? [];
+const skills = readContract("skills-catalog", "skills");
 const routes = readJson("contracts/skills-proxy-routes.json").routes ?? [];
 const credentials = readJson("contracts/skills-credentials.json").credentials ?? [];
 const sources = readJson("contracts/skills-data-sources.json").sources ?? [];

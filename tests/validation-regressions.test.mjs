@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   createContractsFixture,
+  mutateFixtureItem,
   readFixtureJson,
   runNodeScript,
   scriptOutput,
@@ -26,9 +27,14 @@ test("commerce validator rejects duplicate preset ids", (t) => {
 
 test("commerce validator rejects workflow rule references that are not registered", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const workflows = readFixtureJson(fixtureRoot, "contracts/commerce-workflows.json");
-  workflows.workflows[0].enabledRuleIds.push("UNKNOWN_RULE_FOR_TEST");
-  writeFixtureJson(fixtureRoot, "contracts/commerce-workflows.json", workflows);
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "commerce-workflows",
+    "workflows",
+    (w) => Array.isArray(w.enabledRuleIds),
+    (w) => w.enabledRuleIds.push("UNKNOWN_RULE_FOR_TEST"),
+  );
+  assert.ok(ok, "fixture needs a workflow with enabledRuleIds");
 
   const result = runNodeScript("scripts/validate.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /Unknown enabledRuleIds: UNKNOWN_RULE_FOR_TEST/);
@@ -36,11 +42,16 @@ test("commerce validator rejects workflow rule references that are not registere
 
 test("skills validator rejects proxy route mismatches", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const catalog = readFixtureJson(fixtureRoot, "contracts/skills-catalog.json");
-  const skill = catalog.skills.find((entry) => entry.usesProxy && entry.proxyRoutes.length > 0);
-  assert.ok(skill, "fixture needs at least one proxy-backed skill");
-  skill.usesProxy = false;
-  writeFixtureJson(fixtureRoot, "contracts/skills-catalog.json", catalog);
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "skills-catalog",
+    "skills",
+    (s) => s.usesProxy && s.proxyRoutes.length > 0,
+    (s) => {
+      s.usesProxy = false;
+    },
+  );
+  assert.ok(ok, "fixture needs at least one proxy-backed skill");
 
   const result = runNodeScript("scripts/validate-skills.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /proxyRoutes is non-empty but usesProxy is false/);
@@ -48,9 +59,16 @@ test("skills validator rejects proxy route mismatches", (t) => {
 
 test("benchmarks validator rejects results for unknown targets", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const results = readFixtureJson(fixtureRoot, "contracts/benchmarks-results.json");
-  results.results[0].targetId = "missing-target-for-test";
-  writeFixtureJson(fixtureRoot, "contracts/benchmarks-results.json", results);
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "benchmarks-results",
+    "results",
+    () => true,
+    (r) => {
+      r.targetId = "missing-target-for-test";
+    },
+  );
+  assert.ok(ok, "fixture needs at least one benchmark result");
 
   const result = runNodeScript("scripts/validate-benchmarks.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /Unknown targetId: missing-target-for-test/);

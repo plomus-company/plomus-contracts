@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "targets": [
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "kind": "preset",
+      "domain": "distribution",
+      "ref": "PLOMUS_DISTRIBUTION",
+      "label": "플로머스 탁구 유통형",
+      "group": "preset"
+    }
+  ]
+}

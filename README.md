@@ -2,7 +2,7 @@
 
 Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부 배포 주체가 preset, workflow, review rule, skill 계약을 추가하거나 갱신할 때 이 저장소를 기준으로 검토합니다.
 
-모든 계약은 단일 폴더 `contracts/`에 **`<도메인>-<계약명>.json`** 평탄 명명으로 둡니다(예: `contracts/commerce-review-rules.json`, `contracts/skills-catalog.json`). 별도 도메인 하위 폴더나 버전 폴더는 두지 않습니다(버전관리는 git/GitHub). 저장소는 **여덟 개의 계약 도메인**으로 구성되며, 각 도메인은 서로 참조하는 JSON 계약 파일 + 통제 어휘(enum) + 교차참조 검증기 + import/generate 도구를 갖습니다.
+모든 계약은 단일 폴더 `contracts/`에 **`<도메인>-<계약명>`** 명명으로 둡니다. 작은 계약은 파일(`contracts/commerce-presets.json`), 큰 계약은 **업무 단위로 분할된 폴더**입니다(`contracts/commerce-review-rules/settlement.json`, `contracts/skills-catalog/finance.json` — rule은 domain, workflow는 reviewScope, skill은 subcategory, benchmark target/result는 domain 기준). 도메인 하위 폴더나 버전 폴더는 두지 않습니다(버전관리는 git/GitHub). 빌드(`build:*`)가 분할 폴더를 다시 합쳐 `dist/plomus-*.json`을 만들므로 소비자는 영향받지 않습니다. 저장소는 **여덟 개의 계약 도메인**으로 구성되며, 각 도메인은 서로 참조하는 JSON 계약 + 통제 어휘(enum) + 교차참조 검증기 + import/generate 도구를 갖습니다.
 
 | 도메인 | 위치 | 출처 | 규모 | 상세 문서 |
 |---|---|---|---|---|

@@ -1,3 +1,4 @@
+import { writeGroup } from "../scripts/group.mjs";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
@@ -329,7 +330,7 @@ console.log(JSON.stringify({
 
 writeJson("contracts/commerce-base.json", base);
 writeJson("contracts/commerce-presets.json", presets);
-writeJson("contracts/commerce-review-rules.json", reviewRules);
-writeJson("contracts/commerce-workflows.json", workflows);
+writeGroup("commerce-review-rules", "reviewRules", reviewRules.reviewRules, (r) => r.domain);
+writeGroup("commerce-workflows", "workflows", workflows.workflows, (w) => w.reviewScope);
 
 console.log(`imported contracts from ${sourceRoot}`);

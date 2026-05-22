@@ -1,3 +1,4 @@
+import { readContract, writeGroup } from "../scripts/group.mjs";
 import { readJson, writeJson } from "../scripts/read-json.mjs";
 
 // Experiment pipeline: run benchmark targets against a real model (default: the
@@ -42,10 +43,10 @@ if (!model) {
   process.exit(1);
 }
 
-const allTargets = readJson("contracts/benchmarks-targets.json").targets ?? [];
+const allTargets = readContract("benchmarks-targets", "targets");
 const targetById = new Map(allTargets.map((t) => [t.targetId, t]));
-const skillById = new Map((readJson("contracts/skills-catalog.json").skills ?? []).map((s) => [s.skillId, s]));
-const workflowById = new Map((readJson("contracts/commerce-workflows.json").workflows ?? []).map((w) => [w.workflowId, w]));
+const skillById = new Map((readContract("skills-catalog", "skills")).map((s) => [s.skillId, s]));
+const workflowById = new Map((readContract("commerce-workflows", "workflows")).map((w) => [w.workflowId, w]));
 const agentById = new Map((readJson("contracts/gameops-agents.json").agents ?? []).map((a) => [a.agentId, a]));
 const playbookById = new Map((readJson("contracts/gameops-playbooks.json").playbooks ?? []).map((p) => [p.playbookId, p]));
 const presetById = new Map((readJson("contracts/distribution-presets.json").presets ?? []).map((p) => [p.presetId, p]));
@@ -170,15 +171,12 @@ for (const targetId of selectedIds) {
 
 // ---- merge measured results (preserve illustrative + other measured) ----
 const ranTargets = new Set(selectedIds);
-const existingResults = readJson("contracts/benchmarks-results.json").results ?? [];
+const existingResults = readContract("benchmarks-results", "results");
 const keptResults = existingResults.filter(
   (r) => !(r.dataSource === "measured" && r.modelId === MODEL_ID && ranTargets.has(r.targetId)),
 );
-writeJson("contracts/benchmarks-results.json", {
-  schemaVersion: "1.0.0",
-  note: "Illustrative rows (dataSource: illustrative) are a deterministic seed; measured rows come from tools/run-experiment.mjs.",
-  results: [...keptResults, ...newResults],
-});
+const KIND_DOMAIN = { skill: "skills", workflow: "commerce", agent: "gameops", playbook: "gameops", preset: "distribution" };
+writeGroup("benchmarks-results", "results", [...keptResults, ...newResults], (r) => KIND_DOMAIN[String(r.targetId).split(":")[0]] ?? "other");
 
 // ---- recompute measured rollups for this model ----
 const metricIds = (readJson("contracts/benchmarks-metrics.json").metrics ?? []).map((m) => m.metricId);

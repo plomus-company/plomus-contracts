@@ -1,3 +1,4 @@
+import { writeGroup } from "../scripts/group.mjs";
 import path from "node:path";
 import { readJson, writeJson } from "../scripts/read-json.mjs";
 
@@ -130,7 +131,7 @@ const base = {
 writeJson("contracts/distribution-base.json", base);
 writeJson("contracts/distribution-presets.json", { schemaVersion: "1.0.0", presets: [distributionPreset] });
 writeJson("contracts/distribution-fields.json", { schemaVersion: "1.0.0", note: "Distribution frontmatter fields and the controlled vocabulary each binds to.", fields: FIELDS });
-writeJson("contracts/distribution-experimental-rules.json", { schemaVersion: "1.0.0", note: "Defined-but-unimplemented rules proposed for distribution; not part of the commerce ACTIVE baseline.", rules: EXPERIMENTAL_RULES });
+writeGroup("distribution-experimental-rules", "rules", EXPERIMENTAL_RULES, (r) => r.domain);
 
 console.log(`imported distribution contracts (source: ${distRepo})`);
 console.log(`  preset: ${distributionPreset.presetId}, fields: ${FIELDS.length}, experimental rules: ${EXPERIMENTAL_RULES.length} (domain statuses now in platform/frontmatter)`);

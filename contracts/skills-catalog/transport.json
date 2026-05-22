@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "cheap-gas-nearby",
+      "description": "Use when the user asks for nearby cheapest gas stations or 근처 가장 싼 주유소. Always ask the user's current location first, then use Kakao Map anchor resolution plus official Opinet fuel-price APIs.",
+      "category": "mobility",
+      "subcategory": "transport",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/cheap-gas-nearby",
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "opinet-around",
+        "opinet-detail"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "hipass-receipt",
+      "description": "공식 하이패스 홈페이지에서 사용자가 직접 로그인한 Chrome 세션을 재사용해 사용내역 조회와 영수증 팝업 진입을 돕는다.",
+      "category": "mobility",
+      "subcategory": "transport",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/hipass-receipt",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

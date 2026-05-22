@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "ORDER_SHIPPING_DELAY",
+      "domain": "ORDER",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "배송 지연 확인 필요"
+    }
+  ]
+}

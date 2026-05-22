@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "rules": [
+    {
+      "ruleId": "SUPPLIER_RESPONSE_DELAY",
+      "domain": "SUPPLIER",
+      "status": "EXPERIMENTAL",
+      "description": "공급사 발주·문의 응답이 기준 시간을 초과한 상태."
+    },
+    {
+      "ruleId": "SUPPLIER_STOCK_UNCONFIRMED",
+      "domain": "SUPPLIER",
+      "status": "EXPERIMENTAL",
+      "description": "공급사 재고 가용 여부가 미확인되어 발주 확정이 지연되는 상태."
+    }
+  ]
+}

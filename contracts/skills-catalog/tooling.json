@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "k-skill-cleaner",
+      "description": "Interview the user and inspect coding-agent skill trigger counts to recommend unused K-skills for removal.",
+      "category": "tooling",
+      "subcategory": "tooling",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

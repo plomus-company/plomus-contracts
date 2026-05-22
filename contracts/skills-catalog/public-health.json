@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "mfds-drug-safety",
+      "description": "식약처 공공 OpenAPI를 k-skill-proxy 경유로 조회하기 전에 증상·복용상황을 반드시 되묻는 인터뷰형 의약품 안전 체크 스킬.",
+      "category": "health",
+      "subcategory": "public-health",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "mfds-drug-safety-lookup"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "mfds-food-safety",
+      "description": "식약처/식품안전나라 공개 표면을 k-skill-proxy 경유로 조회하기 전에 증상·섭취상황을 반드시 되묻는 인터뷰형 식품 안전 체크 스킬.",
+      "category": "health",
+      "subcategory": "public-health",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "mfds-food-safety-search",
+        "mfds-health-food-ingredient",
+        "mfds-inspection-fail",
+        "mfds-product-report"
+      ],
+      "requiredEnv": []
+    }
+  ]
+}

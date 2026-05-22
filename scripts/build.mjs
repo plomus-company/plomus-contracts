@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
 const registry = {
@@ -7,8 +8,8 @@ const registry = {
   contracts: {
     base: readJson("contracts/commerce-base.json"),
     presets: readJson("contracts/commerce-presets.json").presets ?? [],
-    reviewRules: readJson("contracts/commerce-review-rules.json").reviewRules ?? [],
-    workflows: readJson("contracts/commerce-workflows.json").workflows ?? [],
+    reviewRules: readContract("commerce-review-rules", "reviewRules"),
+    workflows: readContract("commerce-workflows", "workflows"),
   },
 };
 

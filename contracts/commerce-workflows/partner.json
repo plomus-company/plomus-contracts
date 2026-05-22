@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "workflows": [
+    {
+      "workflowId": "partner-review",
+      "label": "파트너 운영 검토",
+      "reviewScope": "PARTNER",
+      "reviewType": "WORKFLOW",
+      "targetFolders": [
+        "35-partners",
+        "36-matches",
+        "37-commissions",
+        "38-disputes",
+        "50-settlements"
+      ],
+      "enabledRuleIds": [
+        "PARTNER_CONTRACT_MISSING",
+        "PARTNER_SETTLEMENT_PENDING",
+        "SETTLEMENT_MISMATCH"
+      ],
+      "safety": {
+        "executionClass": "LOCAL_WRITE",
+        "riskLevel": "HIGH",
+        "externalAccess": "NONE",
+        "requiresApprovalBeforeApply": true,
+        "sideEffects": [
+          "CREATE_COMMERCE_REVIEW",
+          "CREATE_AI_RECOMMENDATION",
+          "CREATE_CHANGE_PLAN",
+          "CREATE_TASK",
+          "CREATE_SYNC_EVENT"
+        ],
+        "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
+      }
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -20,12 +21,12 @@ const assertUnique = (scope, field, values) => {
 const base = readJson("contracts/distribution-base.json");
 const presets = readJson("contracts/distribution-presets.json").presets ?? [];
 const fields = readJson("contracts/distribution-fields.json").fields ?? [];
-const experimentalRules = readJson("contracts/distribution-experimental-rules.json").rules ?? [];
+const experimentalRules = readContract("distribution-experimental-rules", "rules");
 
 // ---- commerce baseline (read-only cross-reference) ----
 const commerceBase = readJson("contracts/commerce-base.json");
-const commerceRuleIds = new Set((readJson("contracts/commerce-review-rules.json").reviewRules ?? []).map((r) => r.ruleId));
-const commerceWorkflowIds = new Set((readJson("contracts/commerce-workflows.json").workflows ?? []).map((w) => w.workflowId));
+const commerceRuleIds = new Set((readContract("commerce-review-rules", "reviewRules")).map((r) => r.ruleId));
+const commerceWorkflowIds = new Set((readContract("commerce-workflows", "workflows")).map((w) => w.workflowId));
 const commerceDomains = new Set(commerceBase.core?.commerceDomains ?? []);
 const commerceTypes = new Set(commerceBase.core?.commerceTypes ?? []);
 const salesChannels = new Set(commerceBase.core?.salesChannels ?? []);

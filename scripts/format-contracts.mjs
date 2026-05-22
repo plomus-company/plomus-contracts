@@ -3,54 +3,20 @@ import path from "node:path";
 import { repoRoot } from "./read-json.mjs";
 
 const checkOnly = process.argv.includes("--check");
-const targets = [
-  "contracts/commerce-base.json",
-  "contracts/commerce-presets.json",
-  "contracts/commerce-review-rules.json",
-  "contracts/commerce-workflows.json",
-  "examples/preset.add.json",
-  "examples/review-rule.add.json",
-  "examples/workflow.add.json",
-  "contracts/skills-base.json",
-  "contracts/skills-catalog.json",
-  "contracts/skills-proxy-routes.json",
-  "contracts/skills-credentials.json",
-  "contracts/skills-data-sources.json",
-  "contracts/skills-categories.json",
-  "contracts/skills-upstreams.json",
-  "contracts/skills-packages.json",
-  "contracts/skills-mcp.json",
-  "contracts/skills-proxy.json",
-  "contracts/benchmarks-base.json",
-  "contracts/benchmarks-models.json",
-  "contracts/benchmarks-metrics.json",
-  "contracts/benchmarks-targets.json",
-  "contracts/benchmarks-results.json",
-  "contracts/benchmarks-rollups.json",
-  "contracts/distribution-base.json",
-  "contracts/distribution-presets.json",
-  "contracts/distribution-fields.json",
-  "contracts/distribution-experimental-rules.json",
-  "contracts/protocol-base.json",
-  "contracts/protocol-endpoints.json",
-  "contracts/protocol-sync-event.json",
-  "contracts/protocol-payloads.json",
-  "contracts/protocol-telegram.json",
-  "contracts/platform-base.json",
-  "contracts/platform-frontmatter.json",
-  "contracts/platform-event-types.json",
-  "contracts/platform-error-codes.json",
-  "contracts/governance-base.json",
-  "contracts/governance-roles.json",
-  "contracts/governance-approval.json",
-  "contracts/governance-execution-lifecycle.json",
-  "contracts/governance-model-routing.json",
-  "contracts/gameops-base.json",
-  "contracts/gameops-adapters.json",
-  "contracts/gameops-agents.json",
-  "contracts/gameops-playbooks.json",
-  "contracts/gameops-fields.json",
-];
+
+// Every contract JSON under contracts/ (top-level files + business-unit folders)
+// plus the example payloads.
+function listJson(relDir) {
+  const abs = path.join(repoRoot, relDir);
+  const out = [];
+  for (const entry of fs.readdirSync(abs, { withFileTypes: true })) {
+    const rel = path.join(relDir, entry.name);
+    if (entry.isDirectory()) out.push(...listJson(rel));
+    else if (entry.name.endsWith(".json")) out.push(rel);
+  }
+  return out;
+}
+const targets = [...listJson("contracts"), ...listJson("examples")].sort();
 
 const changed = [];
 

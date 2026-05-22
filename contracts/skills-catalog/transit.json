@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "korean-transit-route",
+      "description": "Korean door-to-door public transit routing (subway + bus + walking) via ODsay LIVE API with Kakao geocoding for address-to-address queries. Use when the user asks for 지하철/버스/대중교통 길찾기, 환승 경로, 소요시간, or transit directions between two places in Korea.",
+      "category": "mobility",
+      "subcategory": "transit",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "kakao-local-geocode"
+      ],
+      "requiredEnv": [
+        "ODSAY_API_KEY"
+      ]
+    },
+    {
+      "skillId": "seoul-subway-arrival",
+      "description": "Look up Seoul real-time subway arrival information with the official Seoul Open Data API. Use when the user asks when a train arrives, which trains are approaching a station, or how crowded Seoul subway timing looks right now.",
+      "category": "mobility",
+      "subcategory": "transit",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "seoul-subway-arrival"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "subway-lost-property",
+      "description": "Use when the user asks how to look up 지하철 분실물 or 유실물 by 역명/물품명. v1 is an 안내형/하이브리드 skill that structures the official LOST112 + 서울교통공사 flow conservatively.",
+      "category": "mobility",
+      "subcategory": "transit",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

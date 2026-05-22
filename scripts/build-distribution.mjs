@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
 const base = readJson("contracts/distribution-base.json");
@@ -19,7 +20,7 @@ const registry = {
   contracts: {
     presets: readJson("contracts/distribution-presets.json").presets ?? [],
     fields: readJson("contracts/distribution-fields.json").fields ?? [],
-    experimentalRules: readJson("contracts/distribution-experimental-rules.json").rules ?? [],
+    experimentalRules: readContract("distribution-experimental-rules", "rules"),
   },
 };
 

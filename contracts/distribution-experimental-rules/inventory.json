@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "rules": [
+    {
+      "ruleId": "INVENTORY_OUT_OF_STOCK",
+      "domain": "INVENTORY",
+      "status": "EXPERIMENTAL",
+      "description": "판매 중 상품의 가용 재고가 0이 되어 품절 처리·발주가 필요한 상태."
+    },
+    {
+      "ruleId": "INVENTORY_OVER_STOCK",
+      "domain": "INVENTORY",
+      "status": "EXPERIMENTAL",
+      "description": "회전율 대비 과다 재고로 보관비·악성재고 위험이 있는 상태."
+    },
+    {
+      "ruleId": "INVENTORY_SYNC_MISMATCH",
+      "domain": "INVENTORY",
+      "status": "EXPERIMENTAL",
+      "description": "채널별 재고 수량이 서로 불일치해 동기화 점검이 필요한 상태."
+    }
+  ]
+}

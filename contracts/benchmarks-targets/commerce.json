@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0.0",
+  "targets": [
+    {
+      "targetId": "workflow:app-release-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "app-release-review",
+      "label": "앱 릴리스 검토",
+      "group": "APP_RELEASE"
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "app-store-review",
+      "label": "앱 스토어 정보 검토",
+      "group": "APP_STORE"
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "apply-change-plan",
+      "label": "승인된 변경 계획 적용",
+      "group": "CHANGE_PLAN"
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "claim-created",
+      "label": "클레임 검토",
+      "group": "CLAIM"
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "contract-review",
+      "label": "계약 검토",
+      "group": "CONTRACT"
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "daily-briefing",
+      "label": "일일 운영 브리핑",
+      "group": "DAILY_BRIEFING"
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "finance-review",
+      "label": "재무 운영 검토",
+      "group": "FINANCE"
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "general-company-review",
+      "label": "회사 운영 업무 검토",
+      "group": "GENERAL_COMPANY"
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "hr-review",
+      "label": "인사 운영 검토",
+      "group": "HR"
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "inventory-review",
+      "label": "재고 위험 검토",
+      "group": "INVENTORY"
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "stock-low",
+      "label": "저재고 검토",
+      "group": "INVENTORY"
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "legal-policy-review",
+      "label": "정책 문서 검토",
+      "group": "LEGAL_POLICY"
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "operations-review",
+      "label": "상시 운영 업무 검토",
+      "group": "OPERATIONS"
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "order-delay-review",
+      "label": "주문 지연 검토",
+      "group": "ORDER_DELAY"
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "partner-review",
+      "label": "파트너 운영 검토",
+      "group": "PARTNER"
+    },
+    {
+      "targetId": "workflow:product-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "product-review",
+      "label": "상품 정보 검토",
+      "group": "PRODUCT"
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "recurring-review",
+      "label": "주기성 업무 검토",
+      "group": "RECURRING"
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "settlement-check",
+      "label": "정산 검토",
+      "group": "SETTLEMENT"
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "si-project-review",
+      "label": "SI 프로젝트 검토",
+      "group": "SI_PROJECT"
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "task-approved",
+      "label": "승인 작업 검토",
+      "group": "TASK"
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "kind": "workflow",
+      "domain": "commerce",
+      "ref": "commerce-review",
+      "label": "전체 커머스 운영 검토",
+      "group": "WORKSPACE"
+    }
+  ]
+}

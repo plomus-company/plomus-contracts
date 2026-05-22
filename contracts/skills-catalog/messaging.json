@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "kakaotalk-mac",
+      "description": "Use kakaocli on macOS to read KakaoTalk chats, search messages, send replies after explicit confirmation, and delete sent messages with explicit operator intent.",
+      "category": "tooling",
+      "subcategory": "messaging",
+      "locale": "ko-KR",
+      "phase": "v1.5",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

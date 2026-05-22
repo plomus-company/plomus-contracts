@@ -1,0 +1,693 @@
+{
+  "schemaVersion": "1.0.0",
+  "targets": [
+    {
+      "targetId": "skill:daangn-cars-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "daangn-cars-search",
+      "label": "daangn-cars-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:used-car-price-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "used-car-price-search",
+      "label": "used-car-price-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:gangnamunni-clinic-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "gangnamunni-clinic-search",
+      "label": "gangnamunni-clinic-search",
+      "group": "health"
+    },
+    {
+      "targetId": "skill:kstartup-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kstartup-search",
+      "label": "kstartup-search",
+      "group": "government"
+    },
+    {
+      "targetId": "skill:nts-business-registration",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "nts-business-registration",
+      "label": "nts-business-registration",
+      "group": "government"
+    },
+    {
+      "targetId": "skill:local-election-candidate-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "local-election-candidate-search",
+      "label": "local-election-candidate-search",
+      "group": "government"
+    },
+    {
+      "targetId": "skill:parking-lot-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "parking-lot-search",
+      "label": "parking-lot-search",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:public-restroom-nearby",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "public-restroom-nearby",
+      "label": "public-restroom-nearby",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:kosis-stats",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kosis-stats",
+      "label": "kosis-stats",
+      "group": "government"
+    },
+    {
+      "targetId": "skill:hwp",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "hwp",
+      "label": "hwp",
+      "group": "documents"
+    },
+    {
+      "targetId": "skill:rhwp-advanced",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "rhwp-advanced",
+      "label": "rhwp-advanced",
+      "group": "documents"
+    },
+    {
+      "targetId": "skill:rhwp-edit",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "rhwp-edit",
+      "label": "rhwp-edit",
+      "group": "documents"
+    },
+    {
+      "targetId": "skill:korean-scholarship-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-scholarship-search",
+      "label": "korean-scholarship-search",
+      "group": "government"
+    },
+    {
+      "targetId": "skill:korean-cinema-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-cinema-search",
+      "label": "korean-cinema-search",
+      "group": "media"
+    },
+    {
+      "targetId": "skill:daishin-report-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "daishin-report-search",
+      "label": "daishin-report-search",
+      "group": "finance"
+    },
+    {
+      "targetId": "skill:k-dart",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "k-dart",
+      "label": "k-dart",
+      "group": "finance"
+    },
+    {
+      "targetId": "skill:korean-jangbu-for",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-jangbu-for",
+      "label": "korean-jangbu-for",
+      "group": "finance"
+    },
+    {
+      "targetId": "skill:korean-stock-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-stock-search",
+      "label": "korean-stock-search",
+      "group": "finance"
+    },
+    {
+      "targetId": "skill:toss-securities",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "toss-securities",
+      "label": "toss-securities",
+      "group": "finance"
+    },
+    {
+      "targetId": "skill:blue-ribbon-nearby",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "blue-ribbon-nearby",
+      "label": "blue-ribbon-nearby",
+      "group": "food"
+    },
+    {
+      "targetId": "skill:hola-poke-yeoksam",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "hola-poke-yeoksam",
+      "label": "hola-poke-yeoksam",
+      "group": "food"
+    },
+    {
+      "targetId": "skill:kakao-bar-nearby",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kakao-bar-nearby",
+      "label": "kakao-bar-nearby",
+      "group": "food"
+    },
+    {
+      "targetId": "skill:emergency-room-beds",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "emergency-room-beds",
+      "label": "emergency-room-beds",
+      "group": "health"
+    },
+    {
+      "targetId": "skill:joseon-sillok-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "joseon-sillok-search",
+      "label": "joseon-sillok-search",
+      "group": "media"
+    },
+    {
+      "targetId": "skill:sh-notice-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "sh-notice-search",
+      "label": "sh-notice-search",
+      "group": "real-estate"
+    },
+    {
+      "targetId": "skill:naver-news-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "naver-news-search",
+      "label": "naver-news-search",
+      "group": "media"
+    },
+    {
+      "targetId": "skill:korean-patent-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-patent-search",
+      "label": "korean-patent-search",
+      "group": "legal"
+    },
+    {
+      "targetId": "skill:daangn-jobs-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "daangn-jobs-search",
+      "label": "daangn-jobs-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:corporate-registration-consulting",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "corporate-registration-consulting",
+      "label": "corporate-registration-consulting",
+      "group": "legal"
+    },
+    {
+      "targetId": "skill:iros-registry-automation",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "iros-registry-automation",
+      "label": "iros-registry-automation",
+      "group": "legal"
+    },
+    {
+      "targetId": "skill:korean-law-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-law-search",
+      "label": "korean-law-search",
+      "group": "legal"
+    },
+    {
+      "targetId": "skill:korean-privacy-terms",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-privacy-terms",
+      "label": "korean-privacy-terms",
+      "group": "legal"
+    },
+    {
+      "targetId": "skill:catchtable-sniper",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "catchtable-sniper",
+      "label": "catchtable-sniper",
+      "group": "food"
+    },
+    {
+      "targetId": "skill:ticket-availability",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "ticket-availability",
+      "label": "ticket-availability",
+      "group": "media"
+    },
+    {
+      "targetId": "skill:delivery-tracking",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "delivery-tracking",
+      "label": "delivery-tracking",
+      "group": "mobility"
+    },
+    {
+      "targetId": "skill:bunjang-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "bunjang-search",
+      "label": "bunjang-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:daangn-used-goods-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "daangn-used-goods-search",
+      "label": "daangn-used-goods-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:kakaotalk-mac",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kakaotalk-mac",
+      "label": "kakaotalk-mac",
+      "group": "tooling"
+    },
+    {
+      "targetId": "skill:geeknews-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "geeknews-search",
+      "label": "geeknews-search",
+      "group": "media"
+    },
+    {
+      "targetId": "skill:mfds-drug-safety",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "mfds-drug-safety",
+      "label": "mfds-drug-safety",
+      "group": "health"
+    },
+    {
+      "targetId": "skill:mfds-food-safety",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "mfds-food-safety",
+      "label": "mfds-food-safety",
+      "group": "health"
+    },
+    {
+      "targetId": "skill:court-auction-notice-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "court-auction-notice-search",
+      "label": "court-auction-notice-search",
+      "group": "real-estate"
+    },
+    {
+      "targetId": "skill:daangn-realty-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "daangn-realty-search",
+      "label": "daangn-realty-search",
+      "group": "real-estate"
+    },
+    {
+      "targetId": "skill:gongsijiga-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "gongsijiga-search",
+      "label": "gongsijiga-search",
+      "group": "real-estate"
+    },
+    {
+      "targetId": "skill:lh-notice-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "lh-notice-search",
+      "label": "lh-notice-search",
+      "group": "real-estate"
+    },
+    {
+      "targetId": "skill:real-estate-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "real-estate-search",
+      "label": "real-estate-search",
+      "group": "real-estate"
+    },
+    {
+      "targetId": "skill:naver-blog-research",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "naver-blog-research",
+      "label": "naver-blog-research",
+      "group": "media"
+    },
+    {
+      "targetId": "skill:coupang-product-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "coupang-product-search",
+      "label": "coupang-product-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:daiso-product-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "daiso-product-search",
+      "label": "daiso-product-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:danawa-price-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "danawa-price-search",
+      "label": "danawa-price-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:market-kurly-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "market-kurly-search",
+      "label": "market-kurly-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:naver-shopping-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "naver-shopping-search",
+      "label": "naver-shopping-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:ohou-today-deal",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "ohou-today-deal",
+      "label": "ohou-today-deal",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:olive-young-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "olive-young-search",
+      "label": "olive-young-search",
+      "group": "commerce"
+    },
+    {
+      "targetId": "skill:k-skill-setup",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "k-skill-setup",
+      "label": "k-skill-setup",
+      "group": "tooling"
+    },
+    {
+      "targetId": "skill:kbl-results",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kbl-results",
+      "label": "kbl-results",
+      "group": "sports"
+    },
+    {
+      "targetId": "skill:kbo-results",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kbo-results",
+      "label": "kbo-results",
+      "group": "sports"
+    },
+    {
+      "targetId": "skill:kleague-results",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "kleague-results",
+      "label": "kleague-results",
+      "group": "sports"
+    },
+    {
+      "targetId": "skill:korean-marathon-schedule",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-marathon-schedule",
+      "label": "korean-marathon-schedule",
+      "group": "sports"
+    },
+    {
+      "targetId": "skill:lck-analytics",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "lck-analytics",
+      "label": "lck-analytics",
+      "group": "sports"
+    },
+    {
+      "targetId": "skill:k-skill-cleaner",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "k-skill-cleaner",
+      "label": "k-skill-cleaner",
+      "group": "tooling"
+    },
+    {
+      "targetId": "skill:korean-transit-route",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-transit-route",
+      "label": "korean-transit-route",
+      "group": "mobility"
+    },
+    {
+      "targetId": "skill:seoul-subway-arrival",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "seoul-subway-arrival",
+      "label": "seoul-subway-arrival",
+      "group": "mobility"
+    },
+    {
+      "targetId": "skill:subway-lost-property",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "subway-lost-property",
+      "label": "subway-lost-property",
+      "group": "mobility"
+    },
+    {
+      "targetId": "skill:cheap-gas-nearby",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "cheap-gas-nearby",
+      "label": "cheap-gas-nearby",
+      "group": "mobility"
+    },
+    {
+      "targetId": "skill:hipass-receipt",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "hipass-receipt",
+      "label": "hipass-receipt",
+      "group": "mobility"
+    },
+    {
+      "targetId": "skill:express-bus-booking",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "express-bus-booking",
+      "label": "express-bus-booking",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:flight-ticket-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "flight-ticket-search",
+      "label": "flight-ticket-search",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:foresttrip-vacancy",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "foresttrip-vacancy",
+      "label": "foresttrip-vacancy",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:intercity-bus-booking",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "intercity-bus-booking",
+      "label": "intercity-bus-booking",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:ktx-booking",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "ktx-booking",
+      "label": "ktx-booking",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:myrealtrip-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "myrealtrip-search",
+      "label": "myrealtrip-search",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:srt-booking",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "srt-booking",
+      "label": "srt-booking",
+      "group": "travel"
+    },
+    {
+      "targetId": "skill:donation-place-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "donation-place-search",
+      "label": "donation-place-search",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:fine-dust-location",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "fine-dust-location",
+      "label": "fine-dust-location",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:han-river-water-level",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "han-river-water-level",
+      "label": "han-river-water-level",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:household-waste-info",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "household-waste-info",
+      "label": "household-waste-info",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:k-schoollunch-menu",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "k-schoollunch-menu",
+      "label": "k-schoollunch-menu",
+      "group": "food"
+    },
+    {
+      "targetId": "skill:library-book-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "library-book-search",
+      "label": "library-book-search",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:lotto-results",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "lotto-results",
+      "label": "lotto-results",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:seoul-density",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "seoul-density",
+      "label": "seoul-density",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:zipcode-search",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "zipcode-search",
+      "label": "zipcode-search",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:korea-weather",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korea-weather",
+      "label": "korea-weather",
+      "group": "utility"
+    },
+    {
+      "targetId": "skill:korean-character-count",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-character-count",
+      "label": "korean-character-count",
+      "group": "writing"
+    },
+    {
+      "targetId": "skill:korean-slang-writing",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-slang-writing",
+      "label": "korean-slang-writing",
+      "group": "writing"
+    },
+    {
+      "targetId": "skill:korean-spell-check",
+      "kind": "skill",
+      "domain": "skills",
+      "ref": "korean-spell-check",
+      "label": "korean-spell-check",
+      "group": "writing"
+    }
+  ]
+}

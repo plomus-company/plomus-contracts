@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "workflows": [
+    {
+      "workflowId": "app-release-review",
+      "label": "앱 릴리스 검토",
+      "reviewScope": "APP_RELEASE",
+      "reviewType": "WORKFLOW",
+      "targetFolders": [
+        "15-apps",
+        "17-app-releases"
+      ],
+      "enabledRuleIds": [
+        "APP_RELEASE_DELAY",
+        "APP_VERSION_STALE"
+      ],
+      "safety": {
+        "executionClass": "LOCAL_WRITE",
+        "riskLevel": "MEDIUM",
+        "externalAccess": "NONE",
+        "requiresApprovalBeforeApply": true,
+        "sideEffects": [
+          "CREATE_COMMERCE_REVIEW",
+          "CREATE_AI_RECOMMENDATION",
+          "CREATE_CHANGE_PLAN",
+          "CREATE_TASK",
+          "CREATE_SYNC_EVENT"
+        ],
+        "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
+      }
+    }
+  ]
+}

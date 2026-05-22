@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "hwp",
+      "description": "Use kordoc for agent-native HWP/HWPX document parsing, JSON extraction, diffing, form-field extraction, and Markdown→HWPX reverse conversion (read/convert only — for binary editing use rhwp-edit).",
+      "category": "documents",
+      "subcategory": "documents",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "rhwp-advanced",
+      "description": "Debug HWP layout, dump document IR, compare versions, extract thumbnails, and unlock read-only HWPs with the upstream rhwp Rust CLI (export-svg/dump/dump-pages/ir-diff/thumbnail/convert).",
+      "category": "documents",
+      "subcategory": "documents",
+      "locale": "ko-KR",
+      "phase": "v1.5",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "rhwp-edit",
+      "description": "Edit HWP documents — insert/delete text, replace-all, create tables, set cell text — with the k-skill-rhwp CLI that wraps the @rhwp/core WASM engine (rhwp by Edward Kim).",
+      "category": "documents",
+      "subcategory": "documents",
+      "locale": "ko-KR",
+      "phase": "v1.5",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

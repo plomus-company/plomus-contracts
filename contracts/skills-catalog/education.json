@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "korean-scholarship-search",
+      "description": "Search Korean scholarship announcements across official KOSAF, university, foundation, company, and public-sector sources, extract amount and eligibility, and filter results by school, income band, student level, and organization type. Users may invoke it with the phrase 장학금 검색 및 조회.",
+      "category": "government",
+      "subcategory": "education",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

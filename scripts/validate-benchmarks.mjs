@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import { readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -21,13 +22,13 @@ const assertUnique = (scope, field, values) => {
 const base = readJson("contracts/benchmarks-base.json");
 const models = readJson("contracts/benchmarks-models.json").models ?? [];
 const metrics = readJson("contracts/benchmarks-metrics.json").metrics ?? [];
-const targets = readJson("contracts/benchmarks-targets.json").targets ?? [];
-const results = readJson("contracts/benchmarks-results.json").results ?? [];
+const targets = readContract("benchmarks-targets", "targets");
+const results = readContract("benchmarks-results", "results");
 const rollups = readJson("contracts/benchmarks-rollups.json").rollups ?? [];
 
 // referenced contracts (cross-domain integrity)
-const skillIds = new Set((readJson("contracts/skills-catalog.json").skills ?? []).map((s) => s.skillId));
-const workflowIds = new Set((readJson("contracts/commerce-workflows.json").workflows ?? []).map((w) => w.workflowId));
+const skillIds = new Set((readContract("skills-catalog", "skills")).map((s) => s.skillId));
+const workflowIds = new Set((readContract("commerce-workflows", "workflows")).map((w) => w.workflowId));
 const agentIds = new Set((readJson("contracts/gameops-agents.json").agents ?? []).map((a) => a.agentId));
 const playbookIds = new Set((readJson("contracts/gameops-playbooks.json").playbooks ?? []).map((p) => p.playbookId));
 const presetIds = new Set((readJson("contracts/distribution-presets.json").presets ?? []).map((p) => p.presetId));

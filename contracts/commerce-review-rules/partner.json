@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "PARTNER_CONTRACT_MISSING",
+      "domain": "PARTNER",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "파트너 계약 상태 확인 필요"
+    },
+    {
+      "ruleId": "PARTNER_SETTLEMENT_PENDING",
+      "domain": "PARTNER",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "파트너 정산 대기 확인 필요"
+    }
+  ]
+}

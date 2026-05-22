@@ -17,21 +17,22 @@ const DOMAINS = [
   { name: "gameops", dir: "gameops", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
 ];
 
-// Contracts live in one flat folder as <domain>-<contract>.json.
-const allFiles = fs
-  .readdirSync(path.join(repoRoot, "contracts"))
-  .filter((f) => f.endsWith(".json"))
-  .sort();
+// Contracts live in one flat folder: <domain>-<contract>.json files plus
+// <domain>-<contract>/ folders (business-unit-split collections).
+const entries = fs.readdirSync(path.join(repoRoot, "contracts"), { withFileTypes: true });
+const allFiles = entries.filter((e) => e.isFile() && e.name.endsWith(".json")).map((e) => e.name).sort();
+const allFolders = entries.filter((e) => e.isDirectory()).map((e) => `${e.name}/`).sort();
 
 const domains = DOMAINS.map((d) => {
   const files = allFiles.filter((f) => f.startsWith(`${d.name}-`));
+  const collections = allFolders.filter((f) => f.startsWith(`${d.name}-`));
   let schemaVersion = null;
   try {
     schemaVersion = readJson(`contracts/${d.name}-base.json`).schemaVersion ?? null;
   } catch {
     schemaVersion = files[0] ? readJson(`contracts/${files[0]}`).schemaVersion ?? null : null;
   }
-  return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, files };
+  return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, files, collections };
 });
 
 writeJson("dist/plomus-contracts-index.json", {

@@ -1,3 +1,4 @@
+import { writeGroup } from "../scripts/group.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { writeJson } from "../scripts/read-json.mjs";
@@ -437,7 +438,7 @@ const upstreamRegistry = UPSTREAMS.map((upstreamId) => {
 });
 
 writeJson("contracts/skills-base.json", base);
-writeJson("contracts/skills-catalog.json", { schemaVersion: "1.0.0", skills });
+writeGroup("skills-catalog", "skills", skills, (s) => s.subcategory);
 writeJson("contracts/skills-proxy-routes.json", { schemaVersion: "1.0.0", routes: PROXY_ROUTES });
 writeJson("contracts/skills-credentials.json", { schemaVersion: "1.0.0", credentials: CREDENTIALS });
 writeJson("contracts/skills-data-sources.json", { schemaVersion: "1.0.0", sources });

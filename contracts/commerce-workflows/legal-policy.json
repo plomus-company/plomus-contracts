@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "workflows": [
+    {
+      "workflowId": "legal-policy-review",
+      "label": "정책 문서 검토",
+      "reviewScope": "LEGAL_POLICY",
+      "reviewType": "WORKFLOW",
+      "targetFolders": [
+        "15-apps",
+        "16-app-store-listings",
+        "55-legal"
+      ],
+      "enabledRuleIds": [
+        "APP_PRIVACY_POLICY_MISSING",
+        "LEGAL_POLICY_MISSING",
+        "PRIVACY_POLICY_MISSING",
+        "TERMS_OF_SERVICE_MISSING"
+      ],
+      "safety": {
+        "executionClass": "LOCAL_WRITE",
+        "riskLevel": "HIGH",
+        "externalAccess": "NONE",
+        "requiresApprovalBeforeApply": true,
+        "sideEffects": [
+          "CREATE_COMMERCE_REVIEW",
+          "CREATE_AI_RECOMMENDATION",
+          "CREATE_CHANGE_PLAN",
+          "CREATE_TASK",
+          "CREATE_SYNC_EVENT"
+        ],
+        "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
+      }
+    }
+  ]
+}

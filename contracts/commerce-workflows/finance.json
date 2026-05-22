@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "workflows": [
+    {
+      "workflowId": "finance-review",
+      "label": "재무 운영 검토",
+      "reviewScope": "FINANCE",
+      "reviewType": "WORKFLOW",
+      "targetFolders": [
+        "22-expenses",
+        "51-finance"
+      ],
+      "enabledRuleIds": [
+        "EXPENSE_REPORT_PENDING",
+        "FINANCE_RECEIVABLE_OVERDUE",
+        "FINANCE_PAYABLE_DUE",
+        "FINANCE_MONTHLY_CLOSE_DUE"
+      ],
+      "safety": {
+        "executionClass": "LOCAL_WRITE",
+        "riskLevel": "HIGH",
+        "externalAccess": "NONE",
+        "requiresApprovalBeforeApply": true,
+        "sideEffects": [
+          "CREATE_COMMERCE_REVIEW",
+          "CREATE_AI_RECOMMENDATION",
+          "CREATE_CHANGE_PLAN",
+          "CREATE_TASK",
+          "CREATE_SYNC_EVENT"
+        ],
+        "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
+      }
+    }
+  ]
+}

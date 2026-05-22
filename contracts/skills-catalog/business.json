@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "kstartup-search",
+      "description": "공공데이터포털 창업진흥원 K-Startup Open API(15125364)로 통합 공고 사업 정보·지원사업 공고·창업 콘텐츠·통계보고서를 k-skill-proxy 경유로 조회한다. 검색 전용.",
+      "category": "government",
+      "subcategory": "business",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "kstartup-announcements",
+        "kstartup-business-info",
+        "kstartup-contents",
+        "kstartup-statistics"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "nts-business-registration",
+      "description": "국세청 사업자등록정보 진위확인 및 사업자등록 상태조회를 공공데이터포털 API(k-skill-proxy 경유)로 수행한다.",
+      "category": "government",
+      "subcategory": "business",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "nts-business-status",
+        "nts-business-validate"
+      ],
+      "requiredEnv": []
+    }
+  ]
+}

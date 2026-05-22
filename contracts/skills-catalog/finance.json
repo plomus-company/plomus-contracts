@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "daishin-report-search",
+      "description": "대신증권 리포트 GitHub Pages 미러에서 최신 HTML 리포트 목록과 원문/설명 페이지를 조회한다.",
+      "category": "finance",
+      "subcategory": "finance",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/daishin-report-search",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "k-dart",
+      "description": "금융감독원 전자공시시스템(DART) OpenAPI로 공시검색, 기업개황, 재무제표, 주요사항보고서를 조회한다. 사용자의 API_K_DART 환경변수를 직접 사용한다.",
+      "category": "finance",
+      "subcategory": "finance",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": [
+        "API_K_DART"
+      ]
+    },
+    {
+      "skillId": "korean-jangbu-for",
+      "description": "kimlawtech/korean-jangbu-for (Apache-2.0) 업스트림을 중심으로 한국 스타트업·1인 법인·프리랜서·개인사업자 장부 자동화와 사업자 세무 자료 정리, 원본 데이터 가져오기, 계정과목 태깅, 세무사 전달 CSV, 경영 리포트 생성을 안내하는 thin wrapper 스킬.",
+      "category": "finance",
+      "subcategory": "finance",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "Apache-2.0",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "korean-stock-search",
+      "description": "Use k-skill-proxy to search Korean listed stocks, inspect KRX base information, and fetch daily trade snapshots without asking the user to issue a KRX API key.",
+      "category": "finance",
+      "subcategory": "finance",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": true,
+      "proxyRoutes": [
+        "korean-stock-search",
+        "korean-stock-base-info",
+        "korean-stock-trade-info"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "toss-securities",
+      "description": "토스증권 조회형 질문에 대해 tossinvest-cli의 tossctl을 설치/로그인한 뒤 계좌 요약, 포트폴리오, 시세, 주문내역, 관심종목을 안전한 read-only 흐름으로 조회한다.",
+      "category": "finance",
+      "subcategory": "finance",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/toss-securities",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

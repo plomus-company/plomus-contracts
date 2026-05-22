@@ -1,3 +1,4 @@
+import { readContract } from "./group.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { readJson, repoRoot } from "./read-json.mjs";
@@ -8,8 +9,8 @@ import { readJson, repoRoot } from "./read-json.mjs";
 
 const models = readJson("contracts/benchmarks-models.json").models ?? [];
 const metrics = readJson("contracts/benchmarks-metrics.json").metrics ?? [];
-const targets = readJson("contracts/benchmarks-targets.json").targets ?? [];
-const results = readJson("contracts/benchmarks-results.json").results ?? [];
+const targets = readContract("benchmarks-targets", "targets");
+const results = readContract("benchmarks-results", "results");
 const rollups = readJson("contracts/benchmarks-rollups.json").rollups ?? [];
 
 const targetById = new Map(targets.map((t) => [t.targetId, t]));

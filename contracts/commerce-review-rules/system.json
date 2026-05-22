@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "CHANGE_PLAN_STALE",
+      "domain": "SYSTEM",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "오래된 변경 계획 검토 필요"
+    },
+    {
+      "ruleId": "SYNC_FAILURE_DETECTED",
+      "domain": "SYSTEM",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "동기화 실패 확인 필요"
+    },
+    {
+      "ruleId": "TASK_DONE_CLEANUP",
+      "domain": "SYSTEM",
+      "status": "ACTIVE",
+      "severity": "LOW",
+      "description": "완료 작업 정리 가능"
+    },
+    {
+      "ruleId": "TASK_OVERDUE",
+      "domain": "SYSTEM",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "기한 지난 작업 확인 필요"
+    }
+  ]
+}

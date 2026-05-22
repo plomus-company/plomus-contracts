@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "donation-place-search",
+      "description": "Use when the user asks where to donate, 기부처 조회, or donation place recommendations by Korean location and category. Recommend recipients with best-effort 1365 verification-assist links and never execute donations.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/donation-place-search",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "fine-dust-location",
+      "description": "에어코리아 기반 미세먼지/초미세먼지를 지역명 또는 위치 힌트로 조회한다. 기본 경로는 k-skill-proxy의 report endpoint다.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "fine-dust-report"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "han-river-water-level",
+      "description": "한강홍수통제소 기반 현재 수위/유량을 관측소명 또는 관측소코드로 조회한다. 기본 경로는 k-skill-proxy의 han-river water-level endpoint다.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "han-river-water-level"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "household-waste-info",
+      "description": "Use when the user asks for 생활쓰레기 배출 요일/시간/장소 정보 by 지역명(시군구) and wants official data.go.kr household waste guidance.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "household-waste-info"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "k-schoollunch-menu",
+      "description": "Use when the user asks for Korean school meal menus (급식 식단) by natural-language education office and school name, via k-skill-proxy NEIS school-search and school-meal routes.",
+      "category": "food",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "neis-school-meal",
+        "neis-school-search"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "library-book-search",
+      "description": "Use when the user asks to search Korean library books, book details, library holdings, or whether a Korean public library owns a book via k-skill-proxy Data4Library routes.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "data4library-book-search",
+        "data4library-book-detail",
+        "data4library-book-exists",
+        "data4library-libraries-by-book",
+        "data4library-library-search"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "lotto-results",
+      "description": "Check Korean Lotto draw results, latest rounds, and ticket matches with the k-lotto npm package. Use when the user asks for winning numbers, payout details, or whether their numbers matched.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "seoul-density",
+      "description": "서울 주요 121개 핫스팟 장소의 실시간 혼잡도와 인구 현황을 조회한다. 지금 강남역이 얼마나 붐비는지, 홍대 인파가 얼마나 되는지 물어볼 때 사용한다.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": true,
+      "usesMcp": false,
+      "proxyRoutes": [
+        "seoul-density-citydata"
+      ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "zipcode-search",
+      "description": "Look up a Korean postcode and official English address from a known address with the official ePost integrated search page.",
+      "category": "utility",
+      "subcategory": "utility",
+      "locale": "ko-KR",
+      "phase": "v2",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

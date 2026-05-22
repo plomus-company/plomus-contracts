@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "kbl-results",
+      "description": "KBL 한국프로농구 경기 결과와 현재 팀 순위를 날짜/팀 기준으로 조회한다. 공식 JSON 엔드포인트와 kbl-results npm 패키지를 사용한다.",
+      "category": "sports",
+      "subcategory": "sports",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/kbl-results",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "kbo-results",
+      "description": "Fetch KBO game schedules and results for a specific date with the kbo-game npm package. Use when the user asks for today's KBO games, yesterday's scores, or a date-specific scoreboard.",
+      "category": "sports",
+      "subcategory": "sports",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "kleague-results",
+      "description": "케이리그 경기 결과와 현재 순위를 날짜/팀 기준으로 조회한다. 공식 JSON 엔드포인트와 kleague-results npm 패키지를 사용한다.",
+      "category": "sports",
+      "subcategory": "sports",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/kleague-results",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "korean-marathon-schedule",
+      "description": "고러닝과 대한철인3종협회 공개 표면으로 한국 마라톤·철인3종 경기 일정, 장소, 신청 마감일, 종목을 조회한다.",
+      "category": "sports",
+      "subcategory": "sports",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/korean-marathon-schedule",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "lck-analytics",
+      "description": "Riot 공식 LoL Esports 데이터와 Oracle's Elixir 스타일 historical 데이터로 LCK 경기 결과, 현재 순위, live turning point, 밴픽 matchup/synergy, patch meta, 팀 파워 레이팅을 조회한다.",
+      "category": "sports",
+      "subcategory": "sports",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/lck-analytics",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": [
+        "LOLESPORTS_API_KEY"
+      ]
+    }
+  ]
+}

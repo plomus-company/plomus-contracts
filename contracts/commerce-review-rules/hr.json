@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "HR_LEAVE_APPROVAL_PENDING",
+      "domain": "HR",
+      "status": "ACTIVE",
+      "severity": "MEDIUM",
+      "description": "휴가 승인 대기 확인 필요"
+    },
+    {
+      "ruleId": "HR_ONBOARDING_DELAY",
+      "domain": "HR",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "직원 온보딩 준비 지연 확인 필요"
+    },
+    {
+      "ruleId": "HR_PROBATION_REVIEW_DUE",
+      "domain": "HR",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "수습 평가 확인 필요"
+    }
+  ]
+}

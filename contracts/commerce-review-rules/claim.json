@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "CLAIM_OVERDUE",
+      "domain": "CLAIM",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "클레임 처리 기한 초과"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "workflows": [
+    {
+      "workflowId": "product-review",
+      "label": "상품 정보 검토",
+      "reviewScope": "PRODUCT",
+      "reviewType": "WORKFLOW",
+      "targetFolders": [
+        "10-products"
+      ],
+      "enabledRuleIds": [
+        "PRODUCT_DESCRIPTION_MISSING",
+        "PRODUCT_IMAGE_NEEDS_REVIEW",
+        "PRODUCT_PRICE_MISSING"
+      ],
+      "safety": {
+        "executionClass": "LOCAL_WRITE",
+        "riskLevel": "MEDIUM",
+        "externalAccess": "NONE",
+        "requiresApprovalBeforeApply": true,
+        "sideEffects": [
+          "CREATE_COMMERCE_REVIEW",
+          "CREATE_AI_RECOMMENDATION",
+          "CREATE_CHANGE_PLAN",
+          "CREATE_TASK",
+          "CREATE_SYNC_EVENT"
+        ],
+        "notes": "Review workflow는 로컬 검토 산출물과 변경 계획만 생성하며, 대상 파일 반영은 승인된 APPLY_CHANGE_PLAN에서만 수행합니다."
+      }
+    }
+  ]
+}

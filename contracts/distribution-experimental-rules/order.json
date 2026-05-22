@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "rules": [
+    {
+      "ruleId": "ORDER_STATUS_STALE",
+      "domain": "ORDER",
+      "status": "EXPERIMENTAL",
+      "description": "주문 상태가 장시간 갱신되지 않아 처리 누락이 의심되는 상태."
+    },
+    {
+      "ruleId": "ORDER_PAYMENT_MISMATCH",
+      "domain": "ORDER",
+      "status": "EXPERIMENTAL",
+      "description": "주문 금액과 결제 금액이 불일치하는 상태."
+    }
+  ]
+}

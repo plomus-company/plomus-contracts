@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "daangn-cars-search",
+      "description": "당근중고차 공개 웹 데이터 표면으로 지역·가격 조건 기반 차량 검색과 상세 조회를 수행한다. 문의/구매 자동화는 제외한다.",
+      "category": "commerce",
+      "subcategory": "automotive",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "python-script",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "used-car-price-search",
+      "description": "주요 한국 렌터카 업체를 비교한 뒤 SK렌터카 다이렉트 타고BUY inventory snapshot 으로 중고차 가격/인수가를 조회한다.",
+      "category": "commerce",
+      "subcategory": "automotive",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/used-car-price-search",
+      "usesProxy": false,
+      "usesMcp": true,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "korean-law-search",
+      "description": "Use korean-law-mcp first for Korean law lookups, and fall back to Beopmang when the primary service is unavailable.",
+      "category": "legal",
+      "subcategory": "legal",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": true,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "korean-privacy-terms",
+      "description": "kimlawtech/korean-privacy-terms (Apache-2.0) 업스트림을 경유해 Next.js 프로젝트에 한국 법령(개인정보보호법·약관규제법·전자상거래법) 기반 개인정보처리방침·이용약관·쿠키 배너·동의 모달을 생성하는 thin wrapper 스킬.",
+      "category": "legal",
+      "subcategory": "legal",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "Apache-2.0",
+      "implementationType": "skill-md-only",
+      "package": null,
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

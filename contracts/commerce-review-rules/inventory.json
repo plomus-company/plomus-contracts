@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewRules": [
+    {
+      "ruleId": "INVENTORY_LOW_STOCK",
+      "domain": "INVENTORY",
+      "status": "ACTIVE",
+      "severity": "HIGH",
+      "description": "재고 부족 위험 확인"
+    }
+  ]
+}

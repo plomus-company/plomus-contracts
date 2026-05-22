@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "skillId": "gangnamunni-clinic-search",
+      "description": "강남언니 공개 검색 페이지에서 성형외과·피부과 병원 후보, 평점, 리뷰 수, 지원 언어, 공개 병원 링크를 조회한다.",
+      "category": "health",
+      "subcategory": "beauty",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/gangnamunni-clinic-search",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
+      "requiredEnv": []
+    }
+  ]
+}

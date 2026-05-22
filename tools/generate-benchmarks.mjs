@@ -1,3 +1,4 @@
+import { readContract, writeGroup } from "../scripts/group.mjs";
 import { readJson, writeJson } from "../scripts/read-json.mjs";
 
 // Single source of truth for the benchmarks contract domain.
@@ -77,8 +78,8 @@ function hash(str) {
 const round = (n, d = 2) => Number(n.toFixed(d));
 
 // ---- build targets from the skills + commerce contracts ----
-const skills = readJson("contracts/skills-catalog.json").skills ?? [];
-const workflows = readJson("contracts/commerce-workflows.json").workflows ?? [];
+const skills = readContract("skills-catalog", "skills");
+const workflows = readContract("commerce-workflows", "workflows");
 // newly added domains contribute their LLM-executed entities as benchmark targets
 const gameopsAgents = readJson("contracts/gameops-agents.json").agents ?? [];
 const gameopsPlaybooks = readJson("contracts/gameops-playbooks.json").playbooks ?? [];
@@ -189,7 +190,9 @@ function readExisting(relativePath, key) {
     return [];
   }
 }
-const preservedResults = readExisting("contracts/benchmarks-results.json", "results").filter(
+const KIND_DOMAIN = { skill: "skills", workflow: "commerce", agent: "gameops", playbook: "gameops", preset: "distribution" };
+const resultDomain = (r) => KIND_DOMAIN[String(r.targetId).split(":")[0]] ?? "other";
+const preservedResults = readContract("benchmarks-results", "results").filter(
   (r) => r.dataSource !== "illustrative",
 );
 const preservedRollups = readExisting("contracts/benchmarks-rollups.json", "rollups").filter(
@@ -217,8 +220,8 @@ const base = {
 writeJson("contracts/benchmarks-base.json", base);
 writeJson("contracts/benchmarks-models.json", { schemaVersion: "1.0.0", pricingAsOf: PRICING_AS_OF, pricingNote: "List prices are indicative and may change; treat as relative reference only.", models: MODELS });
 writeJson("contracts/benchmarks-metrics.json", { schemaVersion: "1.0.0", metrics: METRICS });
-writeJson("contracts/benchmarks-targets.json", { schemaVersion: "1.0.0", targets });
-writeJson("contracts/benchmarks-results.json", { schemaVersion: "1.0.0", note: "Illustrative rows (dataSource: illustrative) are a deterministic seed; measured rows come from tools/run-experiment.mjs.", results: [...preservedResults, ...results] });
+writeGroup("benchmarks-targets", "targets", targets, (t) => t.domain);
+writeGroup("benchmarks-results", "results", [...preservedResults, ...results], resultDomain);
 writeJson("contracts/benchmarks-rollups.json", { schemaVersion: "1.0.0", note: "Illustrative rollups are means over illustrative results; measured rollups come from experiments.", rollups: [...preservedRollups, ...rollups] });
 
 console.log(`generated benchmarks from ${targets.length} targets`);

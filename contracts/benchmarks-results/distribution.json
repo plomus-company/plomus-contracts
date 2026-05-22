@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "results": [
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-21T20:58:45.974Z",
+      "metrics": {
+        "latency_p50_ms": 5482.36,
+        "throughput_tps": 50.11,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 21994,
+        "latency_p95_ms": 39589,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.12829,
+        "input_tokens": 1828,
+        "output_tokens": 1345,
+        "success_rate": 97.7,
+        "accuracy": 91.2,
+        "error_rate": 2.3
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 6656,
+        "latency_p95_ms": 11981,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01087,
+        "input_tokens": 2060,
+        "output_tokens": 572,
+        "success_rate": 97.5,
+        "accuracy": 88,
+        "error_rate": 2.5
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 12850,
+        "latency_p95_ms": 23130,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01453,
+        "input_tokens": 1582,
+        "output_tokens": 1255,
+        "success_rate": 96.3,
+        "accuracy": 86.8,
+        "error_rate": 3.7
+      }
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "sampleSize": 50,
+      "metrics": {
+        "latency_p50_ms": 13357,
+        "latency_p95_ms": 24043,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00166,
+        "input_tokens": 2425,
+        "output_tokens": 914,
+        "success_rate": 95,
+        "accuracy": 80.5,
+        "error_rate": 5
+      }
+    }
+  ]
+}
