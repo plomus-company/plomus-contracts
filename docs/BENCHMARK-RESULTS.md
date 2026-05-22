@@ -37,7 +37,9 @@ _가격은 indicative(참고용)이며 로컬 모델은 0._
 | --- | --- | --- | --- | --- | --- | --- |
 | commerce | `qwen-2.5-0.5b` | 21 | 730.75 | 496.32 | 236.48 | 100 |
 | commerce | `qwen3.6-27b` | 21 | 5055.96 | 50.19 | 236.29 | 100 |
+| distribution | `qwen-2.5-0.5b` | 1 | 3870.16 | 72.25 | 256 | 100 |
 | distribution | `qwen3.6-27b` | 1 | 5482.36 | 50.11 | 256 | 100 |
+| gameops | `qwen-2.5-0.5b` | 6 | 2214.92 | 70.55 | 134.5 | 100 |
 | gameops | `qwen3.6-27b` | 6 | 4124.61 | 49.86 | 184.5 | 100 |
 | skills | `qwen-2.5-0.5b` | 86 | 538.51 | 522.57 | 187.35 | 100 |
 | skills | `qwen3.6-27b` | 86 | 3520.45 | 20.28 | 65.49 | 100 |
@@ -46,13 +48,15 @@ _성공률은 비어 있지 않은 응답 비율(품질/정확도는 미측정).
 
 ## Measured baseline — `qwen-2.5-0.5b`
 
-Qwen2.5 0.5B (Ollama) · 측정 타깃 107개.
+Qwen2.5 0.5B (Ollama) · 측정 타깃 114개.
 
 ### Domain rollups
 
 | domain | n | 지연 p50(ms) | 처리량(tps) | 입력tok | 출력tok | 성공률(%) |
 | --- | --- | --- | --- | --- | --- | --- |
 | commerce | 21 | 730.75 | 496.32 | 99.57 | 236.48 | 100 |
+| distribution | 1 | 3870.16 | 72.25 | 139 | 256 | 100 |
+| gameops | 6 | 2214.92 | 70.55 | 102.5 | 134.5 | 100 |
 | skills | 86 | 538.51 | 522.57 | 135.43 | 187.35 | 100 |
 
 ### Skills by category
@@ -79,6 +83,13 @@ Qwen2.5 0.5B (Ollama) · 측정 타깃 107개.
 
 | target | kind | group | 지연 p50(ms) | 출력tok | tps | 성공률(%) |
 | --- | --- | --- | --- | --- | --- | --- |
+| `agent:cs` | agent | agent | 1164.1 | 73 | 77.54 | 100 |
+| `agent:dashboard` | agent | agent | 1613.88 | 103 | 72.7 | 100 |
+| `agent:incident` | agent | agent | 1021.2 | 55 | 65.84 | 100 |
+| `agent:notice` | agent | agent | 1100.4 | 64 | 73.78 | 100 |
+| `playbook:payment_missing_response_v1` | playbook | high | 4101.19 | 256 | 68.85 | 100 |
+| `playbook:daily_ops_brief_v1` | playbook | low | 4288.75 | 256 | 64.61 | 100 |
+| `preset:PLOMUS_DISTRIBUTION` | preset | preset | 3870.16 | 256 | 72.25 | 100 |
 | `skill:bunjang-search` | skill | commerce | 648.77 | 256 | 613.66 | 100 |
 | `skill:coupang-product-search` | skill | commerce | 685.65 | 256 | 562.94 | 100 |
 | `skill:daangn-cars-search` | skill | commerce | 729.66 | 256 | 496.41 | 100 |

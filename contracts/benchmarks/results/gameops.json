@@ -504,6 +504,102 @@
         "accuracy": 82.9,
         "error_rate": 4.1
       }
+    },
+    {
+      "targetId": "agent:cs",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:10:26.569Z",
+      "metrics": {
+        "latency_p50_ms": 1164.1,
+        "throughput_tps": 77.54,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 73,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:dashboard",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:10:28.310Z",
+      "metrics": {
+        "latency_p50_ms": 1613.88,
+        "throughput_tps": 72.7,
+        "cost_per_run_usd": 0,
+        "input_tokens": 109,
+        "output_tokens": 103,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:incident",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:10:29.460Z",
+      "metrics": {
+        "latency_p50_ms": 1021.2,
+        "throughput_tps": 65.84,
+        "cost_per_run_usd": 0,
+        "input_tokens": 104,
+        "output_tokens": 55,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "agent:notice",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:10:30.682Z",
+      "metrics": {
+        "latency_p50_ms": 1100.4,
+        "throughput_tps": 73.78,
+        "cost_per_run_usd": 0,
+        "input_tokens": 100,
+        "output_tokens": 64,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:10:35.095Z",
+      "metrics": {
+        "latency_p50_ms": 4288.75,
+        "throughput_tps": 64.61,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 1,
+      "measuredAt": "2026-05-22T19:10:39.325Z",
+      "metrics": {
+        "latency_p50_ms": 4101.19,
+        "throughput_tps": 68.85,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0
+      }
     }
   ]
 }

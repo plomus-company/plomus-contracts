@@ -1,0 +1,95 @@
+{
+  "modelId": "qwen-2.5-0.5b",
+  "ollamaTag": "qwen2.5:0.5b",
+  "baseUrl": "http://localhost:11434",
+  "startedAt": "2026-05-22T19:10:25.276Z",
+  "reps": 1,
+  "numPredict": 256,
+  "runs": [
+    {
+      "targetId": "agent:cs",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 1164.104752,
+      "totalMs": 1284.634204,
+      "loadMs": 120.529452,
+      "inputTokens": 102,
+      "outputTokens": 73,
+      "evalSec": 0.941460647,
+      "wallMs": 1292
+    },
+    {
+      "targetId": "agent:dashboard",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 1613.883126,
+      "totalMs": 1735.317574,
+      "loadMs": 121.434448,
+      "inputTokens": 109,
+      "outputTokens": 103,
+      "evalSec": 1.416752906,
+      "wallMs": 1741
+    },
+    {
+      "targetId": "agent:incident",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 1021.2045750000001,
+      "totalMs": 1143.625115,
+      "loadMs": 122.42054,
+      "inputTokens": 104,
+      "outputTokens": 55,
+      "evalSec": 0.835351567,
+      "wallMs": 1148
+    },
+    {
+      "targetId": "agent:notice",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 1100.3977739999998,
+      "totalMs": 1216.665478,
+      "loadMs": 116.267704,
+      "inputTokens": 100,
+      "outputTokens": 64,
+      "evalSec": 0.867421197,
+      "wallMs": 1222
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 4288.749041,
+      "totalMs": 4406.868672,
+      "loadMs": 118.119631,
+      "inputTokens": 101,
+      "outputTokens": 256,
+      "evalSec": 3.962446725,
+      "wallMs": 4413
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 4101.188709,
+      "totalMs": 4222.73699,
+      "loadMs": 121.548281,
+      "inputTokens": 99,
+      "outputTokens": 256,
+      "evalSec": 3.718311559,
+      "wallMs": 4230
+    },
+    {
+      "targetId": "preset:PLOMUS_DISTRIBUTION",
+      "rep": 0,
+      "ok": true,
+      "inferMs": 3870.159712,
+      "totalMs": 3992.442601,
+      "loadMs": 122.282889,
+      "inputTokens": 139,
+      "outputTokens": 256,
+      "evalSec": 3.543133998,
+      "wallMs": 4001
+    }
+  ],
+  "finishedAt": "2026-05-22T19:10:43.336Z"
+}

@@ -83,6 +83,21 @@
         "accuracy": 81.23,
         "error_rate": 4.43
       }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 6,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 102.5,
+        "output_tokens": 134.5,
+        "latency_p50_ms": 2214.92,
+        "throughput_tps": 70.55,
+        "success_rate": 100,
+        "error_rate": 0
+      }
     }
   ]
 }

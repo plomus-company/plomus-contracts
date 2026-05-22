@@ -3,21 +3,6 @@
   "rollups": [
     {
       "domain": "commerce",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "targetCount": 21,
-      "metrics": {
-        "latency_p50_ms": 730.75,
-        "throughput_tps": 496.32,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99.57,
-        "output_tokens": 236.48,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "commerce",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "targetCount": 21,
@@ -97,6 +82,21 @@
         "success_rate": 95.29,
         "accuracy": 81.46,
         "error_rate": 4.71
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.57,
+        "output_tokens": 236.48,
+        "latency_p50_ms": 730.75,
+        "throughput_tps": 496.32,
+        "success_rate": 100,
+        "error_rate": 0
       }
     }
   ]

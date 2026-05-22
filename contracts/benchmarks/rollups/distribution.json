@@ -83,6 +83,21 @@
         "accuracy": 80.5,
         "error_rate": 5
       }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 1,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 139,
+        "output_tokens": 256,
+        "latency_p50_ms": 3870.16,
+        "throughput_tps": 72.25,
+        "success_rate": 100,
+        "error_rate": 0
+      }
     }
   ]
 }

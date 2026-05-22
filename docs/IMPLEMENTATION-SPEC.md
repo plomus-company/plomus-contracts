@@ -29,7 +29,7 @@
 |---|---|---|---|
 | Commerce | `contracts/task/`(preset·workflow), `contracts/governance/`(review-rule), `contracts/foundation/`(base) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 8, rule 37, workflow 21 |
 | Skills | `contracts/tool/skills-*` | `plomus-tool` | skill 86, route 41, credential 20 |
-| Benchmarks | `contracts/benchmarks/` | `dist/plomus-benchmarks.json` | model 14, metric 9, target 114, result 677 |
+| Benchmarks | `contracts/benchmarks/` | `dist/plomus-benchmarks.json` | model 14, metric 9, target 114, result 684 |
 | Distribution | `contracts/task/`(preset), `contracts/governance/`(rule), `contracts/foundation/`(base·fields) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 1, 필드 7, EXPERIMENTAL 규칙 12 |
 | Protocol | `contracts/tool/protocol-*` | `plomus-tool` | endpoint 7, sync-event 13, payload 9, telegram 4 |
 | Platform | `contracts/foundation/platform-*` | `plomus-foundation` | frontmatter 10, event 6, error code 21 |
@@ -101,7 +101,7 @@ Benchmarks 도메인은 skills와 commerce workflow를 모델별로 비교하기
 - percent 지표는 0 이상 100 이하입니다.
 - `(targetId, modelId, dataSource)` 조합은 고유해야 합니다.
 
-현재 benchmark result 677건은 measured 221건(`qwen3.6-27b` 114 + `qwen-2.5-0.5b` 107)과 illustrative 456건으로 구성됩니다. illustrative 행은 구조 검증을 위한 결정론적 예시 수치이며 실측값이 아닙니다.
+현재 benchmark result 684건은 measured 228건(`qwen3.6-27b` 114 + `qwen-2.5-0.5b` 114)과 illustrative 456건으로 구성됩니다. illustrative 행은 구조 검증을 위한 결정론적 예시 수치이며 실측값이 아닙니다.
 
 ## 배포 인터페이스
 
@@ -252,7 +252,7 @@ major 변경은 제품별 migration 계획이 있어야 합니다. 기존 id는 
 
 ## 현재 제한
 
-- Benchmark 결과는 measured 221건(로컬 `qwen3.6-27b`·`qwen-2.5-0.5b`) + illustrative 456건입니다. 상용 모델 등 추가 measured 수치는 `pnpm run experiment`로 수집 후 `dataSource: "measured"`로 채워야 합니다.
+- Benchmark 결과는 measured 228건(로컬 `qwen3.6-27b`·`qwen-2.5-0.5b`, 각 114) + illustrative 456건입니다. 상용 모델 등 추가 measured 수치는 `pnpm run experiment`로 수집 후 `dataSource: "measured"`로 채워야 합니다.
 - Skills 계약은 `k-skill`을 참고하지만, `k-skill` package release와 자동 동기화하지 않습니다.
 - JSON schema 파일은 registry wrapper 수준이며, 상세 무결성은 Node 검증 스크립트가 담당합니다.
 - 제품 저장소는 아직 npm package 자동 업데이트 workflow를 갖지 않습니다. 현재는 release tag 또는 commit 기준으로 수동 동기화합니다.

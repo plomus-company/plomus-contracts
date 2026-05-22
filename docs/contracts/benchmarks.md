@@ -10,9 +10,9 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
        results.json (target × model × metric)  ──aggregate──▶  rollups.json (domain × model)
 ```
 
-현재 규모: **모델 14 · 지표 9 · 타깃 114(스킬 86 + 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1) · 결과 677 · 롤업 22**.
+현재 규모: **모델 14 · 지표 9 · 타깃 114(스킬 86 + 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1) · 결과 684 · 롤업 24**.
 
-> 타깃 114건은 skills/commerce 외에 새 도메인의 LLM 실행 엔티티(gameops 에이전트·playbook, distribution preset)를 포함합니다. 결과 677건 = illustrative 시드 456 + **measured 221** (`qwen3.6-27b` 114 + `qwen-2.5-0.5b` 107). 측정 결과·모델 비교는 [BENCHMARK-RESULTS.md](../BENCHMARK-RESULTS.md), 방법론은 [BENCHMARKS.md](../BENCHMARKS.md). illustrative 행은 결정론적 합성 시드이며 실측이 아닙니다.
+> 타깃 114건은 skills/commerce 외에 새 도메인의 LLM 실행 엔티티(gameops 에이전트·playbook, distribution preset)를 포함합니다. 결과 684건 = illustrative 시드 456 + **measured 228** (`qwen3.6-27b` 114 + `qwen-2.5-0.5b` 114). 측정 결과·모델 비교는 [BENCHMARK-RESULTS.md](../BENCHMARK-RESULTS.md), 방법론은 [BENCHMARKS.md](../BENCHMARKS.md). illustrative 행은 결정론적 합성 시드이며 실측이 아닙니다.
 
 ---
 
@@ -80,7 +80,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 
 ---
 
-## results.json — 측정값 (677)
+## results.json — 측정값 (684)
 
 타깃 × 모델 한 조합의 측정 한 묶음입니다.
 
@@ -95,7 +95,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 
 ---
 
-## rollups.json — 도메인 롤업 (22)
+## rollups.json — 도메인 롤업 (24)
 
 도메인 × 모델 × dataSource 단위의 지표 평균입니다 (results를 집계; 도메인 commerce·distribution·gameops·skills).
 

@@ -3,21 +3,6 @@
   "rollups": [
     {
       "domain": "skills",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "targetCount": 86,
-      "metrics": {
-        "latency_p50_ms": 538.51,
-        "throughput_tps": 522.57,
-        "cost_per_run_usd": 0,
-        "input_tokens": 135.43,
-        "output_tokens": 187.35,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "skills",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "targetCount": 86,
@@ -97,6 +82,21 @@
         "success_rate": 95.28,
         "accuracy": 81.2,
         "error_rate": 4.72
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 135.43,
+        "output_tokens": 187.35,
+        "latency_p50_ms": 538.51,
+        "throughput_tps": 522.57,
+        "success_rate": 100,
+        "error_rate": 0
       }
     }
   ]

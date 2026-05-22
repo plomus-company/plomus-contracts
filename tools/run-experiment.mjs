@@ -178,14 +178,18 @@ const keptResults = existingResults.filter(
 const KIND_DOMAIN = { skill: "skills", workflow: "commerce", agent: "gameops", playbook: "gameops", preset: "distribution" };
 writeGroup("benchmarks-results", "results", [...keptResults, ...newResults], (r) => KIND_DOMAIN[String(r.targetId).split(":")[0]] ?? "other");
 
-// ---- recompute measured rollups for this model ----
+// ---- recompute measured rollups for this model from ALL its measured results ----
+// Use the full merged measured set (not just this run's newResults): a partial
+// --targets run touches only some domains, so rolling up from newResults alone
+// would drop the model's rollups for domains measured in earlier runs.
 const metricIds = (readContract("benchmarks-metrics", "metrics")).map((m) => m.metricId);
 const existingRollups = readContract("benchmarks-rollups", "rollups");
 const keptRollups = existingRollups.filter((r) => !(r.dataSource === "measured" && r.modelId === MODEL_ID));
+const modelMeasured = [...keptResults, ...newResults].filter((r) => r.dataSource === "measured" && r.modelId === MODEL_ID);
 const measuredRollups = [];
-const ranDomains = [...new Set(newResults.map((r) => targetById.get(r.targetId)?.domain).filter(Boolean))].sort();
+const ranDomains = [...new Set(modelMeasured.map((r) => targetById.get(r.targetId)?.domain).filter(Boolean))].sort();
 for (const domain of ranDomains) {
-  const rows = newResults.filter((r) => targetById.get(r.targetId)?.domain === domain);
+  const rows = modelMeasured.filter((r) => targetById.get(r.targetId)?.domain === domain);
   if (!rows.length) continue;
   const metrics = {};
   for (const metricId of metricIds) {
