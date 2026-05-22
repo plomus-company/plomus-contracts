@@ -8589,16 +8589,19 @@
       "targetId": "skill:korean-spell-check",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-22T19:17:42.277Z",
+      "sampleSize": 10,
+      "measuredAt": "2026-05-22T19:25:26.931Z",
       "metrics": {
-        "latency_p50_ms": 1370.03,
-        "throughput_tps": 55.82,
+        "latency_p50_ms": 1305.71,
+        "throughput_tps": 53.96,
         "cost_per_run_usd": 0,
         "input_tokens": 89,
         "output_tokens": 55,
         "success_rate": 100,
-        "error_rate": 0
+        "error_rate": 0,
+        "latency_p95_ms": 1496.37,
+        "output_consistency": 90,
+        "latency_stddev_ms": 81.06
       }
     }
   ]

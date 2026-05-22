@@ -17,7 +17,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | **Transaction** | `contracts/transaction/` | 결제·정산·수수료·예산 (EXPERIMENTAL) | budget 4 · settlement 3 | `plomus-transaction.json` |
 | **Legal** | `contracts/legal/` | 법적 문서·약관·고지 (DRAFT) | document 6 · disclosure 4 | `plomus-legal.json` |
 | **Foundation** | `contracts/foundation/` | 공유 어휘(역할 아님) | frontmatter 10 · 이벤트그룹 6 · error code 21 · 필드 7 | `plomus-foundation.json` |
-| **Benchmarks** | `contracts/benchmarks/` | 측정층(역할 아님) | model 14 · metric 9 · target 114 · result 684 | `plomus-benchmarks.json` |
+| **Benchmarks** | `contracts/benchmarks/` | 측정층(역할 아님) | model 14 · metric 11 · target 114 · result 684 | `plomus-benchmarks.json` |
 
 분류 규칙(role 매핑 + 15 business unit · 15 category 2차 축)은 [docs/CONTRACT-TAXONOMY.md](docs/CONTRACT-TAXONOMY.md)에 정의되고 validator가 폴더 배치를 강제합니다. 빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만듭니다. 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다. 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
 
@@ -64,7 +64,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 ### Benchmarks (`contracts/benchmarks/`) → `plomus-benchmarks.json`
 
-실행 가능한 계약(스킬·워크플로)을 유명 모델로 측정. model(14)·metric(9)·target(114)·result(684)·rollup(24). 측정/사용은 [BENCHMARKS.md](docs/BENCHMARKS.md), 결과는 [BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md), 필드 상세는 [benchmarks.md](docs/contracts/benchmarks.md).
+실행 가능한 계약(스킬·워크플로)을 유명 모델로 측정. model(14)·metric(11)·target(114)·result(684)·rollup(24). 측정/사용은 [BENCHMARKS.md](docs/BENCHMARKS.md), 결과는 [BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md), 필드 상세는 [benchmarks.md](docs/contracts/benchmarks.md).
 
 ## 외부 애플리케이션에서 활용 (consuming the contracts)
 

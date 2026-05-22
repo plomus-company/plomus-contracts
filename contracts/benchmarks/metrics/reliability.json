@@ -8,6 +8,14 @@
       "unit": "percent",
       "direction": "lower-better",
       "description": "실패/예외로 종료한 실행 비율."
+    },
+    {
+      "metricId": "output_consistency",
+      "label": "출력 재현성",
+      "category": "reliability",
+      "unit": "percent",
+      "direction": "higher-better",
+      "description": "동일 입력을 reps회 반복했을 때 최빈 출력과 일치한 비율. temperature 0이면 100%가 이상치이며, 낮으면 비결정성/재현성 저하. reps≥2에서만 측정."
     }
   ]
 }

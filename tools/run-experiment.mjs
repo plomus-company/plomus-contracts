@@ -12,6 +12,9 @@ import { readJson, writeJson } from "../scripts/read-json.mjs";
 // counts (prompt_eval_count / eval_count), throughput (eval_count / eval_duration),
 // success_rate / error_rate. cost_per_run_usd uses the model's registry pricing
 // (0 for the local baseline). accuracy is not measured (no gold set) and omitted.
+// Reproducibility/regression (only when reps >= 2): output_consistency (share of
+// reps matching the modal output) and latency_stddev_ms; latency_p95_ms at reps>=3.
+// e.g. reproducibility run: pnpm run experiment -- --targets <id> --reps 10
 
 function arg(name, fallback) {
   const i = process.argv.indexOf(`--${name}`);
@@ -102,6 +105,7 @@ async function generate(prompt) {
     const answer = (typeof d.response === "string" ? d.response : "").trim() || (typeof d.thinking === "string" ? d.thinking : "").trim();
     return {
       ok: Boolean(d.done) && answer.length > 0,
+      text: answer, // captured to measure output_consistency across reps
       // inference latency excludes one-time model load (we warm up first anyway)
       inferMs: Math.max(0, totalMs - loadMs),
       totalMs,
@@ -128,6 +132,11 @@ const percentile = (xs, p) => {
   return s[Math.min(s.length - 1, Math.floor((p / 100) * s.length))];
 };
 const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+const stddev = (xs) => {
+  if (xs.length < 2) return 0;
+  const m = mean(xs);
+  return Math.sqrt(mean(xs.map((x) => (x - m) ** 2)));
+};
 const round = (n, d = 2) => Number(n.toFixed(d));
 
 console.error(`Experiment: model=${MODEL_ID} (ollama ${OLLAMA_TAG}) targets=${selectedIds.length} reps=${REPS}`);
@@ -164,9 +173,20 @@ for (const targetId of selectedIds) {
     error_rate: round(100 - successRate),
   };
   if (REPS >= 3) metrics.latency_p95_ms = round(percentile(latencies, 95));
+  if (REPS >= 2) {
+    // reproducibility/regression: how often the successful reps produced the same
+    // output (modal share), and how stable the latency is (stddev).
+    const texts = ok.map((s) => (s.text ?? "").trim());
+    const counts = {};
+    let modal = 0;
+    for (const t of texts) { counts[t] = (counts[t] ?? 0) + 1; modal = Math.max(modal, counts[t]); }
+    metrics.output_consistency = texts.length ? round((modal / texts.length) * 100) : 0;
+    metrics.latency_stddev_ms = round(stddev(latencies));
+  }
 
   newResults.push({ targetId, modelId: MODEL_ID, dataSource: "measured", sampleSize: REPS, measuredAt: new Date().toISOString(), metrics });
-  console.error(`  ${targetId}: ${metrics.latency_p50_ms}ms, ${metrics.output_tokens} out tok, ${metrics.throughput_tps} tps, success ${metrics.success_rate}%`);
+  const consInfo = metrics.output_consistency !== undefined ? `, consistency ${metrics.output_consistency}%` : "";
+  console.error(`  ${targetId}: ${metrics.latency_p50_ms}ms, ${metrics.output_tokens} out tok, ${metrics.throughput_tps} tps, success ${metrics.success_rate}%${consInfo}`);
 }
 
 // ---- merge measured results (preserve illustrative + other measured) ----

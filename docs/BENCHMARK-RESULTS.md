@@ -36,13 +36,13 @@ _가격은 indicative(참고용)이며 로컬 모델은 0._
 | domain | model | n | 지연 p50(ms) | 처리량(tps) | 출력tok | 성공률(%) |
 | --- | --- | --- | --- | --- | --- | --- |
 | commerce | `qwen-2.5-0.5b` | 21 | 730.75 | 496.32 | 236.48 | 100 |
-| commerce | `qwen3.6-27b` | 21 | 5036.78 | 50.45 | 236.29 | 100 |
+| commerce | `qwen3.6-27b` | 21 | 5038.48 | 50.42 | 236.29 | 100 |
 | distribution | `qwen-2.5-0.5b` | 1 | 3870.16 | 72.25 | 256 | 100 |
 | distribution | `qwen3.6-27b` | 1 | 4936.12 | 55.88 | 256 | 100 |
 | gameops | `qwen-2.5-0.5b` | 6 | 2214.92 | 70.55 | 134.5 | 100 |
 | gameops | `qwen3.6-27b` | 6 | 3942.25 | 51.61 | 184.5 | 100 |
 | skills | `qwen-2.5-0.5b` | 86 | 538.51 | 522.57 | 187.35 | 100 |
-| skills | `qwen3.6-27b` | 86 | 3501.13 | 20.69 | 65.49 | 100 |
+| skills | `qwen3.6-27b` | 86 | 3500.38 | 20.67 | 65.49 | 100 |
 
 _성공률은 비어 있지 않은 응답 비율(품질/정확도는 미측정)._
 
@@ -206,10 +206,10 @@ Qwen3.6 27B (Ollama Q4_K_M) · 측정 타깃 114개.
 
 | domain | n | 지연 p50(ms) | 처리량(tps) | 입력tok | 출력tok | 성공률(%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| commerce | 21 | 5036.78 | 50.45 | 59.9 | 236.29 | 100 |
+| commerce | 21 | 5038.48 | 50.42 | 59.9 | 236.29 | 100 |
 | distribution | 1 | 4936.12 | 55.88 | 99 | 256 | 100 |
 | gameops | 6 | 3942.25 | 51.61 | 75.67 | 184.5 | 100 |
-| skills | 86 | 3501.13 | 20.69 | 99.98 | 65.49 | 100 |
+| skills | 86 | 3500.38 | 20.67 | 99.98 | 65.49 | 100 |
 
 ### Skills by category
 
@@ -229,7 +229,7 @@ Qwen3.6 27B (Ollama Q4_K_M) · 측정 타깃 114개.
 | tooling | 3 | 3449.04 | 20.54 | 62.67 | 100 |
 | travel | 7 | 4040.61 | 20.04 | 75.57 | 100 |
 | utility | 11 | 3234.76 | 20.29 | 60 | 100 |
-| writing | 3 | 2518.48 | 32.27 | 56 | 100 |
+| writing | 3 | 2497.04 | 31.65 | 56 | 100 |
 
 ### All targets
 
@@ -327,7 +327,7 @@ Qwen3.6 27B (Ollama Q4_K_M) · 측정 타깃 114개.
 | `skill:zipcode-search` | skill | utility | 3086.19 | 58 | 20.29 | 100 |
 | `skill:korean-character-count` | skill | writing | 2523.39 | 48 | 20.75 | 100 |
 | `skill:korean-slang-writing` | skill | writing | 3662.02 | 65 | 20.24 | 100 |
-| `skill:korean-spell-check` | skill | writing | 1370.03 | 55 | 55.82 | 100 |
+| `skill:korean-spell-check` | skill | writing | 1305.71 | 55 | 53.96 | 100 |
 | `workflow:app-release-review` | workflow | APP_RELEASE | 5528.24 | 256 | 50.5 | 100 |
 | `workflow:app-store-review` | workflow | APP_STORE | 5412.38 | 256 | 50.25 | 100 |
 | `workflow:apply-change-plan` | workflow | CHANGE_PLAN | 5506.2 | 256 | 50.44 | 100 |
@@ -341,7 +341,7 @@ Qwen3.6 27B (Ollama Q4_K_M) · 측정 타깃 114개.
 | `workflow:stock-low` | workflow | INVENTORY | 4794.29 | 217 | 50.37 | 100 |
 | `workflow:legal-policy-review` | workflow | LEGAL_POLICY | 5318.2 | 256 | 50.69 | 100 |
 | `workflow:operations-review` | workflow | OPERATIONS | 4662.28 | 224 | 50.75 | 100 |
-| `workflow:order-delay-review` | workflow | ORDER_DELAY | 4354.54 | 226 | 55.85 | 100 |
+| `workflow:order-delay-review` | workflow | ORDER_DELAY | 4390.26 | 226 | 55.12 | 100 |
 | `workflow:partner-review` | workflow | PARTNER | 4600.6 | 218 | 50.62 | 100 |
 | `workflow:product-review` | workflow | PRODUCT | 4975.18 | 215 | 47.9 | 100 |
 | `workflow:recurring-review` | workflow | RECURRING | 4511.88 | 215 | 50.29 | 100 |

@@ -29,7 +29,7 @@
 |---|---|---|---|
 | Commerce | `contracts/task/`(preset·workflow), `contracts/governance/`(review-rule), `contracts/foundation/`(base) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 8, rule 37, workflow 21 |
 | Skills | `contracts/tool/skills-*` | `plomus-tool` | skill 86, route 41, credential 20 |
-| Benchmarks | `contracts/benchmarks/` | `dist/plomus-benchmarks.json` | model 14, metric 9, target 114, result 684 |
+| Benchmarks | `contracts/benchmarks/` | `dist/plomus-benchmarks.json` | model 14, metric 11, target 114, result 684 |
 | Distribution | `contracts/task/`(preset), `contracts/governance/`(rule), `contracts/foundation/`(base·fields) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 1, 필드 7, EXPERIMENTAL 규칙 12 |
 | Protocol | `contracts/tool/protocol-*` | `plomus-tool` | endpoint 7, sync-event 13, payload 9, telegram 4 |
 | Platform | `contracts/foundation/platform-*` | `plomus-foundation` | frontmatter 10, event 6, error code 21 |

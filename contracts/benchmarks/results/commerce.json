@@ -2089,16 +2089,19 @@
       "targetId": "workflow:order-delay-review",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-22T19:17:46.864Z",
+      "sampleSize": 10,
+      "measuredAt": "2026-05-22T19:26:14.414Z",
       "metrics": {
-        "latency_p50_ms": 4354.54,
-        "throughput_tps": 55.85,
+        "latency_p50_ms": 4390.26,
+        "throughput_tps": 55.12,
         "cost_per_run_usd": 0,
         "input_tokens": 59,
         "output_tokens": 226,
         "success_rate": 100,
-        "error_rate": 0
+        "error_rate": 0,
+        "latency_p95_ms": 4894.21,
+        "output_consistency": 100,
+        "latency_stddev_ms": 193.56
       }
     }
   ]

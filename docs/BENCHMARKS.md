@@ -97,6 +97,23 @@
 - 메모리 경합으로 모델 동시 상주가 어려워 전환 시 `ollama stop <tag>`로 언로드 후 실행했습니다.
 - 재현: `pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest --limit 1000` (전체 114) 또는 `--targets agent:cs,playbook:daily_ops_brief_v1` (부분).
 
+## 재현성·회귀 실험 (reproducibility / regression)
+
+같은 입력을 여러 번 실행해 결과가 안정적인지는 비용·성능 못지않게 중요한 신뢰성 지표입니다. `--reps N`(N≥2)로 측정하면 두 지표가 추가됩니다:
+
+- **`output_consistency`** (reliability · % · higher-better) — N회 반복 중 **최빈 출력과 일치한 비율**. temperature 0이면 100%가 이상치이고, 낮으면 "같은 일을 시켜도 다른 답"(비결정성).
+- **`latency_stddev_ms`** (performance · ms · lower-better) — 반복 지연의 표준편차(응답시간 안정성). `latency_p95_ms`는 N≥3에서 추가.
+
+```bash
+# 한 타깃을 10회 반복해 재현성 측정
+pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest \
+  --reps 10 --targets skill:korean-spell-check
+```
+
+실측 예(qwen3.6-27b · reps=10): `skill:korean-spell-check` **consistency 90%** — temperature 0인데도 10회 중 1회 다른 출력이 나와 **실 GPU 비결정성을 포착**했고, `workflow:order-delay-review`는 **100%**. 짧은 사실형 출력일수록 토큰 단위 흔들림이 일관성에 더 민감합니다.
+
+**회귀(regression) 추적**: 같은 모델·타깃을 다시 측정해 이전 baseline과 비교합니다. 매 실행은 `experiments/runs/<model>-<ts>.json`에 원시 run record로 보존되고, `results`·`rollups`의 measured 값 변화로 드리프트가 드러납니다. 측정 후 `pnpm run summary:benchmarks`로 문서를 재생성하지 않으면 `validate:benchmark-doc`가 CI에서 차단합니다.
+
 ## 시드(초기 데이터) 정책
 
 위 measured 베이스라인 외에, 나머지 모델/조합의 초기 결과·롤업은 **결정론적 illustrative 수치**입니다. `tools/generate-benchmarks.mjs`가 `targetId+modelId` 해시와 모델 가격·합성 속도/품질 계수로 안정적으로 생성하므로, 재실행해도 동일한 값이 나옵니다. 이는 구조를 시연하고 검증 파이프라인을 채우기 위한 것이며 **실측이 아닙니다**.

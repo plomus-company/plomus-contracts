@@ -24,6 +24,14 @@
       "unit": "tokens-per-sec",
       "direction": "higher-better",
       "description": "출력 토큰 생성 속도."
+    },
+    {
+      "metricId": "latency_stddev_ms",
+      "label": "지연 표준편차",
+      "category": "performance",
+      "unit": "ms",
+      "direction": "lower-better",
+      "description": "reps회 반복 지연의 표준편차. 작을수록 응답 시간이 안정적(회귀 감지에 사용). reps≥2에서만 측정."
     }
   ]
 }

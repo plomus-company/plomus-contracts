@@ -10,7 +10,7 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
        results.json (target × model × metric)  ──aggregate──▶  rollups.json (domain × model)
 ```
 
-현재 규모: **모델 14 · 지표 9 · 타깃 114(스킬 86 + 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1) · 결과 684 · 롤업 24**.
+현재 규모: **모델 14 · 지표 11 · 타깃 114(스킬 86 + 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1) · 결과 684 · 롤업 24**.
 
 > 타깃 114건은 skills/commerce 외에 새 도메인의 LLM 실행 엔티티(gameops 에이전트·playbook, distribution preset)를 포함합니다. 결과 684건 = illustrative 시드 456 + **measured 228** (`qwen3.6-27b` 114 + `qwen-2.5-0.5b` 114). 측정 결과·모델 비교는 [BENCHMARK-RESULTS.md](../BENCHMARK-RESULTS.md), 방법론은 [BENCHMARKS.md](../BENCHMARKS.md). illustrative 행은 결정론적 합성 시드이며 실측이 아닙니다.
 
@@ -51,18 +51,20 @@ models.json    metrics.json   targets.json ──(ref)──▶ skills catalog /
 
 ---
 
-## metrics.json — 지표 정의 (9)
+## metrics.json — 지표 정의 (11)
 
 | metricId | category | unit | direction |
 |---|---|---|---|
 | `latency_p50_ms` / `latency_p95_ms` | performance | ms | lower-better |
 | `throughput_tps` | performance | tokens-per-sec | higher-better |
+| `latency_stddev_ms` | performance | ms | lower-better |
 | `cost_per_run_usd` | cost | usd | lower-better |
 | `input_tokens` / `output_tokens` | cost | tokens | lower-better |
 | `success_rate` / `accuracy` | quality | percent | higher-better |
 | `error_rate` | reliability | percent | lower-better |
+| `output_consistency` | reliability | percent | higher-better |
 
-`direction`은 "값이 클수록/작을수록 좋음"을 명시해 리더보드 정렬과 회귀 판정의 기준이 됩니다.
+`direction`은 "값이 클수록/작을수록 좋음"을 명시해 리더보드 정렬과 회귀 판정의 기준이 됩니다. **재현성·회귀 지표** `output_consistency`(반복 출력 일치율)·`latency_stddev_ms`(지연 안정성)는 `reps≥2` 측정에서만 채워집니다.
 
 ---
 
