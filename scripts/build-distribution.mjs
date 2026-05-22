@@ -1,11 +1,11 @@
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/distribution/v1/base.json");
+const base = readJson("contracts/distribution/base.json");
 const registry = {
   schemaVersion: "1.0.0",
   name: "plomus-distribution",
   generatedAt: new Date().toISOString(),
-  builtOnCommerce: base.builtOnCommerce ?? "contracts/commerce/v1",
+  builtOnCommerce: base.builtOnCommerce ?? "contracts/commerce",
   enums: {
     partnerTypes: base.partnerTypes ?? [],
     paymentTerms: base.paymentTerms ?? [],
@@ -17,9 +17,9 @@ const registry = {
     documentTypes: base.documentTypes ?? [],
   },
   contracts: {
-    presets: readJson("contracts/distribution/v1/presets.json").presets ?? [],
-    fields: readJson("contracts/distribution/v1/fields.json").fields ?? [],
-    experimentalRules: readJson("contracts/distribution/v1/experimental-rules.json").rules ?? [],
+    presets: readJson("contracts/distribution/presets.json").presets ?? [],
+    fields: readJson("contracts/distribution/fields.json").fields ?? [],
+    experimentalRules: readJson("contracts/distribution/experimental-rules.json").rules ?? [],
   },
 };
 

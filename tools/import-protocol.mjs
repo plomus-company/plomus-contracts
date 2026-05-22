@@ -70,21 +70,21 @@ const TELEGRAM_COMMANDS = [
   { kind: "help", verbs: ["/help", "help", "도움말"], mapsToCloudCommand: null },
 ];
 
-writeJson("contracts/protocol/v1/base.json", {
+writeJson("contracts/protocol/base.json", {
   schemaVersion: "1.0.0",
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnCommerce: "contracts/commerce/v1",
+  builtOnCommerce: "contracts/commerce",
   protocolVersion: PROTOCOL_VERSION,
   eventSources: EVENT_SOURCES,
   httpMethods: HTTP_METHODS,
   telegramCommandKinds: TELEGRAM_COMMAND_KINDS,
   telegramCommandStatuses: TELEGRAM_COMMAND_STATUSES,
 });
-writeJson("contracts/protocol/v1/endpoints.json", { schemaVersion: "1.0.0", endpoints: ENDPOINTS });
-writeJson("contracts/protocol/v1/sync-event.json", { schemaVersion: "1.0.0", protocolVersion: PROTOCOL_VERSION, fields: SYNC_EVENT_FIELDS });
-writeJson("contracts/protocol/v1/payloads.json", { schemaVersion: "1.0.0", payloads: PAYLOADS });
-writeJson("contracts/protocol/v1/telegram.json", { schemaVersion: "1.0.0", commandStatuses: TELEGRAM_COMMAND_STATUSES, commands: TELEGRAM_COMMANDS });
+writeJson("contracts/protocol/endpoints.json", { schemaVersion: "1.0.0", endpoints: ENDPOINTS });
+writeJson("contracts/protocol/sync-event.json", { schemaVersion: "1.0.0", protocolVersion: PROTOCOL_VERSION, fields: SYNC_EVENT_FIELDS });
+writeJson("contracts/protocol/payloads.json", { schemaVersion: "1.0.0", payloads: PAYLOADS });
+writeJson("contracts/protocol/telegram.json", { schemaVersion: "1.0.0", commandStatuses: TELEGRAM_COMMAND_STATUSES, commands: TELEGRAM_COMMANDS });
 
 console.log(`imported protocol contracts (source: ${sourceRepo})`);
 console.log(`  endpoints: ${ENDPOINTS.length}, sync-event fields: ${SYNC_EVENT_FIELDS.length}, payloads: ${PAYLOADS.length}, telegram kinds: ${TELEGRAM_COMMANDS.length}`);

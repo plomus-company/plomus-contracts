@@ -1,6 +1,6 @@
 # Distribution Contracts
 
-`contracts/distribution/v1/`는 `plomus-distribution-ai-os`(탁구 용품 도소매 유통 OS) 점검에서 도출한 추가 계약입니다. 필드별 상세는 [contracts/distribution/v1/README.md](../contracts/distribution/v1/README.md).
+`contracts/distribution/`는 `plomus-distribution-ai-os`(탁구 용품 도소매 유통 OS) 점검에서 도출한 추가 계약입니다. 필드별 상세는 [contracts/distribution/README.md](../contracts/distribution/README.md).
 
 ## 왜 별도 도메인인가
 

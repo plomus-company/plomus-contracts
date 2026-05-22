@@ -69,18 +69,18 @@ const ERROR_CODES = [
   { code: "TASK_NOT_APPROVED", category: "task" },
 ];
 
-writeJson("contracts/platform/v1/base.json", {
+writeJson("contracts/platform/base.json", {
   schemaVersion: "1.0.0",
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnCommerce: "contracts/commerce/v1",
+  builtOnCommerce: "contracts/commerce",
   lifecycleObjects: FRONTMATTER.filter((f) => (f.statuses ?? []).length > 0).map((f) => f.documentType),
   eventObjects: EVENT_TYPES.map((e) => e.object),
   errorCategories: ERROR_CATEGORIES,
 });
-writeJson("contracts/platform/v1/frontmatter.json", { schemaVersion: "1.0.0", documents: FRONTMATTER });
-writeJson("contracts/platform/v1/event-types.json", { schemaVersion: "1.0.0", groups: EVENT_TYPES });
-writeJson("contracts/platform/v1/error-codes.json", { schemaVersion: "1.0.0", errorCodes: ERROR_CODES });
+writeJson("contracts/platform/frontmatter.json", { schemaVersion: "1.0.0", documents: FRONTMATTER });
+writeJson("contracts/platform/event-types.json", { schemaVersion: "1.0.0", groups: EVENT_TYPES });
+writeJson("contracts/platform/error-codes.json", { schemaVersion: "1.0.0", errorCodes: ERROR_CODES });
 
 console.log(`imported platform contracts (source: ${sourceRepo})`);
 console.log(`  frontmatter docs: ${FRONTMATTER.length}, event groups: ${EVENT_TYPES.length}, error codes: ${ERROR_CODES.length}`);

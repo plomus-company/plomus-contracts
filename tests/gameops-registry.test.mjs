@@ -18,7 +18,7 @@ test("gameops registry validates and builds a distributable artifact", () => {
 
   // playbook risk levels resolve against the governance domain
   const govRisks = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/governance/v1/base.json"), "utf8")).riskLevels,
+    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/governance/base.json"), "utf8")).riskLevels,
   );
   for (const p of dist.contracts.playbooks) {
     assert.ok(govRisks.has(p.riskLevel), `playbook ${p.playbookId} risk ${p.riskLevel} not in governance`);

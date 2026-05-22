@@ -7,14 +7,14 @@ import { readJson, repoRoot, writeJson } from "./read-json.mjs";
 // its cross-domain dependency graph from one file.
 
 const DOMAINS = [
-  { name: "commerce", dir: "contracts/commerce/v1", dependsOn: [], source: "plomus-commerce-ai-os" },
-  { name: "skills", dir: "contracts/skills/v1", dependsOn: [], source: "k-skill" },
-  { name: "benchmarks", dir: "contracts/benchmarks/v1", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
-  { name: "distribution", dir: "contracts/distribution/v1", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
-  { name: "protocol", dir: "contracts/protocol/v1", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "platform", dir: "contracts/platform/v1", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "governance", dir: "contracts/governance/v1", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
-  { name: "gameops", dir: "contracts/gameops/v1", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
+  { name: "commerce", dir: "contracts/commerce", dependsOn: [], source: "plomus-commerce-ai-os" },
+  { name: "skills", dir: "contracts/skills", dependsOn: [], source: "k-skill" },
+  { name: "benchmarks", dir: "contracts/benchmarks", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
+  { name: "distribution", dir: "contracts/distribution", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
+  { name: "protocol", dir: "contracts/protocol", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
+  { name: "platform", dir: "contracts/platform", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
+  { name: "governance", dir: "contracts/governance", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
+  { name: "gameops", dir: "contracts/gameops", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
 ];
 
 const domains = DOMAINS.map((d) => {

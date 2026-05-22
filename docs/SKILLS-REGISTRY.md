@@ -1,6 +1,6 @@
 # Skills Contract Registry
 
-`contracts/skills/v1/`는 `k-skill` 스킬 생태계에서 추출한 공개 계약 도메인입니다. `k-skill` 저장소를 **데이터 출처로 참고**해서 새로 설계했으며, `k-skill`의 디렉토리 구조나 파편화된 분류를 그대로 복제하지 않습니다.
+`contracts/skills/`는 `k-skill` 스킬 생태계에서 추출한 공개 계약 도메인입니다. `k-skill` 저장소를 **데이터 출처로 참고**해서 새로 설계했으며, `k-skill`의 디렉토리 구조나 파편화된 분류를 그대로 복제하지 않습니다.
 
 ## 계약 파일
 

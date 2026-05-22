@@ -6,20 +6,20 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 | 도메인 | 위치 | 출처 | 규모 | 상세 문서 |
 |---|---|---|---|---|
-| **Commerce** | `contracts/commerce/v1/` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/commerce/v1/README.md](contracts/commerce/v1/README.md) |
-| **Skills** | `contracts/skills/v1/` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15(subcat 37) · upstream 18 · package 22 · mcp 11 | [contracts/skills/v1/README.md](contracts/skills/v1/README.md) |
-| **Benchmarks** | `contracts/benchmarks/v1/` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks/v1/README.md](contracts/benchmarks/v1/README.md) |
-| **Distribution** | `contracts/distribution/v1/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/v1/README.md](contracts/distribution/v1/README.md) |
-| **Protocol** | `contracts/protocol/v1/` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [contracts/protocol/v1/README.md](contracts/protocol/v1/README.md) |
-| **Platform** | `contracts/platform/v1/` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [contracts/platform/v1/README.md](contracts/platform/v1/README.md) |
-| **Governance** | `contracts/governance/v1/` | `plomus-gameops-ai-os` (benchmarks 교차참조) | role 6 · 실행상태 19 · 승인정책 3 · risk→model 4 | [contracts/governance/v1/README.md](contracts/governance/v1/README.md) |
-| **GameOps** | `contracts/gameops/v1/` | `plomus-gameops-ai-os` (governance 교차참조) | adapter 7 · intent 16 · agent 4 · playbook 2 · field 6 | [contracts/gameops/v1/README.md](contracts/gameops/v1/README.md) |
+| **Commerce** | `contracts/commerce/` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/commerce/README.md](contracts/commerce/README.md) |
+| **Skills** | `contracts/skills/` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15(subcat 37) · upstream 18 · package 22 · mcp 11 | [contracts/skills/README.md](contracts/skills/README.md) |
+| **Benchmarks** | `contracts/benchmarks/` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks/README.md](contracts/benchmarks/README.md) |
+| **Distribution** | `contracts/distribution/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/README.md](contracts/distribution/README.md) |
+| **Protocol** | `contracts/protocol/` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [contracts/protocol/README.md](contracts/protocol/README.md) |
+| **Platform** | `contracts/platform/` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [contracts/platform/README.md](contracts/platform/README.md) |
+| **Governance** | `contracts/governance/` | `plomus-gameops-ai-os` (benchmarks 교차참조) | role 6 · 실행상태 19 · 승인정책 3 · risk→model 4 | [contracts/governance/README.md](contracts/governance/README.md) |
+| **GameOps** | `contracts/gameops/` | `plomus-gameops-ai-os` (governance 교차참조) | adapter 7 · intent 16 · agent 4 · playbook 2 · field 6 | [contracts/gameops/README.md](contracts/gameops/README.md) |
 
 ## 계약 범위
 
-### Commerce (`contracts/commerce/v1/`)
+### Commerce (`contracts/commerce/`)
 
-커머스 운영체제의 온보딩·검토·승인 계약입니다. 필드별 상세는 [contracts/commerce/v1/README.md](contracts/commerce/v1/README.md).
+커머스 운영체제의 온보딩·검토·승인 계약입니다. 필드별 상세는 [contracts/commerce/README.md](contracts/commerce/README.md).
 
 | 파일 | 내용 |
 |---|---|
@@ -28,9 +28,9 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `review-rules.json` | review rule(37) — `ruleId` ↔ `domain` ↔ `status` |
 | `workflows.json` | hermes workflow(21) — scope, target folder, rule, safety profile |
 
-### Skills (`contracts/skills/v1/`)
+### Skills (`contracts/skills/`)
 
-`k-skill` 스킬 생태계를 데이터 출처로 참고해 새로 설계한 도메인입니다. 필드별 상세는 [contracts/skills/v1/README.md](contracts/skills/v1/README.md), 설계 배경은 [docs/SKILLS-REGISTRY.md](docs/SKILLS-REGISTRY.md).
+`k-skill` 스킬 생태계를 데이터 출처로 참고해 새로 설계한 도메인입니다. 필드별 상세는 [contracts/skills/README.md](contracts/skills/README.md), 설계 배경은 [docs/SKILLS-REGISTRY.md](docs/SKILLS-REGISTRY.md).
 
 | 파일 | 내용 |
 |---|---|
@@ -41,7 +41,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `data-sources.json` | 스킬별 외부 의존(86) — upstream, 인증 방식 |
 | 세분화 | `categories.json`(subcat 37)·`upstreams.json`(18)·`packages.json`(22)·`mcp.json`(11)·`proxy.json` |
 
-### Benchmarks (`contracts/benchmarks/v1/`)
+### Benchmarks (`contracts/benchmarks/`)
 
 각 실행 가능한 계약(스킬·워크플로)을 유명 모델로 벤치마킹하는 성능·비용·품질 지표 구조입니다. 설계/사용은 [docs/BENCHMARKS.md](docs/BENCHMARKS.md), 측정 결과는 [docs/BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md). 전체 107개 타깃을 로컬 `qwen3.6-27b`로 1회 실행한 measured 베이스라인(전부 성공)이 포함되며, 나머지는 illustrative 시드입니다.
 
@@ -54,7 +54,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `results.json` | 측정값(428) — target × model × metric |
 | `rollups.json` | 도메인 롤업(8) — domain × model 지표 평균 |
 
-### Distribution (`contracts/distribution/v1/`)
+### Distribution (`contracts/distribution/`)
 
 `plomus-distribution-ai-os`(탁구 도소매 유통) 점검에서 도출한, commerce 계약에 아직 없던 부분만 담은 도메인입니다. commerce 계약을 읽기 전용 교차참조만 합니다(수정 안 함). 설계 배경은 [docs/DISTRIBUTION.md](docs/DISTRIBUTION.md).
 
@@ -65,14 +65,14 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `fields.json` | 유통 frontmatter 필드 ↔ 어휘 바인딩(7) (B) |
 | `experimental-rules.json` | 미구현 유통 규칙(12) — EXPERIMENTAL (C) |
 
-### Protocol · Platform (`contracts/protocol/v1/`, `contracts/platform/v1/`)
+### Protocol · Platform (`contracts/protocol/`, `contracts/platform/`)
 
 `plomus-commerce-ai-os` 점검에서 commerce import가 추출하지 않던 표면을 계약화했습니다. 설계 배경은 [docs/PROTOCOL.md](docs/PROTOCOL.md). 둘 다 commerce 계약을 읽기 전용 교차참조만 합니다.
 
 - **Protocol**: desktop↔web HTTP API(`endpoints.json`), sync event wire 스키마(`sync-event.json`, 자체 `protocolVersion`), sync payload 객체 레지스트리(`payloads.json`), 인바운드 Telegram 명령(`telegram.json`).
 - **Platform**: 문서별 frontmatter 상태/필수필드(`frontmatter.json`), 객체별 이벤트 분류(`event-types.json`, commerce `syncEventTypes`와 1:1 정합), error code 분류(`error-codes.json`).
 
-### Governance · GameOps (`contracts/governance/v1/`, `contracts/gameops/v1/`)
+### Governance · GameOps (`contracts/governance/`, `contracts/gameops/`)
 
 `plomus-gameops-ai-os` 점검에서 도출했습니다. 설계 배경은 [docs/GAMEOPS.md](docs/GAMEOPS.md). 의존: benchmarks → governance → gameops (읽기 전용 교차참조).
 

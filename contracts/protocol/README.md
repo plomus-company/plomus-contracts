@@ -1,9 +1,9 @@
-# Protocol Contracts (`contracts/protocol/v1/`)
+# Protocol Contracts (`contracts/protocol/`)
 
 `plomus-commerce-ai-os` 점검에서 도출한 **desktop↔web 통합(wire) 계약**입니다. commerce import 도구가 추출하지 않는 HTTP sync/approval API, sync event wire 스키마, sync payload 객체 레지스트리, 인바운드 Telegram 명령 분류를 담습니다.
 
 - `tools/import-protocol.mjs`가 단일 진실원천, `scripts/validate-protocol.mjs`가 검증.
-- commerce 계약(`contracts/commerce/v1/`)은 **읽기 전용 교차참조**(syncPayloadObjectTypes·cloudCommandTypes)만 합니다.
+- commerce 계약(`contracts/commerce/`)은 **읽기 전용 교차참조**(syncPayloadObjectTypes·cloudCommandTypes)만 합니다.
 
 | 파일 | 내용 |
 |---|---|

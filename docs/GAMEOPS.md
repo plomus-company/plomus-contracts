@@ -1,10 +1,10 @@
 # Governance & GameOps Contracts
 
-`plomus-gameops-ai-os` 점검에서 도출한 두 도메인입니다. 필드별 상세는 [contracts/governance/v1/README.md](../contracts/governance/v1/README.md), [contracts/gameops/v1/README.md](../contracts/gameops/v1/README.md).
+`plomus-gameops-ai-os` 점검에서 도출한 두 도메인입니다. 필드별 상세는 [contracts/governance/README.md](../contracts/governance/README.md), [contracts/gameops/README.md](../contracts/gameops/README.md).
 
 ## 점검 핵심
 
-gameops는 distribution의 parity와 달리 **공개 계약을 vendor**합니다 — `scripts/sync-contracts.mjs`가 `contracts/benchmarks/v1/models.json`과 `contracts/skills/v1/catalog.json`을 `packages/registry/contracts/`로 복사하고 commit을 `PINNED.json`에 고정합니다. 또 `selectClaudeModelForRisk`가 benchmarks `models.status`(frontier/balanced/fast)로 위험도별 모델을 고릅니다. → **benchmarks·skills 계약이 실제 소비되고 있음**이 확인됐고, gameops가 로컬에 정의한 풍부한 어휘는 미계약 상태였습니다.
+gameops는 distribution의 parity와 달리 **공개 계약을 vendor**합니다 — `scripts/sync-contracts.mjs`가 `contracts/benchmarks/models.json`과 `contracts/skills/catalog.json`을 `packages/registry/contracts/`로 복사하고 commit을 `PINNED.json`에 고정합니다. 또 `selectClaudeModelForRisk`가 benchmarks `models.status`(frontier/balanced/fast)로 위험도별 모델을 고릅니다. → **benchmarks·skills 계약이 실제 소비되고 있음**이 확인됐고, gameops가 로컬에 정의한 풍부한 어휘는 미계약 상태였습니다.
 
 ## 점검 → 계약 매핑
 

@@ -1,6 +1,6 @@
 # Protocol & Platform Contracts
 
-`plomus-commerce-ai-os`(commerce 계약의 원천) 점검에서, import 도구가 추출하지 않던 표면을 두 도메인으로 계약화했습니다. 필드별 상세는 [contracts/protocol/v1/README.md](../contracts/protocol/v1/README.md), [contracts/platform/v1/README.md](../contracts/platform/v1/README.md).
+`plomus-commerce-ai-os`(commerce 계약의 원천) 점검에서, import 도구가 추출하지 않던 표면을 두 도메인으로 계약화했습니다. 필드별 상세는 [contracts/protocol/README.md](../contracts/protocol/README.md), [contracts/platform/README.md](../contracts/platform/README.md).
 
 ## 점검 → 계약 매핑
 

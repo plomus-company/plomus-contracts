@@ -23,16 +23,16 @@ function assertUnique(scope, field, values) {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 }
 
-const base = readJson("contracts/skills/v1/base.json");
-const skills = readJson("contracts/skills/v1/catalog.json").skills ?? [];
-const routes = readJson("contracts/skills/v1/proxy-routes.json").routes ?? [];
-const credentials = readJson("contracts/skills/v1/credentials.json").credentials ?? [];
-const sources = readJson("contracts/skills/v1/data-sources.json").sources ?? [];
-const categoryGroups = readJson("contracts/skills/v1/categories.json").categories ?? [];
-const upstreamRegistry = readJson("contracts/skills/v1/upstreams.json").upstreams ?? [];
-const packages = readJson("contracts/skills/v1/packages.json").packages ?? [];
-const mcp = readJson("contracts/skills/v1/mcp.json");
-const proxyConfig = readJson("contracts/skills/v1/proxy.json");
+const base = readJson("contracts/skills/base.json");
+const skills = readJson("contracts/skills/catalog.json").skills ?? [];
+const routes = readJson("contracts/skills/proxy-routes.json").routes ?? [];
+const credentials = readJson("contracts/skills/credentials.json").credentials ?? [];
+const sources = readJson("contracts/skills/data-sources.json").sources ?? [];
+const categoryGroups = readJson("contracts/skills/categories.json").categories ?? [];
+const upstreamRegistry = readJson("contracts/skills/upstreams.json").upstreams ?? [];
+const packages = readJson("contracts/skills/packages.json").packages ?? [];
+const mcp = readJson("contracts/skills/mcp.json");
+const proxyConfig = readJson("contracts/skills/proxy.json");
 
 const categories = base.categories ?? [];
 const locales = base.locales ?? [];

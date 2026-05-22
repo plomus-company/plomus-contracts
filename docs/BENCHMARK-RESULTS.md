@@ -1,6 +1,6 @@
 # Benchmark Results
 
-`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks/v1/`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.
+`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks/`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.
 
 ## Methodology
 

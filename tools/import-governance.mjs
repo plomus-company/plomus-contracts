@@ -97,11 +97,11 @@ const RISK_MODEL_STATUS = [
   { riskLevel: "low", modelStatus: "fast" },
 ];
 
-writeJson("contracts/governance/v1/base.json", {
+writeJson("contracts/governance/base.json", {
   schemaVersion: "1.0.0",
   source: "plomus-gameops-ai-os",
   sourceImportedAt: generatedAt,
-  builtOnBenchmarks: "contracts/benchmarks/v1",
+  builtOnBenchmarks: "contracts/benchmarks",
   riskLevels: RISK_LEVELS,
   roles: ROLES,
   approvalPolicies: APPROVAL_POLICIES,
@@ -110,7 +110,7 @@ writeJson("contracts/governance/v1/base.json", {
   executionStates: EXECUTION_STATES,
   commandStates: COMMAND_STATES,
 });
-writeJson("contracts/governance/v1/roles.json", {
+writeJson("contracts/governance/roles.json", {
   schemaVersion: "1.0.0",
   roles: [
     { role: "owner", rank: 5 },
@@ -122,12 +122,12 @@ writeJson("contracts/governance/v1/roles.json", {
   ],
   approvalCapability: APPROVAL_CAPABILITY,
 });
-writeJson("contracts/governance/v1/approval.json", {
+writeJson("contracts/governance/approval.json", {
   schemaVersion: "1.0.0",
   policies: Object.entries(APPROVAL_THRESHOLDS).map(([policy, requiredApprovals]) => ({ policy, requiredApprovals, allowedChannels: APPROVAL_CHANNELS })),
   riskPolicy: RISK_POLICY,
 });
-writeJson("contracts/governance/v1/execution-lifecycle.json", {
+writeJson("contracts/governance/execution-lifecycle.json", {
   schemaVersion: "1.0.0",
   states: EXECUTION_STATES,
   transitions: EXECUTION_TRANSITIONS,
@@ -135,9 +135,9 @@ writeJson("contracts/governance/v1/execution-lifecycle.json", {
   commandTransitions: COMMAND_TRANSITIONS,
   executionSteps: EXECUTION_STEPS,
 });
-writeJson("contracts/governance/v1/model-routing.json", {
+writeJson("contracts/governance/model-routing.json", {
   schemaVersion: "1.0.0",
-  note: "risk_level → preferred benchmarks model status; resolves against contracts/benchmarks/v1/models.json.",
+  note: "risk_level → preferred benchmarks model status; resolves against contracts/benchmarks/models.json.",
   fallbackStatus: "frontier",
   riskModelStatus: RISK_MODEL_STATUS,
 });

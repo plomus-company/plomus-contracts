@@ -16,13 +16,13 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/platform/v1/base.json");
-const documents = readJson("contracts/platform/v1/frontmatter.json").documents ?? [];
-const groups = readJson("contracts/platform/v1/event-types.json").groups ?? [];
-const errorCodes = readJson("contracts/platform/v1/error-codes.json").errorCodes ?? [];
+const base = readJson("contracts/platform/base.json");
+const documents = readJson("contracts/platform/frontmatter.json").documents ?? [];
+const groups = readJson("contracts/platform/event-types.json").groups ?? [];
+const errorCodes = readJson("contracts/platform/error-codes.json").errorCodes ?? [];
 
 // commerce baseline (read-only)
-const commerceBase = readJson("contracts/commerce/v1/base.json");
+const commerceBase = readJson("contracts/commerce/base.json");
 const commerceDocTypes = new Set([...(commerceBase.documentTypes ?? []), ...(commerceBase.core?.markdownObjectTypes ?? [])]);
 const commerceEventTypes = new Set(commerceBase.core?.syncEventTypes ?? []);
 

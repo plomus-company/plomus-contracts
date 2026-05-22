@@ -35,20 +35,20 @@ const DEFAULT_TARGETS = [
   "workflow:settlement-check",
 ];
 
-const models = readJson("contracts/benchmarks/v1/models.json").models ?? [];
+const models = readJson("contracts/benchmarks/models.json").models ?? [];
 const model = models.find((m) => m.modelId === MODEL_ID);
 if (!model) {
-  console.error(`Unknown modelId '${MODEL_ID}'. Add it to contracts/benchmarks/v1/models.json (run generate:benchmarks).`);
+  console.error(`Unknown modelId '${MODEL_ID}'. Add it to contracts/benchmarks/models.json (run generate:benchmarks).`);
   process.exit(1);
 }
 
-const allTargets = readJson("contracts/benchmarks/v1/targets.json").targets ?? [];
+const allTargets = readJson("contracts/benchmarks/targets.json").targets ?? [];
 const targetById = new Map(allTargets.map((t) => [t.targetId, t]));
-const skillById = new Map((readJson("contracts/skills/v1/catalog.json").skills ?? []).map((s) => [s.skillId, s]));
-const workflowById = new Map((readJson("contracts/commerce/v1/workflows.json").workflows ?? []).map((w) => [w.workflowId, w]));
-const agentById = new Map((readJson("contracts/gameops/v1/agents.json").agents ?? []).map((a) => [a.agentId, a]));
-const playbookById = new Map((readJson("contracts/gameops/v1/playbooks.json").playbooks ?? []).map((p) => [p.playbookId, p]));
-const presetById = new Map((readJson("contracts/distribution/v1/presets.json").presets ?? []).map((p) => [p.presetId, p]));
+const skillById = new Map((readJson("contracts/skills/catalog.json").skills ?? []).map((s) => [s.skillId, s]));
+const workflowById = new Map((readJson("contracts/commerce/workflows.json").workflows ?? []).map((w) => [w.workflowId, w]));
+const agentById = new Map((readJson("contracts/gameops/agents.json").agents ?? []).map((a) => [a.agentId, a]));
+const playbookById = new Map((readJson("contracts/gameops/playbooks.json").playbooks ?? []).map((p) => [p.playbookId, p]));
+const presetById = new Map((readJson("contracts/distribution/presets.json").presets ?? []).map((p) => [p.presetId, p]));
 
 let selectedIds = TARGET_ARG ? TARGET_ARG.split(",").map((s) => s.trim()) : DEFAULT_TARGETS;
 selectedIds = selectedIds.filter((id) => targetById.has(id));
@@ -170,19 +170,19 @@ for (const targetId of selectedIds) {
 
 // ---- merge measured results (preserve illustrative + other measured) ----
 const ranTargets = new Set(selectedIds);
-const existingResults = readJson("contracts/benchmarks/v1/results.json").results ?? [];
+const existingResults = readJson("contracts/benchmarks/results.json").results ?? [];
 const keptResults = existingResults.filter(
   (r) => !(r.dataSource === "measured" && r.modelId === MODEL_ID && ranTargets.has(r.targetId)),
 );
-writeJson("contracts/benchmarks/v1/results.json", {
+writeJson("contracts/benchmarks/results.json", {
   schemaVersion: "1.0.0",
   note: "Illustrative rows (dataSource: illustrative) are a deterministic seed; measured rows come from tools/run-experiment.mjs.",
   results: [...keptResults, ...newResults],
 });
 
 // ---- recompute measured rollups for this model ----
-const metricIds = (readJson("contracts/benchmarks/v1/metrics.json").metrics ?? []).map((m) => m.metricId);
-const existingRollups = readJson("contracts/benchmarks/v1/rollups.json").rollups ?? [];
+const metricIds = (readJson("contracts/benchmarks/metrics.json").metrics ?? []).map((m) => m.metricId);
+const existingRollups = readJson("contracts/benchmarks/rollups.json").rollups ?? [];
 const keptRollups = existingRollups.filter((r) => !(r.dataSource === "measured" && r.modelId === MODEL_ID));
 const measuredRollups = [];
 const ranDomains = [...new Set(newResults.map((r) => targetById.get(r.targetId)?.domain).filter(Boolean))].sort();
@@ -196,7 +196,7 @@ for (const domain of ranDomains) {
   }
   measuredRollups.push({ domain, modelId: MODEL_ID, dataSource: "measured", targetCount: rows.length, metrics });
 }
-writeJson("contracts/benchmarks/v1/rollups.json", {
+writeJson("contracts/benchmarks/rollups.json", {
   schemaVersion: "1.0.0",
   note: "Illustrative rollups are means over illustrative results; measured rollups come from experiments.",
   rollups: [...keptRollups, ...measuredRollups],

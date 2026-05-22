@@ -16,14 +16,14 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/protocol/v1/base.json");
-const endpoints = readJson("contracts/protocol/v1/endpoints.json").endpoints ?? [];
-const syncEvent = readJson("contracts/protocol/v1/sync-event.json");
-const payloads = readJson("contracts/protocol/v1/payloads.json").payloads ?? [];
-const telegram = readJson("contracts/protocol/v1/telegram.json");
+const base = readJson("contracts/protocol/base.json");
+const endpoints = readJson("contracts/protocol/endpoints.json").endpoints ?? [];
+const syncEvent = readJson("contracts/protocol/sync-event.json");
+const payloads = readJson("contracts/protocol/payloads.json").payloads ?? [];
+const telegram = readJson("contracts/protocol/telegram.json");
 
 // commerce baseline (read-only)
-const commerceCore = readJson("contracts/commerce/v1/base.json").core ?? {};
+const commerceCore = readJson("contracts/commerce/base.json").core ?? {};
 const commercePayloadTypes = new Set(commerceCore.syncPayloadObjectTypes ?? []);
 const commerceCloudCommands = new Set(commerceCore.cloudCommandTypes ?? []);
 

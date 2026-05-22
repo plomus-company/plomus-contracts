@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "source": "plomus-distribution-ai-os",
   "sourceImportedAt": "2026-05-21T23:16:05.166Z",
-  "builtOnCommerce": "contracts/commerce/v1",
+  "builtOnCommerce": "contracts/commerce",
   "partnerTypes": [
     "WHOLESALE_BUYER",
     "RETAIL_BUYER",
