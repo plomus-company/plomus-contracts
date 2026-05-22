@@ -34,7 +34,7 @@ p("# Benchmark Results", "");
 p("`scripts/summary-benchmarks.mjs`가 `contracts/benchmarks/`에서 생성합니다. 수정은 계약 데이터에서 하고 재생성하세요.", "");
 
 p("## Methodology", "");
-p("- **대상(targets)**: 실행 가능한 계약 = 스킬 + 커머스 워크플로. 각 타깃은 실재 계약을 참조합니다.");
+p("- **대상(targets)**: 실행 가능한 계약 = 스킬 · 커머스 워크플로 · gameops 에이전트/playbook · distribution preset. 각 타깃은 실재 계약(`kind`별 skills-catalog·commerce-workflows·gameops-agents·gameops-playbooks·distribution-presets)을 참조합니다.");
 p("- **measured**: 실제 모델 실행 측정값 (`tools/run-experiment.mjs`). 지연은 1회성 모델 로드를 제외한 추론 시간, 처리량은 출력토큰/평가시간, 비용은 모델 가격(로컬은 0). `accuracy`는 골드셋이 없어 미측정.");
 p("- **illustrative**: 결정론적 합성 시드 (`tools/generate-benchmarks.mjs`). 구조 시연/회귀 베이스라인용이며 실측이 아닙니다.");
 p("");

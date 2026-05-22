@@ -4,7 +4,7 @@
 
 ## Methodology
 
-- **대상(targets)**: 실행 가능한 계약 = 스킬 + 커머스 워크플로. 각 타깃은 실재 계약을 참조합니다.
+- **대상(targets)**: 실행 가능한 계약 = 스킬 · 커머스 워크플로 · gameops 에이전트/playbook · distribution preset. 각 타깃은 실재 계약(`kind`별 skills-catalog·commerce-workflows·gameops-agents·gameops-playbooks·distribution-presets)을 참조합니다.
 - **measured**: 실제 모델 실행 측정값 (`tools/run-experiment.mjs`). 지연은 1회성 모델 로드를 제외한 추론 시간, 처리량은 출력토큰/평가시간, 비용은 모델 가격(로컬은 0). `accuracy`는 골드셋이 없어 미측정.
 - **illustrative**: 결정론적 합성 시드 (`tools/generate-benchmarks.mjs`). 구조 시연/회귀 베이스라인용이며 실측이 아닙니다.
 
@@ -12,20 +12,20 @@
 
 | modelId | vendor | status | context | in $/Mtok | out $/Mtok |
 | --- | --- | --- | --- | --- | --- |
+| `qwen-2.5-72b` | alibaba | balanced | 131072 | 0.4 | 0.4 |
+| `qwen3.6-27b` | alibaba | balanced | 262144 | 0 | 0 |
+| `qwen-2.5-0.5b` | alibaba | fast | 32768 | 0 | 0 |
 | `claude-opus-4-7` | anthropic | frontier | 200000 | 15 | 75 |
 | `claude-sonnet-4-6` | anthropic | balanced | 200000 | 3 | 15 |
 | `claude-haiku-4-5` | anthropic | fast | 200000 | 1 | 5 |
-| `gpt-4o` | openai | frontier | 128000 | 2.5 | 10 |
-| `gpt-4o-mini` | openai | fast | 128000 | 0.15 | 0.6 |
-| `o3-mini` | openai | balanced | 200000 | 1.1 | 4.4 |
+| `deepseek-v3` | deepseek | balanced | 128000 | 0.27 | 1.1 |
 | `gemini-2.5-pro` | google | frontier | 1000000 | 1.25 | 10 |
 | `gemini-2.5-flash` | google | fast | 1000000 | 0.3 | 2.5 |
 | `llama-3.3-70b` | meta | balanced | 128000 | 0.6 | 0.6 |
-| `qwen-2.5-72b` | alibaba | balanced | 131072 | 0.4 | 0.4 |
-| `deepseek-v3` | deepseek | balanced | 128000 | 0.27 | 1.1 |
 | `mixtral-8x22b` | mistral | fast | 64000 | 2 | 6 |
-| `qwen3.6-27b` | alibaba | balanced | 262144 | 0 | 0 |
-| `qwen-2.5-0.5b` | alibaba | fast | 32768 | 0 | 0 |
+| `gpt-4o` | openai | frontier | 128000 | 2.5 | 10 |
+| `gpt-4o-mini` | openai | fast | 128000 | 0.15 | 0.6 |
+| `o3-mini` | openai | balanced | 200000 | 1.1 | 4.4 |
 
 _가격은 indicative(참고용)이며 로컬 모델은 0._
 
@@ -52,8 +52,8 @@ Qwen2.5 0.5B (Ollama) · 측정 타깃 107개.
 
 | domain | n | 지연 p50(ms) | 처리량(tps) | 입력tok | 출력tok | 성공률(%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| skills | 86 | 538.51 | 522.57 | 135.43 | 187.35 | 100 |
 | commerce | 21 | 730.75 | 496.32 | 99.57 | 236.48 | 100 |
+| skills | 86 | 538.51 | 522.57 | 135.43 | 187.35 | 100 |
 
 ### Skills by category
 
@@ -343,15 +343,6 @@ Qwen3.6 27B (Ollama Q4_K_M) · 측정 타깃 114개.
 
 _합성 시드 — 절대 비교가 아닌 구조/회귀 참조용._
 
-### skills
-
-| model | 비용($/run) | 지연 p50(ms) | 정확도(%) | 성공률(%) |
-| --- | --- | --- | --- | --- |
-| `claude-opus-4-7` | 0.10417 | 15478.23 | 90.01 | 98.24 |
-| `gpt-4o` | 0.01513 | 10822.59 | 85.87 | 97.29 |
-| `gemini-2.5-pro` | 0.01247 | 9929.07 | 84.9 | 96.32 |
-| `deepseek-v3` | 0.00163 | 13805.8 | 81.2 | 95.28 |
-
 ### commerce
 
 | model | 비용($/run) | 지연 p50(ms) | 정확도(%) | 성공률(%) |
@@ -360,6 +351,15 @@ _합성 시드 — 절대 비교가 아닌 구조/회귀 참조용._
 | `gpt-4o` | 0.02003 | 14203.19 | 86.23 | 97.19 |
 | `gemini-2.5-pro` | 0.01796 | 14465.24 | 85.11 | 96.42 |
 | `deepseek-v3` | 0.00224 | 19135.38 | 81.46 | 95.29 |
+
+### distribution
+
+| model | 비용($/run) | 지연 p50(ms) | 정확도(%) | 성공률(%) |
+| --- | --- | --- | --- | --- |
+| `claude-opus-4-7` | 0.12829 | 21994 | 91.2 | 97.7 |
+| `gpt-4o` | 0.01087 | 6656 | 88 | 97.5 |
+| `gemini-2.5-pro` | 0.01453 | 12850 | 86.8 | 96.3 |
+| `deepseek-v3` | 0.00166 | 13357 | 80.5 | 95 |
 
 ### gameops
 
@@ -370,12 +370,12 @@ _합성 시드 — 절대 비교가 아닌 구조/회귀 참조용._
 | `gemini-2.5-pro` | 0.01545 | 12311.67 | 85.53 | 96.03 |
 | `deepseek-v3` | 0.00179 | 15176 | 81.23 | 95.57 |
 
-### distribution
+### skills
 
 | model | 비용($/run) | 지연 p50(ms) | 정확도(%) | 성공률(%) |
 | --- | --- | --- | --- | --- |
-| `claude-opus-4-7` | 0.12829 | 21994 | 91.2 | 97.7 |
-| `gpt-4o` | 0.01087 | 6656 | 88 | 97.5 |
-| `gemini-2.5-pro` | 0.01453 | 12850 | 86.8 | 96.3 |
-| `deepseek-v3` | 0.00166 | 13357 | 80.5 | 95 |
+| `claude-opus-4-7` | 0.10417 | 15478.23 | 90.01 | 98.24 |
+| `gpt-4o` | 0.01513 | 10822.59 | 85.87 | 97.29 |
+| `gemini-2.5-pro` | 0.01247 | 9929.07 | 84.9 | 96.32 |
+| `deepseek-v3` | 0.00163 | 13805.8 | 81.2 | 95.28 |
 
