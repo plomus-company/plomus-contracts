@@ -28,6 +28,11 @@ const skills = readJson("contracts/skills/v1/catalog.json").skills ?? [];
 const routes = readJson("contracts/skills/v1/proxy-routes.json").routes ?? [];
 const credentials = readJson("contracts/skills/v1/credentials.json").credentials ?? [];
 const sources = readJson("contracts/skills/v1/data-sources.json").sources ?? [];
+const categoryGroups = readJson("contracts/skills/v1/categories.json").categories ?? [];
+const upstreamRegistry = readJson("contracts/skills/v1/upstreams.json").upstreams ?? [];
+const packages = readJson("contracts/skills/v1/packages.json").packages ?? [];
+const mcp = readJson("contracts/skills/v1/mcp.json");
+const proxyConfig = readJson("contracts/skills/v1/proxy.json");
 
 const categories = base.categories ?? [];
 const locales = base.locales ?? [];
@@ -77,6 +82,8 @@ for (const skill of skills) {
   requireString(scope, skill.license, "license");
 
   if (!categories.includes(skill.category)) fail(scope, `Unknown category: ${skill.category}`);
+  requireString(scope, skill.subcategory, "subcategory");
+  if (typeof skill.usesMcp !== "boolean") fail(scope, "usesMcp must be a boolean.");
   if (!locales.includes(skill.locale)) fail(scope, `Unknown locale: ${skill.locale}`);
   if (!phases.includes(skill.phase)) fail(scope, `Unknown phase: ${skill.phase}`);
   if (!implementationTypes.includes(skill.implementationType)) {
@@ -178,6 +185,65 @@ const unusedCategories = categories.filter((c) => !usedCategories.has(c));
 if (unusedCategories.length) {
   fail("base", `Categories defined but unused: ${unusedCategories.join(", ")}`);
 }
+
+// ---- categories.json: canonical + subcategory grouping ----
+assertUnique("categories", "category", categoryGroups.map((g) => g.category));
+const subcatByCat = new Map(categoryGroups.map((g) => [g.category, new Set(g.subcategories ?? [])]));
+const missingCatGroups = diff(categories, categoryGroups.map((g) => g.category));
+if (missingCatGroups.length) fail("categories", `categories.json missing canonical: ${missingCatGroups.join(", ")}`);
+for (const g of categoryGroups) {
+  if (!categories.includes(g.category)) fail(`category:${g.category}`, "not in base.categories.");
+}
+for (const skill of skills) {
+  const set = subcatByCat.get(skill.category);
+  if (set && !set.has(skill.subcategory)) {
+    fail(`skill:${skill.skillId}`, `subcategory '${skill.subcategory}' not listed under category '${skill.category}' in categories.json.`);
+  }
+}
+
+// ---- upstreams.json: registry resolves against base + credentials ----
+assertUnique("upstreams", "upstreamId", upstreamRegistry.map((u) => u.upstreamId));
+if (diff(upstreams, upstreamRegistry.map((u) => u.upstreamId)).length) fail("upstreams", "upstreams.json must cover every base.upstreams id.");
+for (const u of upstreamRegistry) {
+  const scope = `upstream:${u.upstreamId ?? "(missing)"}`;
+  if (!upstreams.includes(u.upstreamId)) fail(scope, `not in base.upstreams: ${u.upstreamId}`);
+  if (typeof u.requiresKey !== "boolean") fail(scope, "requiresKey must be a boolean.");
+  if (u.credential && !envVarSet.has(u.credential)) fail(scope, `credential not in credentials: ${u.credential}`);
+  if (u.requiresKey !== Boolean(u.credential)) fail(scope, "requiresKey must match presence of credential.");
+}
+
+// ---- packages.json: npm-package skills ----
+const npmSkillIds = new Set(skills.filter((s) => s.implementationType === "npm-package").map((s) => s.skillId));
+assertUnique("packages", "skillId", packages.map((p) => p.skillId));
+for (const p of packages) {
+  const scope = `package:${p.skillId ?? "(missing)"}`;
+  if (!skillIdSet.has(p.skillId)) fail(scope, `unknown skillId: ${p.skillId}`);
+  if (!npmSkillIds.has(p.skillId)) fail(scope, `skill is not implementationType npm-package: ${p.skillId}`);
+  requireString(scope, p.packageName, "packageName");
+}
+const missingPkgs = [...npmSkillIds].filter((id) => !packages.some((p) => p.skillId === id));
+if (missingPkgs.length) fail("packages", `npm-package skills missing from packages.json: ${missingPkgs.join(", ")}`);
+
+// ---- mcp.json: named servers + mcpSkills consistent with catalog.usesMcp ----
+const mcpSkillsCatalog = new Set(skills.filter((s) => s.usesMcp).map((s) => s.skillId));
+for (const server of mcp.servers ?? []) {
+  const scope = `mcp:${server.server ?? "(missing)"}`;
+  requireString(scope, server.server, "server");
+  for (const id of requireArray(scope, server.skills, "skills")) {
+    if (!skillIdSet.has(id)) fail(scope, `unknown skill: ${id}`);
+    else if (!mcpSkillsCatalog.has(id)) fail(scope, `skill '${id}' not marked usesMcp in catalog.`);
+  }
+}
+const mcpSkillsList = mcp.mcpSkills ?? [];
+if (diff([...mcpSkillsCatalog], mcpSkillsList).length || diff(mcpSkillsList, [...mcpSkillsCatalog]).length) {
+  fail("mcp", "mcpSkills must match catalog skills with usesMcp=true.");
+}
+
+// ---- proxy.json: config + upstream base urls ----
+const unknownProxyUpstreams = diff(Object.keys(proxyConfig.upstreamBaseUrls ?? {}), upstreams);
+if (unknownProxyUpstreams.length) fail("proxy", `upstreamBaseUrls has unknown upstreams: ${unknownProxyUpstreams.join(", ")}`);
+if (typeof proxyConfig.cacheTtlMs !== "number") fail("proxy", "cacheTtlMs must be a number.");
+if (typeof proxyConfig.rateLimit?.max !== "number") fail("proxy", "rateLimit.max must be a number.");
 
 if (failures.length) {
   console.error("skills contract validation failed");

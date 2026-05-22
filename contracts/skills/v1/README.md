@@ -12,7 +12,19 @@ catalog.json ── proxy-routes.json ── credentials.json
    └──────────── data-sources.json (skillId·upstream)
 ```
 
-현재 규모: **스킬 86 · 프록시 라우트 41 · credential 20 · 카테고리 15 · upstream 18**.
+현재 규모: **스킬 86 · 프록시 라우트 41 · credential 20 · 카테고리 15(원시 subcategory 37) · upstream 18 · npm 패키지 22 · MCP 11스킬**.
+
+### 세분화 파일
+
+| 파일 | 내용 |
+|---|---|
+| `categories.json` | canonical 카테고리(15) → 원시 subcategory(37) 그룹핑 |
+| `upstreams.json` | upstream 레지스트리(18) — baseUrl·credential·requiresKey·proxyManaged |
+| `packages.json` | npm 패키지(22) — skillId↔packageName |
+| `mcp.json` | MCP 명명 서버(4: korean-law/korea-stock/real-estate/coupang) + usesMcp 스킬(11) |
+| `proxy.json` | k-skill-proxy 설정 — host/port/cacheTtl/rateLimit + upstream base URL |
+
+catalog의 각 스킬에는 `subcategory`(원시 카테고리)와 `usesMcp`가 추가됩니다(검증기가 `subcategory ∈ categories.json` 강제).
 
 ---
 

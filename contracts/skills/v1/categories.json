@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "note": "Canonical category -> raw k-skill subcategories consolidated under it.",
+  "categories": [
+    {
+      "category": "commerce",
+      "subcategories": [
+        "automotive",
+        "jobs",
+        "marketplace",
+        "retail"
+      ]
+    },
+    {
+      "category": "finance",
+      "subcategories": [
+        "finance"
+      ]
+    },
+    {
+      "category": "real-estate",
+      "subcategories": [
+        "housing",
+        "real-estate"
+      ]
+    },
+    {
+      "category": "travel",
+      "subcategories": [
+        "travel"
+      ]
+    },
+    {
+      "category": "mobility",
+      "subcategories": [
+        "logistics",
+        "transit",
+        "transport"
+      ]
+    },
+    {
+      "category": "legal",
+      "subcategories": [
+        "ip",
+        "legal",
+        "legal-documents"
+      ]
+    },
+    {
+      "category": "government",
+      "subcategories": [
+        "business",
+        "civic",
+        "data",
+        "education"
+      ]
+    },
+    {
+      "category": "health",
+      "subcategories": [
+        "beauty",
+        "health",
+        "public-health"
+      ]
+    },
+    {
+      "category": "food",
+      "subcategories": [
+        "food",
+        "lifestyle",
+        "utility"
+      ]
+    },
+    {
+      "category": "documents",
+      "subcategories": [
+        "documents"
+      ]
+    },
+    {
+      "category": "writing",
+      "subcategories": [
+        "writing"
+      ]
+    },
+    {
+      "category": "sports",
+      "subcategories": [
+        "sports"
+      ]
+    },
+    {
+      "category": "media",
+      "subcategories": [
+        "entertainment",
+        "history",
+        "information",
+        "lifestyle",
+        "news",
+        "research"
+      ]
+    },
+    {
+      "category": "utility",
+      "subcategories": [
+        "convenience",
+        "utility",
+        "weather"
+      ]
+    },
+    {
+      "category": "tooling",
+      "subcategories": [
+        "messaging",
+        "setup",
+        "tooling"
+      ]
+    }
+  ]
+}

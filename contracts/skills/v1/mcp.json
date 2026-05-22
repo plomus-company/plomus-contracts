@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "servers": [
+    {
+      "server": "korean-law-mcp",
+      "skills": [
+        "korean-law-search"
+      ]
+    },
+    {
+      "server": "korea-stock-mcp",
+      "skills": [
+        "korean-stock-search"
+      ]
+    },
+    {
+      "server": "real-estate-mcp",
+      "skills": [
+        "real-estate-search"
+      ]
+    },
+    {
+      "server": "coupang-partners-mcp",
+      "skills": [
+        "coupang-product-search"
+      ]
+    }
+  ],
+  "mcpSkills": [
+    "catchtable-sniper",
+    "coupang-product-search",
+    "hola-poke-yeoksam",
+    "k-skill-setup",
+    "korean-cinema-search",
+    "korean-law-search",
+    "korean-stock-search",
+    "myrealtrip-search",
+    "olive-young-search",
+    "real-estate-search",
+    "used-car-price-search"
+  ]
+}

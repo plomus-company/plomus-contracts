@@ -249,6 +249,53 @@ const PROXY_ROUTES = [
   { routeId: "naver-shopping-search", path: "/v1/naver-shopping/search", method: "GET", upstream: "naver", credential: "NAVER_SEARCH_CLIENT_ID", cacheable: true, skills: ["naver-shopping-search"] },
 ];
 
+// Skills that drive an MCP server (named servers are listed in MCP_SERVERS;
+// the rest use a generic browser/HTTP MCP and are flagged via usesMcp only).
+const MCP_SKILLS = new Set([
+  "korean-cinema-search", "k-skill-setup", "catchtable-sniper", "olive-young-search",
+  "used-car-price-search", "hola-poke-yeoksam", "korean-law-search", "korean-stock-search",
+  "real-estate-search", "myrealtrip-search", "coupang-product-search",
+]);
+const MCP_SERVERS = [
+  { server: "korean-law-mcp", skills: ["korean-law-search"] },
+  { server: "korea-stock-mcp", skills: ["korean-stock-search"] },
+  { server: "real-estate-mcp", skills: ["real-estate-search"] },
+  { server: "coupang-partners-mcp", skills: ["coupang-product-search"] },
+];
+
+// Upstream base URLs (k-skill-proxy server.js + docs/sources.md). null = no single
+// stable base URL (session/scrape-based).
+const UPSTREAM_BASE_URLS = {
+  airkorea: "http://apis.data.go.kr",
+  "data-go-kr": "https://apis.data.go.kr",
+  kma: "https://apis.data.go.kr",
+  "seoul-open-data": "http://openapi.seoul.go.kr",
+  hrfco: "https://api.hrfco.go.kr",
+  opinet: "https://www.opinet.co.kr",
+  data4library: "https://data4library.kr/api",
+  "foodsafety-korea": "https://openapi.foodsafetykorea.go.kr",
+  neis: "https://open.neis.go.kr",
+  krx: "http://data-dbg.krx.co.kr",
+  kakao: "https://dapi.kakao.com",
+  kosis: "https://kosis.kr",
+  naver: "https://openapi.naver.com",
+  "blue-ribbon": "https://www.bluer.co.kr",
+  dart: "https://opendart.fss.or.kr",
+  kipris: "https://plus.kipris.or.kr",
+  odsay: "https://api.odsay.com",
+  lolesports: "https://esports-api.lolesports.com",
+};
+
+// k-skill-proxy default config (server.js buildConfig).
+const PROXY_CONFIG = {
+  name: "k-skill-proxy",
+  host: "127.0.0.1",
+  port: 4020,
+  cacheTtlMs: 300000,
+  rateLimit: { windowMs: 60000, max: 60 },
+  policy: "free APIs only; routed only when the upstream requires a key (AGENTS.md inclusion rule)",
+};
+
 // ---- helpers ----
 function readFrontmatter(file) {
   const text = fs.readFileSync(file, "utf8");
@@ -316,16 +363,19 @@ for (const skillId of skillIds) {
   const proxyRoutes = PROXY_ROUTES.filter((r) => r.skills.includes(skillId)).map((r) => r.routeId);
   const requiredEnv = REQUIRED_ENV[skillId] ?? [];
 
+  const subcategory = meta("category") ?? CATEGORY_OF[skillId];
   skills.push({
     skillId,
     description: top("description") ?? "",
     category: CATEGORY_OF[skillId],
+    subcategory,
     locale: meta("locale") ?? "ko-KR",
     phase: meta("phase") ?? "v1",
     license: top("license") ?? "MIT",
     implementationType,
     package: hasPackage ? `packages/${skillId}` : null,
     usesProxy,
+    usesMcp: MCP_SKILLS.has(skillId),
     proxyRoutes,
     requiredEnv,
   });
@@ -356,11 +406,47 @@ const base = {
   upstreams: UPSTREAMS,
 };
 
+// ---- subdivisions ----
+// categories: canonical -> the raw subcategories observed under it
+const subcatByCanonical = {};
+for (const skill of skills) {
+  (subcatByCanonical[skill.category] ??= new Set()).add(skill.subcategory);
+}
+const categories = CATEGORIES.map((category) => ({
+  category,
+  subcategories: [...(subcatByCanonical[category] ?? new Set())].sort(),
+}));
+
+// packages: npm-package skills (packages/<id>)
+const packages = skills
+  .filter((s) => s.implementationType === "npm-package")
+  .map((s) => ({ skillId: s.skillId, packageName: s.skillId, dir: `packages/${s.skillId}` }));
+
+// upstreams: enum -> registry (baseUrl, credential, requiresKey, proxyManaged)
+const credByUpstream = {};
+for (const c of CREDENTIALS) (credByUpstream[c.upstream] ??= c);
+const upstreamRegistry = UPSTREAMS.map((upstreamId) => {
+  const cred = credByUpstream[upstreamId];
+  return {
+    upstreamId,
+    baseUrl: UPSTREAM_BASE_URLS[upstreamId] ?? null,
+    requiresKey: Boolean(cred),
+    credential: cred?.envVar ?? null,
+    proxyManaged: cred?.proxyManaged ?? false,
+  };
+});
+
 writeJson("contracts/skills/v1/base.json", base);
 writeJson("contracts/skills/v1/catalog.json", { schemaVersion: "1.0.0", skills });
 writeJson("contracts/skills/v1/proxy-routes.json", { schemaVersion: "1.0.0", routes: PROXY_ROUTES });
 writeJson("contracts/skills/v1/credentials.json", { schemaVersion: "1.0.0", credentials: CREDENTIALS });
 writeJson("contracts/skills/v1/data-sources.json", { schemaVersion: "1.0.0", sources });
+writeJson("contracts/skills/v1/categories.json", { schemaVersion: "1.0.0", note: "Canonical category -> raw k-skill subcategories consolidated under it.", categories });
+writeJson("contracts/skills/v1/upstreams.json", { schemaVersion: "1.0.0", upstreams: upstreamRegistry });
+writeJson("contracts/skills/v1/packages.json", { schemaVersion: "1.0.0", packages });
+writeJson("contracts/skills/v1/mcp.json", { schemaVersion: "1.0.0", servers: MCP_SERVERS, mcpSkills: skills.filter((s) => s.usesMcp).map((s) => s.skillId) });
+writeJson("contracts/skills/v1/proxy.json", { schemaVersion: "1.0.0", ...PROXY_CONFIG, upstreamBaseUrls: UPSTREAM_BASE_URLS });
 
 console.log(`imported ${skills.length} skills from ${kSkillRoot}`);
-console.log(`  proxy routes: ${PROXY_ROUTES.length}, credentials: ${CREDENTIALS.length}, categories: ${CATEGORIES.length}`);
+console.log(`  routes ${PROXY_ROUTES.length}, creds ${CREDENTIALS.length}, categories ${CATEGORIES.length} (subcats ${new Set(skills.map((s) => s.subcategory)).size})`);
+console.log(`  packages ${packages.length}, upstreams ${upstreamRegistry.length}, mcp servers ${MCP_SERVERS.length}/${MCP_SKILLS.size} skills`);

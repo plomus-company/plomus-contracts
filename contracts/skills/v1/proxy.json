@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "k-skill-proxy",
+  "host": "127.0.0.1",
+  "port": 4020,
+  "cacheTtlMs": 300000,
+  "rateLimit": {
+    "windowMs": 60000,
+    "max": 60
+  },
+  "policy": "free APIs only; routed only when the upstream requires a key (AGENTS.md inclusion rule)",
+  "upstreamBaseUrls": {
+    "airkorea": "http://apis.data.go.kr",
+    "data-go-kr": "https://apis.data.go.kr",
+    "kma": "https://apis.data.go.kr",
+    "seoul-open-data": "http://openapi.seoul.go.kr",
+    "hrfco": "https://api.hrfco.go.kr",
+    "opinet": "https://www.opinet.co.kr",
+    "data4library": "https://data4library.kr/api",
+    "foodsafety-korea": "https://openapi.foodsafetykorea.go.kr",
+    "neis": "https://open.neis.go.kr",
+    "krx": "http://data-dbg.krx.co.kr",
+    "kakao": "https://dapi.kakao.com",
+    "kosis": "https://kosis.kr",
+    "naver": "https://openapi.naver.com",
+    "blue-ribbon": "https://www.bluer.co.kr",
+    "dart": "https://opendart.fss.or.kr",
+    "kipris": "https://plus.kipris.or.kr",
+    "odsay": "https://api.odsay.com",
+    "lolesports": "https://esports-api.lolesports.com"
+  }
+}

@@ -7,7 +7,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | 도메인 | 위치 | 출처 | 규모 | 상세 문서 |
 |---|---|---|---|---|
 | **Commerce** | `contracts/commerce/v1/` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/commerce/v1/README.md](contracts/commerce/v1/README.md) |
-| **Skills** | `contracts/skills/v1/` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15 | [contracts/skills/v1/README.md](contracts/skills/v1/README.md) |
+| **Skills** | `contracts/skills/v1/` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15(subcat 37) · upstream 18 · package 22 · mcp 11 | [contracts/skills/v1/README.md](contracts/skills/v1/README.md) |
 | **Benchmarks** | `contracts/benchmarks/v1/` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks/v1/README.md](contracts/benchmarks/v1/README.md) |
 | **Distribution** | `contracts/distribution/v1/` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution/v1/README.md](contracts/distribution/v1/README.md) |
 | **Protocol** | `contracts/protocol/v1/` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [contracts/protocol/v1/README.md](contracts/protocol/v1/README.md) |
@@ -39,6 +39,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `proxy-routes.json` | `k-skill-proxy` 라우트 allowlist(41) — path, upstream, credential, 소비 스킬 |
 | `credentials.json` | API 키/세션 레지스트리(20) — 프록시 보관 15 + 사용자측 5 |
 | `data-sources.json` | 스킬별 외부 의존(86) — upstream, 인증 방식 |
+| 세분화 | `categories.json`(subcat 37)·`upstreams.json`(18)·`packages.json`(22)·`mcp.json`(11)·`proxy.json` |
 
 ### Benchmarks (`contracts/benchmarks/v1/`)
 

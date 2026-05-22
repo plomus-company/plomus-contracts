@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "airkorea",
+      "baseUrl": "http://apis.data.go.kr",
+      "requiresKey": true,
+      "credential": "AIR_KOREA_OPEN_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "kma",
+      "baseUrl": "https://apis.data.go.kr",
+      "requiresKey": true,
+      "credential": "KMA_OPEN_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "seoul-open-data",
+      "baseUrl": "http://openapi.seoul.go.kr",
+      "requiresKey": true,
+      "credential": "SEOUL_OPEN_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "hrfco",
+      "baseUrl": "https://api.hrfco.go.kr",
+      "requiresKey": true,
+      "credential": "HRFCO_OPEN_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "opinet",
+      "baseUrl": "https://www.opinet.co.kr",
+      "requiresKey": true,
+      "credential": "OPINET_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "data-go-kr",
+      "baseUrl": "https://apis.data.go.kr",
+      "requiresKey": true,
+      "credential": "DATA_GO_KR_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "data4library",
+      "baseUrl": "https://data4library.kr/api",
+      "requiresKey": true,
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "foodsafety-korea",
+      "baseUrl": "https://openapi.foodsafetykorea.go.kr",
+      "requiresKey": true,
+      "credential": "FOODSAFETYKOREA_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "neis",
+      "baseUrl": "https://open.neis.go.kr",
+      "requiresKey": true,
+      "credential": "KEDU_INFO_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "krx",
+      "baseUrl": "http://data-dbg.krx.co.kr",
+      "requiresKey": true,
+      "credential": "KRX_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "kakao",
+      "baseUrl": "https://dapi.kakao.com",
+      "requiresKey": true,
+      "credential": "KAKAO_REST_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "kosis",
+      "baseUrl": "https://kosis.kr",
+      "requiresKey": true,
+      "credential": "KOSIS_API_KEY",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "naver",
+      "baseUrl": "https://openapi.naver.com",
+      "requiresKey": true,
+      "credential": "NAVER_SEARCH_CLIENT_ID",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "blue-ribbon",
+      "baseUrl": "https://www.bluer.co.kr",
+      "requiresKey": true,
+      "credential": "BLUE_RIBBON_SESSION_ID",
+      "proxyManaged": true
+    },
+    {
+      "upstreamId": "dart",
+      "baseUrl": "https://opendart.fss.or.kr",
+      "requiresKey": true,
+      "credential": "API_K_DART",
+      "proxyManaged": false
+    },
+    {
+      "upstreamId": "kipris",
+      "baseUrl": "https://plus.kipris.or.kr",
+      "requiresKey": true,
+      "credential": "KIPRIS_PLUS_API_KEY",
+      "proxyManaged": false
+    },
+    {
+      "upstreamId": "odsay",
+      "baseUrl": "https://api.odsay.com",
+      "requiresKey": true,
+      "credential": "ODSAY_API_KEY",
+      "proxyManaged": false
+    },
+    {
+      "upstreamId": "lolesports",
+      "baseUrl": "https://esports-api.lolesports.com",
+      "requiresKey": true,
+      "credential": "LOLESPORTS_API_KEY",
+      "proxyManaged": false
+    }
+  ]
+}

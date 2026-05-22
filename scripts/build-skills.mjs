@@ -18,6 +18,11 @@ const registry = {
     proxyRoutes: readJson("contracts/skills/v1/proxy-routes.json").routes ?? [],
     credentials: readJson("contracts/skills/v1/credentials.json").credentials ?? [],
     dataSources: readJson("contracts/skills/v1/data-sources.json").sources ?? [],
+    categories: readJson("contracts/skills/v1/categories.json").categories ?? [],
+    upstreams: readJson("contracts/skills/v1/upstreams.json").upstreams ?? [],
+    packages: readJson("contracts/skills/v1/packages.json").packages ?? [],
+    mcp: readJson("contracts/skills/v1/mcp.json"),
+    proxy: readJson("contracts/skills/v1/proxy.json"),
   },
 };
 
