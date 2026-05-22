@@ -99,7 +99,7 @@ JS가 아니어도 됩니다 — Python·Go 등은 `dist/plomus-tool.json`(또�
 
 ### 3. discovery & 자기서술 형태
 
-`@plomus/contracts/index`(`plomus-contracts-index.json`)는 각 role의 `{ artifact, domains, dependsOn, folders }`를 담아 한 파일로 전체 구성·의존 그래프를 발견하게 합니다. 각 role 번들은 자기서술적입니다: `{ schemaVersion, name, type, generatedAt, members }`. (benchmarks는 측정층이라 `{ …, enums, contracts }` 형태.)
+`@plomus/contracts/index`(`plomus-contracts-index.json`)는 각 role의 `{ artifact, domains, dependsOn, folders }`를 담아 한 파일로 전체 구성·의존 그래프를 발견하게 합니다. **모든 번들은 `{ schemaVersion, name, type, generatedAt }`를 공유**하며, role 번들은 `members`(`members.<domain>.contracts.<x>`)를, benchmarks는 측정층이라 `enums`·`contracts`를 추가로 가집니다.
 
 ### 4. 버전 고정 & 호환성 (consumer가 지켜야 할 것)
 

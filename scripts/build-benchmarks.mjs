@@ -5,6 +5,7 @@ const base = readDoc("benchmarks-base");
 const registry = {
   schemaVersion: "1.0.0",
   name: "plomus-benchmarks",
+  type: "benchmarks",
   generatedAt: new Date().toISOString(),
   pricingAsOf: base.pricingAsOf ?? null,
   enums: {
