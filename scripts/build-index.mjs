@@ -12,11 +12,14 @@ const TYPES = [
   { type: "foundation", artifact: "dist/plomus-foundation.json", domains: ["commerce", "distribution", "platform"], dependsOn: [] },
   { type: "tool", artifact: "dist/plomus-tool.json", domains: ["skills", "protocol", "gameops"], dependsOn: ["foundation"] },
   { type: "governance", artifact: "dist/plomus-governance.json", domains: ["governance", "commerce", "distribution"], dependsOn: ["foundation", "benchmarks"] },
-  { type: "agent", artifact: "dist/plomus-agent.json", domains: ["gameops"], dependsOn: ["governance", "foundation"] },
+  { type: "agent", artifact: "dist/plomus-agent.json", domains: ["gameops"], dependsOn: ["governance"] },
   { type: "task", artifact: "dist/plomus-task.json", domains: ["commerce", "distribution"], dependsOn: ["foundation", "governance"] },
-  { type: "transaction", artifact: "dist/plomus-transaction.json", domains: ["transaction"], dependsOn: ["governance", "foundation"] },
-  { type: "legal", artifact: "dist/plomus-legal.json", domains: ["legal"], dependsOn: ["foundation"] },
-  { type: "benchmarks", artifact: "dist/plomus-benchmarks.json", domains: ["benchmarks"], dependsOn: ["tool", "task"] },
+  { type: "transaction", artifact: "dist/plomus-transaction.json", domains: ["transaction"], dependsOn: ["governance"] },
+  { type: "legal", artifact: "dist/plomus-legal.json", domains: ["legal"], dependsOn: [] },
+  // benchmarks measures executable contracts across tool/task/agent — so the graph
+  // is not a strict DAG (governance ranks via benchmarks; benchmarks measures gameops
+  // which depends on governance). dependsOn reflects real references, cycle included.
+  { type: "benchmarks", artifact: "dist/plomus-benchmarks.json", domains: ["benchmarks"], dependsOn: ["tool", "task", "agent"] },
 ];
 
 // Every role lives under contracts/<role>/.

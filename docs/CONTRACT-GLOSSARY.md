@@ -57,13 +57,15 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 ### 3. role 의존 그래프 (모두 읽기 전용 교차참조)
 
 ```
-   모든 role ───────────▶ foundation        (공유 어휘 참조)
-   task ────────────────▶ governance        (preset이 rule·workflow 참조)
-   agent ───────────────▶ governance        (playbook risk·approval 해소)
-   transaction ─────────▶ governance        (예산 승인 게이트·riskLevel 해소)
-   governance ──────────▶ benchmarks        (risk→model status 해소)
-   benchmarks ──────────▶ tool · task       (skill·workflow를 측정 대상으로)
+   tool · task · governance ─▶ foundation   (commerce-base·platform 어휘 참조)
+   task ────────────────────▶ governance    (preset이 rule·workflow 참조)
+   agent ───────────────────▶ governance    (playbook risk·approval 해소)
+   transaction ─────────────▶ governance    (예산 승인 게이트·riskLevel 해소)
+   governance ──────────────▶ benchmarks    (risk→model status 해소)
+   benchmarks ──────────────▶ tool·task·agent (skill·workflow·gameops를 측정 대상으로)
 ```
+
+> legal은 교차참조 없음(자체 완결). gameops는 tool(adapter)+agent에 분산되어 `gameops-base`를 공유합니다. benchmarks↔governance↔agent는 순환입니다 — governance가 benchmarks 모델 랭킹으로 라우팅하고, benchmarks는 그 governance에 의존하는 gameops까지 측정하므로 strict DAG가 아닙니다(검증기는 실제 참조를 강제하며 통과).
 
 ## contract role (계약 역할) — 최상위 분류 축
 
@@ -141,17 +143,17 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 
 ### 3. 참조 관계 — "한 곳에 정의, 여러 곳서 참조" (읽기 전용)
 
-- **riskLevel · approvalPolicy** — governance(base)가 단일 출처 → transaction budget · agent playbook · workflow safety가 참조.
+- **riskLevel · approvalPolicy** — governance(base)가 단일 출처 → **transaction budget · agent playbook**이 참조(`validate:transaction`·`validate:cross-domain`이 강제). ⚠️ **workflow safety는 예외**: `riskLevel`이 commerce 자체 enum(대문자 `LOW`/`MEDIUM`/`HIGH`)이고 승인은 `requiresApprovalBeforeApply` 불리언이라 governance를 참조하지 않습니다.
 - **model status** — benchmarks가 출처 → governance model-routing이 참조.
-- **enum 어휘** — foundation이 출처 → 모든 role이 참조.
+- **enum 어휘** — foundation(commerce-base·platform)이 출처 → **tool · task · governance**가 참조. agent·transaction·legal은 foundation을 참조하지 않습니다(각자 자체 어휘 + governance 참조).
 - **frontmatter 상태 ↔ commerce core.statuses** — 교차 도메인 parity로 일치 강제(`validate:cross-domain`).
-- 의존 방향(비순환): foundation ← 전부 · governance ← benchmarks · agent·transaction → governance · benchmarks → tool·task.
+- 의존 방향: tool·task·governance → foundation · agent·transaction → governance · governance → benchmarks · benchmarks → tool·task·agent. legal은 교차참조 없음. benchmarks↔governance↔agent는 순환(측정 ↔ 라우팅).
 
 ### 4. 구성 관계 — 무엇이 무엇을 품나
 
 - **preset** ⊃ { review rule, workflow } — 온보딩이 활성화할 집합.
-- **workflow** → enabledRuleIds(review rule 참조) + **safety profile**(executionClass · riskLevel · externalAccess · sideEffects).
-- **benchmarks target** → skill | workflow — 측정점이 실행 가능한 계약을 가리킴.
+- **workflow** → enabledRuleIds(review rule 참조) + **safety profile**(executionClass · riskLevel · externalAccess · sideEffects). safety의 `riskLevel`·`executionClass`는 commerce 자체 enum이며 governance riskLevels와 별개입니다.
+- **benchmarks target** → skill | workflow | agent | playbook | preset — 측정점이 실행 가능한 계약을 가리킴(각각 skills-catalog · commerce-workflows · gameops-agents · gameops-playbooks · distribution-presets로 해소).
 - **skill** → proxy route → credential → upstream — 도구 호출 사슬.
 - **transaction budget** → approvalPolicy(governance) · **settlement** → businessUnit.
 - **legal document** → governsBusinessUnits · **disclosure** → documentType + businessUnit.
@@ -168,9 +170,9 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 | role | domain · dist 번들 | 집계(`members`) |
 | domain | role (다대다) | members로 합쳐짐 |
 | businessUnit / category | splitKey(2차 축) | role 내부 파일 분할 |
-| riskLevel · approvalPolicy | governance → transaction · agent · workflow | 단일 출처 참조 |
+| riskLevel · approvalPolicy | governance → transaction · agent (workflow는 commerce 자체 enum, 별개) | 단일 출처 참조 |
 | preset | review rule · workflow | 구성(⊃) |
-| benchmarks target | skill · workflow | 측정 참조 |
+| benchmarks target | skill · workflow · agent · playbook · preset | 측정 참조 |
 | skill | proxy route · credential · upstream | 호출 사슬 |
 | status | 호환성(patch/minor/major) | 생애주기 |
 

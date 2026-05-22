@@ -23,7 +23,7 @@
 
 ## 계약 도메인과 contract role
 
-저장소의 최상위 폴더는 **contract role**(tool·agent·task·governance·transaction·legal·foundation, + 측정층 benchmarks)이고, 각 계약은 그 안에서 출처 도메인을 드러내는 논리 id(`<domain>-<contract>`) 폴더로 유지됩니다([CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)). **검증은 출처 도메인 단위**(distribution·protocol·platform → commerce, benchmarks → skills·commerce, governance → benchmarks, gameops·transaction → governance의 읽기 전용 교차참조)이고, **빌드는 role 단위**로 dist 번들을 만듭니다. 따라서 한 출처 도메인이 여러 role 번들에 걸칠 수 있습니다.
+저장소의 최상위 폴더는 **contract role**(tool·agent·task·governance·transaction·legal·foundation, + 측정층 benchmarks)이고, 각 계약은 그 안에서 출처 도메인을 드러내는 논리 id(`<domain>-<contract>`) 폴더로 유지됩니다([CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)). **검증은 출처 도메인 단위**(distribution·protocol·platform → commerce, benchmarks → skills·commerce·gameops·distribution, governance → benchmarks, gameops·transaction → governance의 읽기 전용 교차참조)이고, **빌드는 role 단위**로 dist 번들을 만듭니다. 따라서 한 출처 도메인이 여러 role 번들에 걸칠 수 있습니다.
 
 | 도메인 | role 폴더 | dist 번들 | 현재 규모 |
 |---|---|---|---|
