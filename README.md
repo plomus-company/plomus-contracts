@@ -6,18 +6,18 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 ## 구조: contract role 축
 
-**최상위 폴더는 계약의 역할(contract role)**입니다(출처 도메인이 아니라). 모든 계약은 폴더이며(loose 파일 없음), 큰 컬렉션은 `<businessUnit>.json`(task·governance)·`<category>.json`(skill)으로 분할되고, 단일 객체 계약(base 등)은 폴더에 한 파일로 들어갑니다. 각 계약 폴더는 출처를 드러내는 논리 id(`<domain>-<contract>`)를 그대로 유지합니다(예: `governance/commerce-review-rules/`).
+모든 계약은 `contracts/` 한 폴더 아래 **계약의 역할(contract role)**별로 묶입니다 — `contracts/<role>/<domain>-<contract>/`(출처 도메인이 아니라 역할이 1차 축). role은 닫힌 집합(아래 8)이라 도메인이 늘어도 root 디렉토리는 늘지 않습니다. 모든 계약은 폴더이며(loose 파일 없음), 큰 컬렉션은 `<businessUnit>.json`(task·governance)·`<category>.json`(skill)으로 분할되고, 단일 객체 계약(base 등)은 폴더에 한 파일로 들어갑니다. 각 계약 폴더는 출처를 드러내는 논리 id(`<domain>-<contract>`)를 그대로 유지합니다(예: `contracts/governance/commerce-review-rules/`).
 
 | Role | 위치 | 의미 | 규모 | dist 번들 |
 |---|---|---|---|---|
-| **Tool** | `tool/` | 도구·API·와이어 호출 규격 | skill 86 · route 41 · credential 20 · upstream 18 · package 22 · endpoint 7 · payload 9 · adapter 7 | `plomus-tool.json` |
-| **Agent** | `agent/` | 에이전트 능력·정체성 | agent 4 · playbook 2 · intent 16 · field 6 | `plomus-agent.json` |
-| **Task** | `task/` | 위임 작업·워크플로 | preset 8 · workflow 21 · dist-preset 1 | `plomus-task.json` |
-| **Governance** | `governance/` | 규칙·역할·라이프사이클·복구 | rule 37 · role 6 · 실행상태 19 · 승인정책 3 · EXPERIMENTAL 규칙 12 | `plomus-governance.json` |
-| **Transaction** | `transaction/` | 결제·정산·수수료·예산 (EXPERIMENTAL) | budget 4 · settlement 3 | `plomus-transaction.json` |
-| **Legal** | `legal/` | 법적 문서·약관·고지 (DRAFT) | document 6 · disclosure 4 | `plomus-legal.json` |
-| **Foundation** | `foundation/` | 공유 어휘(역할 아님) | frontmatter 10 · 이벤트그룹 6 · error code 21 · 필드 7 | `plomus-foundation.json` |
-| **Benchmarks** | `benchmarks/` | 측정층(역할 아님) | model 14 · metric 9 · target 114 · result 677 | `plomus-benchmarks.json` |
+| **Tool** | `contracts/tool/` | 도구·API·와이어 호출 규격 | skill 86 · route 41 · credential 20 · upstream 18 · package 22 · endpoint 7 · payload 9 · adapter 7 | `plomus-tool.json` |
+| **Agent** | `contracts/agent/` | 에이전트 능력·정체성 | agent 4 · playbook 2 · intent 16 · field 6 | `plomus-agent.json` |
+| **Task** | `contracts/task/` | 위임 작업·워크플로 | preset 8 · workflow 21 · dist-preset 1 | `plomus-task.json` |
+| **Governance** | `contracts/governance/` | 규칙·역할·라이프사이클·복구 | rule 37 · role 6 · 실행상태 19 · 승인정책 3 · EXPERIMENTAL 규칙 12 | `plomus-governance.json` |
+| **Transaction** | `contracts/transaction/` | 결제·정산·수수료·예산 (EXPERIMENTAL) | budget 4 · settlement 3 | `plomus-transaction.json` |
+| **Legal** | `contracts/legal/` | 법적 문서·약관·고지 (DRAFT) | document 6 · disclosure 4 | `plomus-legal.json` |
+| **Foundation** | `contracts/foundation/` | 공유 어휘(역할 아님) | frontmatter 10 · 이벤트그룹 6 · error code 21 · 필드 7 | `plomus-foundation.json` |
+| **Benchmarks** | `contracts/benchmarks/` | 측정층(역할 아님) | model 14 · metric 9 · target 114 · result 677 | `plomus-benchmarks.json` |
 
 분류 규칙(role 매핑 + 15 business unit · 15 category 2차 축)은 [docs/CONTRACT-TAXONOMY.md](docs/CONTRACT-TAXONOMY.md)에 정의되고 validator가 폴더 배치를 강제합니다. 빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만듭니다. 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다. 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
 
@@ -28,41 +28,41 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 각 role 번들은 여러 출처 도메인에서 모입니다. 도메인별 필드 상세는 [docs/contracts/](docs/contracts/).
 
-### Tool (`tool/`) → `plomus-tool.json`
+### Tool (`contracts/tool/`) → `plomus-tool.json`
 
 도구·API·와이어 프로토콜을 *어떻게 호출하는가*.
 
 | 출처 | 폴더 | 내용 |
 |---|---|---|
-| skills | `tool/skills-*` | 스킬 카탈로그(86), 프록시 라우트 allowlist(41), credential 레지스트리(20), 스킬별 외부 의존(86), category(15)·subcategory(37), upstream(18), packages.json(22), mcp 사용 스킬(11) — [skills.md](docs/contracts/skills.md) |
-| protocol | `tool/protocol-*` | desktop↔web endpoint(7), sync payload(9), telegram 명령(4), sync-event 필드(13) — [protocol.md](docs/contracts/protocol.md) |
-| gameops | `tool/gameops-adapters` | LiveOps 실행 adapter(7) |
+| skills | `contracts/tool/skills-*` | 스킬 카탈로그(86), 프록시 라우트 allowlist(41), credential 레지스트리(20), 스킬별 외부 의존(86), category(15)·subcategory(37), upstream(18), packages.json(22), mcp 사용 스킬(11) — [skills.md](docs/contracts/skills.md) |
+| protocol | `contracts/tool/protocol-*` | desktop↔web endpoint(7), sync payload(9), telegram 명령(4), sync-event 필드(13) — [protocol.md](docs/contracts/protocol.md) |
+| gameops | `contracts/tool/gameops-adapters` | LiveOps 실행 adapter(7) |
 
-### Agent (`agent/`) → `plomus-agent.json`
+### Agent (`contracts/agent/`) → `plomus-agent.json`
 
 에이전트가 *무엇이고 무엇을 할 수 있나*. gameops 운영 에이전트(4)·playbook(2)·intent(16)·게임 필드(6)와 gameops 어휘 — [gameops.md](docs/contracts/gameops.md).
 
-### Task (`task/`) → `plomus-task.json`
+### Task (`contracts/task/`) → `plomus-task.json`
 
 *어떤 일을 어떤 레시피·안전 프로파일로 위임*하는가. commerce 온보딩 preset(8)·hermes workflow(21), distribution preset(1). workflow는 `safety.executionClass`·`riskLevel`·`externalAccess`·`sideEffects`를 가집니다 — [commerce.md](docs/contracts/commerce.md).
 
-### Governance (`governance/`) → `plomus-governance.json`
+### Governance (`contracts/governance/`) → `plomus-governance.json`
 
 에이전트가 *지켜야 할 규칙·역할·라이프사이클·복구*. risk→model 라우팅, 실행 lifecycle 상태기계(19: dry-run→approve→execute→verify→rollback), RBAC 역할(6) + 다자승인 정책(3), commerce review rule(37), distribution EXPERIMENTAL 규칙(12) — [governance.md](docs/contracts/governance.md), [distribution.md](docs/contracts/distribution.md).
 
-### Transaction (`transaction/`) → `plomus-transaction.json` (EXPERIMENTAL)
+### Transaction (`contracts/transaction/`) → `plomus-transaction.json` (EXPERIMENTAL)
 
 *얼마를·어떻게·어떤 증명으로 결제·정산하는가* — 기계 거래 규격. x402식 spending budget(4: 세션/일/월, 예산 한도·결제레일·결제증명, 승인 게이트는 governance 교차참조)과 settlement(3: 수수료율·정산 주기·환불, businessUnit별). governance review-rule(행동 규칙) 위에 더하는 층입니다 — [GLOSSARY](docs/CONTRACT-GLOSSARY.md).
 
-### Legal (`legal/`) → `plomus-legal.json` (DRAFT)
+### Legal (`contracts/legal/`) → `plomus-legal.json` (DRAFT)
 
 *어떤 법적 문서를 제시·준수해야 하는가*. legal document(6: 이용약관·개인정보처리방침·전자상거래 고지·파트너 계약·환불 정책·마케팅 동의, documentType별)과 전자상거래법 표시의무 disclosure(4). 값은 법률 검토 전 scaffold입니다 — [GLOSSARY](docs/CONTRACT-GLOSSARY.md).
 
-### Foundation (`foundation/`) → `plomus-foundation.json`
+### Foundation (`contracts/foundation/`) → `plomus-foundation.json`
 
 모든 역할이 참조하는 *공유 어휘*. commerce core enum, distribution 어휘 + frontmatter 필드(7), platform frontmatter 상태(10)·이벤트 분류(6 그룹)·error code(21) — [platform.md](docs/contracts/platform.md).
 
-### Benchmarks (`benchmarks/`) → `plomus-benchmarks.json`
+### Benchmarks (`contracts/benchmarks/`) → `plomus-benchmarks.json`
 
 실행 가능한 계약(스킬·워크플로)을 유명 모델로 측정. model(14)·metric(9)·target(114)·result(677)·rollup(22). 측정/사용은 [BENCHMARKS.md](docs/BENCHMARKS.md), 결과는 [BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md), 필드 상세는 [benchmarks.md](docs/contracts/benchmarks.md).
 
@@ -87,7 +87,7 @@ pnpm run check:ci
 
 ## 변경 절차
 
-1. 계약 JSON을 수정합니다(예: `governance/commerce-review-rules/<businessUnit>.json`).
+1. 계약 JSON을 수정합니다(예: `contracts/governance/commerce-review-rules/<businessUnit>.json`).
 2. `pnpm run format:contracts`를 실행합니다.
 3. `pnpm run check:update`를 실행합니다.
 4. `pnpm run check:ci`를 실행합니다.

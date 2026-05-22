@@ -2,7 +2,7 @@
 
 이 문서는 계약 폴더 분류 규칙을 정의합니다. 분류는 **두 축**입니다.
 
-1. **contract role (최상위 폴더 축)** — `tool/`·`agent/`·`task/`·`governance/`·`transaction/`·`legal/`·`foundation/`(+ 측정층 `benchmarks/`). 각 계약을 역할에 매핑하는 단일 소스는 `scripts/group.mjs`의 `TYPE_OF`이고, 의미는 [CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)에 있습니다.
+1. **contract role (1차 축)** — 모든 계약은 `contracts/<role>/` 아래 묶입니다. role: `tool`·`agent`·`task`·`governance`·`transaction`·`legal`·`foundation`(+ 측정층 `benchmarks`). 닫힌 집합이라 도메인이 늘어도 root는 안 늘어납니다. 각 계약을 역할에 매핑하는 단일 소스는 `scripts/group.mjs`의 `TYPE_OF`이고, 의미는 [CONTRACT-GLOSSARY.md](CONTRACT-GLOSSARY.md)에 있습니다.
 2. **business unit / category (role 내부 분할 축)** — **task·governance·transaction·legal 계약**(review rule·workflow·distribution rule·settlement·disclosure)은 운영 *business unit*으로, **skill 계약**(catalog·data-source·package)은 *category*로 파일이 나뉩니다(그 외 transaction-budgets는 `scope`, legal-documents는 `documentType`로 분할). 단일 소스는 `scripts/taxonomy.mjs`입니다.
 
 두 축 모두 validator가 CI에서 강제합니다.
@@ -12,22 +12,24 @@
 ### 폴더 트리 (1차 축 = 최상위 = contract role)
 
 ```
- plomus-contracts/
- ├─ tool/         (Tool/API)     ── skills-*, protocol-*, gameops-adapters
- ├─ agent/        (Agent)        ── gameops-{base,agents,playbooks,fields}
- ├─ task/         (Task)         ── commerce-{presets,workflows}, distribution-presets
- ├─ governance/   (Behavioral)   ── governance-*, commerce-review-rules,
- │                                  distribution-experimental-rules
- ├─ transaction/  (Payment) ⚗    ── transaction-{base,budgets,settlement}
- ├─ legal/        (Legal)   ⚗    ── legal-{base,documents,disclosures}
- ├─ foundation/   (공유 어휘)     ── commerce-base, distribution-{base,fields}, platform-*
- └─ benchmarks/   (측정층)        ── base, models, metrics, targets, results, rollups
+ plomus-contracts/                 (repo root: contracts/ + dist·docs·scripts·tests·…)
+ └─ contracts/                      (모든 계약이 이 한 폴더 아래)
+    ├─ tool/        (Tool/API)     ── skills-*, protocol-*, gameops-adapters
+    ├─ agent/       (Agent)        ── gameops-{base,agents,playbooks,fields}
+    ├─ task/        (Task)         ── commerce-{presets,workflows}, distribution-presets
+    ├─ governance/  (Behavioral)   ── governance-*, commerce-review-rules,
+    │                                 distribution-experimental-rules
+    ├─ transaction/ (Payment) ⚗    ── transaction-{base,budgets,settlement}
+    ├─ legal/       (Legal)   ⚗    ── legal-{base,documents,disclosures}
+    ├─ foundation/  (공유 어휘)     ── commerce-base, distribution-{base,fields}, platform-*
+    └─ benchmarks/  (측정층)        ── base, models, metrics, targets, results, rollups
 
-   <role>/ <domain>-<contract>/ <splitKey>.json
-      │          │                   └ 2차 축: businessUnit | category | scope |
-      │          │                            documentType | kind | objectType | …
-      │          └ 논리 id (출처 보존; validator·build가 읽는 키, 폴더 이동에 불변)
-      └ contract role (TYPE_OF in scripts/group.mjs)
+   contracts/ <role>/ <domain>-<contract>/ <splitKey>.json
+       │         │          │                   └ 2차 축: businessUnit | category |
+       │         │          │                            scope | documentType | kind | …
+       │         │          └ 논리 id (출처 보존; validator·build가 읽는 키, 이동에 불변)
+       │         └ contract role (1차 축; TYPE_OF in scripts/group.mjs)
+       └ 모든 계약의 단일 상위 폴더 (root 정리)
 ```
 
 ### 2축 격자 (role × 분할 키)

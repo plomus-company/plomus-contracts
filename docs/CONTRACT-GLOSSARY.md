@@ -67,18 +67,18 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 
 ## contract role (계약 역할) — 최상위 분류 축
 
-저장소의 최상위 폴더는 **계약의 역할(contract role)**입니다. 같은 출처 도메인(commerce·gameops 등)이라도 역할이 다르면 다른 role 폴더로 갈라집니다. 각 role은 하나의 dist 번들로 빌드됩니다. 아래 6개 role이 essay의 7분류를 (smart contract 제외) 모두 실현합니다.
+모든 계약은 `contracts/<role>/` 아래 **계약의 역할(contract role)**별로 묶입니다(역할이 1차 축). 같은 출처 도메인(commerce·gameops 등)이라도 역할이 다르면 다른 role 폴더로 갈라집니다. 각 role은 하나의 dist 번들로 빌드됩니다. 아래 6개 role이 essay의 7분류를 (smart contract 제외) 모두 실현합니다. role은 닫힌 집합이므로 도메인이 늘어도 root 디렉토리는 늘지 않습니다.
 
 | Role 폴더 | 의미 (essay 분류) | 담는 것 | dist 번들 |
 |---|---|---|---|
-| `tool/` | **Tool/API** — 도구·API·와이어 프로토콜 호출 규격 | skills(catalog·data-source·proxy·credential·upstream·package·mcp), protocol(endpoint·payload·sync-event·telegram), gameops adapter | `plomus-tool.json` |
-| `agent/` | **Agent capability** — 에이전트가 무엇이고 무엇을 할 수 있나 | gameops agent·playbook·field + gameops 어휘 | `plomus-agent.json` |
-| `task/` | **Task/delegation** — 어떤 일을 어떤 레시피·안전 프로파일로 위임 | commerce preset·workflow, distribution preset | `plomus-task.json` |
-| `governance/` | **Behavioral/Governance** — 규칙·역할·라이프사이클·복구 | governance(role·approval·execution-lifecycle·model-routing), commerce review-rule, distribution experimental-rule | `plomus-governance.json` |
-| `transaction/` | **Payment/Transaction** — 결제·정산·수수료·예산·결제증명 | spending budget(예산 한도·승인 게이트·결제증명), settlement(수수료·정산 주기·환불) | `plomus-transaction.json` |
-| `legal/` | **Legal** — 법적 문서·약관·고지 | legal document(약관·개인정보·전자상거래 고지·파트너·환불), 전자상거래법 표시의무 disclosure | `plomus-legal.json` |
-| `foundation/` | (역할 아님) **공유 어휘** — core enum·frontmatter·event·error code | commerce-base, distribution base·fields, platform 전부 | `plomus-foundation.json` |
-| `benchmarks/` | (역할 아님) **측정층** — 실행 가능한 계약을 모델별로 측정 | model·metric·target·result·rollup | `plomus-benchmarks.json` |
+| `contracts/tool/` | **Tool/API** — 도구·API·와이어 프로토콜 호출 규격 | skills(catalog·data-source·proxy·credential·upstream·package·mcp), protocol(endpoint·payload·sync-event·telegram), gameops adapter | `plomus-tool.json` |
+| `contracts/agent/` | **Agent capability** — 에이전트가 무엇이고 무엇을 할 수 있나 | gameops agent·playbook·field + gameops 어휘 | `plomus-agent.json` |
+| `contracts/task/` | **Task/delegation** — 어떤 일을 어떤 레시피·안전 프로파일로 위임 | commerce preset·workflow, distribution preset | `plomus-task.json` |
+| `contracts/governance/` | **Behavioral/Governance** — 규칙·역할·라이프사이클·복구 | governance(role·approval·execution-lifecycle·model-routing), commerce review-rule, distribution experimental-rule | `plomus-governance.json` |
+| `contracts/transaction/` | **Payment/Transaction** — 결제·정산·수수료·예산·결제증명 | spending budget(예산 한도·승인 게이트·결제증명), settlement(수수료·정산 주기·환불) | `plomus-transaction.json` |
+| `contracts/legal/` | **Legal** — 법적 문서·약관·고지 | legal document(약관·개인정보·전자상거래 고지·파트너·환불), 전자상거래법 표시의무 disclosure | `plomus-legal.json` |
+| `contracts/foundation/` | (역할 아님) **공유 어휘** — core enum·frontmatter·event·error code | commerce-base, distribution base·fields, platform 전부 | `plomus-foundation.json` |
+| `contracts/benchmarks/` | (역할 아님) **측정층** — 실행 가능한 계약을 모델별로 측정 | model·metric·target·result·rollup | `plomus-benchmarks.json` |
 
 `foundation`과 `benchmarks`는 essay의 7분류에 없는 축입니다. foundation은 모든 role이 참조하는 공유 어휘이고, benchmarks는 "에이전트가 계약을 얼마나 잘·싸게 수행하나"를 재는 실측 백본(essay #1 resource-bounded, #4 성공기준의 근거)입니다.
 
@@ -86,23 +86,23 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 
 | essay 분류 | 이 저장소 | 비고 |
 |---|---|---|
-| Tool / API | `tool/` | 강함 |
-| Agent capability | `agent/` | gameops 중심 |
-| Task / delegation | `task/` | 예산/토큰 한도는 `transaction/`이 보완; benchmarks가 비용을 측정 |
-| Behavioral / Governance | `governance/` | Pre/Invariant/Policy/Recovery(rollback)가 lifecycle에 |
-| Payment / transaction | `transaction/` | x402식 세션/일/월 예산·결제증명·승인 게이트(→governance) + 수수료·정산·환불. EXPERIMENTAL |
-| Legal | `legal/` | 약관·개인정보·전자상거래 고지·파트너·환불 문서 + 전자상거래법 표시의무. DRAFT |
+| Tool / API | `contracts/tool/` | 강함 |
+| Agent capability | `contracts/agent/` | gameops 중심 |
+| Task / delegation | `contracts/task/` | 예산/토큰 한도는 `contracts/transaction/`이 보완; benchmarks가 비용을 측정 |
+| Behavioral / Governance | `contracts/governance/` | Pre/Invariant/Policy/Recovery(rollback)가 lifecycle에 |
+| Payment / transaction | `contracts/transaction/` | x402식 세션/일/월 예산·결제증명·승인 게이트(→governance) + 수수료·정산·환불. EXPERIMENTAL |
+| Legal | `contracts/legal/` | 약관·개인정보·전자상거래 고지·파트너·환불 문서 + 전자상거래법 표시의무. DRAFT |
 | Smart contract (on-chain) | **범위 밖** | 온체인 요소 없음. (`transaction`의 `X402`/`ONCHAIN_TX` proof로 경계만 접함) |
 
 ### transaction과 governance의 관계
 
-`settlement`·`finance`·`claim`·`legal-policy`는 **business unit**(운영 단위)이고, 그 운영 *행동 규칙*은 `governance/`의 review-rule로 남습니다. `transaction/`은 그 위에 **기계 거래 규격**을 더합니다 — 예산 한도·결제 레일·결제증명·정산 주기·수수료율. 즉 governance는 "무엇을 하면 안 되나", transaction은 "얼마를·어떻게·어떤 증명으로 결제·정산하나"입니다. transaction 예산의 승인 게이트(`approvalPolicy`·`riskLevel`)는 governance를 읽기 전용 교차참조해 해소됩니다.
+`settlement`·`finance`·`claim`·`legal-policy`는 **business unit**(운영 단위)이고, 그 운영 *행동 규칙*은 `contracts/governance/`의 review-rule로 남습니다. `contracts/transaction/`은 그 위에 **기계 거래 규격**을 더합니다 — 예산 한도·결제 레일·결제증명·정산 주기·수수료율. 즉 governance는 "무엇을 하면 안 되나", transaction은 "얼마를·어떻게·어떤 증명으로 결제·정산하나"입니다. transaction 예산의 승인 게이트(`approvalPolicy`·`riskLevel`)는 governance를 읽기 전용 교차참조해 해소됩니다.
 
 ## 보조 어휘
 
 - **business unit (15)** — task·governance·transaction·legal 계약을 운영 단위로 분할하는 *2차 축*(`product`·`order`·…·`system`). role 폴더 안에서 `<businessUnit>.json`으로 파일이 나뉩니다. [CONTRACT-TAXONOMY.md](CONTRACT-TAXONOMY.md).
 - **category (15)** — skill 계약을 기능 분류로 나누는 2차 축(`commerce`·`finance`·…·`tooling`).
-- **logical id (`<domain>-<contract>`)** — 각 계약 폴더는 출처를 드러내는 논리 id를 그대로 유지합니다(예: `governance/commerce-review-rules/`). validator·build는 이 논리 id로 읽으므로 폴더가 옮겨져도 본체는 바뀌지 않습니다.
+- **logical id (`<domain>-<contract>`)** — 각 계약 폴더는 출처를 드러내는 논리 id를 그대로 유지합니다(예: `contracts/governance/commerce-review-rules/`). validator·build는 이 논리 id로 읽으므로 폴더가 옮겨져도 본체는 바뀌지 않습니다.
 - **member (dist)** — 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다(예: `plomus-tool.json.members.skills`).
 - **status** — `transaction`·`legal`은 현재 `EXPERIMENTAL`/`DRAFT`입니다. 구조는 검증되지만 값(수수료율·약관 문구)은 권위 있는 데이터가 아닌 scaffold이며, 제품 확정 시 `ACTIVE`로 승격합니다.
 
@@ -126,7 +126,7 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 **tool** — 도구를 *어떻게 호출하나* · `@plomus/contracts/tool` → `.members.skills.contracts.skills[]`
 
 ```jsonc
-// tool/skills-catalog/commerce.json
+// contracts/tool/skills-catalog/commerce.json
 { "skillId": "daangn-cars-search", "category": "commerce", "subcategory": "automotive",
   "locale": "ko-KR", "phase": "v1", "license": "MIT" }
 ```
@@ -134,7 +134,7 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 **agent** — 에이전트가 *무엇을 할 수 있나* · `.../agent` → `.members.gameops.contracts.playbooks[]`
 
 ```jsonc
-// agent/gameops-playbooks/payment-missing-response-v1.json
+// contracts/agent/gameops-playbooks/payment-missing-response-v1.json
 { "playbookId": "payment-missing-response-v1", "riskLevel": "high", "requiresApproval": true,
   "steps": [ { "approvalPolicy": "operation_pm" /* → governance */ } ] }
 ```
@@ -142,7 +142,7 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 **task** — *어떤 일을 어떤 안전 프로파일로* · `.../task` → `.members.commerce.contracts.workflows[]`
 
 ```jsonc
-// task/commerce-workflows/order.json
+// contracts/task/commerce-workflows/order.json
 { "workflowId": "order-delay-review", "reviewScope": "ORDER_DELAY", "businessUnit": "order",
   "enabledRuleIds": ["ORDER_SHIPPING_DELAY"],
   "safety": { "executionClass": "LOCAL_WRITE", "riskLevel": "MEDIUM",
@@ -152,22 +152,22 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 **governance** — *지켜야 할 규칙·승인* · `.../governance` → `.members.commerce.contracts.reviewRules[]`, `.members.governance.contracts.approval`
 
 ```jsonc
-// governance/commerce-review-rules/order.json
+// contracts/governance/commerce-review-rules/order.json
 { "ruleId": "ORDER_SHIPPING_DELAY", "domain": "ORDER", "status": "ACTIVE",
   "severity": "HIGH", "businessUnit": "order" }
-// governance/governance-approval/approval.json  (다자승인 정책)
+// contracts/governance/governance-approval/approval.json  (다자승인 정책)
 { "policy": "admin_multi", "requiredApprovals": 2, "allowedChannels": ["WEB", "TELEGRAM"] }
 ```
 
 **transaction** — *얼마를·어떻게·어떤 증명으로* · `.../transaction` → `.members.transaction.contracts.{budgets,settlements}[]`
 
 ```jsonc
-// transaction/transaction-budgets/session.json   (x402식 세션 예산)
+// contracts/transaction/transaction-budgets/session.json   (x402식 세션 예산)
 { "budgetId": "agent-session-default", "scope": "SESSION", "currency": "KRW", "limit": 100000,
   "approvalPolicy": "single" /* → governance */, "riskLevel": "low",
   "requiresProof": true, "proofType": "PLATFORM_LEDGER_ENTRY", "onFailure": "ROLLBACK",
   "status": "EXPERIMENTAL" }
-// transaction/transaction-settlement/settlement.json   (수수료·정산)
+// contracts/transaction/transaction-settlement/settlement.json   (수수료·정산)
 { "settlementId": "marketplace-sale-commission", "businessUnit": "settlement",
   "commissionRateBps": 500, "cycle": "MONTHLY_CLOSE", "payoutRail": "BANK_TRANSFER" }
 ```
@@ -175,11 +175,11 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 **legal** — *어떤 문서를 제시·준수* · `.../legal` → `.members.legal.contracts.{documents,disclosures}[]`
 
 ```jsonc
-// legal/legal-documents/ecommerce-disclosure.json
+// contracts/legal/legal-documents/ecommerce-disclosure.json
 { "documentId": "ecommerce-seller-disclosure", "documentType": "ECOMMERCE_DISCLOSURE",
   "audience": "CONSUMER", "requiredConsent": "REQUIRED",
   "governsBusinessUnits": ["legal-policy", "order"], "status": "DRAFT" }
-// legal/legal-disclosures/legal-policy.json   (전자상거래법 표시의무)
+// contracts/legal/legal-disclosures/legal-policy.json   (전자상거래법 표시의무)
 { "disclosureId": "seller-identity", "businessUnit": "legal-policy",
   "documentType": "ECOMMERCE_DISCLOSURE", "field": "상호·대표자·사업자등록번호·통신판매업 신고번호",
   "legalBasis": "전자상거래법 제13조 제1항" }
@@ -187,9 +187,9 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 
 ### 보조 어휘가 실제로 어떻게 쓰이나
 
-- **business unit** — `governance/commerce-review-rules/order.json`의 모든 항목은 `businessUnit: "order"`(파일 stem과 일치, validator가 강제).
-- **category** — `tool/skills-catalog/commerce.json`의 모든 skill은 `category: "commerce"`.
-- **logical id** — 폴더 `governance/commerce-review-rules/`의 논리 id는 `commerce-review-rules`(출처=commerce). `transaction/`로 옮겨도 validator는 이 id로 읽음.
+- **business unit** — `contracts/governance/commerce-review-rules/order.json`의 모든 항목은 `businessUnit: "order"`(파일 stem과 일치, validator가 강제).
+- **category** — `contracts/tool/skills-catalog/commerce.json`의 모든 skill은 `category: "commerce"`.
+- **logical id** — 폴더 `contracts/governance/commerce-review-rules/`의 논리 id는 `commerce-review-rules`(출처=commerce). `contracts/transaction/`로 옮겨도 validator는 이 id로 읽음.
 - **member** — `plomus-governance.json`에 commerce·distribution·governance가 `members`로 함께 들어감(한 번들 = 여러 도메인).
 - **cross-ref** — transaction budget의 `approvalPolicy: "single"`은 governance `approvalPolicies`에 존재해야 통과(`validate:transaction`).
 

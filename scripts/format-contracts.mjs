@@ -4,8 +4,9 @@ import { repoRoot } from "./read-json.mjs";
 
 const checkOnly = process.argv.includes("--check");
 
-// Every contract JSON under the contract-type roots (tool/agent/task/governance/
-// foundation), the benchmarks measurement layer, plus the example payloads.
+// Every contract JSON under contracts/<role>/ (tool/agent/task/governance/
+// transaction/legal/foundation + the benchmarks measurement layer), plus the
+// example payloads.
 function listJson(relDir) {
   const abs = path.join(repoRoot, relDir);
   const out = [];
@@ -16,7 +17,7 @@ function listJson(relDir) {
   }
   return out;
 }
-const ROOTS = ["tool", "agent", "task", "governance", "transaction", "legal", "foundation", "benchmarks", "examples"];
+const ROOTS = ["contracts", "examples"];
 const targets = ROOTS.flatMap((root) => listJson(root)).sort();
 
 const changed = [];

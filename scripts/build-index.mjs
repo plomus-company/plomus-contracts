@@ -19,15 +19,14 @@ const TYPES = [
   { type: "benchmarks", artifact: "dist/plomus-benchmarks.json", domains: ["benchmarks"], dependsOn: ["tool", "task"] },
 ];
 
-const ROOT_OF = { benchmarks: "benchmarks" }; // benchmarks stays at the repo root
-
+// Every role lives under contracts/<role>/.
 const folders = (type) => {
-  const root = path.join(repoRoot, ROOT_OF[type] ?? type);
+  const root = path.join(repoRoot, "contracts", type);
   if (!fs.existsSync(root)) return [];
   return fs
     .readdirSync(root, { withFileTypes: true })
     .filter((e) => e.isDirectory())
-    .map((e) => `${ROOT_OF[type] ?? type}/${e.name}/`)
+    .map((e) => `contracts/${type}/${e.name}/`)
     .sort();
 };
 

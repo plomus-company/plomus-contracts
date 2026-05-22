@@ -27,16 +27,16 @@
 
 | 도메인 | role 폴더 | dist 번들 | 현재 규모 |
 |---|---|---|---|
-| Commerce | `task/`(preset·workflow), `governance/`(review-rule), `foundation/`(base) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 8, rule 37, workflow 21 |
-| Skills | `tool/skills-*` | `plomus-tool` | skill 86, route 41, credential 20 |
-| Benchmarks | `benchmarks/` | `dist/plomus-benchmarks.json` | model 14, metric 9, target 114, result 677 |
-| Distribution | `task/`(preset), `governance/`(rule), `foundation/`(base·fields) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 1, 필드 7, EXPERIMENTAL 규칙 12 |
-| Protocol | `tool/protocol-*` | `plomus-tool` | endpoint 7, sync-event 13, payload 9, telegram 4 |
-| Platform | `foundation/platform-*` | `plomus-foundation` | frontmatter 10, event 6, error code 21 |
-| Governance | `governance/governance-*` | `plomus-governance` | role 6, lifecycle 19, 승인정책 3, 라우팅 4 |
-| GameOps | `agent/gameops-*`(agent·playbook·field), `tool/gameops-adapters` | `plomus-agent` · `plomus-tool` | adapter 7, intent 16, agent 4, playbook 2, field 6 |
-| Transaction | `transaction/` | `plomus-transaction` | budget 4, settlement 3 (EXPERIMENTAL) |
-| Legal | `legal/` | `plomus-legal` | document 6, disclosure 4 (DRAFT) |
+| Commerce | `contracts/task/`(preset·workflow), `contracts/governance/`(review-rule), `contracts/foundation/`(base) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 8, rule 37, workflow 21 |
+| Skills | `contracts/tool/skills-*` | `plomus-tool` | skill 86, route 41, credential 20 |
+| Benchmarks | `contracts/benchmarks/` | `dist/plomus-benchmarks.json` | model 14, metric 9, target 114, result 677 |
+| Distribution | `contracts/task/`(preset), `contracts/governance/`(rule), `contracts/foundation/`(base·fields) | `plomus-task` · `plomus-governance` · `plomus-foundation` | preset 1, 필드 7, EXPERIMENTAL 규칙 12 |
+| Protocol | `contracts/tool/protocol-*` | `plomus-tool` | endpoint 7, sync-event 13, payload 9, telegram 4 |
+| Platform | `contracts/foundation/platform-*` | `plomus-foundation` | frontmatter 10, event 6, error code 21 |
+| Governance | `contracts/governance/governance-*` | `plomus-governance` | role 6, lifecycle 19, 승인정책 3, 라우팅 4 |
+| GameOps | `contracts/agent/gameops-*`(agent·playbook·field), `contracts/tool/gameops-adapters` | `plomus-agent` · `plomus-tool` | adapter 7, intent 16, agent 4, playbook 2, field 6 |
+| Transaction | `contracts/transaction/` | `plomus-transaction` | budget 4, settlement 3 (EXPERIMENTAL) |
+| Legal | `contracts/legal/` | `plomus-legal` | document 6, disclosure 4 (DRAFT) |
 
 계약은 버전 폴더 없이 `<role>/<domain>-<contract>/` 단위로 관리합니다(버전관리는 git/GitHub). review rule·workflow는 `businessUnit`으로, skill은 `category`로 파일이 나뉘며, role 매핑·분류 규칙은 [CONTRACT-TAXONOMY.md](CONTRACT-TAXONOMY.md)에 정의되고 validator가 강제합니다. 본 문서는 Commerce·Skills·Benchmarks 세 도메인을 중심으로 기술하며, 나머지는 [docs/contracts/](contracts/)에 상세가 있습니다.
 
@@ -46,10 +46,10 @@ Commerce 도메인은 `plomus-commerce-ai-os`의 온보딩과 운영 검토 계�
 
 계약 구성(각 계약은 폴더이며, 빌드가 role 번들로 합칩니다 — `dist/plomus-foundation.json`·`plomus-task.json`·`plomus-governance.json`):
 
-- `foundation/commerce-base/base.json`: core enum, 시스템 폴더, 문서 타입, 승인 정책, watch folder
-- `task/commerce-presets/`: 제품 유형별 온보딩 preset
-- `governance/commerce-review-rules/<businessUnit>.json`: 운영 점검 rule registry
-- `task/commerce-workflows/<businessUnit>.json`: Hermes workflow와 safety profile
+- `contracts/foundation/commerce-base/base.json`: core enum, 시스템 폴더, 문서 타입, 승인 정책, watch folder
+- `contracts/task/commerce-presets/`: 제품 유형별 온보딩 preset
+- `contracts/governance/commerce-review-rules/<businessUnit>.json`: 운영 점검 rule registry
+- `contracts/task/commerce-workflows/<businessUnit>.json`: Hermes workflow와 safety profile
 
 주요 불변 조건:
 
@@ -185,7 +185,7 @@ role별 빌드:
 1. `Contract change` issue를 생성합니다.
 2. 변경 유형을 선택합니다: preset, workflow, review-rule, core-enum, document-type.
 3. compatibility를 선택합니다: `patch`, `minor`, `major`.
-4. PR에서 해당 계약 폴더의 `*.json`을 수정합니다(예: `governance/commerce-review-rules/<businessUnit>.json`).
+4. PR에서 해당 계약 폴더의 `*.json`을 수정합니다(예: `contracts/governance/commerce-review-rules/<businessUnit>.json`).
 5. `pnpm run format:contracts`와 `pnpm run check:update`를 실행합니다.
 6. CI에서 `pnpm run check:ci`가 통과해야 합니다.
 7. maintainer가 compatibility와 제품 영향 범위를 검토합니다.
@@ -213,10 +213,10 @@ major 변경은 제품별 migration 계획이 있어야 합니다. 기존 id는 
 
 | 공개 contract | 제품 구현 |
 |---|---|
-| `task/commerce-presets/` | `apps/desktop/src/modules/onboarding/commerce-presets.ts` |
-| `governance/commerce-review-rules/` | `apps/desktop/src/modules/commerce-review/rules.ts` |
-| `task/commerce-workflows/` | `apps/desktop/src/modules/hermes/workflow-definitions.ts` |
-| `foundation/commerce-base/base.json` `.core` | `packages/core/src/*-types.ts` |
+| `contracts/task/commerce-presets/` | `apps/desktop/src/modules/onboarding/commerce-presets.ts` |
+| `contracts/governance/commerce-review-rules/` | `apps/desktop/src/modules/commerce-review/rules.ts` |
+| `contracts/task/commerce-workflows/` | `apps/desktop/src/modules/hermes/workflow-definitions.ts` |
+| `contracts/foundation/commerce-base/base.json` `.core` | `packages/core/src/*-types.ts` |
 | workflow safety | `docs/workflows/<workflow-id>.md`, `docs/WORKFLOW-SAFETY.md` |
 
 제품 저장소는 `pnpm check:contracts`로 다음을 확인합니다.

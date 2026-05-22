@@ -31,15 +31,14 @@ export function runNodeScript(relativePath, { env = {}, registryRoot } = {}) {
   });
 }
 
-// Contract-type roots holding every contract folder, plus the benchmarks
-// measurement layer at the repo root. Mirrors scripts/group.mjs.
-const SOURCE_ROOTS = ["tool", "agent", "task", "governance", "transaction", "legal", "foundation", "benchmarks"];
+// All contract roles live under contracts/<role>/. Mirrors scripts/group.mjs.
+const SOURCE_ROOTS = ["contracts"];
 
 // Resolve a contract's folder inside a fixture, mirroring scripts/group.mjs.
 function fixtureFolderFor(fixtureRoot, name) {
   const [domain, ...rest] = name.split("-");
-  if (domain === "benchmarks") return path.join(fixtureRoot, "benchmarks", rest.join("-"));
-  return path.join(fixtureRoot, TYPE_OF[name], name);
+  if (domain === "benchmarks") return path.join(fixtureRoot, "contracts", "benchmarks", rest.join("-"));
+  return path.join(fixtureRoot, "contracts", TYPE_OF[name], name);
 }
 
 export function createContractsFixture(t) {

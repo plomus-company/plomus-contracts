@@ -47,12 +47,13 @@ export const TYPE_OF = {
   "platform-event-types": "foundation", "platform-error-codes": "foundation",
 };
 
+// All contract roles live under contracts/<role>/ to keep the repo root tidy.
 function folderFor(name) {
   const [domain, ...rest] = name.split("-");
-  if (domain === "benchmarks") return path.join(repoRoot, "benchmarks", rest.join("-"));
+  if (domain === "benchmarks") return path.join(repoRoot, "contracts", "benchmarks", rest.join("-"));
   const type = TYPE_OF[name];
   if (!type) throw new Error(`group.mjs: no contract-type mapping for "${name}" (add it to TYPE_OF)`);
-  return path.join(repoRoot, type, name);
+  return path.join(repoRoot, "contracts", type, name);
 }
 // Every contract is foldered, so there is no flat single file to prefer.
 const singleFor = () => null;
