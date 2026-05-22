@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "data-go-kr",
+      "baseUrl": "https://apis.data.go.kr",
+      "requiresKey": true,
+      "credential": "DATA_GO_KR_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

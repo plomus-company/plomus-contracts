@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "settlement",
+      "localIdPrefix": "SETTLE-",
+      "statusField": "settlement_status",
+      "statuses": [
+        "EXPECTED",
+        "RECEIVED",
+        "MISMATCH",
+        "NEEDS_CHECK",
+        "CONFIRMED"
+      ],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "settlement_period",
+        "expected_amount",
+        "settlement_status"
+      ]
+    }
+  ]
+}

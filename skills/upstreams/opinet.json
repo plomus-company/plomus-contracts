@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "opinet",
+      "baseUrl": "https://www.opinet.co.kr",
+      "requiresKey": true,
+      "credential": "OPINET_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

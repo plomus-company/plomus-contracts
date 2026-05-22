@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "hrfco",
+      "baseUrl": "https://api.hrfco.go.kr",
+      "requiresKey": true,
+      "credential": "HRFCO_OPEN_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

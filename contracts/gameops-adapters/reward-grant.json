@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapters": [
+    {
+      "adapterId": "reward.grant",
+      "executionTypes": [
+        "reward.grant"
+      ],
+      "capabilities": [
+        "grant",
+        "revoke"
+      ],
+      "dryRunSupported": true,
+      "rollbackSupported": true,
+      "requiresConfig": []
+    }
+  ]
+}

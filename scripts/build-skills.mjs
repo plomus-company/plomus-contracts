@@ -1,7 +1,7 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/skills-base.json");
+const base = readDoc("skills-base");
 const registry = {
   schemaVersion: "1.0.0",
   name: "plomus-skills",
@@ -16,14 +16,14 @@ const registry = {
   },
   contracts: {
     skills: readContract("skills-catalog", "skills"),
-    proxyRoutes: readJson("contracts/skills-proxy-routes.json").routes ?? [],
-    credentials: readJson("contracts/skills-credentials.json").credentials ?? [],
-    dataSources: readJson("contracts/skills-data-sources.json").sources ?? [],
-    categories: readJson("contracts/skills-categories.json").categories ?? [],
-    upstreams: readJson("contracts/skills-upstreams.json").upstreams ?? [],
-    packages: readJson("contracts/skills-packages.json").packages ?? [],
-    mcp: readJson("contracts/skills-mcp.json"),
-    proxy: readJson("contracts/skills-proxy.json"),
+    proxyRoutes: readContract("skills-proxy-routes", "routes"),
+    credentials: readContract("skills-credentials", "credentials"),
+    dataSources: readContract("skills-data-sources", "sources"),
+    categories: readContract("skills-categories", "categories"),
+    upstreams: readContract("skills-upstreams", "upstreams"),
+    packages: readContract("skills-packages", "packages"),
+    mcp: readDoc("skills-mcp"),
+    proxy: readDoc("skills-proxy"),
   },
 };
 

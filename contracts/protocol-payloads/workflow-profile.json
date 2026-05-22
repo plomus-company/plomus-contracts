@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "WORKFLOW_PROFILE",
+      "localIdPrefix": "PROFILE-WORKFLOW",
+      "requiredFields": [
+        "local_id",
+        "enabled_workflows",
+        "default_review_workflow",
+        "default_apply_workflow"
+      ]
+    }
+  ]
+}

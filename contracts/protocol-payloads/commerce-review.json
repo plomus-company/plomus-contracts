@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "COMMERCE_REVIEW",
+      "localIdPrefix": "REV-",
+      "requiredFields": [
+        "local_id",
+        "review_scope",
+        "review_type",
+        "status"
+      ]
+    }
+  ]
+}

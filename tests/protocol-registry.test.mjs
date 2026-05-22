@@ -1,3 +1,4 @@
+import { readDoc } from "../scripts/group.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -18,7 +19,7 @@ test("protocol registry validates and builds a distributable artifact", () => {
 
   // every sync payload object type resolves against the commerce baseline
   const commercePayloadTypes = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce-base.json"), "utf8")).core.syncPayloadObjectTypes,
+    readDoc("commerce-base").core.syncPayloadObjectTypes,
   );
   for (const p of dist.contracts.payloads) {
     assert.ok(commercePayloadTypes.has(p.objectType), `payload ${p.objectType} missing from commerce baseline`);

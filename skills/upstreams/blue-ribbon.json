@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "blue-ribbon",
+      "baseUrl": "https://www.bluer.co.kr",
+      "requiresKey": true,
+      "credential": "BLUE_RIBBON_SESSION_ID",
+      "proxyManaged": true
+    }
+  ]
+}

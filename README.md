@@ -2,24 +2,31 @@
 
 Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부 배포 주체가 preset, workflow, review rule, skill 계약을 추가하거나 갱신할 때 이 저장소를 기준으로 검토합니다.
 
-모든 계약은 단일 폴더 `contracts/`에 **`<도메인>-<계약명>`** 명명으로 둡니다. 작은 계약은 파일(`contracts/commerce-presets.json`), 큰 계약은 **업무 단위로 분할된 폴더**입니다(`contracts/commerce-review-rules/settlement.json`, `contracts/skills-catalog/finance.json` — rule은 domain, workflow는 reviewScope, skill은 subcategory, benchmark target/result는 domain 기준). 도메인 하위 폴더나 버전 폴더는 두지 않습니다(버전관리는 git/GitHub). 빌드(`build:*`)가 분할 폴더를 다시 합쳐 `dist/plomus-*.json`을 만들므로 소비자는 영향받지 않습니다. 저장소는 **여덟 개의 계약 도메인**으로 구성되며, 각 도메인은 서로 참조하는 JSON 계약 + 통제 어휘(enum) + 교차참조 검증기 + import/generate 도구를 갖습니다.
+**모든 계약은 폴더**입니다(loose 파일 없음). 각 계약은 세부 업무 단위로 분할된 파일들의 폴더이고(`commerce-review-rules/settlement.json` — rule은 domain, skill은 subcategory, benchmark는 domain·vendor·category 등), 단일 객체 계약(base 등)은 그 폴더에 한 파일로 들어갑니다(`commerce-base/base.json`). 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
+
+배치:
+- `contracts/<도메인>-<계약>/…` — commerce·distribution·protocol·platform·governance·gameops
+- `skills/<계약>/…`, `benchmarks/<계약>/…` — 루트로 분리된 도메인
+- `workflows/<reviewScope>.json` — 루트로 분리된 워크플로
+
+빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만들므로 소비자(`@plomus/contracts/*`)는 영향받지 않습니다. 저장소는 **여덟 개의 계약 도메인**으로 구성되며, 각 도메인은 서로 참조하는 JSON 계약 + 통제 어휘(enum) + 교차참조 검증기 + import/generate 도구를 갖습니다. 도메인별 상세는 [docs/contracts/](docs/contracts/).
 
 | 도메인 | 위치 | 출처 | 규모 | 상세 문서 |
 |---|---|---|---|---|
-| **Commerce** | `contracts/commerce-` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [contracts/commerce-README.md](contracts/commerce-README.md) |
-| **Skills** | `contracts/skills-` | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15(subcat 37) · upstream 18 · package 22 · mcp 11 | [contracts/skills-README.md](contracts/skills-README.md) |
-| **Benchmarks** | `contracts/benchmarks-` | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [contracts/benchmarks-README.md](contracts/benchmarks-README.md) |
-| **Distribution** | `contracts/distribution-` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [contracts/distribution-README.md](contracts/distribution-README.md) |
-| **Protocol** | `contracts/protocol-` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [contracts/protocol-README.md](contracts/protocol-README.md) |
-| **Platform** | `contracts/platform-` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [contracts/platform-README.md](contracts/platform-README.md) |
-| **Governance** | `contracts/governance-` | `plomus-gameops-ai-os` (benchmarks 교차참조) | role 6 · 실행상태 19 · 승인정책 3 · risk→model 4 | [contracts/governance-README.md](contracts/governance-README.md) |
-| **GameOps** | `contracts/gameops-` | `plomus-gameops-ai-os` (governance 교차참조) | adapter 7 · intent 16 · agent 4 · playbook 2 · field 6 | [contracts/gameops-README.md](contracts/gameops-README.md) |
+| **Commerce** | `contracts/commerce-` | `plomus-commerce-ai-os` | preset 8 · rule 37 · workflow 21 | [docs/contracts/commerce.md](docs/contracts/commerce.md) |
+| **Skills** | `skills/` (루트) | `k-skill` (참고 후 재설계) | skill 86 · route 41 · credential 20 · category 15(subcat 37) · upstream 18 · package 22 · mcp 11 | [docs/contracts/skills.md](docs/contracts/skills.md) |
+| **Benchmarks** | `benchmarks/` (루트) | skills + commerce 계약 참조 | model 12 · metric 9 · target 107 · result 428 | [docs/contracts/benchmarks.md](docs/contracts/benchmarks.md) |
+| **Distribution** | `contracts/distribution-` | `plomus-distribution-ai-os` (commerce 교차참조) | preset 1 · 필드 7 · EXPERIMENTAL 규칙 12 | [docs/contracts/distribution.md](docs/contracts/distribution.md) |
+| **Protocol** | `contracts/protocol-` | `plomus-commerce-ai-os` (desktop↔web wire) | endpoint 7 · sync-event 필드 13 · payload 9 · telegram 4 | [docs/contracts/protocol.md](docs/contracts/protocol.md) |
+| **Platform** | `contracts/platform-` | `plomus-commerce-ai-os` (공유 어휘) | frontmatter 10 · 이벤트그룹 6 · error code 21 | [docs/contracts/platform.md](docs/contracts/platform.md) |
+| **Governance** | `contracts/governance-` | `plomus-gameops-ai-os` (benchmarks 교차참조) | role 6 · 실행상태 19 · 승인정책 3 · risk→model 4 | [docs/contracts/governance.md](docs/contracts/governance.md) |
+| **GameOps** | `contracts/gameops-` | `plomus-gameops-ai-os` (governance 교차참조) | adapter 7 · intent 16 · agent 4 · playbook 2 · field 6 | [docs/contracts/gameops.md](docs/contracts/gameops.md) |
 
 ## 계약 범위
 
 ### Commerce (`contracts/commerce-`)
 
-커머스 운영체제의 온보딩·검토·승인 계약입니다. 필드별 상세는 [contracts/commerce-README.md](contracts/commerce-README.md).
+커머스 운영체제의 온보딩·검토·승인 계약입니다. 필드별 상세는 [docs/contracts/commerce.md](docs/contracts/commerce.md).
 
 | 파일 | 내용 |
 |---|---|
@@ -28,9 +35,9 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `review-rules.json` | review rule(37) — `ruleId` ↔ `domain` ↔ `status` |
 | `workflows.json` | hermes workflow(21) — scope, target folder, rule, safety profile |
 
-### Skills (`contracts/skills-`)
+### Skills (`skills/` — 루트)
 
-`k-skill` 스킬 생태계를 데이터 출처로 참고해 새로 설계한 도메인입니다. 필드별 상세는 [contracts/skills-README.md](contracts/skills-README.md), 설계 배경은 [docs/SKILLS-REGISTRY.md](docs/SKILLS-REGISTRY.md).
+`k-skill` 스킬 생태계를 데이터 출처로 참고해 새로 설계한 도메인입니다. 필드별 상세는 [docs/contracts/skills.md](docs/contracts/skills.md), 설계 배경은 [docs/SKILLS-REGISTRY.md](docs/SKILLS-REGISTRY.md).
 
 | 파일 | 내용 |
 |---|---|
@@ -41,7 +48,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | `data-sources.json` | 스킬별 외부 의존(86) — upstream, 인증 방식 |
 | 세분화 | `categories.json`(subcat 37)·`upstreams.json`(18)·`packages.json`(22)·`mcp.json`(11)·`proxy.json` |
 
-### Benchmarks (`contracts/benchmarks-`)
+### Benchmarks (`benchmarks/` — 루트)
 
 각 실행 가능한 계약(스킬·워크플로)을 유명 모델로 벤치마킹하는 성능·비용·품질 지표 구조입니다. 설계/사용은 [docs/BENCHMARKS.md](docs/BENCHMARKS.md), 측정 결과는 [docs/BENCHMARK-RESULTS.md](docs/BENCHMARK-RESULTS.md). 전체 107개 타깃을 로컬 `qwen3.6-27b`로 1회 실행한 measured 베이스라인(전부 성공)이 포함되며, 나머지는 illustrative 시드입니다.
 

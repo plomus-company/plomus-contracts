@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapters": [
+    {
+      "adapterId": "push.send",
+      "executionTypes": [
+        "push.send"
+      ],
+      "capabilities": [
+        "send"
+      ],
+      "dryRunSupported": true,
+      "rollbackSupported": false,
+      "requiresConfig": []
+    }
+  ]
+}

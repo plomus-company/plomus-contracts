@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "presets": [
+    {
+      "presetId": "SI_BUSINESS",
+      "label": "SI/개발용역 병행형",
+      "description": "프로젝트, 계약, 산출물, 유지보수 업무 중심",
+      "commerceTypes": [
+        "SI"
+      ],
+      "salesChannels": [
+        "B2B_DIRECT"
+      ],
+      "productTypes": [
+        "SI_PROJECT",
+        "WEB_SERVICE",
+        "MAINTENANCE_SERVICE"
+      ],
+      "operationMode": "PROJECT_BASED",
+      "enabledDomains": [
+        "SI_PROJECT",
+        "SETTLEMENT",
+        "LEGAL_POLICY",
+        "SYSTEM"
+      ],
+      "enabledRules": [
+        "SI_CONTRACT_MISSING",
+        "SI_DELIVERABLE_DELAY",
+        "SI_MAINTENANCE_PENDING",
+        "SI_INVOICE_PENDING",
+        "SETTLEMENT_MISMATCH",
+        "LEGAL_POLICY_MISSING",
+        "PRIVACY_POLICY_MISSING",
+        "TERMS_OF_SERVICE_MISSING",
+        "TASK_OVERDUE",
+        "TASK_DONE_CLEANUP",
+        "CHANGE_PLAN_STALE"
+      ],
+      "highPriorityRules": [
+        "SI_CONTRACT_MISSING",
+        "SI_DELIVERABLE_DELAY",
+        "SI_INVOICE_PENDING",
+        "LEGAL_POLICY_MISSING"
+      ],
+      "enabledFolders": [
+        "25-projects",
+        "26-contracts",
+        "27-deliverables",
+        "28-maintenance",
+        "50-settlements",
+        "55-legal",
+        "05-onboarding",
+        "60-ai-recommendations",
+        "65-change-plans",
+        "70-tasks",
+        "80-workflows",
+        "90-system/profiles",
+        "90-system/commerce-reviews",
+        "90-system/sync-events",
+        "90-system/cloud-commands",
+        "90-system/hermes-commands",
+        "90-system/hermes-results",
+        "90-system/backups",
+        "90-system/validation-errors"
+      ],
+      "enabledDocumentTypes": [
+        "si_project",
+        "contract",
+        "deliverable",
+        "maintenance",
+        "settlement",
+        "legal_policy",
+        "commerce_review",
+        "ai_recommendation",
+        "change_plan",
+        "task",
+        "sync_event",
+        "cloud_command",
+        "hermes_command",
+        "hermes_result",
+        "validation_error"
+      ],
+      "enabledWorkflows": [
+        "commerce-review",
+        "apply-change-plan",
+        "si-project-review",
+        "contract-review",
+        "settlement-check",
+        "daily-briefing"
+      ],
+      "requireApprovalFor": [
+        "DOCUMENT_PATCH",
+        "FRONTMATTER_UPDATE",
+        "PRICE_CHANGE",
+        "SETTLEMENT_CHANGE",
+        "CONTRACT_CHANGE",
+        "LEGAL_POLICY_CHANGE",
+        "CUSTOMER_MESSAGE"
+      ],
+      "autoApplyAllowed": [
+        "APPEND_REVIEW_MEMO",
+        "CLEANUP_DONE_TASK"
+      ]
+    }
+  ]
+}

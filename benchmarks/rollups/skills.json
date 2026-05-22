@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "rollups": [
+    {
+      "domain": "skills",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 538.51,
+        "throughput_tps": 522.57,
+        "cost_per_run_usd": 0,
+        "input_tokens": 135.43,
+        "output_tokens": 187.35,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 3520.45,
+        "throughput_tps": 20.28,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.98,
+        "output_tokens": 65.49,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 15478.23,
+        "latency_p95_ms": 27860.78,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.10417,
+        "input_tokens": 2239.66,
+        "output_tokens": 941.05,
+        "success_rate": 98.24,
+        "accuracy": 90.01,
+        "error_rate": 1.76
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 10822.59,
+        "latency_p95_ms": 19480.69,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.01513,
+        "input_tokens": 2262.66,
+        "output_tokens": 947.03,
+        "success_rate": 97.29,
+        "accuracy": 85.87,
+        "error_rate": 2.71
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 9929.07,
+        "latency_p95_ms": 17872.33,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01247,
+        "input_tokens": 2274.76,
+        "output_tokens": 962.91,
+        "success_rate": 96.32,
+        "accuracy": 84.9,
+        "error_rate": 3.68
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "targetCount": 86,
+      "metrics": {
+        "latency_p50_ms": 13805.8,
+        "latency_p95_ms": 24850.48,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00163,
+        "input_tokens": 2200.83,
+        "output_tokens": 945.41,
+        "success_rate": 95.28,
+        "accuracy": 81.2,
+        "error_rate": 4.72
+      }
+    }
+  ]
+}

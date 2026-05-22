@@ -1,3 +1,4 @@
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -16,14 +17,14 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/protocol-base.json");
-const endpoints = readJson("contracts/protocol-endpoints.json").endpoints ?? [];
-const syncEvent = readJson("contracts/protocol-sync-event.json");
-const payloads = readJson("contracts/protocol-payloads.json").payloads ?? [];
-const telegram = readJson("contracts/protocol-telegram.json");
+const base = readDoc("protocol-base");
+const endpoints = readContract("protocol-endpoints", "endpoints");
+const syncEvent = readDoc("protocol-sync-event");
+const payloads = readContract("protocol-payloads", "payloads");
+const telegram = readDoc("protocol-telegram");
 
 // commerce baseline (read-only)
-const commerceCore = readJson("contracts/commerce-base.json").core ?? {};
+const commerceCore = readDoc("commerce-base").core ?? {};
 const commercePayloadTypes = new Set(commerceCore.syncPayloadObjectTypes ?? []);
 const commerceCloudCommands = new Set(commerceCore.cloudCommandTypes ?? []);
 

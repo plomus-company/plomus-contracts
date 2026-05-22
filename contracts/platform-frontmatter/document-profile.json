@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "document_profile",
+      "localIdPrefix": "PROFILE-DOCUMENT",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "enabled_folders",
+        "enabled_document_types"
+      ]
+    }
+  ]
+}

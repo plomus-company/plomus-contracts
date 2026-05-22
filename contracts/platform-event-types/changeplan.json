@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "groups": [
+    {
+      "object": "changePlan",
+      "events": [
+        "CHANGE_PLAN_CREATED",
+        "CHANGE_PLAN_APPROVED",
+        "CHANGE_PLAN_REJECTED",
+        "CHANGE_PLAN_APPLYING",
+        "CHANGE_PLAN_APPLIED",
+        "CHANGE_PLAN_FAILED",
+        "CHANGE_PLAN_SUPERSEDED"
+      ]
+    }
+  ]
+}

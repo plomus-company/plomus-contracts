@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "errorCodes": [
+    {
+      "code": "SYNC_AUTH_FAILED",
+      "category": "sync"
+    },
+    {
+      "code": "SYNC_EVENT_CONFLICT",
+      "category": "sync"
+    },
+    {
+      "code": "SYNC_PUSH_FAILED",
+      "category": "sync"
+    },
+    {
+      "code": "SYNC_PULL_FAILED",
+      "category": "sync"
+    }
+  ]
+}

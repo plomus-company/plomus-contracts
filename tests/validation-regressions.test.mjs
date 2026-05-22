@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   createContractsFixture,
   mutateFixtureItem,
+  readFixtureCollection,
   readFixtureJson,
   runNodeScript,
   scriptOutput,
@@ -17,9 +18,18 @@ function assertScriptFails(result, pattern) {
 
 test("commerce validator rejects duplicate preset ids", (t) => {
   const fixtureRoot = createContractsFixture(t);
-  const presets = readFixtureJson(fixtureRoot, "contracts/commerce-presets.json");
-  presets.presets[1].presetId = presets.presets[0].presetId;
-  writeFixtureJson(fixtureRoot, "contracts/commerce-presets.json", presets);
+  // duplicate a presetId across two business-unit files within the presets folder
+  const firstId = readFixtureCollection(fixtureRoot, "commerce-presets", "presets")[0].presetId;
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "commerce-presets",
+    "presets",
+    (p) => p.presetId !== firstId,
+    (p) => {
+      p.presetId = firstId;
+    },
+  );
+  assert.ok(ok, "fixture needs at least two presets");
 
   const result = runNodeScript("scripts/validate.mjs", { registryRoot: fixtureRoot });
   assertScriptFails(result, /presetId has duplicate values/);

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "korean-stock-search",
+      "path": "/v1/korean-stock/search",
+      "method": "GET",
+      "upstream": "krx",
+      "credential": "KRX_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "korean-stock-search"
+      ]
+    },
+    {
+      "routeId": "korean-stock-base-info",
+      "path": "/v1/korean-stock/base-info",
+      "method": "GET",
+      "upstream": "krx",
+      "credential": "KRX_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "korean-stock-search"
+      ]
+    },
+    {
+      "routeId": "korean-stock-trade-info",
+      "path": "/v1/korean-stock/trade-info",
+      "method": "GET",
+      "upstream": "krx",
+      "credential": "KRX_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "korean-stock-search"
+      ]
+    }
+  ]
+}

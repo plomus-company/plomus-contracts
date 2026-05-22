@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "kakao",
+      "baseUrl": "https://dapi.kakao.com",
+      "requiresKey": true,
+      "credential": "KAKAO_REST_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

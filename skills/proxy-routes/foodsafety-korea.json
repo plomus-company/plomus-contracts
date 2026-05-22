@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "mfds-food-safety-search",
+      "path": "/v1/mfds/food-safety/search",
+      "method": "GET",
+      "upstream": "foodsafety-korea",
+      "credential": "FOODSAFETYKOREA_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "mfds-food-safety"
+      ]
+    },
+    {
+      "routeId": "mfds-health-food-ingredient",
+      "path": "/v1/mfds/food-safety/health-food-ingredient",
+      "method": "GET",
+      "upstream": "foodsafety-korea",
+      "credential": "FOODSAFETYKOREA_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "mfds-food-safety"
+      ]
+    },
+    {
+      "routeId": "mfds-inspection-fail",
+      "path": "/v1/mfds/food-safety/inspection-fail",
+      "method": "GET",
+      "upstream": "foodsafety-korea",
+      "credential": "FOODSAFETYKOREA_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "mfds-food-safety"
+      ]
+    },
+    {
+      "routeId": "mfds-product-report",
+      "path": "/v1/mfds/food-safety/product-report",
+      "method": "GET",
+      "upstream": "foodsafety-korea",
+      "credential": "FOODSAFETYKOREA_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "mfds-food-safety"
+      ]
+    }
+  ]
+}

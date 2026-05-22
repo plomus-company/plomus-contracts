@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "workflow_profile",
+      "localIdPrefix": "PROFILE-WORKFLOW",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "enabled_workflows"
+      ]
+    }
+  ]
+}

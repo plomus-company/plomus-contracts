@@ -13,7 +13,8 @@ test("cross-domain consistency holds and the registry index builds", () => {
 
   const index = JSON.parse(fs.readFileSync(path.join(repoRoot, "dist/plomus-contracts-index.json"), "utf8"));
   assert.equal(index.domainCount, 8);
-  assert.ok(index.domains.every((d) => d.files.length > 0));
+  // every contract is now a business-unit folder, so each domain ships >=1 collection
+  assert.ok(index.domains.every((d) => d.collections.length > 0));
 
   // dependency edges only reference declared domains (acyclic-ish manifest sanity)
   const names = new Set(index.domains.map((d) => d.name));

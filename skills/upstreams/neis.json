@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "neis",
+      "baseUrl": "https://open.neis.go.kr",
+      "requiresKey": true,
+      "credential": "KEDU_INFO_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

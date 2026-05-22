@@ -1,3 +1,4 @@
+import { writeDoc, writeGroup } from "../scripts/group.mjs";
 import path from "node:path";
 import { writeJson } from "../scripts/read-json.mjs";
 
@@ -70,7 +71,7 @@ const TELEGRAM_COMMANDS = [
   { kind: "help", verbs: ["/help", "help", "도움말"], mapsToCloudCommand: null },
 ];
 
-writeJson("contracts/protocol-base.json", {
+writeDoc("protocol-base", {
   schemaVersion: "1.0.0",
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
@@ -81,10 +82,10 @@ writeJson("contracts/protocol-base.json", {
   telegramCommandKinds: TELEGRAM_COMMAND_KINDS,
   telegramCommandStatuses: TELEGRAM_COMMAND_STATUSES,
 });
-writeJson("contracts/protocol-endpoints.json", { schemaVersion: "1.0.0", endpoints: ENDPOINTS });
-writeJson("contracts/protocol-sync-event.json", { schemaVersion: "1.0.0", protocolVersion: PROTOCOL_VERSION, fields: SYNC_EVENT_FIELDS });
-writeJson("contracts/protocol-payloads.json", { schemaVersion: "1.0.0", payloads: PAYLOADS });
-writeJson("contracts/protocol-telegram.json", { schemaVersion: "1.0.0", commandStatuses: TELEGRAM_COMMAND_STATUSES, commands: TELEGRAM_COMMANDS });
+writeGroup("protocol-endpoints", "endpoints", ENDPOINTS, (x) => x.kind);
+writeDoc("protocol-sync-event", { schemaVersion: "1.0.0", protocolVersion: PROTOCOL_VERSION, fields: SYNC_EVENT_FIELDS });
+writeGroup("protocol-payloads", "payloads", PAYLOADS, (x) => x.objectType);
+writeDoc("protocol-telegram", { schemaVersion: "1.0.0", commandStatuses: TELEGRAM_COMMAND_STATUSES, commands: TELEGRAM_COMMANDS });
 
 console.log(`imported protocol contracts (source: ${sourceRepo})`);
 console.log(`  endpoints: ${ENDPOINTS.length}, sync-event fields: ${SYNC_EVENT_FIELDS.length}, payloads: ${PAYLOADS.length}, telegram kinds: ${TELEGRAM_COMMANDS.length}`);

@@ -1,3 +1,4 @@
+import { readContract } from "../scripts/group.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -20,7 +21,7 @@ test("governance registry validates and builds a distributable artifact", () => 
 
   // A1: every risk→model status resolves to a real benchmarks model status
   const benchStatuses = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/benchmarks-models.json"), "utf8")).models.map((m) => m.status),
+    readContract("benchmarks-models", "models").map((m) => m.status),
   );
   for (const r of dist.contracts.modelRouting.riskModelStatus) {
     assert.ok(benchStatuses.has(r.modelStatus), `risk ${r.riskLevel} → ${r.modelStatus} has no model`);

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "foodsafety-korea",
+      "baseUrl": "https://openapi.foodsafetykorea.go.kr",
+      "requiresKey": true,
+      "credential": "FOODSAFETYKOREA_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

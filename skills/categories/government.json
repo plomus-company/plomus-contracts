@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "categories": [
+    {
+      "category": "government",
+      "subcategories": [
+        "business",
+        "civic",
+        "data",
+        "education"
+      ]
+    }
+  ]
+}

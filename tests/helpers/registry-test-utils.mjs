@@ -30,15 +30,26 @@ export function runNodeScript(relativePath, { env = {}, registryRoot } = {}) {
   });
 }
 
-// Collections that live in a top-level folder at the repo root (not contracts/).
+// Contracts that live at the repo root rather than under contracts/: a single
+// contract mapped to a folder (workflows), or a whole domain (benchmarks, skills).
 const ROOT_DIRS = { "commerce-workflows": "workflows" };
+const ROOT_DOMAINS = new Set(["benchmarks", "skills"]);
+const ROOT_TOP = ["workflows", "benchmarks", "skills"];
+
+// Resolve a contract's folder inside a fixture, mirroring scripts/group.mjs.
+function fixtureFolderFor(fixtureRoot, name) {
+  if (ROOT_DIRS[name]) return path.join(fixtureRoot, ROOT_DIRS[name]);
+  const [domain, ...rest] = name.split("-");
+  if (ROOT_DOMAINS.has(domain)) return path.join(fixtureRoot, domain, rest.join("-"));
+  return path.join(fixtureRoot, "contracts", name);
+}
 
 export function createContractsFixture(t) {
   const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "plomus-contracts-test-"));
   fs.cpSync(path.join(repoRoot, "contracts"), path.join(fixtureRoot, "contracts"), {
     recursive: true,
   });
-  for (const dir of new Set(Object.values(ROOT_DIRS))) {
+  for (const dir of ROOT_TOP) {
     const src = path.join(repoRoot, dir);
     if (fs.existsSync(src)) fs.cpSync(src, path.join(fixtureRoot, dir), { recursive: true });
   }
@@ -62,9 +73,18 @@ export function scriptOutput(result) {
   return [result.stdout, result.stderr].filter(Boolean).join("\n");
 }
 
-// Mutate the first matching item of a collection in the fixture, whether it is a
-// single contracts/<name>.json file or a contracts/<name>/ folder of
-// business-unit files. Returns true if an item was mutated.
+// Read a collection's items from the fixture folder.
+export function readFixtureCollection(fixtureRoot, name, key) {
+  const dir = fixtureFolderFor(fixtureRoot, name);
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .flatMap((f) => JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"))[key] ?? []);
+}
+
+// Mutate the first matching item of a collection in the fixture's <name>/ folder.
+// Returns true if an item was mutated.
 export function mutateFixtureItem(fixtureRoot, name, key, matchFn, mutateFn) {
   const apply = (file) => {
     const doc = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -74,9 +94,7 @@ export function mutateFixtureItem(fixtureRoot, name, key, matchFn, mutateFn) {
     fs.writeFileSync(file, `${JSON.stringify(doc, null, 2)}\n`);
     return true;
   };
-  const single = ROOT_DIRS[name] ? null : path.join(fixtureRoot, "contracts", `${name}.json`);
-  if (single && fs.existsSync(single)) return apply(single);
-  const dir = ROOT_DIRS[name] ? path.join(fixtureRoot, ROOT_DIRS[name]) : path.join(fixtureRoot, "contracts", name);
+  const dir = fixtureFolderFor(fixtureRoot, name);
   for (const f of fs.readdirSync(dir).filter((f) => f.endsWith(".json"))) {
     if (apply(path.join(dir, f))) return true;
   }

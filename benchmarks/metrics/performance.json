@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "metrics": [
+    {
+      "metricId": "latency_p50_ms",
+      "label": "지연 p50",
+      "category": "performance",
+      "unit": "ms",
+      "direction": "lower-better",
+      "description": "단일 실행 응답 지연 중앙값."
+    },
+    {
+      "metricId": "latency_p95_ms",
+      "label": "지연 p95",
+      "category": "performance",
+      "unit": "ms",
+      "direction": "lower-better",
+      "description": "단일 실행 응답 지연 95퍼센타일."
+    },
+    {
+      "metricId": "throughput_tps",
+      "label": "출력 처리량",
+      "category": "performance",
+      "unit": "tokens-per-sec",
+      "direction": "higher-better",
+      "description": "출력 토큰 생성 속도."
+    }
+  ]
+}

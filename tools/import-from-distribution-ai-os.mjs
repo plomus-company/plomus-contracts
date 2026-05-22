@@ -1,4 +1,4 @@
-import { writeGroup } from "../scripts/group.mjs";
+import { readDoc, writeDoc, writeGroup } from "../scripts/group.mjs";
 import path from "node:path";
 import { readJson, writeJson } from "../scripts/read-json.mjs";
 
@@ -25,7 +25,7 @@ const generatedAt = new Date().toISOString();
 
 // Commerce baseline (read-only) — used to keep the preset's system folders and
 // base document types in sync with the shared contract.
-const commerceBase = readJson("contracts/commerce-base.json");
+const commerceBase = readDoc("commerce-base");
 const SYSTEM_FOLDERS = commerceBase.systemFolders ?? [];
 const BASE_DOC_TYPES = [
   "commerce_review",
@@ -128,9 +128,9 @@ const base = {
   documentTypes: DISTRIBUTION_DOC_TYPES,
 };
 
-writeJson("contracts/distribution-base.json", base);
-writeJson("contracts/distribution-presets.json", { schemaVersion: "1.0.0", presets: [distributionPreset] });
-writeJson("contracts/distribution-fields.json", { schemaVersion: "1.0.0", note: "Distribution frontmatter fields and the controlled vocabulary each binds to.", fields: FIELDS });
+writeDoc("distribution-base", base);
+writeGroup("distribution-presets", "presets", [distributionPreset], (x) => x.presetId);
+writeGroup("distribution-fields", "fields", FIELDS, (x) => x.documentType);
 writeGroup("distribution-experimental-rules", "rules", EXPERIMENTAL_RULES, (r) => r.domain);
 
 console.log(`imported distribution contracts (source: ${distRepo})`);

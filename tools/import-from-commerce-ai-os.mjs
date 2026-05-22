@@ -1,4 +1,4 @@
-import { writeGroup } from "../scripts/group.mjs";
+import { writeDoc, writeGroup } from "../scripts/group.mjs";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
@@ -328,8 +328,8 @@ console.log(JSON.stringify({
 }));
 `);
 
-writeJson("contracts/commerce-base.json", base);
-writeJson("contracts/commerce-presets.json", presets);
+writeDoc("commerce-base", base);
+writeGroup("commerce-presets", "presets", presets.presets, (x) => x.presetId);
 writeGroup("commerce-review-rules", "reviewRules", reviewRules.reviewRules, (r) => r.domain);
 writeGroup("commerce-workflows", "workflows", workflows.workflows, (w) => w.reviewScope);
 

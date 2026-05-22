@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "claim",
+      "localIdPrefix": "CLAIM-",
+      "statusField": "claim_status",
+      "statuses": [
+        "RECEIVED",
+        "IN_REVIEW",
+        "WAITING_CUSTOMER",
+        "RESOLVED",
+        "REJECTED"
+      ],
+      "extraEnums": {
+        "claim_type": [
+          "CANCEL",
+          "RETURN",
+          "EXCHANGE",
+          "REFUND",
+          "CS"
+        ]
+      },
+      "requiredFields": [
+        "type",
+        "local_id",
+        "claim_type",
+        "claim_status"
+      ]
+    }
+  ]
+}

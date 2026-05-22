@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapters": [
+    {
+      "adapterId": "webhook.custom",
+      "executionTypes": [
+        "reward.grant",
+        "sanction.apply",
+        "event.update",
+        "notice.publish"
+      ],
+      "capabilities": [
+        "http-post"
+      ],
+      "dryRunSupported": true,
+      "rollbackSupported": false,
+      "requiresConfig": [
+        "endpoint"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "fields": [
+    {
+      "documentType": "claim",
+      "field": "return_reason",
+      "enum": "returnReasons",
+      "required": false
+    }
+  ]
+}

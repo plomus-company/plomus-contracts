@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "groups": [
+    {
+      "object": "task",
+      "events": [
+        "TASK_CREATED",
+        "TASK_APPROVED",
+        "TASK_REJECTED",
+        "TASK_COMPLETED",
+        "TASK_STATUS_CHANGED"
+      ]
+    }
+  ]
+}

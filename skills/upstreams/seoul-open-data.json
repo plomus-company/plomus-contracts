@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "seoul-open-data",
+      "baseUrl": "http://openapi.seoul.go.kr",
+      "requiresKey": true,
+      "credential": "SEOUL_OPEN_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

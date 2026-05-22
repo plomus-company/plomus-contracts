@@ -1,6 +1,7 @@
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/protocol-base.json");
+const base = readDoc("protocol-base");
 writeJson("dist/plomus-protocol.json", {
   schemaVersion: "1.0.0",
   name: "plomus-protocol",
@@ -14,10 +15,10 @@ writeJson("dist/plomus-protocol.json", {
     telegramCommandStatuses: base.telegramCommandStatuses ?? [],
   },
   contracts: {
-    endpoints: readJson("contracts/protocol-endpoints.json").endpoints ?? [],
-    syncEvent: readJson("contracts/protocol-sync-event.json"),
-    payloads: readJson("contracts/protocol-payloads.json").payloads ?? [],
-    telegram: readJson("contracts/protocol-telegram.json"),
+    endpoints: readContract("protocol-endpoints", "endpoints"),
+    syncEvent: readDoc("protocol-sync-event"),
+    payloads: readContract("protocol-payloads", "payloads"),
+    telegram: readDoc("protocol-telegram"),
   },
 });
 console.log("built dist/plomus-protocol.json");

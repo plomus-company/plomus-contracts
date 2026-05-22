@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "agents": [
+    {
+      "agentId": "cs",
+      "intents": [
+        "cs.summary"
+      ],
+      "description": "CS 문의 요약·분류(category/sentiment/priority)",
+      "outputs": {
+        "category": "csCategories",
+        "sentiment": "csSentiments",
+        "priority": "csPriorities"
+      }
+    }
+  ]
+}

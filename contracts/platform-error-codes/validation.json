@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0.0",
+  "errorCodes": [
+    {
+      "code": "VALIDATION_FAILED",
+      "category": "validation"
+    }
+  ]
+}

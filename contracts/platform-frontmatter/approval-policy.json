@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "approval_policy",
+      "localIdPrefix": "PROFILE-APPROVAL-POLICY",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "require_approval_for"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { writeDoc } from "../scripts/group.mjs";
 import path from "node:path";
 import { writeJson } from "../scripts/read-json.mjs";
 
@@ -97,7 +98,7 @@ const RISK_MODEL_STATUS = [
   { riskLevel: "low", modelStatus: "fast" },
 ];
 
-writeJson("contracts/governance-base.json", {
+writeDoc("governance-base", {
   schemaVersion: "1.0.0",
   source: "plomus-gameops-ai-os",
   sourceImportedAt: generatedAt,
@@ -110,7 +111,7 @@ writeJson("contracts/governance-base.json", {
   executionStates: EXECUTION_STATES,
   commandStates: COMMAND_STATES,
 });
-writeJson("contracts/governance-roles.json", {
+writeDoc("governance-roles", {
   schemaVersion: "1.0.0",
   roles: [
     { role: "owner", rank: 5 },
@@ -122,12 +123,12 @@ writeJson("contracts/governance-roles.json", {
   ],
   approvalCapability: APPROVAL_CAPABILITY,
 });
-writeJson("contracts/governance-approval.json", {
+writeDoc("governance-approval", {
   schemaVersion: "1.0.0",
   policies: Object.entries(APPROVAL_THRESHOLDS).map(([policy, requiredApprovals]) => ({ policy, requiredApprovals, allowedChannels: APPROVAL_CHANNELS })),
   riskPolicy: RISK_POLICY,
 });
-writeJson("contracts/governance-execution-lifecycle.json", {
+writeDoc("governance-execution-lifecycle", {
   schemaVersion: "1.0.0",
   states: EXECUTION_STATES,
   transitions: EXECUTION_TRANSITIONS,
@@ -135,7 +136,7 @@ writeJson("contracts/governance-execution-lifecycle.json", {
   commandTransitions: COMMAND_TRANSITIONS,
   executionSteps: EXECUTION_STEPS,
 });
-writeJson("contracts/governance-model-routing.json", {
+writeDoc("governance-model-routing", {
   schemaVersion: "1.0.0",
   note: "risk_level → preferred benchmarks model status; resolves against contracts/benchmarks-models.json.",
   fallbackStatus: "frontier",

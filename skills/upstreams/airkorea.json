@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "airkorea",
+      "baseUrl": "http://apis.data.go.kr",
+      "requiresKey": true,
+      "credential": "AIR_KOREA_OPEN_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

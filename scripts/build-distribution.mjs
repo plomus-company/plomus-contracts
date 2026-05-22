@@ -1,7 +1,7 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/distribution-base.json");
+const base = readDoc("distribution-base");
 const registry = {
   schemaVersion: "1.0.0",
   name: "plomus-distribution",
@@ -18,8 +18,8 @@ const registry = {
     documentTypes: base.documentTypes ?? [],
   },
   contracts: {
-    presets: readJson("contracts/distribution-presets.json").presets ?? [],
-    fields: readJson("contracts/distribution-fields.json").fields ?? [],
+    presets: readContract("distribution-presets", "presets"),
+    fields: readContract("distribution-fields", "fields"),
     experimentalRules: readContract("distribution-experimental-rules", "rules"),
   },
 };

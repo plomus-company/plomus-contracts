@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "market-kurly-search",
+      "packageName": "market-kurly-search",
+      "dir": "packages/market-kurly-search"
+    }
+  ]
+}

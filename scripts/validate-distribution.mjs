@@ -1,4 +1,4 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -18,13 +18,13 @@ const assertUnique = (scope, field, values) => {
 };
 
 // ---- distribution domain ----
-const base = readJson("contracts/distribution-base.json");
-const presets = readJson("contracts/distribution-presets.json").presets ?? [];
-const fields = readJson("contracts/distribution-fields.json").fields ?? [];
+const base = readDoc("distribution-base");
+const presets = readContract("distribution-presets", "presets");
+const fields = readContract("distribution-fields", "fields");
 const experimentalRules = readContract("distribution-experimental-rules", "rules");
 
 // ---- commerce baseline (read-only cross-reference) ----
-const commerceBase = readJson("contracts/commerce-base.json");
+const commerceBase = readDoc("commerce-base");
 const commerceRuleIds = new Set((readContract("commerce-review-rules", "reviewRules")).map((r) => r.ruleId));
 const commerceWorkflowIds = new Set((readContract("commerce-workflows", "workflows")).map((w) => w.workflowId));
 const commerceDomains = new Set(commerceBase.core?.commerceDomains ?? []);

@@ -1,4 +1,4 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -24,16 +24,16 @@ function assertUnique(scope, field, values) {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 }
 
-const base = readJson("contracts/skills-base.json");
+const base = readDoc("skills-base");
 const skills = readContract("skills-catalog", "skills");
-const routes = readJson("contracts/skills-proxy-routes.json").routes ?? [];
-const credentials = readJson("contracts/skills-credentials.json").credentials ?? [];
-const sources = readJson("contracts/skills-data-sources.json").sources ?? [];
-const categoryGroups = readJson("contracts/skills-categories.json").categories ?? [];
-const upstreamRegistry = readJson("contracts/skills-upstreams.json").upstreams ?? [];
-const packages = readJson("contracts/skills-packages.json").packages ?? [];
-const mcp = readJson("contracts/skills-mcp.json");
-const proxyConfig = readJson("contracts/skills-proxy.json");
+const routes = readContract("skills-proxy-routes", "routes");
+const credentials = readContract("skills-credentials", "credentials");
+const sources = readContract("skills-data-sources", "sources");
+const categoryGroups = readContract("skills-categories", "categories");
+const upstreamRegistry = readContract("skills-upstreams", "upstreams");
+const packages = readContract("skills-packages", "packages");
+const mcp = readDoc("skills-mcp");
+const proxyConfig = readDoc("skills-proxy");
 
 const categories = base.categories ?? [];
 const locales = base.locales ?? [];

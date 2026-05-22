@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "odsay",
+      "baseUrl": "https://api.odsay.com",
+      "requiresKey": true,
+      "credential": "ODSAY_API_KEY",
+      "proxyManaged": false
+    }
+  ]
+}

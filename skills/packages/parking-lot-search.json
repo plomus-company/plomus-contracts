@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "parking-lot-search",
+      "packageName": "parking-lot-search",
+      "dir": "packages/parking-lot-search"
+    }
+  ]
+}

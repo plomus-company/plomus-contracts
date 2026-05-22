@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "presets": [
+    {
+      "presetId": "BROKERAGE",
+      "label": "중개/업체주선형",
+      "description": "파트너, 매칭, 수수료, 분쟁 관리 중심",
+      "commerceTypes": [
+        "BROKERAGE"
+      ],
+      "salesChannels": [
+        "OWN_WEB",
+        "PARTNER_CHANNEL",
+        "B2B_DIRECT"
+      ],
+      "productTypes": [
+        "BROKERAGE_SERVICE"
+      ],
+      "operationMode": "PARTNER_MATCHING",
+      "enabledDomains": [
+        "PARTNER",
+        "SETTLEMENT",
+        "CLAIM",
+        "LEGAL_POLICY",
+        "SYSTEM"
+      ],
+      "enabledRules": [
+        "PARTNER_CONTRACT_MISSING",
+        "PARTNER_SETTLEMENT_PENDING",
+        "SETTLEMENT_MISMATCH",
+        "CLAIM_OVERDUE",
+        "LEGAL_POLICY_MISSING",
+        "PRIVACY_POLICY_MISSING",
+        "TERMS_OF_SERVICE_MISSING",
+        "TASK_OVERDUE",
+        "TASK_DONE_CLEANUP",
+        "CHANGE_PLAN_STALE"
+      ],
+      "highPriorityRules": [
+        "PARTNER_CONTRACT_MISSING",
+        "PARTNER_SETTLEMENT_PENDING",
+        "SETTLEMENT_MISMATCH",
+        "LEGAL_POLICY_MISSING"
+      ],
+      "enabledFolders": [
+        "35-partners",
+        "36-matches",
+        "37-commissions",
+        "38-disputes",
+        "40-claims",
+        "50-settlements",
+        "55-legal",
+        "05-onboarding",
+        "60-ai-recommendations",
+        "65-change-plans",
+        "70-tasks",
+        "80-workflows",
+        "90-system/profiles",
+        "90-system/commerce-reviews",
+        "90-system/sync-events",
+        "90-system/cloud-commands",
+        "90-system/hermes-commands",
+        "90-system/hermes-results",
+        "90-system/backups",
+        "90-system/validation-errors"
+      ],
+      "enabledDocumentTypes": [
+        "partner",
+        "match",
+        "commission",
+        "dispute",
+        "claim",
+        "settlement",
+        "legal_policy",
+        "commerce_review",
+        "ai_recommendation",
+        "change_plan",
+        "task",
+        "sync_event",
+        "cloud_command",
+        "hermes_command",
+        "hermes_result",
+        "validation_error"
+      ],
+      "enabledWorkflows": [
+        "commerce-review",
+        "apply-change-plan",
+        "partner-review",
+        "settlement-check",
+        "legal-policy-review",
+        "daily-briefing"
+      ],
+      "requireApprovalFor": [
+        "DOCUMENT_PATCH",
+        "FRONTMATTER_UPDATE",
+        "PRICE_CHANGE",
+        "SETTLEMENT_CHANGE",
+        "CONTRACT_CHANGE",
+        "LEGAL_POLICY_CHANGE",
+        "CUSTOMER_MESSAGE"
+      ],
+      "autoApplyAllowed": [
+        "APPEND_REVIEW_MEMO",
+        "CLEANUP_DONE_TASK"
+      ]
+    }
+  ]
+}

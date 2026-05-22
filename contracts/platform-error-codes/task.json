@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "errorCodes": [
+    {
+      "code": "TASK_NOT_FOUND",
+      "category": "task"
+    },
+    {
+      "code": "TASK_ALREADY_CLOSED",
+      "category": "task"
+    },
+    {
+      "code": "TASK_NOT_APPROVED",
+      "category": "task"
+    }
+  ]
+}

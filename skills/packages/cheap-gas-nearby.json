@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "cheap-gas-nearby",
+      "packageName": "cheap-gas-nearby",
+      "dir": "packages/cheap-gas-nearby"
+    }
+  ]
+}

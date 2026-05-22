@@ -1,42 +1,45 @@
 import fs from "node:fs";
 import path from "node:path";
-import { readJson, repoRoot, writeJson } from "./read-json.mjs";
+import { repoRoot, writeJson } from "./read-json.mjs";
+import { readDoc } from "./group.mjs";
 
 // Top-level manifest of every contract domain: location, dependency edges, and
-// the JSON artifacts each ships. Lets a consumer discover the whole registry and
-// its cross-domain dependency graph from one file.
+// the contract folders each ships. Lets a consumer discover the whole registry
+// and its cross-domain dependency graph from one file.
 
 const DOMAINS = [
-  { name: "commerce", dir: "commerce", dependsOn: [], source: "plomus-commerce-ai-os" },
-  { name: "skills", dir: "skills", dependsOn: [], source: "k-skill" },
-  { name: "benchmarks", dir: "benchmarks", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
-  { name: "distribution", dir: "distribution", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
-  { name: "protocol", dir: "protocol", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "platform", dir: "platform", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
-  { name: "governance", dir: "governance", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
-  { name: "gameops", dir: "gameops", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
+  { name: "commerce", root: "contracts", dependsOn: [], source: "plomus-commerce-ai-os" },
+  { name: "skills", root: "skills", dependsOn: [], source: "k-skill" },
+  { name: "benchmarks", root: "benchmarks", dependsOn: ["skills", "commerce"], source: "skills+commerce" },
+  { name: "distribution", root: "contracts", dependsOn: ["commerce"], source: "plomus-distribution-ai-os" },
+  { name: "protocol", root: "contracts", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
+  { name: "platform", root: "contracts", dependsOn: ["commerce"], source: "plomus-commerce-ai-os" },
+  { name: "governance", root: "contracts", dependsOn: ["benchmarks"], source: "plomus-gameops-ai-os" },
+  { name: "gameops", root: "contracts", dependsOn: ["governance"], source: "plomus-gameops-ai-os" },
 ];
 
-// Contracts live in one flat folder: <domain>-<contract>.json files plus
-// <domain>-<contract>/ folders (business-unit-split collections).
-const entries = fs.readdirSync(path.join(repoRoot, "contracts"), { withFileTypes: true });
-const allFiles = entries.filter((e) => e.isFile() && e.name.endsWith(".json")).map((e) => e.name).sort();
-const allFolders = entries.filter((e) => e.isDirectory()).map((e) => `${e.name}/`).sort();
+// Every contract is a folder. Domains live under contracts/<domain>-<contract>/,
+// except skills and benchmarks which are split out to <domain>/<contract>/.
+const folders = (rel) => fs.readdirSync(path.join(repoRoot, rel), { withFileTypes: true })
+  .filter((e) => e.isDirectory())
+  .map((e) => e.name)
+  .sort();
 
 const domains = DOMAINS.map((d) => {
-  const files = allFiles.filter((f) => f.startsWith(`${d.name}-`));
-  const collections = allFolders.filter((f) => f.startsWith(`${d.name}-`));
-  let schemaVersion = null;
-  try {
-    schemaVersion = readJson(`contracts/${d.name}-base.json`).schemaVersion ?? null;
-  } catch {
-    schemaVersion = files[0] ? readJson(`contracts/${files[0]}`).schemaVersion ?? null : null;
-  }
+  const collections = d.root === "contracts"
+    ? folders("contracts").filter((f) => f.startsWith(`${d.name}-`)).map((f) => `contracts/${f}/`)
+    : folders(d.root).map((f) => `${d.root}/${f}/`);
   // workflows are separated into a top-level workflows/ folder (commerce concern)
   if (d.name === "commerce" && fs.existsSync(path.join(repoRoot, "workflows"))) {
-    collections.push("workflows/ (root)");
+    collections.push("workflows/");
   }
-  return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, files, collections };
+  let schemaVersion = null;
+  try {
+    schemaVersion = readDoc(`${d.name}-base`).schemaVersion ?? null;
+  } catch {
+    schemaVersion = "1.0.0";
+  }
+  return { name: d.name, dependsOn: d.dependsOn, source: d.source, schemaVersion, collections };
 });
 
 writeJson("dist/plomus-contracts-index.json", {

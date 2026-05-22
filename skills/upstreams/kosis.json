@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "kosis",
+      "baseUrl": "https://kosis.kr",
+      "requiresKey": true,
+      "credential": "KOSIS_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

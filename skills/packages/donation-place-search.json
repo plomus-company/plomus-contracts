@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "donation-place-search",
+      "packageName": "donation-place-search",
+      "dir": "packages/donation-place-search"
+    }
+  ]
+}

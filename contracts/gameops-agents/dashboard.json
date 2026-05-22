@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "agents": [
+    {
+      "agentId": "dashboard",
+      "intents": [
+        "report.today.brief",
+        "report.daily.generate"
+      ],
+      "description": "운영 대시보드 인사이트·일일 브리핑",
+      "outputs": {
+        "status_level": "dashboardStatusLevels"
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "endpoints": [
+    {
+      "name": "change-plan-approve",
+      "path": "/api/change-plans/:id/approve",
+      "method": "POST",
+      "kind": "approval",
+      "transport": "json",
+      "description": "변경 계획 승인"
+    },
+    {
+      "name": "change-plan-reject",
+      "path": "/api/change-plans/:id/reject",
+      "method": "POST",
+      "kind": "approval",
+      "transport": "json",
+      "description": "변경 계획 반려"
+    }
+  ]
+}

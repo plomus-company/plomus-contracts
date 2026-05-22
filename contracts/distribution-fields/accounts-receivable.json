@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "fields": [
+    {
+      "documentType": "accounts_receivable",
+      "field": "aging_bucket",
+      "enum": "receivableAgingBuckets",
+      "required": false
+    }
+  ]
+}

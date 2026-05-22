@@ -36,7 +36,7 @@ const DEFAULT_TARGETS = [
   "workflow:settlement-check",
 ];
 
-const models = readJson("contracts/benchmarks-models.json").models ?? [];
+const models = readContract("benchmarks-models", "models");
 const model = models.find((m) => m.modelId === MODEL_ID);
 if (!model) {
   console.error(`Unknown modelId '${MODEL_ID}'. Add it to contracts/benchmarks-models.json (run generate:benchmarks).`);
@@ -47,9 +47,9 @@ const allTargets = readContract("benchmarks-targets", "targets");
 const targetById = new Map(allTargets.map((t) => [t.targetId, t]));
 const skillById = new Map((readContract("skills-catalog", "skills")).map((s) => [s.skillId, s]));
 const workflowById = new Map((readContract("commerce-workflows", "workflows")).map((w) => [w.workflowId, w]));
-const agentById = new Map((readJson("contracts/gameops-agents.json").agents ?? []).map((a) => [a.agentId, a]));
-const playbookById = new Map((readJson("contracts/gameops-playbooks.json").playbooks ?? []).map((p) => [p.playbookId, p]));
-const presetById = new Map((readJson("contracts/distribution-presets.json").presets ?? []).map((p) => [p.presetId, p]));
+const agentById = new Map((readContract("gameops-agents", "agents")).map((a) => [a.agentId, a]));
+const playbookById = new Map((readContract("gameops-playbooks", "playbooks")).map((p) => [p.playbookId, p]));
+const presetById = new Map((readContract("distribution-presets", "presets")).map((p) => [p.presetId, p]));
 
 let selectedIds = TARGET_ARG ? TARGET_ARG.split(",").map((s) => s.trim()) : DEFAULT_TARGETS;
 selectedIds = selectedIds.filter((id) => targetById.has(id));
@@ -179,8 +179,8 @@ const KIND_DOMAIN = { skill: "skills", workflow: "commerce", agent: "gameops", p
 writeGroup("benchmarks-results", "results", [...keptResults, ...newResults], (r) => KIND_DOMAIN[String(r.targetId).split(":")[0]] ?? "other");
 
 // ---- recompute measured rollups for this model ----
-const metricIds = (readJson("contracts/benchmarks-metrics.json").metrics ?? []).map((m) => m.metricId);
-const existingRollups = readJson("contracts/benchmarks-rollups.json").rollups ?? [];
+const metricIds = (readContract("benchmarks-metrics", "metrics")).map((m) => m.metricId);
+const existingRollups = readContract("benchmarks-rollups", "rollups");
 const keptRollups = existingRollups.filter((r) => !(r.dataSource === "measured" && r.modelId === MODEL_ID));
 const measuredRollups = [];
 const ranDomains = [...new Set(newResults.map((r) => targetById.get(r.targetId)?.domain).filter(Boolean))].sort();
@@ -194,11 +194,7 @@ for (const domain of ranDomains) {
   }
   measuredRollups.push({ domain, modelId: MODEL_ID, dataSource: "measured", targetCount: rows.length, metrics });
 }
-writeJson("contracts/benchmarks-rollups.json", {
-  schemaVersion: "1.0.0",
-  note: "Illustrative rollups are means over illustrative results; measured rollups come from experiments.",
-  rollups: [...keptRollups, ...measuredRollups],
-});
+writeGroup("benchmarks-rollups", "rollups", [...keptRollups, ...measuredRollups], (r) => r.domain);
 
 runRecord.finishedAt = new Date().toISOString();
 const stamp = runRecord.startedAt.replace(/[:.]/g, "-");

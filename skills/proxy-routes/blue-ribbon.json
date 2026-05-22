@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "blue-ribbon-nearby",
+      "path": "/v1/blue-ribbon/nearby",
+      "method": "GET",
+      "upstream": "blue-ribbon",
+      "credential": "BLUE_RIBBON_SESSION_ID",
+      "cacheable": true,
+      "skills": [
+        "blue-ribbon-nearby"
+      ]
+    }
+  ]
+}

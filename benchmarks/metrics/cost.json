@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "metrics": [
+    {
+      "metricId": "cost_per_run_usd",
+      "label": "실행당 비용",
+      "category": "cost",
+      "unit": "usd",
+      "direction": "lower-better",
+      "description": "입력+출력 토큰 기준 1회 실행 비용."
+    },
+    {
+      "metricId": "input_tokens",
+      "label": "입력 토큰",
+      "category": "cost",
+      "unit": "tokens",
+      "direction": "lower-better",
+      "description": "1회 실행 평균 입력 토큰."
+    },
+    {
+      "metricId": "output_tokens",
+      "label": "출력 토큰",
+      "category": "cost",
+      "unit": "tokens",
+      "direction": "lower-better",
+      "description": "1회 실행 평균 출력 토큰."
+    }
+  ]
+}

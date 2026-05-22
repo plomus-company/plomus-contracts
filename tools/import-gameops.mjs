@@ -1,3 +1,4 @@
+import { writeDoc, writeGroup } from "../scripts/group.mjs";
 import path from "node:path";
 import { writeJson } from "../scripts/read-json.mjs";
 
@@ -72,7 +73,7 @@ const PLAYBOOKS = [
   { playbookId: "daily_ops_brief_v1", triggers: ["report.today.brief", "report.daily.generate"], riskLevel: "low", requiresApproval: false, steps: [{ type: "query" }, { type: "analyze" }, { type: "draft" }] },
 ];
 
-writeJson("contracts/gameops-base.json", {
+writeDoc("gameops-base", {
   schemaVersion: "1.0.0",
   source: "plomus-gameops-ai-os",
   sourceImportedAt: generatedAt,
@@ -92,10 +93,10 @@ writeJson("contracts/gameops-base.json", {
   dashboardStatusLevels: DASHBOARD_STATUS_LEVELS,
   incidentSeverityThresholds: INCIDENT_SEVERITY_THRESHOLDS,
 });
-writeJson("contracts/gameops-adapters.json", { schemaVersion: "1.0.0", adapters: ADAPTERS });
-writeJson("contracts/gameops-agents.json", { schemaVersion: "1.0.0", agents: AGENTS });
-writeJson("contracts/gameops-playbooks.json", { schemaVersion: "1.0.0", playbooks: PLAYBOOKS });
-writeJson("contracts/gameops-fields.json", { schemaVersion: "1.0.0", note: "GameOps document fields and the controlled vocabulary each binds to.", fields: FIELDS });
+writeGroup("gameops-adapters", "adapters", ADAPTERS, (x) => x.adapterId);
+writeGroup("gameops-agents", "agents", AGENTS, (x) => x.agentId);
+writeGroup("gameops-playbooks", "playbooks", PLAYBOOKS, (x) => x.playbookId);
+writeGroup("gameops-fields", "fields", FIELDS, (x) => x.documentType);
 
 console.log(`imported gameops contracts (source: ${sourceRepo})`);
 console.log(`  intents: ${INTENTS.length}, adapters: ${ADAPTERS.length}, agents: ${AGENTS.length}, playbooks: ${PLAYBOOKS.length}, fields: ${FIELDS.length}`);

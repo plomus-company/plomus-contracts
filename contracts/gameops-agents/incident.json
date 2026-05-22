@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "agents": [
+    {
+      "agentId": "incident",
+      "intents": [
+        "incident.create"
+      ],
+      "description": "인시던트 생성·심각도 분류(S1–S4)",
+      "outputs": {
+        "severity": "incidentSeverities"
+      }
+    }
+  ]
+}

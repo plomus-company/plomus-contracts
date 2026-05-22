@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "seoul-subway-arrival",
+      "path": "/v1/seoul-subway/arrival",
+      "method": "GET",
+      "upstream": "seoul-open-data",
+      "credential": "SEOUL_OPEN_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "seoul-subway-arrival"
+      ]
+    },
+    {
+      "routeId": "seoul-density-citydata",
+      "path": "/v1/seoul-density/citydata",
+      "method": "GET",
+      "upstream": "seoul-open-data",
+      "credential": "SEOUL_OPEN_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "seoul-density"
+      ]
+    }
+  ]
+}

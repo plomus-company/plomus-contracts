@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "rollups": [
+    {
+      "domain": "commerce",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 730.75,
+        "throughput_tps": 496.32,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.57,
+        "output_tokens": 236.48,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "qwen3.6-27b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 5055.96,
+        "throughput_tps": 50.19,
+        "cost_per_run_usd": 0,
+        "input_tokens": 59.9,
+        "output_tokens": 236.29,
+        "success_rate": 100,
+        "error_rate": 0
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "claude-opus-4-7",
+      "dataSource": "illustrative",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 20557.24,
+        "latency_p95_ms": 37003.1,
+        "throughput_tps": 62,
+        "cost_per_run_usd": 0.14071,
+        "input_tokens": 3100.9,
+        "output_tokens": 1255.95,
+        "success_rate": 98.22,
+        "accuracy": 90.13,
+        "error_rate": 1.78
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "gpt-4o",
+      "dataSource": "illustrative",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 14203.19,
+        "latency_p95_ms": 25565.76,
+        "throughput_tps": 90,
+        "cost_per_run_usd": 0.02003,
+        "input_tokens": 3007.29,
+        "output_tokens": 1251.29,
+        "success_rate": 97.19,
+        "accuracy": 86.23,
+        "error_rate": 2.81
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "gemini-2.5-pro",
+      "dataSource": "illustrative",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 14465.24,
+        "latency_p95_ms": 26037.43,
+        "throughput_tps": 100,
+        "cost_per_run_usd": 0.01796,
+        "input_tokens": 3037,
+        "output_tokens": 1416.52,
+        "success_rate": 96.42,
+        "accuracy": 85.11,
+        "error_rate": 3.58
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "deepseek-v3",
+      "dataSource": "illustrative",
+      "targetCount": 21,
+      "metrics": {
+        "latency_p50_ms": 19135.38,
+        "latency_p95_ms": 34443.71,
+        "throughput_tps": 70,
+        "cost_per_run_usd": 0.00224,
+        "input_tokens": 2927,
+        "output_tokens": 1318.48,
+        "success_rate": 95.29,
+        "accuracy": 81.46,
+        "error_rate": 4.71
+      }
+    }
+  ]
+}

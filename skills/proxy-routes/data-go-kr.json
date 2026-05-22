@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "real-estate-region-code",
+      "path": "/v1/real-estate/region-code",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "real-estate-search"
+      ]
+    },
+    {
+      "routeId": "real-estate",
+      "path": "/v1/real-estate/:assetType/:dealType",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "real-estate-search"
+      ]
+    },
+    {
+      "routeId": "parking-lot-search",
+      "path": "/v1/parking-lots/search",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "parking-lot-search"
+      ]
+    },
+    {
+      "routeId": "household-waste-info",
+      "path": "/v1/household-waste/info",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "household-waste-info"
+      ]
+    },
+    {
+      "routeId": "lh-notice-search",
+      "path": "/v1/lh-notice/search",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "lh-notice-search"
+      ]
+    },
+    {
+      "routeId": "lh-notice-detail",
+      "path": "/v1/lh-notice/detail",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "lh-notice-search"
+      ]
+    },
+    {
+      "routeId": "mfds-drug-safety-lookup",
+      "path": "/v1/mfds/drug-safety/lookup",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "mfds-drug-safety"
+      ]
+    },
+    {
+      "routeId": "nts-business-status",
+      "path": "/v1/nts-business/status",
+      "method": "POST",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "nts-business-registration"
+      ]
+    },
+    {
+      "routeId": "nts-business-validate",
+      "path": "/v1/nts-business/validate",
+      "method": "POST",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": false,
+      "skills": [
+        "nts-business-registration"
+      ]
+    },
+    {
+      "routeId": "kstartup-announcements",
+      "path": "/v1/kstartup/announcements",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kstartup-search"
+      ]
+    },
+    {
+      "routeId": "kstartup-business-info",
+      "path": "/v1/kstartup/business-info",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kstartup-search"
+      ]
+    },
+    {
+      "routeId": "kstartup-contents",
+      "path": "/v1/kstartup/contents",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kstartup-search"
+      ]
+    },
+    {
+      "routeId": "kstartup-statistics",
+      "path": "/v1/kstartup/statistics",
+      "method": "GET",
+      "upstream": "data-go-kr",
+      "credential": "DATA_GO_KR_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kstartup-search"
+      ]
+    }
+  ]
+}

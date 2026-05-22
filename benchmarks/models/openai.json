@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "models": [
+    {
+      "modelId": "gpt-4o",
+      "vendor": "openai",
+      "family": "GPT",
+      "displayName": "GPT-4o",
+      "modality": "text+vision",
+      "contextWindow": 128000,
+      "maxOutputTokens": 16384,
+      "status": "frontier",
+      "pricing": {
+        "inputPerMTok": 2.5,
+        "outputPerMTok": 10,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "gpt-4o-mini",
+      "vendor": "openai",
+      "family": "GPT",
+      "displayName": "GPT-4o mini",
+      "modality": "text+vision",
+      "contextWindow": 128000,
+      "maxOutputTokens": 16384,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 0.15,
+        "outputPerMTok": 0.6,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "o3-mini",
+      "vendor": "openai",
+      "family": "o-series",
+      "displayName": "OpenAI o3-mini",
+      "modality": "text",
+      "contextWindow": 200000,
+      "maxOutputTokens": 100000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 1.1,
+        "outputPerMTok": 4.4,
+        "currency": "USD"
+      }
+    }
+  ]
+}

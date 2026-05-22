@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "product",
+      "localIdPrefix": "PROD-",
+      "statusField": "status",
+      "statuses": [
+        "DRAFT",
+        "ACTIVE",
+        "PAUSED",
+        "SOLD_OUT",
+        "ARCHIVED"
+      ],
+      "extraEnums": {
+        "content_quality_status": [
+          "GOOD",
+          "NEEDS_SUPPLEMENT",
+          "MISSING_REQUIRED_INFO"
+        ],
+        "image_status": [
+          "READY",
+          "MISSING",
+          "NEEDS_REVIEW"
+        ]
+      },
+      "requiredFields": [
+        "type",
+        "local_id",
+        "product_name",
+        "status"
+      ]
+    }
+  ]
+}

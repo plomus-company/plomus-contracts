@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "opinet-around",
+      "path": "/v1/opinet/around",
+      "method": "GET",
+      "upstream": "opinet",
+      "credential": "OPINET_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "cheap-gas-nearby"
+      ]
+    },
+    {
+      "routeId": "opinet-detail",
+      "path": "/v1/opinet/detail",
+      "method": "GET",
+      "upstream": "opinet",
+      "credential": "OPINET_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "cheap-gas-nearby"
+      ]
+    }
+  ]
+}

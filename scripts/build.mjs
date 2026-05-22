@@ -1,4 +1,4 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
 const registry = {
@@ -6,8 +6,8 @@ const registry = {
   name: "plomus-contracts",
   generatedAt: new Date().toISOString(),
   contracts: {
-    base: readJson("contracts/commerce-base.json"),
-    presets: readJson("contracts/commerce-presets.json").presets ?? [],
+    base: readDoc("commerce-base"),
+    presets: readContract("commerce-presets", "presets"),
     reviewRules: readContract("commerce-review-rules", "reviewRules"),
     workflows: readContract("commerce-workflows", "workflows"),
   },

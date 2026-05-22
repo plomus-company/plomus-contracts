@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "groups": [
+    {
+      "object": "system",
+      "events": [
+        "SYNC_CONFLICT_FOUND",
+        "VALIDATION_ERROR_FOUND",
+        "HERMES_RUN_COMPLETED",
+        "HERMES_RUN_FAILED",
+        "AGENT_HEARTBEAT_RECEIVED"
+      ]
+    }
+  ]
+}

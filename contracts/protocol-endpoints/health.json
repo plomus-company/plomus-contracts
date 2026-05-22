@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "endpoints": [
+    {
+      "name": "health",
+      "path": "/api/health",
+      "method": "GET",
+      "kind": "health",
+      "transport": "json",
+      "description": "헬스 체크"
+    }
+  ]
+}

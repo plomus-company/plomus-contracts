@@ -1,4 +1,4 @@
-import { readContract, writeGroup } from "../scripts/group.mjs";
+import { readContract, writeDoc, writeGroup } from "../scripts/group.mjs";
 import { readJson, writeJson } from "../scripts/read-json.mjs";
 
 // Single source of truth for the benchmarks contract domain.
@@ -81,9 +81,9 @@ const round = (n, d = 2) => Number(n.toFixed(d));
 const skills = readContract("skills-catalog", "skills");
 const workflows = readContract("commerce-workflows", "workflows");
 // newly added domains contribute their LLM-executed entities as benchmark targets
-const gameopsAgents = readJson("contracts/gameops-agents.json").agents ?? [];
-const gameopsPlaybooks = readJson("contracts/gameops-playbooks.json").playbooks ?? [];
-const distributionPresets = readJson("contracts/distribution-presets.json").presets ?? [];
+const gameopsAgents = readContract("gameops-agents", "agents");
+const gameopsPlaybooks = readContract("gameops-playbooks", "playbooks");
+const distributionPresets = readContract("distribution-presets", "presets");
 
 const targets = [
   ...skills.map((s) => ({
@@ -183,19 +183,12 @@ for (const domain of TARGET_DOMAINS) {
 
 // Preserve any previously recorded measured results/rollups so regenerating the
 // illustrative seed never wipes real experiment data.
-function readExisting(relativePath, key) {
-  try {
-    return readJson(relativePath)[key] ?? [];
-  } catch {
-    return [];
-  }
-}
 const KIND_DOMAIN = { skill: "skills", workflow: "commerce", agent: "gameops", playbook: "gameops", preset: "distribution" };
 const resultDomain = (r) => KIND_DOMAIN[String(r.targetId).split(":")[0]] ?? "other";
 const preservedResults = readContract("benchmarks-results", "results").filter(
   (r) => r.dataSource !== "illustrative",
 );
-const preservedRollups = readExisting("contracts/benchmarks-rollups.json", "rollups").filter(
+const preservedRollups = readContract("benchmarks-rollups", "rollups").filter(
   (r) => r.dataSource !== "illustrative",
 );
 
@@ -217,12 +210,12 @@ const base = {
   seedModels: SEED_MODELS,
 };
 
-writeJson("contracts/benchmarks-base.json", base);
-writeJson("contracts/benchmarks-models.json", { schemaVersion: "1.0.0", pricingAsOf: PRICING_AS_OF, pricingNote: "List prices are indicative and may change; treat as relative reference only.", models: MODELS });
-writeJson("contracts/benchmarks-metrics.json", { schemaVersion: "1.0.0", metrics: METRICS });
+writeDoc("benchmarks-base", base);
+writeGroup("benchmarks-models", "models", MODELS, (x) => x.vendor);
+writeGroup("benchmarks-metrics", "metrics", METRICS, (x) => x.category);
 writeGroup("benchmarks-targets", "targets", targets, (t) => t.domain);
 writeGroup("benchmarks-results", "results", [...preservedResults, ...results], resultDomain);
-writeJson("contracts/benchmarks-rollups.json", { schemaVersion: "1.0.0", note: "Illustrative rollups are means over illustrative results; measured rollups come from experiments.", rollups: [...preservedRollups, ...rollups] });
+writeGroup("benchmarks-rollups", "rollups", [...preservedRollups, ...rollups], (x) => x.domain);
 
 console.log(`generated benchmarks from ${targets.length} targets`);
 console.log(`  models: ${MODELS.length}, metrics: ${METRICS.length}, seed models: ${SEED_MODELS.length}`);

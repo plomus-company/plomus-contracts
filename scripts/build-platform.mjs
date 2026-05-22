@@ -1,6 +1,7 @@
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/platform-base.json");
+const base = readDoc("platform-base");
 writeJson("dist/plomus-platform.json", {
   schemaVersion: "1.0.0",
   name: "plomus-platform",
@@ -12,9 +13,9 @@ writeJson("dist/plomus-platform.json", {
     errorCategories: base.errorCategories ?? [],
   },
   contracts: {
-    frontmatter: readJson("contracts/platform-frontmatter.json").documents ?? [],
-    eventTypes: readJson("contracts/platform-event-types.json").groups ?? [],
-    errorCodes: readJson("contracts/platform-error-codes.json").errorCodes ?? [],
+    frontmatter: readContract("platform-frontmatter", "documents"),
+    eventTypes: readContract("platform-event-types", "groups"),
+    errorCodes: readContract("platform-error-codes", "errorCodes"),
   },
 });
 console.log("built dist/plomus-platform.json");

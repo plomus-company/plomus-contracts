@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "models": [
+    {
+      "modelId": "deepseek-v3",
+      "vendor": "deepseek",
+      "family": "DeepSeek",
+      "displayName": "DeepSeek V3",
+      "modality": "text",
+      "contextWindow": 128000,
+      "maxOutputTokens": 8000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0.27,
+        "outputPerMTok": 1.1,
+        "currency": "USD"
+      }
+    }
+  ]
+}

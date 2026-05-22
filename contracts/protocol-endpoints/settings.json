@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "endpoints": [
+    {
+      "name": "settings-profile",
+      "path": "/api/settings/profile",
+      "method": "GET",
+      "kind": "settings",
+      "transport": "json",
+      "description": "활성 commerce profile 조회"
+    }
+  ]
+}

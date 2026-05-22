@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "kakao-local-geocode",
+      "path": "/v1/kakao-local/geocode",
+      "method": "GET",
+      "upstream": "kakao",
+      "credential": "KAKAO_REST_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "korean-transit-route"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "naver",
+      "baseUrl": "https://openapi.naver.com",
+      "requiresKey": true,
+      "credential": "NAVER_SEARCH_CLIENT_ID",
+      "proxyManaged": true
+    }
+  ]
+}

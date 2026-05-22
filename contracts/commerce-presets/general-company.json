@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0.0",
+  "presets": [
+    {
+      "presetId": "GENERAL_COMPANY",
+      "label": "일반 회사 운영형",
+      "description": "재무, 인사, 회의 후속, 상시 요청, 주기성 업무 중심의 운영 기준",
+      "commerceTypes": [
+        "GENERAL_COMPANY"
+      ],
+      "salesChannels": [
+        "INTERNAL"
+      ],
+      "productTypes": [
+        "INTERNAL_OPERATIONS"
+      ],
+      "operationMode": "GENERAL_OPERATIONS",
+      "enabledDomains": [
+        "GENERAL_OPERATIONS",
+        "FINANCE",
+        "HR",
+        "PROCUREMENT",
+        "ALWAYS_ON",
+        "RECURRING",
+        "SYSTEM"
+      ],
+      "enabledRules": [
+        "EXPENSE_REPORT_PENDING",
+        "FINANCE_RECEIVABLE_OVERDUE",
+        "FINANCE_PAYABLE_DUE",
+        "FINANCE_MONTHLY_CLOSE_DUE",
+        "HR_ONBOARDING_DELAY",
+        "HR_LEAVE_APPROVAL_PENDING",
+        "HR_PROBATION_REVIEW_DUE",
+        "MEETING_ACTION_OVERDUE",
+        "PROCUREMENT_APPROVAL_PENDING",
+        "OPERATIONS_REQUEST_SLA",
+        "INCIDENT_FOLLOWUP_DUE",
+        "RECURRING_CHECKLIST_DUE",
+        "PERIODIC_REPORT_DUE",
+        "TASK_OVERDUE",
+        "TASK_DONE_CLEANUP",
+        "CHANGE_PLAN_STALE",
+        "SYNC_FAILURE_DETECTED"
+      ],
+      "highPriorityRules": [
+        "HR_ONBOARDING_DELAY",
+        "HR_PROBATION_REVIEW_DUE",
+        "FINANCE_RECEIVABLE_OVERDUE",
+        "FINANCE_MONTHLY_CLOSE_DUE",
+        "INCIDENT_FOLLOWUP_DUE",
+        "MEETING_ACTION_OVERDUE"
+      ],
+      "enabledFolders": [
+        "21-meetings",
+        "22-expenses",
+        "23-people",
+        "24-procurement",
+        "51-finance",
+        "52-recurring",
+        "53-operations",
+        "05-onboarding",
+        "60-ai-recommendations",
+        "65-change-plans",
+        "70-tasks",
+        "80-workflows",
+        "90-system/profiles",
+        "90-system/commerce-reviews",
+        "90-system/sync-events",
+        "90-system/cloud-commands",
+        "90-system/hermes-commands",
+        "90-system/hermes-results",
+        "90-system/backups",
+        "90-system/validation-errors"
+      ],
+      "enabledDocumentTypes": [
+        "meeting",
+        "meeting_action",
+        "expense",
+        "expense_report",
+        "employee_onboarding",
+        "hr_process",
+        "leave_request",
+        "probation_review",
+        "employee_review",
+        "purchase_request",
+        "procurement",
+        "accounts_receivable",
+        "accounts_payable",
+        "finance_item",
+        "invoice",
+        "vendor_bill",
+        "finance_close",
+        "monthly_close",
+        "recurring_task",
+        "periodic_task",
+        "checklist",
+        "periodic_report",
+        "report",
+        "ops_request",
+        "service_request",
+        "support_ticket",
+        "incident",
+        "ops_incident",
+        "commerce_review",
+        "ai_recommendation",
+        "change_plan",
+        "task",
+        "sync_event",
+        "cloud_command",
+        "hermes_command",
+        "hermes_result",
+        "validation_error"
+      ],
+      "enabledWorkflows": [
+        "commerce-review",
+        "apply-change-plan",
+        "general-company-review",
+        "finance-review",
+        "hr-review",
+        "operations-review",
+        "recurring-review",
+        "task-approved",
+        "daily-briefing"
+      ],
+      "requireApprovalFor": [
+        "DOCUMENT_PATCH",
+        "FRONTMATTER_UPDATE",
+        "PRICE_CHANGE",
+        "SETTLEMENT_CHANGE",
+        "CONTRACT_CHANGE",
+        "LEGAL_POLICY_CHANGE",
+        "CUSTOMER_MESSAGE"
+      ],
+      "autoApplyAllowed": [
+        "APPEND_REVIEW_MEMO",
+        "CLEANUP_DONE_TASK"
+      ]
+    }
+  ]
+}

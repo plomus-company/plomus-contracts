@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "krx",
+      "baseUrl": "http://data-dbg.krx.co.kr",
+      "requiresKey": true,
+      "credential": "KRX_API_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

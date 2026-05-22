@@ -1,4 +1,4 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -33,8 +33,8 @@ function assertPattern(scope, field, value, pattern, label) {
   }
 }
 
-const base = readJson("contracts/commerce-base.json");
-const presets = readJson("contracts/commerce-presets.json").presets ?? [];
+const base = readDoc("commerce-base");
+const presets = readContract("commerce-presets", "presets");
 const reviewRules = readContract("commerce-review-rules", "reviewRules");
 const workflows = readContract("commerce-workflows", "workflows");
 

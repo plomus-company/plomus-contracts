@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "fields": [
+    {
+      "documentType": "notice",
+      "field": "notice_type",
+      "enum": "noticeTypes",
+      "required": true
+    }
+  ]
+}

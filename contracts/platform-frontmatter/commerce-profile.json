@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "commerce_profile",
+      "localIdPrefix": "PROFILE-COMMERCE",
+      "statusField": null,
+      "statuses": [],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "commerce_types",
+        "sales_channels",
+        "product_types",
+        "operation_mode",
+        "enabled_domains"
+      ]
+    }
+  ]
+}

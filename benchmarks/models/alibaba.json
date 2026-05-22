@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "models": [
+    {
+      "modelId": "qwen-2.5-72b",
+      "vendor": "alibaba",
+      "family": "Qwen",
+      "displayName": "Qwen 2.5 72B",
+      "modality": "text",
+      "contextWindow": 131072,
+      "maxOutputTokens": 32000,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0.4,
+        "outputPerMTok": 0.4,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "qwen3.6-27b",
+      "vendor": "alibaba",
+      "family": "Qwen",
+      "displayName": "Qwen3.6 27B (Ollama Q4_K_M)",
+      "modality": "text+vision",
+      "contextWindow": 262144,
+      "maxOutputTokens": 32768,
+      "status": "balanced",
+      "pricing": {
+        "inputPerMTok": 0,
+        "outputPerMTok": 0,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "qwen-2.5-0.5b",
+      "vendor": "alibaba",
+      "family": "Qwen",
+      "displayName": "Qwen2.5 0.5B (Ollama)",
+      "modality": "text",
+      "contextWindow": 32768,
+      "maxOutputTokens": 8000,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 0,
+        "outputPerMTok": 0,
+        "currency": "USD"
+      }
+    }
+  ]
+}

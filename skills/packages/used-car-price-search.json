@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "used-car-price-search",
+      "packageName": "used-car-price-search",
+      "dir": "packages/used-car-price-search"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "playbooks": [
+    {
+      "playbookId": "daily_ops_brief_v1",
+      "triggers": [
+        "report.today.brief",
+        "report.daily.generate"
+      ],
+      "riskLevel": "low",
+      "requiresApproval": false,
+      "steps": [
+        {
+          "type": "query"
+        },
+        {
+          "type": "analyze"
+        },
+        {
+          "type": "draft"
+        }
+      ]
+    }
+  ]
+}

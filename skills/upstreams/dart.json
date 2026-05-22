@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "dart",
+      "baseUrl": "https://opendart.fss.or.kr",
+      "requiresKey": true,
+      "credential": "API_K_DART",
+      "proxyManaged": false
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "APPROVAL_POLICY",
+      "localIdPrefix": "PROFILE-APPROVAL-POLICY",
+      "requiredFields": [
+        "local_id",
+        "require_approval_for"
+      ]
+    }
+  ]
+}

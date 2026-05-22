@@ -1,3 +1,4 @@
+import { writeDoc, writeGroup } from "../scripts/group.mjs";
 import path from "node:path";
 import { writeJson } from "../scripts/read-json.mjs";
 
@@ -69,7 +70,7 @@ const ERROR_CODES = [
   { code: "TASK_NOT_APPROVED", category: "task" },
 ];
 
-writeJson("contracts/platform-base.json", {
+writeDoc("platform-base", {
   schemaVersion: "1.0.0",
   source: "plomus-commerce-ai-os",
   sourceImportedAt: generatedAt,
@@ -78,9 +79,9 @@ writeJson("contracts/platform-base.json", {
   eventObjects: EVENT_TYPES.map((e) => e.object),
   errorCategories: ERROR_CATEGORIES,
 });
-writeJson("contracts/platform-frontmatter.json", { schemaVersion: "1.0.0", documents: FRONTMATTER });
-writeJson("contracts/platform-event-types.json", { schemaVersion: "1.0.0", groups: EVENT_TYPES });
-writeJson("contracts/platform-error-codes.json", { schemaVersion: "1.0.0", errorCodes: ERROR_CODES });
+writeGroup("platform-frontmatter", "documents", FRONTMATTER, (x) => x.documentType);
+writeGroup("platform-event-types", "groups", EVENT_TYPES, (x) => x.object);
+writeGroup("platform-error-codes", "errorCodes", ERROR_CODES, (x) => x.category);
 
 console.log(`imported platform contracts (source: ${sourceRepo})`);
 console.log(`  frontmatter docs: ${FRONTMATTER.length}, event groups: ${EVENT_TYPES.length}, error codes: ${ERROR_CODES.length}`);

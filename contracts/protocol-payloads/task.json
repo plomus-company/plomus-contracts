@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "TASK",
+      "localIdPrefix": "TASK-",
+      "requiredFields": [
+        "local_id",
+        "task_type",
+        "title",
+        "status"
+      ]
+    }
+  ]
+}

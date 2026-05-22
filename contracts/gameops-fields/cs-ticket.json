@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "fields": [
+    {
+      "documentType": "cs_ticket",
+      "field": "category",
+      "enum": "csCategories",
+      "required": true
+    },
+    {
+      "documentType": "cs_ticket",
+      "field": "status",
+      "enum": "csStatuses",
+      "required": true
+    },
+    {
+      "documentType": "cs_ticket",
+      "field": "priority",
+      "enum": "csPriorities",
+      "required": false
+    },
+    {
+      "documentType": "cs_ticket",
+      "field": "sentiment",
+      "enum": "csSentiments",
+      "required": false
+    }
+  ]
+}

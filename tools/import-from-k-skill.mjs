@@ -1,4 +1,4 @@
-import { writeGroup } from "../scripts/group.mjs";
+import { writeDoc, writeGroup } from "../scripts/group.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { writeJson } from "../scripts/read-json.mjs";
@@ -437,16 +437,16 @@ const upstreamRegistry = UPSTREAMS.map((upstreamId) => {
   };
 });
 
-writeJson("contracts/skills-base.json", base);
+writeDoc("skills-base", base);
 writeGroup("skills-catalog", "skills", skills, (s) => s.subcategory);
-writeJson("contracts/skills-proxy-routes.json", { schemaVersion: "1.0.0", routes: PROXY_ROUTES });
-writeJson("contracts/skills-credentials.json", { schemaVersion: "1.0.0", credentials: CREDENTIALS });
-writeJson("contracts/skills-data-sources.json", { schemaVersion: "1.0.0", sources });
-writeJson("contracts/skills-categories.json", { schemaVersion: "1.0.0", note: "Canonical category -> raw k-skill subcategories consolidated under it.", categories });
-writeJson("contracts/skills-upstreams.json", { schemaVersion: "1.0.0", upstreams: upstreamRegistry });
-writeJson("contracts/skills-packages.json", { schemaVersion: "1.0.0", packages });
-writeJson("contracts/skills-mcp.json", { schemaVersion: "1.0.0", servers: MCP_SERVERS, mcpSkills: skills.filter((s) => s.usesMcp).map((s) => s.skillId) });
-writeJson("contracts/skills-proxy.json", { schemaVersion: "1.0.0", ...PROXY_CONFIG, upstreamBaseUrls: UPSTREAM_BASE_URLS });
+writeGroup("skills-proxy-routes", "routes", PROXY_ROUTES, (x) => x.upstream);
+writeGroup("skills-credentials", "credentials", CREDENTIALS, (x) => x.upstream);
+writeGroup("skills-data-sources", "sources", sources, (x) => x.authType);
+writeGroup("skills-categories", "categories", categories, (x) => x.category);
+writeGroup("skills-upstreams", "upstreams", upstreamRegistry, (x) => x.upstreamId);
+writeGroup("skills-packages", "packages", packages, (x) => x.skillId);
+writeDoc("skills-mcp", { schemaVersion: "1.0.0", servers: MCP_SERVERS, mcpSkills: skills.filter((s) => s.usesMcp).map((s) => s.skillId) });
+writeDoc("skills-proxy", { schemaVersion: "1.0.0", ...PROXY_CONFIG, upstreamBaseUrls: UPSTREAM_BASE_URLS });
 
 console.log(`imported ${skills.length} skills from ${kSkillRoot}`);
 console.log(`  routes ${PROXY_ROUTES.length}, creds ${CREDENTIALS.length}, categories ${CATEGORIES.length} (subcats ${new Set(skills.map((s) => s.subcategory)).size})`);

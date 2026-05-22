@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "kosis-search",
+      "path": "/v1/kosis/search",
+      "method": "GET",
+      "upstream": "kosis",
+      "credential": "KOSIS_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kosis-stats"
+      ]
+    },
+    {
+      "routeId": "kosis-meta",
+      "path": "/v1/kosis/meta",
+      "method": "GET",
+      "upstream": "kosis",
+      "credential": "KOSIS_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kosis-stats"
+      ]
+    },
+    {
+      "routeId": "kosis-data",
+      "path": "/v1/kosis/data",
+      "method": "GET",
+      "upstream": "kosis",
+      "credential": "KOSIS_API_KEY",
+      "cacheable": true,
+      "skills": [
+        "kosis-stats"
+      ]
+    }
+  ]
+}

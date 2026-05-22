@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "documents": [
+    {
+      "documentType": "order",
+      "localIdPrefix": "ORDER-",
+      "statusField": "order_status",
+      "statuses": [
+        "PAID",
+        "PREPARING",
+        "SHIPPED",
+        "DELIVERED",
+        "CANCELLED",
+        "REFUNDED"
+      ],
+      "extraEnums": {},
+      "requiredFields": [
+        "type",
+        "local_id",
+        "order_number",
+        "order_status",
+        "payment_amount"
+      ]
+    }
+  ]
+}

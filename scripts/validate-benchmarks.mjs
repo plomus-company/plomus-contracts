@@ -1,4 +1,4 @@
-import { readContract } from "./group.mjs";
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -19,19 +19,19 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/benchmarks-base.json");
-const models = readJson("contracts/benchmarks-models.json").models ?? [];
-const metrics = readJson("contracts/benchmarks-metrics.json").metrics ?? [];
+const base = readDoc("benchmarks-base");
+const models = readContract("benchmarks-models", "models");
+const metrics = readContract("benchmarks-metrics", "metrics");
 const targets = readContract("benchmarks-targets", "targets");
 const results = readContract("benchmarks-results", "results");
-const rollups = readJson("contracts/benchmarks-rollups.json").rollups ?? [];
+const rollups = readContract("benchmarks-rollups", "rollups");
 
 // referenced contracts (cross-domain integrity)
 const skillIds = new Set((readContract("skills-catalog", "skills")).map((s) => s.skillId));
 const workflowIds = new Set((readContract("commerce-workflows", "workflows")).map((w) => w.workflowId));
-const agentIds = new Set((readJson("contracts/gameops-agents.json").agents ?? []).map((a) => a.agentId));
-const playbookIds = new Set((readJson("contracts/gameops-playbooks.json").playbooks ?? []).map((p) => p.playbookId));
-const presetIds = new Set((readJson("contracts/distribution-presets.json").presets ?? []).map((p) => p.presetId));
+const agentIds = new Set((readContract("gameops-agents", "agents")).map((a) => a.agentId));
+const playbookIds = new Set((readContract("gameops-playbooks", "playbooks")).map((p) => p.playbookId));
+const presetIds = new Set((readContract("distribution-presets", "presets")).map((p) => p.presetId));
 
 const vendors = base.modelVendors ?? [];
 const modalities = base.modalities ?? [];

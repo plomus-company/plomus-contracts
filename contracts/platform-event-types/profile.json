@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "groups": [
+    {
+      "object": "profile",
+      "events": [
+        "COMMERCE_PROFILE_CREATED",
+        "COMMERCE_PROFILE_UPDATED",
+        "WORKFLOW_PROFILE_CREATED",
+        "WORKFLOW_PROFILE_UPDATED",
+        "REVIEW_POLICY_CREATED",
+        "REVIEW_POLICY_UPDATED",
+        "APPROVAL_POLICY_CREATED",
+        "APPROVAL_POLICY_UPDATED",
+        "DOCUMENT_PROFILE_CREATED",
+        "DOCUMENT_PROFILE_UPDATED",
+        "ONBOARDING_COMPLETED"
+      ]
+    }
+  ]
+}

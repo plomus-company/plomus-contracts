@@ -1,3 +1,4 @@
+import { readContract, readDoc } from "./group.mjs";
 import { diff, readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -16,13 +17,13 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/platform-base.json");
-const documents = readJson("contracts/platform-frontmatter.json").documents ?? [];
-const groups = readJson("contracts/platform-event-types.json").groups ?? [];
-const errorCodes = readJson("contracts/platform-error-codes.json").errorCodes ?? [];
+const base = readDoc("platform-base");
+const documents = readContract("platform-frontmatter", "documents");
+const groups = readContract("platform-event-types", "groups");
+const errorCodes = readContract("platform-error-codes", "errorCodes");
 
 // commerce baseline (read-only)
-const commerceBase = readJson("contracts/commerce-base.json");
+const commerceBase = readDoc("commerce-base");
 const commerceDocTypes = new Set([...(commerceBase.documentTypes ?? []), ...(commerceBase.core?.markdownObjectTypes ?? [])]);
 const commerceEventTypes = new Set(commerceBase.core?.syncEventTypes ?? []);
 

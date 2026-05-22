@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "presets": [
+    {
+      "presetId": "INVENTORY_BASED_SALES",
+      "label": "재고형 판매",
+      "description": "직접 보유 재고와 품절 위험 점검 중심",
+      "commerceTypes": [
+        "INVENTORY_BASED_SALES"
+      ],
+      "salesChannels": [
+        "OWN_WEB",
+        "NAVER_SMARTSTORE",
+        "COUPANG"
+      ],
+      "productTypes": [
+        "PHYSICAL_PRODUCT",
+        "STOCKED_PRODUCT"
+      ],
+      "operationMode": "INVENTORY_CONTROLLED",
+      "enabledDomains": [
+        "PRODUCT",
+        "ORDER",
+        "INVENTORY",
+        "SHIPPING",
+        "CLAIM",
+        "SETTLEMENT",
+        "SYSTEM"
+      ],
+      "enabledRules": [
+        "PRODUCT_DESCRIPTION_MISSING",
+        "PRODUCT_IMAGE_NEEDS_REVIEW",
+        "PRODUCT_PRICE_MISSING",
+        "ORDER_SHIPPING_DELAY",
+        "INVENTORY_LOW_STOCK",
+        "CLAIM_OVERDUE",
+        "SETTLEMENT_MISMATCH",
+        "TASK_OVERDUE"
+      ],
+      "highPriorityRules": [
+        "INVENTORY_LOW_STOCK",
+        "ORDER_SHIPPING_DELAY",
+        "SETTLEMENT_MISMATCH"
+      ],
+      "enabledFolders": [
+        "10-products",
+        "20-orders",
+        "30-inventory",
+        "40-claims",
+        "50-settlements",
+        "05-onboarding",
+        "60-ai-recommendations",
+        "65-change-plans",
+        "70-tasks",
+        "80-workflows",
+        "90-system/profiles",
+        "90-system/commerce-reviews",
+        "90-system/sync-events",
+        "90-system/cloud-commands",
+        "90-system/hermes-commands",
+        "90-system/hermes-results",
+        "90-system/backups",
+        "90-system/validation-errors"
+      ],
+      "enabledDocumentTypes": [
+        "product",
+        "order",
+        "stock",
+        "claim",
+        "settlement",
+        "commerce_review",
+        "ai_recommendation",
+        "change_plan",
+        "task",
+        "sync_event",
+        "cloud_command",
+        "hermes_command",
+        "hermes_result",
+        "validation_error"
+      ],
+      "enabledWorkflows": [
+        "commerce-review",
+        "apply-change-plan",
+        "inventory-review",
+        "order-delay-review",
+        "settlement-check",
+        "daily-briefing"
+      ],
+      "requireApprovalFor": [
+        "DOCUMENT_PATCH",
+        "FRONTMATTER_UPDATE",
+        "PRICE_CHANGE",
+        "SETTLEMENT_CHANGE",
+        "CONTRACT_CHANGE",
+        "LEGAL_POLICY_CHANGE",
+        "CUSTOMER_MESSAGE"
+      ],
+      "autoApplyAllowed": [
+        "APPEND_REVIEW_MEMO",
+        "CLEANUP_DONE_TASK"
+      ]
+    }
+  ]
+}

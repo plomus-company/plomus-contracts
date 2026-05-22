@@ -1,6 +1,7 @@
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, writeJson } from "./read-json.mjs";
 
-const base = readJson("contracts/gameops-base.json");
+const base = readDoc("gameops-base");
 writeJson("dist/plomus-gameops.json", {
   schemaVersion: "1.0.0",
   name: "plomus-gameops",
@@ -23,10 +24,10 @@ writeJson("dist/plomus-gameops.json", {
   },
   incidentSeverityThresholds: base.incidentSeverityThresholds ?? [],
   contracts: {
-    adapters: readJson("contracts/gameops-adapters.json").adapters ?? [],
-    agents: readJson("contracts/gameops-agents.json").agents ?? [],
-    playbooks: readJson("contracts/gameops-playbooks.json").playbooks ?? [],
-    fields: readJson("contracts/gameops-fields.json").fields ?? [],
+    adapters: readContract("gameops-adapters", "adapters"),
+    agents: readContract("gameops-agents", "agents"),
+    playbooks: readContract("gameops-playbooks", "playbooks"),
+    fields: readContract("gameops-fields", "fields"),
   },
 });
 console.log("built dist/plomus-gameops.json");

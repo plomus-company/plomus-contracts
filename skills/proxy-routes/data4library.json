@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "data4library-book-search",
+      "path": "/v1/data4library/book-search",
+      "method": "GET",
+      "upstream": "data4library",
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "cacheable": true,
+      "skills": [
+        "library-book-search"
+      ]
+    },
+    {
+      "routeId": "data4library-book-detail",
+      "path": "/v1/data4library/book-detail",
+      "method": "GET",
+      "upstream": "data4library",
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "cacheable": true,
+      "skills": [
+        "library-book-search"
+      ]
+    },
+    {
+      "routeId": "data4library-book-exists",
+      "path": "/v1/data4library/book-exists",
+      "method": "GET",
+      "upstream": "data4library",
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "cacheable": true,
+      "skills": [
+        "library-book-search"
+      ]
+    },
+    {
+      "routeId": "data4library-libraries-by-book",
+      "path": "/v1/data4library/libraries-by-book",
+      "method": "GET",
+      "upstream": "data4library",
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "cacheable": true,
+      "skills": [
+        "library-book-search"
+      ]
+    },
+    {
+      "routeId": "data4library-library-search",
+      "path": "/v1/data4library/library-search",
+      "method": "GET",
+      "upstream": "data4library",
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "cacheable": true,
+      "skills": [
+        "library-book-search"
+      ]
+    }
+  ]
+}

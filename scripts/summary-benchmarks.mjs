@@ -7,11 +7,11 @@ import { readJson, repoRoot } from "./read-json.mjs";
 // Writes the committed docs/BENCHMARK-RESULTS.md and the CI artifact
 // dist/benchmark-summary.md. Run with: pnpm run summary:benchmarks
 
-const models = readJson("contracts/benchmarks-models.json").models ?? [];
-const metrics = readJson("contracts/benchmarks-metrics.json").metrics ?? [];
+const models = readContract("benchmarks-models", "models");
+const metrics = readContract("benchmarks-metrics", "metrics");
 const targets = readContract("benchmarks-targets", "targets");
 const results = readContract("benchmarks-results", "results");
-const rollups = readJson("contracts/benchmarks-rollups.json").rollups ?? [];
+const rollups = readContract("benchmarks-rollups", "rollups");
 
 const targetById = new Map(targets.map((t) => [t.targetId, t]));
 const modelById = new Map(models.map((m) => [m.modelId, m]));

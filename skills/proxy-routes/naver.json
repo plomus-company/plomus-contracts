@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "naver-news-search",
+      "path": "/v1/naver-news/search",
+      "method": "GET",
+      "upstream": "naver",
+      "credential": "NAVER_SEARCH_CLIENT_ID",
+      "cacheable": true,
+      "skills": [
+        "naver-news-search"
+      ]
+    },
+    {
+      "routeId": "naver-shopping-search",
+      "path": "/v1/naver-shopping/search",
+      "method": "GET",
+      "upstream": "naver",
+      "credential": "NAVER_SEARCH_CLIENT_ID",
+      "cacheable": true,
+      "skills": [
+        "naver-shopping-search"
+      ]
+    }
+  ]
+}

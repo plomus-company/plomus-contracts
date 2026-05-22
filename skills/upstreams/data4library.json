@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "data4library",
+      "baseUrl": "https://data4library.kr/api",
+      "requiresKey": true,
+      "credential": "DATA4LIBRARY_AUTH_KEY",
+      "proxyManaged": true
+    }
+  ]
+}

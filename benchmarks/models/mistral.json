@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "models": [
+    {
+      "modelId": "mixtral-8x22b",
+      "vendor": "mistral",
+      "family": "Mixtral",
+      "displayName": "Mixtral 8x22B",
+      "modality": "text",
+      "contextWindow": 64000,
+      "maxOutputTokens": 16000,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 2,
+        "outputPerMTok": 6,
+        "currency": "USD"
+      }
+    }
+  ]
+}

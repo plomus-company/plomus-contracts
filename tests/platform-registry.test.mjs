@@ -1,3 +1,4 @@
+import { readDoc } from "../scripts/group.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -20,7 +21,7 @@ test("platform registry validates and builds a distributable artifact", () => {
 
   // P3: every grouped event type is a real commerce sync event type
   const commerceEvents = new Set(
-    JSON.parse(fs.readFileSync(path.join(repoRoot, "contracts/commerce-base.json"), "utf8")).core.syncEventTypes,
+    readDoc("commerce-base").core.syncEventTypes,
   );
   for (const group of dist.contracts.eventTypes) {
     for (const ev of group.events) {

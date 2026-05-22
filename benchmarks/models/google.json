@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "models": [
+    {
+      "modelId": "gemini-2.5-pro",
+      "vendor": "google",
+      "family": "Gemini",
+      "displayName": "Gemini 2.5 Pro",
+      "modality": "text+vision",
+      "contextWindow": 1000000,
+      "maxOutputTokens": 65536,
+      "status": "frontier",
+      "pricing": {
+        "inputPerMTok": 1.25,
+        "outputPerMTok": 10,
+        "currency": "USD"
+      }
+    },
+    {
+      "modelId": "gemini-2.5-flash",
+      "vendor": "google",
+      "family": "Gemini",
+      "displayName": "Gemini 2.5 Flash",
+      "modality": "text+vision",
+      "contextWindow": 1000000,
+      "maxOutputTokens": 65536,
+      "status": "fast",
+      "pricing": {
+        "inputPerMTok": 0.3,
+        "outputPerMTok": 2.5,
+        "currency": "USD"
+      }
+    }
+  ]
+}

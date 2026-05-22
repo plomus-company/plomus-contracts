@@ -1,3 +1,4 @@
+import { readContract, readDoc } from "./group.mjs";
 import { readJson, unique } from "./read-json.mjs";
 
 const failures = [];
@@ -16,11 +17,11 @@ const assertUnique = (scope, field, values) => {
   if (!unique(values)) fail(scope, `${field} has duplicate values.`);
 };
 
-const base = readJson("contracts/gameops-base.json");
-const adapters = readJson("contracts/gameops-adapters.json").adapters ?? [];
-const agents = readJson("contracts/gameops-agents.json").agents ?? [];
-const playbooks = readJson("contracts/gameops-playbooks.json").playbooks ?? [];
-const fields = readJson("contracts/gameops-fields.json").fields ?? [];
+const base = readDoc("gameops-base");
+const adapters = readContract("gameops-adapters", "adapters");
+const agents = readContract("gameops-agents", "agents");
+const playbooks = readContract("gameops-playbooks", "playbooks");
+const fields = readContract("gameops-fields", "fields");
 
 // enum names available for binding/outputs
 const ENUM_KEYS = new Set([
@@ -31,7 +32,7 @@ const ENUM_KEYS = new Set([
 const incidentSeveritySet = new Set(base.incidentSeverities ?? []);
 
 // governance baseline (read-only)
-const governanceBase = readJson("contracts/governance-base.json");
+const governanceBase = readDoc("governance-base");
 const govRiskLevels = new Set(governanceBase.riskLevels ?? []);
 const govApprovalPolicies = new Set(governanceBase.approvalPolicies ?? []);
 

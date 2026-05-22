@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "categories": [
+    {
+      "category": "tooling",
+      "subcategories": [
+        "messaging",
+        "setup",
+        "tooling"
+      ]
+    }
+  ]
+}

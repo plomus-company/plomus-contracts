@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "groups": [
+    {
+      "object": "commerceReview",
+      "events": [
+        "COMMERCE_REVIEW_CREATED",
+        "COMMERCE_REVIEW_STARTED",
+        "COMMERCE_REVIEW_COMPLETED",
+        "COMMERCE_REVIEW_FAILED",
+        "COMMERCE_REVIEW_PARTIAL"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "CHANGE_PLAN",
+      "localIdPrefix": "PLAN-",
+      "requiredFields": [
+        "local_id",
+        "plan_type",
+        "change_type",
+        "status",
+        "target_file",
+        "title"
+      ]
+    }
+  ]
+}

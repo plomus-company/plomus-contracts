@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "skillId": "lck-analytics",
+      "packageName": "lck-analytics",
+      "dir": "packages/lck-analytics"
+    }
+  ]
+}

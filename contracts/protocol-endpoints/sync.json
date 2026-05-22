@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "endpoints": [
+    {
+      "name": "sync-events",
+      "path": "/api/sync/events",
+      "method": "POST",
+      "kind": "sync",
+      "transport": "json",
+      "description": "desktop가 로컬 sync event를 web으로 push"
+    },
+    {
+      "name": "sync-pull",
+      "path": "/api/sync/pull",
+      "method": "GET",
+      "kind": "sync",
+      "transport": "json",
+      "description": "desktop가 cloud 상태/명령 변경을 pull"
+    },
+    {
+      "name": "sync-commands-stream",
+      "path": "/api/sync/commands/stream",
+      "method": "GET",
+      "kind": "sync",
+      "transport": "sse",
+      "description": "cloud command를 SSE로 스트리밍"
+    }
+  ]
+}

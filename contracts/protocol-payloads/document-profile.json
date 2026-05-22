@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "DOCUMENT_PROFILE",
+      "localIdPrefix": "PROFILE-DOCUMENT",
+      "requiredFields": [
+        "local_id",
+        "enabled_folders",
+        "enabled_document_types"
+      ]
+    }
+  ]
+}

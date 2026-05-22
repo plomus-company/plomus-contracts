@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "errorCodes": [
+    {
+      "code": "DOCUMENT_NOT_FOUND",
+      "category": "document"
+    },
+    {
+      "code": "TARGET_FILE_NOT_FOUND",
+      "category": "document"
+    },
+    {
+      "code": "INVALID_FRONTMATTER",
+      "category": "document"
+    }
+  ]
+}

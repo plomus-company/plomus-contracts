@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "payloads": [
+    {
+      "objectType": "COMMERCE_PROFILE",
+      "localIdPrefix": "PROFILE-COMMERCE",
+      "requiredFields": [
+        "local_id",
+        "commerce_types",
+        "sales_channels",
+        "product_types",
+        "operation_mode",
+        "enabled_domains"
+      ]
+    }
+  ]
+}

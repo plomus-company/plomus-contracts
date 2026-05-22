@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreams": [
+    {
+      "upstreamId": "lolesports",
+      "baseUrl": "https://esports-api.lolesports.com",
+      "requiresKey": true,
+      "credential": "LOLESPORTS_API_KEY",
+      "proxyManaged": false
+    }
+  ]
+}

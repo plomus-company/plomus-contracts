@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "metrics": [
+    {
+      "metricId": "success_rate",
+      "label": "성공률",
+      "category": "quality",
+      "unit": "percent",
+      "direction": "higher-better",
+      "description": "유효 산출물을 반환한 실행 비율."
+    },
+    {
+      "metricId": "accuracy",
+      "label": "정확도",
+      "category": "quality",
+      "unit": "percent",
+      "direction": "higher-better",
+      "description": "골드 기준 대비 정답/유효 항목 비율."
+    }
+  ]
+}

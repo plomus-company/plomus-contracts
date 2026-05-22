@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "fields": [
+    {
+      "documentType": "partner",
+      "field": "partner_type",
+      "enum": "partnerTypes",
+      "required": true
+    },
+    {
+      "documentType": "partner",
+      "field": "payment_terms",
+      "enum": "paymentTerms",
+      "required": false
+    },
+    {
+      "documentType": "partner",
+      "field": "credit_limit",
+      "valueType": "number",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "routeId": "neis-school-meal",
+      "path": "/v1/neis/school-meal",
+      "method": "GET",
+      "upstream": "neis",
+      "credential": "KEDU_INFO_KEY",
+      "cacheable": true,
+      "skills": [
+        "k-schoollunch-menu"
+      ]
+    },
+    {
+      "routeId": "neis-school-search",
+      "path": "/v1/neis/school-search",
+      "method": "GET",
+      "upstream": "neis",
+      "credential": "KEDU_INFO_KEY",
+      "cacheable": true,
+      "skills": [
+        "k-schoollunch-menu"
+      ]
+    }
+  ]
+}

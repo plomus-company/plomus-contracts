@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "agents": [
+    {
+      "agentId": "notice",
+      "intents": [
+        "notice.draft",
+        "notice.publish"
+      ],
+      "description": "공지 초안 작성·검토",
+      "outputs": {
+        "notice_type": "noticeTypes"
+      }
+    }
+  ]
+}

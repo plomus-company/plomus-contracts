@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "targets": [
+    {
+      "targetId": "agent:cs",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "cs",
+      "label": "cs",
+      "group": "agent"
+    },
+    {
+      "targetId": "agent:dashboard",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "dashboard",
+      "label": "dashboard",
+      "group": "agent"
+    },
+    {
+      "targetId": "agent:incident",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "incident",
+      "label": "incident",
+      "group": "agent"
+    },
+    {
+      "targetId": "agent:notice",
+      "kind": "agent",
+      "domain": "gameops",
+      "ref": "notice",
+      "label": "notice",
+      "group": "agent"
+    },
+    {
+      "targetId": "playbook:daily_ops_brief_v1",
+      "kind": "playbook",
+      "domain": "gameops",
+      "ref": "daily_ops_brief_v1",
+      "label": "daily_ops_brief_v1",
+      "group": "low"
+    },
+    {
+      "targetId": "playbook:payment_missing_response_v1",
+      "kind": "playbook",
+      "domain": "gameops",
+      "ref": "payment_missing_response_v1",
+      "label": "payment_missing_response_v1",
+      "group": "high"
+    }
+  ]
+}

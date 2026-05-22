@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "presets": [
+    {
+      "presetId": "APP_DISTRIBUTION",
+      "label": "앱 유통형",
+      "description": "앱 스토어 메타데이터, 릴리스, 개인정보 처리 기준 중심",
+      "commerceTypes": [
+        "APP_DISTRIBUTION",
+        "DIGITAL_PRODUCT"
+      ],
+      "salesChannels": [
+        "GOOGLE_PLAY",
+        "APP_STORE",
+        "OWN_WEB"
+      ],
+      "productTypes": [
+        "MOBILE_APP",
+        "WEB_SERVICE",
+        "DIGITAL_PRODUCT"
+      ],
+      "operationMode": "DIGITAL_DISTRIBUTION",
+      "enabledDomains": [
+        "APP_DISTRIBUTION",
+        "MARKETING",
+        "LEGAL_POLICY",
+        "SYSTEM"
+      ],
+      "enabledRules": [
+        "APP_STORE_METADATA_MISSING",
+        "APP_RELEASE_DELAY",
+        "APP_PRIVACY_POLICY_MISSING",
+        "APP_VERSION_STALE",
+        "LEGAL_POLICY_MISSING",
+        "PRIVACY_POLICY_MISSING",
+        "TERMS_OF_SERVICE_MISSING",
+        "SYNC_FAILURE_DETECTED",
+        "TASK_OVERDUE",
+        "TASK_DONE_CLEANUP",
+        "CHANGE_PLAN_STALE"
+      ],
+      "highPriorityRules": [
+        "APP_PRIVACY_POLICY_MISSING",
+        "PRIVACY_POLICY_MISSING",
+        "LEGAL_POLICY_MISSING",
+        "APP_RELEASE_DELAY"
+      ],
+      "enabledFolders": [
+        "15-apps",
+        "16-app-store-listings",
+        "17-app-releases",
+        "55-legal",
+        "05-onboarding",
+        "60-ai-recommendations",
+        "65-change-plans",
+        "70-tasks",
+        "80-workflows",
+        "90-system/profiles",
+        "90-system/commerce-reviews",
+        "90-system/sync-events",
+        "90-system/cloud-commands",
+        "90-system/hermes-commands",
+        "90-system/hermes-results",
+        "90-system/backups",
+        "90-system/validation-errors"
+      ],
+      "enabledDocumentTypes": [
+        "app",
+        "app_listing",
+        "app_release",
+        "legal_policy",
+        "commerce_review",
+        "ai_recommendation",
+        "change_plan",
+        "task",
+        "sync_event",
+        "cloud_command",
+        "hermes_command",
+        "hermes_result",
+        "validation_error"
+      ],
+      "enabledWorkflows": [
+        "commerce-review",
+        "apply-change-plan",
+        "app-store-review",
+        "app-release-review",
+        "legal-policy-review",
+        "daily-briefing"
+      ],
+      "requireApprovalFor": [
+        "DOCUMENT_PATCH",
+        "FRONTMATTER_UPDATE",
+        "PRICE_CHANGE",
+        "SETTLEMENT_CHANGE",
+        "CONTRACT_CHANGE",
+        "LEGAL_POLICY_CHANGE",
+        "CUSTOMER_MESSAGE"
+      ],
+      "autoApplyAllowed": [
+        "APPEND_REVIEW_MEMO",
+        "CLEANUP_DONE_TASK"
+      ]
+    }
+  ]
+}

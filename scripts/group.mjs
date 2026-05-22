@@ -10,11 +10,20 @@ import { repoRoot } from "./read-json.mjs";
 
 export const safeUnit = (u) => String(u).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
-// Contracts that live in their own top-level folder at the repo root rather than
-// under contracts/ (workflows are separated out as a first-class concern).
+// Some contracts live in their own top-level folder at the repo root rather than
+// under contracts/. ROOT_DIRS maps a single contract to a root folder
+// (workflows); ROOT_DOMAINS places a whole domain at the root as
+// <domain>/<contract>/ (benchmarks, skills).
 const ROOT_DIRS = { "commerce-workflows": "workflows" };
-const folderFor = (name) => (ROOT_DIRS[name] ? path.join(repoRoot, ROOT_DIRS[name]) : path.join(repoRoot, "contracts", name));
-const singleFor = (name) => (ROOT_DIRS[name] ? null : path.join(repoRoot, "contracts", `${name}.json`));
+const ROOT_DOMAINS = new Set(["benchmarks", "skills"]);
+function folderFor(name) {
+  if (ROOT_DIRS[name]) return path.join(repoRoot, ROOT_DIRS[name]);
+  const [domain, ...rest] = name.split("-");
+  if (ROOT_DOMAINS.has(domain)) return path.join(repoRoot, domain, rest.join("-"));
+  return path.join(repoRoot, "contracts", name);
+}
+// Every contract is foldered, so there is no flat single file to prefer.
+const singleFor = () => null;
 
 // Read a collection's items, whether a single <name>.json file or a folder of
 // per-unit files. Returns the concatenated array under `key`.
@@ -28,6 +37,29 @@ export function readContract(name, key) {
     .filter((f) => f.endsWith(".json"))
     .sort()
     .flatMap((f) => JSON.parse(fs.readFileSync(path.join(folder, f), "utf8"))[key] ?? []);
+}
+
+const innerName = (name) => name.split("-").slice(1).join("-");
+
+// Read a single-object (config) contract — either a flat <name>.json file or the
+// one file inside its contracts/<name>/ folder.
+export function readDoc(name) {
+  const single = singleFor(name);
+  if (single && fs.existsSync(single)) return JSON.parse(fs.readFileSync(single, "utf8"));
+  const folder = folderFor(name);
+  const file = fs.readdirSync(folder).find((f) => f.endsWith(".json"));
+  return JSON.parse(fs.readFileSync(path.join(folder, file), "utf8"));
+}
+
+// Write a single-object contract as the one file inside contracts/<name>/.
+export function writeDoc(name, obj) {
+  const dir = folderFor(name);
+  fs.mkdirSync(dir, { recursive: true });
+  const inner = `${innerName(name)}.json`;
+  for (const f of fs.readdirSync(dir)) {
+    if (f.endsWith(".json") && f !== inner) fs.rmSync(path.join(dir, f));
+  }
+  fs.writeFileSync(path.join(dir, inner), `${JSON.stringify(obj, null, 2)}\n`);
 }
 
 // Write a collection split by business unit into its folder, pruning stale files.

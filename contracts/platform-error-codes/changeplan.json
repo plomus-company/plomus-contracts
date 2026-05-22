@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "errorCodes": [
+    {
+      "code": "UNSUPPORTED_CHANGE_PLAN_TYPE",
+      "category": "changePlan"
+    },
+    {
+      "code": "CHANGE_PLAN_NOT_FOUND",
+      "category": "changePlan"
+    },
+    {
+      "code": "CHANGE_PLAN_ALREADY_APPLIED",
+      "category": "changePlan"
+    },
+    {
+      "code": "CHANGE_PLAN_NOT_APPROVED",
+      "category": "changePlan"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "fields": [
+    {
+      "documentType": "incident",
+      "field": "severity",
+      "enum": "incidentSeverities",
+      "required": true
+    }
+  ]
+}
