@@ -9,6 +9,10 @@ const helperDir = path.dirname(fileURLToPath(import.meta.url));
 
 export const repoRoot = path.resolve(helperDir, "../..");
 
+// Several registry tests run build:* / build, which write to the shared repo dist/.
+// The suite therefore runs serially (package.json test scripts pass
+// --test-concurrency=1); running test files in parallel would let one test read a
+// dist artifact another is mid-rewrite, surfacing as a JSON SyntaxError.
 export function runPnpm(script, { env = {} } = {}) {
   return execFileSync("pnpm", ["run", script], {
     cwd: repoRoot,
