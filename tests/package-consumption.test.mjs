@@ -79,3 +79,34 @@ test("index manifest discovers every exported role with an existing artifact and
 test("prepare is package-manager-agnostic so git/SHA installs build dist", () => {
   assert.match(pkg.scripts.prepare, /node scripts\/build-all\.mjs/);
 });
+
+// The downstream products (../plomus-{gameops,distribution,commerce}-ai-os) pin
+// these exact deep bundle paths to vendor/sync our contracts. They are the de-facto
+// consumer interface, so lock them here: a refactor that renames a member key would
+// silently break those products, and this test catches it first.
+test("downstream consumer (*-ai-os) bundle paths are stable", () => {
+  const get = (o, p) => p.split(".").reduce((a, k) => (a == null ? a : a[k]), o);
+  const consumed = {
+    "dist/plomus-tool.json": ["members.skills.contracts.skills", "members.gameopsAdapters.contracts.adapters"],
+    "dist/plomus-governance.json": [
+      "members.governance.enums",
+      "members.governance.contracts.roles",
+      "members.governance.contracts.approval",
+      "members.governance.contracts.modelRouting",
+      "members.governance.contracts.executionLifecycle",
+    ],
+    "dist/plomus-agent.json": [
+      "members.gameops.enums",
+      "members.gameops.incidentSeverityThresholds",
+      "members.gameops.contracts.agents",
+      "members.gameops.contracts.playbooks",
+    ],
+    "dist/plomus-benchmarks.json": ["contracts.models"],
+  };
+  for (const [bundle, paths] of Object.entries(consumed)) {
+    const o = read(bundle);
+    for (const p of paths) {
+      assert.ok(get(o, p) != null, `${bundle}#${p} is consumed by a *-ai-os product and must stay present`);
+    }
+  }
+});

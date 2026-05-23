@@ -47,3 +47,16 @@
 4. release tag 또는 commit SHA로 새 버전을 고정합니다.
 
 내부 contract 데이터(skill·rule·workflow·target 등)는 **내용이 동일**합니다 — 옮긴 것은 폴더·번들의 *모양*뿐입니다.
+
+## 안정 소비 경로 (consumer interface)
+
+`../plomus-{gameops,distribution,commerce}-ai-os`가 vendoring/sync에 핀하는 deep 번들 경로는 **안정 인터페이스**로 취급되며, `tests/package-consumption.test.mjs`가 존재를 강제합니다(member key를 바꾸면 CI에서 차단). 핀 가능한 경로:
+
+| 번들 | 경로 |
+|---|---|
+| `plomus-tool.json` | `members.skills.contracts.skills` · `members.gameopsAdapters.contracts.adapters` |
+| `plomus-governance.json` | `members.governance.enums` · `members.governance.contracts.{roles,approval,modelRouting,executionLifecycle}` |
+| `plomus-agent.json` | `members.gameops.{enums,incidentSeverityThresholds,contracts.agents,contracts.playbooks}` |
+| `plomus-benchmarks.json` | `contracts.models` |
+
+소스 경로로 소비하는 제품(distribution·commerce)은 `contracts/<role>/<domain>-<contract>/`를 추출합니다([CONTRACT-TAXONOMY.md](CONTRACT-TAXONOMY.md)). 새 member 경로를 추가/변경할 때는 이 표와 테스트를 함께 갱신하세요.
