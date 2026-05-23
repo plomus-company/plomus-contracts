@@ -2,21 +2,6 @@
   "schemaVersion": "1.0.0",
   "skills": [
     {
-      "skillId": "sh-notice-search",
-      "description": "서울주택도시개발공사(SH) 공개 공고/공지 게시판에서 청약·주택 공고 목록, 상세 본문, 첨부 미리보기 메타데이터를 직접 조회한다.",
-      "category": "real-estate",
-      "subcategory": "housing",
-      "locale": "ko-KR",
-      "phase": "v1",
-      "license": "MIT",
-      "implementationType": "npm-package",
-      "package": "packages/sh-notice-search",
-      "usesProxy": false,
-      "usesMcp": false,
-      "proxyRoutes": [],
-      "requiredEnv": []
-    },
-    {
       "skillId": "court-auction-notice-search",
       "description": "Browse 대법원경매정보(courtauction.go.kr) 부동산 매각공고 by 매각기일·법원·기일/기간 입찰, expand each notice into 사건번호·용도·주소·감정평가액·최저매각가, search property items by free conditions(지역·용도·가격·면적·유찰횟수), and look up a case directly by 법원+사건번호. Read-only, slow-by-design (~2s/call) to avoid IP blocks.",
       "category": "real-estate",
@@ -95,6 +80,21 @@
         "real-estate-region-code",
         "real-estate"
       ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "sh-notice-search",
+      "description": "서울주택도시개발공사(SH) 공개 공고/공지 게시판에서 청약·주택 공고 목록, 상세 본문, 첨부 미리보기 메타데이터를 직접 조회한다.",
+      "category": "real-estate",
+      "subcategory": "housing",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/sh-notice-search",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
       "requiredEnv": []
     }
   ]

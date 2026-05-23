@@ -19,10 +19,10 @@
       "requiredEnv": []
     },
     {
-      "skillId": "hola-poke-yeoksam",
-      "description": "올라포케 역삼점의 메뉴·매장 정보·이벤트 참여 흐름을 remote MCP 서버 기준으로 안내한다.",
+      "skillId": "catchtable-sniper",
+      "description": "Monitor Catchtable for open reservation slots and attempt booking using a logged-in Chrome session.",
       "category": "food",
-      "subcategory": "food",
+      "subcategory": "lifestyle",
       "locale": "ko-KR",
       "phase": "v1",
       "license": "MIT",
@@ -34,25 +34,10 @@
       "requiredEnv": []
     },
     {
-      "skillId": "kakao-bar-nearby",
-      "description": "Use when the user asks for nearby bars or 근처 술집. Always ask the user's current location first, then use Kakao Map search + place detail panels to find open-now bars with menu, seating, and phone hints.",
+      "skillId": "hola-poke-yeoksam",
+      "description": "올라포케 역삼점의 메뉴·매장 정보·이벤트 참여 흐름을 remote MCP 서버 기준으로 안내한다.",
       "category": "food",
       "subcategory": "food",
-      "locale": "ko-KR",
-      "phase": "v1",
-      "license": "MIT",
-      "implementationType": "npm-package",
-      "package": "packages/kakao-bar-nearby",
-      "usesProxy": false,
-      "usesMcp": false,
-      "proxyRoutes": [],
-      "requiredEnv": []
-    },
-    {
-      "skillId": "catchtable-sniper",
-      "description": "Monitor Catchtable for open reservation slots and attempt booking using a logged-in Chrome session.",
-      "category": "food",
-      "subcategory": "lifestyle",
       "locale": "ko-KR",
       "phase": "v1",
       "license": "MIT",
@@ -79,6 +64,21 @@
         "neis-school-meal",
         "neis-school-search"
       ],
+      "requiredEnv": []
+    },
+    {
+      "skillId": "kakao-bar-nearby",
+      "description": "Use when the user asks for nearby bars or 근처 술집. Always ask the user's current location first, then use Kakao Map search + place detail panels to find open-now bars with menu, seating, and phone hints.",
+      "category": "food",
+      "subcategory": "food",
+      "locale": "ko-KR",
+      "phase": "v1",
+      "license": "MIT",
+      "implementationType": "npm-package",
+      "package": "packages/kakao-bar-nearby",
+      "usesProxy": false,
+      "usesMcp": false,
+      "proxyRoutes": [],
       "requiredEnv": []
     }
   ]

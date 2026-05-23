@@ -2,15 +2,6 @@
   "schemaVersion": "1.0.0",
   "sources": [
     {
-      "skillId": "korean-patent-search",
-      "authType": "api-key",
-      "proxyBacked": false,
-      "upstreams": [
-        "kipris"
-      ],
-      "category": "legal"
-    },
-    {
       "skillId": "corporate-registration-consulting",
       "authType": "none",
       "proxyBacked": false,
@@ -29,6 +20,15 @@
       "authType": "none",
       "proxyBacked": false,
       "upstreams": [],
+      "category": "legal"
+    },
+    {
+      "skillId": "korean-patent-search",
+      "authType": "api-key",
+      "proxyBacked": false,
+      "upstreams": [
+        "kipris"
+      ],
       "category": "legal"
     },
     {

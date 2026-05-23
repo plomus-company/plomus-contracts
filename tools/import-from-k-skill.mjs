@@ -392,6 +392,7 @@ for (const skillId of skillIds) {
     authType: requiredEnv.length ? "api-key" : "none",
     proxyBacked: usesProxy,
     upstreams,
+    category: CATEGORY_OF[skillId],
   });
 }
 
@@ -421,7 +422,7 @@ const categories = CATEGORIES.map((category) => ({
 // packages: npm-package skills (packages/<id>)
 const packages = skills
   .filter((s) => s.implementationType === "npm-package")
-  .map((s) => ({ skillId: s.skillId, packageName: s.skillId, dir: `packages/${s.skillId}` }));
+  .map((s) => ({ skillId: s.skillId, packageName: s.skillId, dir: `packages/${s.skillId}`, category: s.category }));
 
 // upstreams: enum -> registry (baseUrl, credential, requiresKey, proxyManaged)
 const credByUpstream = {};
@@ -437,14 +438,17 @@ const upstreamRegistry = UPSTREAMS.map((upstreamId) => {
   };
 });
 
+// Folder split keys must match scripts/taxonomy.mjs FOLDER_SPLIT: catalog/
+// data-sources/packages/categories split by `category`; proxy-routes/credentials
+// by `upstream`; upstreams by `upstreamId`. (No separate migrate step needed.)
 writeDoc("skills-base", base);
-writeGroup("skills-catalog", "skills", skills, (s) => s.subcategory);
+writeGroup("skills-catalog", "skills", skills, (s) => s.category);
 writeGroup("skills-proxy-routes", "routes", PROXY_ROUTES, (x) => x.upstream);
 writeGroup("skills-credentials", "credentials", CREDENTIALS, (x) => x.upstream);
-writeGroup("skills-data-sources", "sources", sources, (x) => x.authType);
+writeGroup("skills-data-sources", "sources", sources, (x) => x.category);
 writeGroup("skills-categories", "categories", categories, (x) => x.category);
 writeGroup("skills-upstreams", "upstreams", upstreamRegistry, (x) => x.upstreamId);
-writeGroup("skills-packages", "packages", packages, (x) => x.skillId);
+writeGroup("skills-packages", "packages", packages, (x) => x.category);
 writeDoc("skills-mcp", { schemaVersion: "1.0.0", servers: MCP_SERVERS, mcpSkills: skills.filter((s) => s.usesMcp).map((s) => s.skillId) });
 writeDoc("skills-proxy", { schemaVersion: "1.0.0", ...PROXY_CONFIG, upstreamBaseUrls: UPSTREAM_BASE_URLS });
 

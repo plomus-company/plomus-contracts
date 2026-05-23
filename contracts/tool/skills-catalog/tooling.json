@@ -2,12 +2,12 @@
   "schemaVersion": "1.0.0",
   "skills": [
     {
-      "skillId": "kakaotalk-mac",
-      "description": "Use kakaocli on macOS to read KakaoTalk chats, search messages, send replies after explicit confirmation, and delete sent messages with explicit operator intent.",
+      "skillId": "k-skill-cleaner",
+      "description": "Interview the user and inspect coding-agent skill trigger counts to recommend unused K-skills for removal.",
       "category": "tooling",
-      "subcategory": "messaging",
+      "subcategory": "tooling",
       "locale": "ko-KR",
-      "phase": "v1.5",
+      "phase": "v1",
       "license": "MIT",
       "implementationType": "python-script",
       "package": null,
@@ -32,12 +32,12 @@
       "requiredEnv": []
     },
     {
-      "skillId": "k-skill-cleaner",
-      "description": "Interview the user and inspect coding-agent skill trigger counts to recommend unused K-skills for removal.",
+      "skillId": "kakaotalk-mac",
+      "description": "Use kakaocli on macOS to read KakaoTalk chats, search messages, send replies after explicit confirmation, and delete sent messages with explicit operator intent.",
       "category": "tooling",
-      "subcategory": "tooling",
+      "subcategory": "messaging",
       "locale": "ko-KR",
-      "phase": "v1",
+      "phase": "v1.5",
       "license": "MIT",
       "implementationType": "python-script",
       "package": null,

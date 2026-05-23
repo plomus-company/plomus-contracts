@@ -2,15 +2,6 @@
   "schemaVersion": "1.0.0",
   "sources": [
     {
-      "skillId": "public-restroom-nearby",
-      "authType": "api-key",
-      "proxyBacked": false,
-      "upstreams": [
-        "kakao"
-      ],
-      "category": "utility"
-    },
-    {
       "skillId": "donation-place-search",
       "authType": "none",
       "proxyBacked": false,
@@ -75,6 +66,15 @@
       "proxyBacked": true,
       "upstreams": [
         "data-go-kr"
+      ],
+      "category": "utility"
+    },
+    {
+      "skillId": "public-restroom-nearby",
+      "authType": "api-key",
+      "proxyBacked": false,
+      "upstreams": [
+        "kakao"
       ],
       "category": "utility"
     },

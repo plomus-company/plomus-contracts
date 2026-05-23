@@ -2,19 +2,19 @@
   "schemaVersion": "1.0.0",
   "sources": [
     {
+      "skillId": "daishin-report-search",
+      "authType": "none",
+      "proxyBacked": false,
+      "upstreams": [],
+      "category": "finance"
+    },
+    {
       "skillId": "k-dart",
       "authType": "api-key",
       "proxyBacked": false,
       "upstreams": [
         "dart"
       ],
-      "category": "finance"
-    },
-    {
-      "skillId": "daishin-report-search",
-      "authType": "none",
-      "proxyBacked": false,
-      "upstreams": [],
       "category": "finance"
     },
     {
