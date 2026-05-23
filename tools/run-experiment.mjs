@@ -141,7 +141,13 @@ const round = (n, d = 2) => Number(n.toFixed(d));
 
 console.error(`Experiment: model=${MODEL_ID} (ollama ${OLLAMA_TAG}) targets=${selectedIds.length} reps=${REPS}`);
 console.error("Warming up model...");
-await generate("Reply with: ready");
+const warm = await generate("Reply with: ready");
+if (!warm.ok) {
+  // Fail fast: if the endpoint is unavailable the whole run would otherwise record
+  // 342 failed rows and clobber the good baseline on merge (see guard below).
+  console.error(`Warmup failed (${warm.error ?? "empty response"}) — model/endpoint unavailable at ${BASE_URL}. Aborting before any measurement; nothing written.`);
+  process.exit(1);
+}
 
 const newResults = [];
 // prompts + targetMeta make each run record self-contained for debugging/analysis
@@ -191,6 +197,13 @@ for (const targetId of selectedIds) {
   newResults.push({ targetId, modelId: MODEL_ID, dataSource: "measured", sampleSize: REPS, measuredAt: new Date().toISOString(), metrics });
   const consInfo = metrics.output_consistency !== undefined ? `, consistency ${metrics.output_consistency}%` : "";
   console.error(`  ${targetId}: ${metrics.latency_p50_ms}ms, ${metrics.output_tokens} out tok, ${metrics.throughput_tps} tps, success ${metrics.success_rate}%${consInfo}`);
+}
+
+// Safety net: never let an all-failed run (e.g. the endpoint dropped mid-run)
+// overwrite the committed baseline. Require at least one successful target.
+if (newResults.every((r) => r.metrics.success_rate === 0)) {
+  console.error(`All ${newResults.length} targets failed (0% success) — refusing to merge (would clobber good data). Nothing written.`);
+  process.exit(1);
 }
 
 // ---- merge measured results (preserve illustrative + other measured) ----
