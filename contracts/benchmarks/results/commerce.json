@@ -3,342 +3,6 @@
   "results": [
     {
       "targetId": "workflow:app-release-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:14.088Z",
-      "metrics": {
-        "latency_p50_ms": 747.86,
-        "throughput_tps": 515.2,
-        "cost_per_run_usd": 0,
-        "input_tokens": 102,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:app-store-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:15.150Z",
-      "metrics": {
-        "latency_p50_ms": 798.3,
-        "throughput_tps": 518.71,
-        "cost_per_run_usd": 0,
-        "input_tokens": 103,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:apply-change-plan",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:16.124Z",
-      "metrics": {
-        "latency_p50_ms": 712.46,
-        "throughput_tps": 505.64,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 231,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:claim-created",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:17.154Z",
-      "metrics": {
-        "latency_p50_ms": 776.55,
-        "throughput_tps": 527.81,
-        "cost_per_run_usd": 0,
-        "input_tokens": 97,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:commerce-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:18.263Z",
-      "metrics": {
-        "latency_p50_ms": 848.95,
-        "throughput_tps": 468.16,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:contract-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:19.244Z",
-      "metrics": {
-        "latency_p50_ms": 718.49,
-        "throughput_tps": 502.59,
-        "cost_per_run_usd": 0,
-        "input_tokens": 96,
-        "output_tokens": 228,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:daily-briefing",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:20.192Z",
-      "metrics": {
-        "latency_p50_ms": 684.92,
-        "throughput_tps": 562.1,
-        "cost_per_run_usd": 0,
-        "input_tokens": 105,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:finance-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:21.184Z",
-      "metrics": {
-        "latency_p50_ms": 729.28,
-        "throughput_tps": 549.36,
-        "cost_per_run_usd": 0,
-        "input_tokens": 98,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:general-company-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:22.219Z",
-      "metrics": {
-        "latency_p50_ms": 765.09,
-        "throughput_tps": 505.11,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:hr-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:23.356Z",
-      "metrics": {
-        "latency_p50_ms": 876.31,
-        "throughput_tps": 442.34,
-        "cost_per_run_usd": 0,
-        "input_tokens": 97,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:inventory-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:24.372Z",
-      "metrics": {
-        "latency_p50_ms": 757.46,
-        "throughput_tps": 470.27,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 233,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:legal-policy-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:24.977Z",
-      "metrics": {
-        "latency_p50_ms": 332.63,
-        "throughput_tps": 559.56,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 113,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:operations-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:25.891Z",
-      "metrics": {
-        "latency_p50_ms": 729.4,
-        "throughput_tps": 483.03,
-        "cost_per_run_usd": 0,
-        "input_tokens": 101,
-        "output_tokens": 233,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:order-delay-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:26.816Z",
-      "metrics": {
-        "latency_p50_ms": 662.04,
-        "throughput_tps": 466.36,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 199,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:partner-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:27.864Z",
-      "metrics": {
-        "latency_p50_ms": 785.83,
-        "throughput_tps": 479.96,
-        "cost_per_run_usd": 0,
-        "input_tokens": 99,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:product-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:28.631Z",
-      "metrics": {
-        "latency_p50_ms": 484.87,
-        "throughput_tps": 443.92,
-        "cost_per_run_usd": 0,
-        "input_tokens": 97,
-        "output_tokens": 145,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:recurring-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:29.666Z",
-      "metrics": {
-        "latency_p50_ms": 758.2,
-        "throughput_tps": 504.51,
-        "cost_per_run_usd": 0,
-        "input_tokens": 102,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:settlement-check",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:30.758Z",
-      "metrics": {
-        "latency_p50_ms": 844.44,
-        "throughput_tps": 451.11,
-        "cost_per_run_usd": 0,
-        "input_tokens": 98,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:si-project-review",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:31.767Z",
-      "metrics": {
-        "latency_p50_ms": 759.39,
-        "throughput_tps": 490.02,
-        "cost_per_run_usd": 0,
-        "input_tokens": 100,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:stock-low",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:32.821Z",
-      "metrics": {
-        "latency_p50_ms": 790.45,
-        "throughput_tps": 490.09,
-        "cost_per_run_usd": 0,
-        "input_tokens": 98,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:task-approved",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "sampleSize": 1,
-      "measuredAt": "2026-05-21T15:32:33.848Z",
-      "metrics": {
-        "latency_p50_ms": 782.84,
-        "throughput_tps": 486.77,
-        "cost_per_run_usd": 0,
-        "input_tokens": 98,
-        "output_tokens": 256,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "targetId": "workflow:app-release-review",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "sampleSize": 1,
@@ -2102,6 +1766,405 @@
         "latency_p95_ms": 4382.97,
         "output_consistency": 60,
         "latency_stddev_ms": 124.38
+      }
+    },
+    {
+      "targetId": "workflow:app-release-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:32:17.079Z",
+      "metrics": {
+        "latency_p50_ms": 3683.67,
+        "throughput_tps": 74.45,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4642.78,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 457.06
+      }
+    },
+    {
+      "targetId": "workflow:app-store-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:32:28.754Z",
+      "metrics": {
+        "latency_p50_ms": 3300.03,
+        "throughput_tps": 73.68,
+        "cost_per_run_usd": 0,
+        "input_tokens": 103,
+        "output_tokens": 236,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4700.68,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 663.91
+      }
+    },
+    {
+      "targetId": "workflow:apply-change-plan",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:32:41.373Z",
+      "metrics": {
+        "latency_p50_ms": 3851.81,
+        "throughput_tps": 73,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4583,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 359.26
+      }
+    },
+    {
+      "targetId": "workflow:claim-created",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:32:54.105Z",
+      "metrics": {
+        "latency_p50_ms": 3742.57,
+        "throughput_tps": 72.18,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4900.03,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 555.16
+      }
+    },
+    {
+      "targetId": "workflow:contract-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:33:06.415Z",
+      "metrics": {
+        "latency_p50_ms": 3714.53,
+        "throughput_tps": 73.69,
+        "cost_per_run_usd": 0,
+        "input_tokens": 96,
+        "output_tokens": 251,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4515.39,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 379.84
+      }
+    },
+    {
+      "targetId": "workflow:daily-briefing",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:33:18.787Z",
+      "metrics": {
+        "latency_p50_ms": 3712.27,
+        "throughput_tps": 73.81,
+        "cost_per_run_usd": 0,
+        "input_tokens": 105,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4622.18,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 440.37
+      }
+    },
+    {
+      "targetId": "workflow:finance-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:33:31.315Z",
+      "metrics": {
+        "latency_p50_ms": 3770.92,
+        "throughput_tps": 73.64,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4653.73,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 430.07
+      }
+    },
+    {
+      "targetId": "workflow:general-company-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:33:43.895Z",
+      "metrics": {
+        "latency_p50_ms": 3768.7,
+        "throughput_tps": 72.89,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4675.04,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 430.22
+      }
+    },
+    {
+      "targetId": "workflow:hr-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:33:56.363Z",
+      "metrics": {
+        "latency_p50_ms": 3688.48,
+        "throughput_tps": 73.66,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4761.71,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 515.79
+      }
+    },
+    {
+      "targetId": "workflow:inventory-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:34:07.703Z",
+      "metrics": {
+        "latency_p50_ms": 3734.49,
+        "throughput_tps": 73.88,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 229,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 3854.86,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 203.71
+      }
+    },
+    {
+      "targetId": "workflow:stock-low",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:34:20.309Z",
+      "metrics": {
+        "latency_p50_ms": 4070.39,
+        "throughput_tps": 71.54,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 250,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4355.34,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 240.43
+      }
+    },
+    {
+      "targetId": "workflow:legal-policy-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:34:29.379Z",
+      "metrics": {
+        "latency_p50_ms": 2701.33,
+        "throughput_tps": 72.15,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 173,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 3367.77,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 343.89
+      }
+    },
+    {
+      "targetId": "workflow:operations-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:34:41.239Z",
+      "metrics": {
+        "latency_p50_ms": 3668.22,
+        "throughput_tps": 74.9,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 247,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4159.52,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 234.55
+      }
+    },
+    {
+      "targetId": "workflow:order-delay-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:34:53.257Z",
+      "metrics": {
+        "latency_p50_ms": 3615.16,
+        "throughput_tps": 75.88,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 252,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4418.45,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 383.75
+      }
+    },
+    {
+      "targetId": "workflow:partner-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:35:05.606Z",
+      "metrics": {
+        "latency_p50_ms": 3816.01,
+        "throughput_tps": 74.39,
+        "cost_per_run_usd": 0,
+        "input_tokens": 99,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4603.95,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 450.65
+      }
+    },
+    {
+      "targetId": "workflow:product-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:35:12.768Z",
+      "metrics": {
+        "latency_p50_ms": 1881.74,
+        "throughput_tps": 78.45,
+        "cost_per_run_usd": 0,
+        "input_tokens": 97,
+        "output_tokens": 143,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 3038.31,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 550.46
+      }
+    },
+    {
+      "targetId": "workflow:recurring-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:35:24.626Z",
+      "metrics": {
+        "latency_p50_ms": 3564.94,
+        "throughput_tps": 77.91,
+        "cost_per_run_usd": 0,
+        "input_tokens": 102,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4388.32,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 398.87
+      }
+    },
+    {
+      "targetId": "workflow:settlement-check",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:35:36.789Z",
+      "metrics": {
+        "latency_p50_ms": 3691.55,
+        "throughput_tps": 75.45,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4428.93,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 354.14
+      }
+    },
+    {
+      "targetId": "workflow:si-project-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:35:48.705Z",
+      "metrics": {
+        "latency_p50_ms": 3527.04,
+        "throughput_tps": 76.93,
+        "cost_per_run_usd": 0,
+        "input_tokens": 100,
+        "output_tokens": 255,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4481.85,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 451.89
+      }
+    },
+    {
+      "targetId": "workflow:task-approved",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:36:00.449Z",
+      "metrics": {
+        "latency_p50_ms": 3522.26,
+        "throughput_tps": 78.48,
+        "cost_per_run_usd": 0,
+        "input_tokens": 98,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4338.36,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 388.46
+      }
+    },
+    {
+      "targetId": "workflow:commerce-review",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "sampleSize": 3,
+      "measuredAt": "2026-05-23T03:36:12.356Z",
+      "metrics": {
+        "latency_p50_ms": 3585.45,
+        "throughput_tps": 77.88,
+        "cost_per_run_usd": 0,
+        "input_tokens": 101,
+        "output_tokens": 256,
+        "success_rate": 100,
+        "error_rate": 0,
+        "latency_p95_ms": 4408.55,
+        "output_consistency": 66.67,
+        "latency_stddev_ms": 401.83
       }
     }
   ]

@@ -71,21 +71,6 @@
     },
     {
       "domain": "distribution",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "targetCount": 1,
-      "metrics": {
-        "cost_per_run_usd": 0,
-        "input_tokens": 139,
-        "output_tokens": 256,
-        "latency_p50_ms": 3870.16,
-        "throughput_tps": 72.25,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "distribution",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "targetCount": 1,
@@ -100,6 +85,24 @@
         "success_rate": 100,
         "error_rate": 0,
         "output_consistency": 100
+      }
+    },
+    {
+      "domain": "distribution",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 1,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 139,
+        "output_tokens": 166,
+        "latency_p50_ms": 1743.23,
+        "latency_p95_ms": 4551.58,
+        "throughput_tps": 75.52,
+        "latency_stddev_ms": 1334.83,
+        "success_rate": 100,
+        "error_rate": 0,
+        "output_consistency": 66.67
       }
     }
   ]

@@ -11,6 +11,7 @@ test("analyze:benchmarks reads run records and reports all analysis sections", (
   for (const section of [
     /# Benchmark experiment analysis/,
     /## Runs/,
+    /## Coverage \(committed measured results\)/,
     /## Failures/,
     /## Reproducibility & latency stability/,
     /## Regression/,

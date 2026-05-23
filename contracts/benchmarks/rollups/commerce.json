@@ -71,21 +71,6 @@
     },
     {
       "domain": "commerce",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "targetCount": 21,
-      "metrics": {
-        "cost_per_run_usd": 0,
-        "input_tokens": 99.57,
-        "output_tokens": 236.48,
-        "latency_p50_ms": 730.75,
-        "throughput_tps": 496.32,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "commerce",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "targetCount": 21,
@@ -100,6 +85,24 @@
         "success_rate": 100,
         "error_rate": 0,
         "output_consistency": 60
+      }
+    },
+    {
+      "domain": "commerce",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 21,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 99.57,
+        "output_tokens": 243.24,
+        "latency_p50_ms": 3552.93,
+        "latency_p95_ms": 4376.13,
+        "throughput_tps": 74.71,
+        "latency_stddev_ms": 411.16,
+        "success_rate": 100,
+        "error_rate": 0,
+        "output_consistency": 66.67
       }
     }
   ]

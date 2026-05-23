@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { readContract } from "./group.mjs";
 import { repoRoot } from "./read-json.mjs";
 
 // Debugging & analysis over the raw experiment records under experiments/runs/.
@@ -65,6 +66,23 @@ for (const r of records) {
   const targets = new Set((r.runs ?? []).map((x) => x.targetId)).size;
   const fails = (r.runs ?? []).filter((x) => !x.ok).length;
   line(`- ${r.startedAt}  ${r.modelId}  reps=${r.reps}  targets=${targets}  runs=${(r.runs ?? []).length}  fails=${fails}`);
+}
+
+// Coverage over the COMMITTED measured results (registry state, not just records):
+// how many measured targets per model carry reproducibility data (sampleSize≥2).
+line("", "## Coverage (committed measured results)");
+const measuredRows = readContract("benchmarks-results", "results").filter((r) => r.dataSource === "measured");
+if (!measuredRows.length) line("- no measured results yet");
+const covModels = [...new Set(measuredRows.map((r) => r.modelId))].sort();
+for (const model of covModels) {
+  if (modelFilter && model !== modelFilter) continue;
+  const rows = measuredRows.filter((r) => r.modelId === model);
+  const repro = rows.filter((r) => (r.sampleSize ?? 1) >= 2);
+  const cov = rows.length ? round((repro.length / rows.length) * 100) : 0;
+  const consVals = rows.map((r) => r.metrics?.output_consistency).filter((v) => typeof v === "number");
+  const meanCons = consVals.length ? round(mean(consVals)) : null;
+  const flag = cov < 100 ? "  ⚠ 재현성 미측정 다수 (reps=1)" : "";
+  line(`- ${model}: ${rows.length} measured targets · reps≥2 ${repro.length} (${cov}% 재현성 커버리지)${meanCons != null ? ` · mean consistency ${meanCons}% (n=${consVals.length})` : ""}${flag}`);
 }
 
 const allFails = records.flatMap((r) => (r.runs ?? []).filter((x) => !x.ok).map((x) => ({ model: r.modelId, ...x })));

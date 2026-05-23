@@ -71,21 +71,6 @@
     },
     {
       "domain": "gameops",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "targetCount": 6,
-      "metrics": {
-        "cost_per_run_usd": 0,
-        "input_tokens": 102.5,
-        "output_tokens": 134.5,
-        "latency_p50_ms": 2214.92,
-        "throughput_tps": 70.55,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "gameops",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "targetCount": 6,
@@ -100,6 +85,24 @@
         "success_rate": 100,
         "error_rate": 0,
         "output_consistency": 80
+      }
+    },
+    {
+      "domain": "gameops",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 6,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 102.5,
+        "output_tokens": 126.83,
+        "latency_p50_ms": 1721.3,
+        "latency_p95_ms": 2761.02,
+        "throughput_tps": 79.18,
+        "latency_stddev_ms": 499.9,
+        "success_rate": 100,
+        "error_rate": 0,
+        "output_consistency": 72.23
       }
     }
   ]

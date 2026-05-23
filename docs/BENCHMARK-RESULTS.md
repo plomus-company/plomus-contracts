@@ -35,168 +35,16 @@ _가격은 indicative(참고용)이며 로컬 모델은 0._
 
 | domain | model | n | 지연 p50(ms) | 처리량(tps) | 출력tok | 성공률(%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| commerce | `qwen-2.5-0.5b` | 21 | 730.75 | 496.32 | 236.48 | 100 |
+| commerce | `qwen-2.5-0.5b` | 21 | 3552.93 | 74.71 | 243.24 | 100 |
 | commerce | `qwen3.6-27b` | 21 | 5035.29 | 50.43 | 236.05 | 100 |
-| distribution | `qwen-2.5-0.5b` | 1 | 3870.16 | 72.25 | 256 | 100 |
+| distribution | `qwen-2.5-0.5b` | 1 | 1743.23 | 75.52 | 166 | 100 |
 | distribution | `qwen3.6-27b` | 1 | 4962.79 | 55.81 | 256 | 100 |
-| gameops | `qwen-2.5-0.5b` | 6 | 2214.92 | 70.55 | 134.5 | 100 |
+| gameops | `qwen-2.5-0.5b` | 6 | 1721.3 | 79.18 | 126.83 | 100 |
 | gameops | `qwen3.6-27b` | 6 | 3931 | 51.63 | 184.5 | 100 |
-| skills | `qwen-2.5-0.5b` | 86 | 538.51 | 522.57 | 187.35 | 100 |
+| skills | `qwen-2.5-0.5b` | 86 | 2601.22 | 76.07 | 183.27 | 100 |
 | skills | `qwen3.6-27b` | 86 | 3468.79 | 21.16 | 65.47 | 100 |
 
 _성공률은 비어 있지 않은 응답 비율(품질/정확도는 미측정)._
-
-## Measured baseline — `qwen-2.5-0.5b`
-
-Qwen2.5 0.5B (Ollama) · 측정 타깃 114개.
-
-### Domain rollups
-
-| domain | n | 지연 p50(ms) | 처리량(tps) | 입력tok | 출력tok | 성공률(%) |
-| --- | --- | --- | --- | --- | --- | --- |
-| commerce | 21 | 730.75 | 496.32 | 99.57 | 236.48 | 100 |
-| distribution | 1 | 3870.16 | 72.25 | 139 | 256 | 100 |
-| gameops | 6 | 2214.92 | 70.55 | 102.5 | 134.5 | 100 |
-| skills | 86 | 538.51 | 522.57 | 135.43 | 187.35 | 100 |
-
-### Skills by category
-
-| category | n | 지연 p50(ms) | 처리량(tps) | 출력tok | 성공률(%) |
-| --- | --- | --- | --- | --- | --- |
-| commerce | 12 | 568.65 | 529.14 | 203.33 | 100 |
-| documents | 3 | 716.78 | 491.37 | 238.67 | 100 |
-| finance | 5 | 536.9 | 550.38 | 193.6 | 100 |
-| food | 5 | 507.01 | 533.45 | 187.2 | 100 |
-| government | 5 | 528.43 | 513.62 | 174 | 100 |
-| health | 4 | 494.87 | 494.21 | 166 | 100 |
-| legal | 5 | 507.92 | 530.63 | 175.2 | 100 |
-| media | 6 | 595.15 | 503.79 | 201.5 | 100 |
-| mobility | 6 | 535.24 | 532.03 | 191.33 | 100 |
-| real-estate | 6 | 666.91 | 521.68 | 226.83 | 100 |
-| sports | 5 | 567.61 | 564.17 | 214.8 | 100 |
-| tooling | 3 | 246.83 | 478.3 | 75.33 | 100 |
-| travel | 7 | 581.03 | 512.77 | 202.29 | 100 |
-| utility | 11 | 403.03 | 531.33 | 138.18 | 100 |
-| writing | 3 | 697.96 | 488.34 | 229.33 | 100 |
-
-### All targets
-
-| target | kind | group | 지연 p50(ms) | 출력tok | tps | 성공률(%) |
-| --- | --- | --- | --- | --- | --- | --- |
-| `agent:cs` | agent | agent | 1164.1 | 73 | 77.54 | 100 |
-| `agent:dashboard` | agent | agent | 1613.88 | 103 | 72.7 | 100 |
-| `agent:incident` | agent | agent | 1021.2 | 55 | 65.84 | 100 |
-| `agent:notice` | agent | agent | 1100.4 | 64 | 73.78 | 100 |
-| `playbook:payment_missing_response_v1` | playbook | high | 4101.19 | 256 | 68.85 | 100 |
-| `playbook:daily_ops_brief_v1` | playbook | low | 4288.75 | 256 | 64.61 | 100 |
-| `preset:PLOMUS_DISTRIBUTION` | preset | preset | 3870.16 | 256 | 72.25 | 100 |
-| `skill:bunjang-search` | skill | commerce | 648.77 | 256 | 613.66 | 100 |
-| `skill:coupang-product-search` | skill | commerce | 685.65 | 256 | 562.94 | 100 |
-| `skill:daangn-cars-search` | skill | commerce | 729.66 | 256 | 496.41 | 100 |
-| `skill:daangn-jobs-search` | skill | commerce | 610.71 | 256 | 603.24 | 100 |
-| `skill:daangn-used-goods-search` | skill | commerce | 283.83 | 96 | 506.26 | 100 |
-| `skill:daiso-product-search` | skill | commerce | 695.03 | 256 | 545.22 | 100 |
-| `skill:danawa-price-search` | skill | commerce | 401.18 | 150 | 535.78 | 100 |
-| `skill:market-kurly-search` | skill | commerce | 298.16 | 90 | 465.97 | 100 |
-| `skill:naver-shopping-search` | skill | commerce | 766.63 | 256 | 494.68 | 100 |
-| `skill:ohou-today-deal` | skill | commerce | 791.36 | 256 | 481.3 | 100 |
-| `skill:olive-young-search` | skill | commerce | 419.46 | 137 | 513.21 | 100 |
-| `skill:used-car-price-search` | skill | commerce | 493.33 | 175 | 531.02 | 100 |
-| `skill:hwp` | skill | documents | 645.06 | 256 | 574.98 | 100 |
-| `skill:rhwp-advanced` | skill | documents | 823.63 | 256 | 457.09 | 100 |
-| `skill:rhwp-edit` | skill | documents | 681.65 | 204 | 442.04 | 100 |
-| `skill:daishin-report-search` | skill | finance | 734.24 | 256 | 492.98 | 100 |
-| `skill:k-dart` | skill | finance | 615.64 | 256 | 606.6 | 100 |
-| `skill:korean-jangbu-for` | skill | finance | 386.56 | 119 | 553.64 | 100 |
-| `skill:korean-stock-search` | skill | finance | 233.04 | 81 | 558.98 | 100 |
-| `skill:toss-securities` | skill | finance | 715.01 | 256 | 539.7 | 100 |
-| `skill:blue-ribbon-nearby` | skill | food | 511.27 | 134 | 345.08 | 100 |
-| `skill:catchtable-sniper` | skill | food | 519.1 | 218 | 607.35 | 100 |
-| `skill:hola-poke-yeoksam` | skill | food | 642.87 | 256 | 562.89 | 100 |
-| `skill:k-schoollunch-menu` | skill | food | 680.13 | 256 | 536.91 | 100 |
-| `skill:kakao-bar-nearby` | skill | food | 181.69 | 72 | 615 | 100 |
-| `skill:korean-scholarship-search` | skill | government | 784.54 | 256 | 508.66 | 100 |
-| `skill:kosis-stats` | skill | government | 253.97 | 82 | 550.75 | 100 |
-| `skill:kstartup-search` | skill | government | 316.25 | 109 | 540.83 | 100 |
-| `skill:local-election-candidate-search` | skill | government | 533.61 | 167 | 470.04 | 100 |
-| `skill:nts-business-registration` | skill | government | 753.78 | 256 | 497.83 | 100 |
-| `skill:emergency-room-beds` | skill | health | 160.39 | 53 | 528.77 | 100 |
-| `skill:gangnamunni-clinic-search` | skill | health | 685.65 | 256 | 528.26 | 100 |
-| `skill:mfds-drug-safety` | skill | health | 515.9 | 163 | 468.05 | 100 |
-| `skill:mfds-food-safety` | skill | health | 617.53 | 192 | 451.78 | 100 |
-| `skill:corporate-registration-consulting` | skill | legal | 320.95 | 123 | 585.89 | 100 |
-| `skill:iros-registry-automation` | skill | legal | 672.35 | 256 | 579.54 | 100 |
-| `skill:korean-law-search` | skill | legal | 318.36 | 122 | 571.35 | 100 |
-| `skill:korean-patent-search` | skill | legal | 387.52 | 119 | 478.01 | 100 |
-| `skill:korean-privacy-terms` | skill | legal | 840.44 | 256 | 438.36 | 100 |
-| `skill:geeknews-search` | skill | media | 705.2 | 236 | 482.74 | 100 |
-| `skill:joseon-sillok-search` | skill | media | 189.54 | 71 | 600.75 | 100 |
-| `skill:korean-cinema-search` | skill | media | 671.88 | 256 | 546.03 | 100 |
-| `skill:naver-blog-research` | skill | media | 436.93 | 134 | 447.34 | 100 |
-| `skill:naver-news-search` | skill | media | 796.87 | 256 | 461.1 | 100 |
-| `skill:ticket-availability` | skill | media | 770.5 | 256 | 484.79 | 100 |
-| `skill:cheap-gas-nearby` | skill | mobility | 183.51 | 71 | 616.76 | 100 |
-| `skill:delivery-tracking` | skill | mobility | 654.72 | 256 | 536.07 | 100 |
-| `skill:hipass-receipt` | skill | mobility | 617.42 | 256 | 591.94 | 100 |
-| `skill:korean-transit-route` | skill | mobility | 757.84 | 256 | 496.17 | 100 |
-| `skill:seoul-subway-arrival` | skill | mobility | 536.89 | 178 | 487.33 | 100 |
-| `skill:subway-lost-property` | skill | mobility | 461.06 | 131 | 463.9 | 100 |
-| `skill:court-auction-notice-search` | skill | real-estate | 610.08 | 256 | 615.88 | 100 |
-| `skill:daangn-realty-search` | skill | real-estate | 358.26 | 122 | 504.92 | 100 |
-| `skill:gongsijiga-search` | skill | real-estate | 785.57 | 256 | 541.83 | 100 |
-| `skill:lh-notice-search` | skill | real-estate | 787.59 | 256 | 462.87 | 100 |
-| `skill:real-estate-search` | skill | real-estate | 625.21 | 215 | 538.07 | 100 |
-| `skill:sh-notice-search` | skill | real-estate | 834.77 | 256 | 466.52 | 100 |
-| `skill:kbl-results` | skill | sports | 635.55 | 232 | 536.96 | 100 |
-| `skill:kbo-results` | skill | sports | 658.1 | 256 | 580.11 | 100 |
-| `skill:kleague-results` | skill | sports | 639.86 | 256 | 596.75 | 100 |
-| `skill:korean-marathon-schedule` | skill | sports | 500.42 | 208 | 611.54 | 100 |
-| `skill:lck-analytics` | skill | sports | 404.14 | 122 | 495.5 | 100 |
-| `skill:k-skill-cleaner` | skill | tooling | 349.82 | 114 | 491.47 | 100 |
-| `skill:k-skill-setup` | skill | tooling | 208.56 | 50 | 365.57 | 100 |
-| `skill:kakaotalk-mac` | skill | tooling | 182.11 | 62 | 577.86 | 100 |
-| `skill:express-bus-booking` | skill | travel | 693.61 | 256 | 512.68 | 100 |
-| `skill:flight-ticket-search` | skill | travel | 429.36 | 141 | 497.89 | 100 |
-| `skill:foresttrip-vacancy` | skill | travel | 479.44 | 158 | 497.9 | 100 |
-| `skill:intercity-bus-booking` | skill | travel | 602.84 | 245 | 591.21 | 100 |
-| `skill:ktx-booking` | skill | travel | 597.16 | 215 | 536.09 | 100 |
-| `skill:myrealtrip-search` | skill | travel | 792.83 | 256 | 465.11 | 100 |
-| `skill:srt-booking` | skill | travel | 471.95 | 145 | 488.54 | 100 |
-| `skill:donation-place-search` | skill | utility | 394.02 | 138 | 490.91 | 100 |
-| `skill:fine-dust-location` | skill | utility | 262.16 | 82 | 544.05 | 100 |
-| `skill:han-river-water-level` | skill | utility | 659.27 | 256 | 551.12 | 100 |
-| `skill:household-waste-info` | skill | utility | 164.73 | 66 | 639.97 | 100 |
-| `skill:korea-weather` | skill | utility | 200.4 | 77 | 578.92 | 100 |
-| `skill:library-book-search` | skill | utility | 464.67 | 152 | 499.74 | 100 |
-| `skill:lotto-results` | skill | utility | 623.35 | 196 | 468.83 | 100 |
-| `skill:parking-lot-search` | skill | utility | 252.9 | 82 | 535.3 | 100 |
-| `skill:public-restroom-nearby` | skill | utility | 700 | 256 | 538.18 | 100 |
-| `skill:seoul-density` | skill | utility | 539.68 | 162 | 449.35 | 100 |
-| `skill:zipcode-search` | skill | utility | 172.1 | 53 | 548.27 | 100 |
-| `skill:korean-character-count` | skill | writing | 668.32 | 256 | 575.73 | 100 |
-| `skill:korean-slang-writing` | skill | writing | 779.89 | 256 | 470.86 | 100 |
-| `skill:korean-spell-check` | skill | writing | 645.67 | 176 | 418.43 | 100 |
-| `workflow:app-release-review` | workflow | APP_RELEASE | 747.86 | 256 | 515.2 | 100 |
-| `workflow:app-store-review` | workflow | APP_STORE | 798.3 | 256 | 518.71 | 100 |
-| `workflow:apply-change-plan` | workflow | CHANGE_PLAN | 712.46 | 231 | 505.64 | 100 |
-| `workflow:claim-created` | workflow | CLAIM | 776.55 | 256 | 527.81 | 100 |
-| `workflow:contract-review` | workflow | CONTRACT | 718.49 | 228 | 502.59 | 100 |
-| `workflow:daily-briefing` | workflow | DAILY_BRIEFING | 684.92 | 256 | 562.1 | 100 |
-| `workflow:finance-review` | workflow | FINANCE | 729.28 | 256 | 549.36 | 100 |
-| `workflow:general-company-review` | workflow | GENERAL_COMPANY | 765.09 | 256 | 505.11 | 100 |
-| `workflow:hr-review` | workflow | HR | 876.31 | 256 | 442.34 | 100 |
-| `workflow:inventory-review` | workflow | INVENTORY | 757.46 | 233 | 470.27 | 100 |
-| `workflow:stock-low` | workflow | INVENTORY | 790.45 | 256 | 490.09 | 100 |
-| `workflow:legal-policy-review` | workflow | LEGAL_POLICY | 332.63 | 113 | 559.56 | 100 |
-| `workflow:operations-review` | workflow | OPERATIONS | 729.4 | 233 | 483.03 | 100 |
-| `workflow:order-delay-review` | workflow | ORDER_DELAY | 662.04 | 199 | 466.36 | 100 |
-| `workflow:partner-review` | workflow | PARTNER | 785.83 | 256 | 479.96 | 100 |
-| `workflow:product-review` | workflow | PRODUCT | 484.87 | 145 | 443.92 | 100 |
-| `workflow:recurring-review` | workflow | RECURRING | 758.2 | 256 | 504.51 | 100 |
-| `workflow:settlement-check` | workflow | SETTLEMENT | 844.44 | 256 | 451.11 | 100 |
-| `workflow:si-project-review` | workflow | SI_PROJECT | 759.39 | 256 | 490.02 | 100 |
-| `workflow:task-approved` | workflow | TASK | 782.84 | 256 | 486.77 | 100 |
-| `workflow:commerce-review` | workflow | WORKSPACE | 848.95 | 256 | 468.16 | 100 |
 
 ## Measured baseline — `qwen3.6-27b`
 
@@ -349,6 +197,158 @@ Qwen3.6 27B (Ollama Q4_K_M) · 측정 타깃 114개.
 | `workflow:si-project-review` | workflow | SI_PROJECT | 5453.92 | 256 | 50.87 | 100 |
 | `workflow:task-approved` | workflow | TASK | 5520.72 | 256 | 49.95 | 100 |
 | `workflow:commerce-review` | workflow | WORKSPACE | 5349.38 | 256 | 50.45 | 100 |
+
+## Measured baseline — `qwen-2.5-0.5b`
+
+Qwen2.5 0.5B (Ollama) · 측정 타깃 114개.
+
+### Domain rollups
+
+| domain | n | 지연 p50(ms) | 처리량(tps) | 입력tok | 출력tok | 성공률(%) |
+| --- | --- | --- | --- | --- | --- | --- |
+| commerce | 21 | 3552.93 | 74.71 | 99.57 | 243.24 | 100 |
+| distribution | 1 | 1743.23 | 75.52 | 139 | 166 | 100 |
+| gameops | 6 | 1721.3 | 79.18 | 102.5 | 126.83 | 100 |
+| skills | 86 | 2601.22 | 76.07 | 135.43 | 183.27 | 100 |
+
+### Skills by category
+
+| category | n | 지연 p50(ms) | 처리량(tps) | 출력tok | 성공률(%) |
+| --- | --- | --- | --- | --- | --- |
+| commerce | 12 | 2606.92 | 75.09 | 181 | 100 |
+| documents | 3 | 3686.73 | 76.56 | 251.33 | 100 |
+| finance | 5 | 2758.65 | 77.18 | 197.4 | 100 |
+| food | 5 | 2808.71 | 75.9 | 176.4 | 100 |
+| government | 5 | 2377.28 | 76.9 | 158.4 | 100 |
+| health | 4 | 1829.85 | 77.29 | 139.5 | 100 |
+| legal | 5 | 2706.46 | 77.23 | 194.8 | 100 |
+| media | 6 | 2970.65 | 76.71 | 203 | 100 |
+| mobility | 6 | 2347.42 | 76.13 | 170 | 100 |
+| real-estate | 6 | 2619.68 | 74.21 | 186.67 | 100 |
+| sports | 5 | 3123.67 | 75.29 | 231.8 | 100 |
+| tooling | 3 | 2029.37 | 78.63 | 144.33 | 100 |
+| travel | 7 | 2426.88 | 75.02 | 170.57 | 100 |
+| utility | 11 | 2160.63 | 76.7 | 159 | 100 |
+| writing | 3 | 3566.24 | 74.16 | 249.67 | 100 |
+
+### All targets
+
+| target | kind | group | 지연 p50(ms) | 출력tok | tps | 성공률(%) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `agent:cs` | agent | agent | 607.38 | 54 | 78.54 | 100 |
+| `agent:dashboard` | agent | agent | 1476.75 | 106 | 79.63 | 100 |
+| `agent:incident` | agent | agent | 745.59 | 55 | 81.54 | 100 |
+| `agent:notice` | agent | agent | 778.92 | 59 | 80.37 | 100 |
+| `playbook:payment_missing_response_v1` | playbook | high | 3208.05 | 231 | 76.6 | 100 |
+| `playbook:daily_ops_brief_v1` | playbook | low | 3511.08 | 256 | 78.37 | 100 |
+| `preset:PLOMUS_DISTRIBUTION` | preset | preset | 1743.23 | 166 | 75.52 | 100 |
+| `skill:bunjang-search` | skill | commerce | 3144.93 | 218 | 74.57 | 100 |
+| `skill:coupang-product-search` | skill | commerce | 3712.52 | 242 | 69.08 | 100 |
+| `skill:daangn-cars-search` | skill | commerce | 2022.22 | 139 | 74.96 | 100 |
+| `skill:daangn-jobs-search` | skill | commerce | 3597.84 | 256 | 77.2 | 100 |
+| `skill:daangn-used-goods-search` | skill | commerce | 3564.84 | 218 | 72.45 | 100 |
+| `skill:daiso-product-search` | skill | commerce | 1768.4 | 170 | 75.57 | 100 |
+| `skill:danawa-price-search` | skill | commerce | 3290.81 | 226 | 72.69 | 100 |
+| `skill:market-kurly-search` | skill | commerce | 1396.14 | 95 | 75.41 | 100 |
+| `skill:naver-shopping-search` | skill | commerce | 3620.41 | 241 | 74.04 | 100 |
+| `skill:ohou-today-deal` | skill | commerce | 1546.73 | 108 | 78.14 | 100 |
+| `skill:olive-young-search` | skill | commerce | 1765.51 | 129 | 77.5 | 100 |
+| `skill:used-car-price-search` | skill | commerce | 1852.74 | 130 | 79.51 | 100 |
+| `skill:hwp` | skill | documents | 3747.72 | 256 | 76.37 | 100 |
+| `skill:rhwp-advanced` | skill | documents | 3750.71 | 256 | 75.32 | 100 |
+| `skill:rhwp-edit` | skill | documents | 3561.77 | 242 | 77.99 | 100 |
+| `skill:daishin-report-search` | skill | finance | 3702.92 | 256 | 76.01 | 100 |
+| `skill:k-dart` | skill | finance | 3120.88 | 236 | 78.16 | 100 |
+| `skill:korean-jangbu-for` | skill | finance | 3548.38 | 256 | 77.4 | 100 |
+| `skill:korean-stock-search` | skill | finance | 1248.75 | 87 | 80.04 | 100 |
+| `skill:toss-securities` | skill | finance | 2172.34 | 152 | 74.31 | 100 |
+| `skill:blue-ribbon-nearby` | skill | food | 2060.56 | 146 | 77.95 | 100 |
+| `skill:catchtable-sniper` | skill | food | 3654.82 | 227 | 74.54 | 100 |
+| `skill:hola-poke-yeoksam` | skill | food | 3541.32 | 211 | 77.61 | 100 |
+| `skill:k-schoollunch-menu` | skill | food | 3717.41 | 219 | 70.28 | 100 |
+| `skill:kakao-bar-nearby` | skill | food | 1069.46 | 79 | 79.13 | 100 |
+| `skill:korean-scholarship-search` | skill | government | 3561.65 | 256 | 77.75 | 100 |
+| `skill:kosis-stats` | skill | government | 1305.06 | 95 | 78.89 | 100 |
+| `skill:kstartup-search` | skill | government | 3541.04 | 217 | 77.94 | 100 |
+| `skill:local-election-candidate-search` | skill | government | 1946.24 | 117 | 72.68 | 100 |
+| `skill:nts-business-registration` | skill | government | 1532.41 | 107 | 77.25 | 100 |
+| `skill:emergency-room-beds` | skill | health | 670.48 | 46 | 79.03 | 100 |
+| `skill:gangnamunni-clinic-search` | skill | health | 1256.85 | 146 | 78.58 | 100 |
+| `skill:mfds-drug-safety` | skill | health | 1963.84 | 148 | 75.86 | 100 |
+| `skill:mfds-food-safety` | skill | health | 3428.23 | 218 | 75.69 | 100 |
+| `skill:corporate-registration-consulting` | skill | legal | 1489.32 | 153 | 74.51 | 100 |
+| `skill:iros-registry-automation` | skill | legal | 3571.78 | 256 | 76.46 | 100 |
+| `skill:korean-law-search` | skill | legal | 1413.11 | 104 | 79.49 | 100 |
+| `skill:korean-patent-search` | skill | legal | 3491 | 205 | 78.45 | 100 |
+| `skill:korean-privacy-terms` | skill | legal | 3567.09 | 256 | 77.23 | 100 |
+| `skill:geeknews-search` | skill | media | 3490.93 | 217 | 78.49 | 100 |
+| `skill:joseon-sillok-search` | skill | media | 3536.22 | 194 | 78.04 | 100 |
+| `skill:korean-cinema-search` | skill | media | 3514.17 | 232 | 76.73 | 100 |
+| `skill:naver-blog-research` | skill | media | 1493.32 | 139 | 71.82 | 100 |
+| `skill:naver-news-search` | skill | media | 2270.63 | 180 | 77.51 | 100 |
+| `skill:ticket-availability` | skill | media | 3518.63 | 256 | 77.68 | 100 |
+| `skill:cheap-gas-nearby` | skill | mobility | 978.63 | 70 | 80.24 | 100 |
+| `skill:delivery-tracking` | skill | mobility | 3549.85 | 256 | 77.63 | 100 |
+| `skill:hipass-receipt` | skill | mobility | 1791.38 | 130 | 78.63 | 100 |
+| `skill:korean-transit-route` | skill | mobility | 3686.42 | 256 | 75.38 | 100 |
+| `skill:seoul-subway-arrival` | skill | mobility | 2363.13 | 142 | 68.47 | 100 |
+| `skill:subway-lost-property` | skill | mobility | 1715.1 | 166 | 76.45 | 100 |
+| `skill:court-auction-notice-search` | skill | real-estate | 1485.03 | 157 | 77.78 | 100 |
+| `skill:daangn-realty-search` | skill | real-estate | 1988.36 | 142 | 78.82 | 100 |
+| `skill:gongsijiga-search` | skill | real-estate | 3555.64 | 256 | 77.65 | 100 |
+| `skill:lh-notice-search` | skill | real-estate | 1882.14 | 102 | 71.46 | 100 |
+| `skill:real-estate-search` | skill | real-estate | 4080.46 | 256 | 65.85 | 100 |
+| `skill:sh-notice-search` | skill | real-estate | 2726.48 | 207 | 73.7 | 100 |
+| `skill:kbl-results` | skill | sports | 3606.26 | 256 | 75.67 | 100 |
+| `skill:kbo-results` | skill | sports | 3639.61 | 250 | 71.79 | 100 |
+| `skill:kleague-results` | skill | sports | 2743.75 | 215 | 76.42 | 100 |
+| `skill:korean-marathon-schedule` | skill | sports | 3595.94 | 256 | 76.23 | 100 |
+| `skill:lck-analytics` | skill | sports | 2032.79 | 182 | 76.36 | 100 |
+| `skill:k-skill-cleaner` | skill | tooling | 3609.05 | 210 | 76.62 | 100 |
+| `skill:k-skill-setup` | skill | tooling | 804.2 | 56 | 80.17 | 100 |
+| `skill:kakaotalk-mac` | skill | tooling | 1674.85 | 167 | 79.09 | 100 |
+| `skill:express-bus-booking` | skill | travel | 3729.81 | 256 | 74.28 | 100 |
+| `skill:flight-ticket-search` | skill | travel | 1798.37 | 113 | 73.52 | 100 |
+| `skill:foresttrip-vacancy` | skill | travel | 1702.01 | 129 | 72.03 | 100 |
+| `skill:intercity-bus-booking` | skill | travel | 2106.41 | 162 | 76.59 | 100 |
+| `skill:ktx-booking` | skill | travel | 3662.05 | 256 | 75.62 | 100 |
+| `skill:myrealtrip-search` | skill | travel | 2057.56 | 145 | 76.2 | 100 |
+| `skill:srt-booking` | skill | travel | 1931.95 | 133 | 76.87 | 100 |
+| `skill:donation-place-search` | skill | utility | 3600.56 | 247 | 75.9 | 100 |
+| `skill:fine-dust-location` | skill | utility | 1066.09 | 74 | 79.16 | 100 |
+| `skill:han-river-water-level` | skill | utility | 3537.88 | 215 | 77.74 | 100 |
+| `skill:household-waste-info` | skill | utility | 994.11 | 127 | 71.95 | 100 |
+| `skill:korea-weather` | skill | utility | 1373.7 | 93 | 77.03 | 100 |
+| `skill:library-book-search` | skill | utility | 3688.73 | 256 | 73.42 | 100 |
+| `skill:lotto-results` | skill | utility | 2985.32 | 225 | 75.58 | 100 |
+| `skill:parking-lot-search` | skill | utility | 1117.26 | 82 | 80 | 100 |
+| `skill:public-restroom-nearby` | skill | utility | 2371.55 | 200 | 78.61 | 100 |
+| `skill:seoul-density` | skill | utility | 2241.53 | 177 | 75.86 | 100 |
+| `skill:zipcode-search` | skill | utility | 790.16 | 53 | 78.5 | 100 |
+| `skill:korean-character-count` | skill | writing | 3650.5 | 256 | 76.14 | 100 |
+| `skill:korean-slang-writing` | skill | writing | 3734.7 | 256 | 71.23 | 100 |
+| `skill:korean-spell-check` | skill | writing | 3313.53 | 237 | 75.11 | 100 |
+| `workflow:app-release-review` | workflow | APP_RELEASE | 3683.67 | 256 | 74.45 | 100 |
+| `workflow:app-store-review` | workflow | APP_STORE | 3300.03 | 236 | 73.68 | 100 |
+| `workflow:apply-change-plan` | workflow | CHANGE_PLAN | 3851.81 | 256 | 73 | 100 |
+| `workflow:claim-created` | workflow | CLAIM | 3742.57 | 256 | 72.18 | 100 |
+| `workflow:contract-review` | workflow | CONTRACT | 3714.53 | 251 | 73.69 | 100 |
+| `workflow:daily-briefing` | workflow | DAILY_BRIEFING | 3712.27 | 256 | 73.81 | 100 |
+| `workflow:finance-review` | workflow | FINANCE | 3770.92 | 256 | 73.64 | 100 |
+| `workflow:general-company-review` | workflow | GENERAL_COMPANY | 3768.7 | 256 | 72.89 | 100 |
+| `workflow:hr-review` | workflow | HR | 3688.48 | 256 | 73.66 | 100 |
+| `workflow:inventory-review` | workflow | INVENTORY | 3734.49 | 229 | 73.88 | 100 |
+| `workflow:stock-low` | workflow | INVENTORY | 4070.39 | 250 | 71.54 | 100 |
+| `workflow:legal-policy-review` | workflow | LEGAL_POLICY | 2701.33 | 173 | 72.15 | 100 |
+| `workflow:operations-review` | workflow | OPERATIONS | 3668.22 | 247 | 74.9 | 100 |
+| `workflow:order-delay-review` | workflow | ORDER_DELAY | 3615.16 | 252 | 75.88 | 100 |
+| `workflow:partner-review` | workflow | PARTNER | 3816.01 | 256 | 74.39 | 100 |
+| `workflow:product-review` | workflow | PRODUCT | 1881.74 | 143 | 78.45 | 100 |
+| `workflow:recurring-review` | workflow | RECURRING | 3564.94 | 256 | 77.91 | 100 |
+| `workflow:settlement-check` | workflow | SETTLEMENT | 3691.55 | 256 | 75.45 | 100 |
+| `workflow:si-project-review` | workflow | SI_PROJECT | 3527.04 | 255 | 76.93 | 100 |
+| `workflow:task-approved` | workflow | TASK | 3522.26 | 256 | 78.48 | 100 |
+| `workflow:commerce-review` | workflow | WORKSPACE | 3585.45 | 256 | 77.88 | 100 |
 
 ## Illustrative leaderboard (synthetic seed)
 

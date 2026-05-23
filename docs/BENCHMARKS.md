@@ -81,7 +81,7 @@
 
 ## 측정 베이스라인 (로컬 Ollama, `qwen3.6-27b` 기준)
 
-**전체 114개 타깃**(스킬 86 + 커머스 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1)을 `qwen3.6-27b`로 1회씩 실제 실행했습니다 — **114/114 성공**. 새로 추가된 도메인의 LLM 실행 엔티티(에이전트·playbook·preset)도 포함합니다. 전 항목·카테고리별·전체 타깃 표는 [BENCHMARK-RESULTS.md](BENCHMARK-RESULTS.md) 참조.
+**전체 114개 타깃**(스킬 86 + 커머스 워크플로 21 + gameops 에이전트 4·playbook 2 + distribution preset 1)을 `qwen3.6-27b`로 초기 1회씩(reps=1) 실제 실행했습니다 — **114/114 성공**. 이후 일부 타깃은 재현성 측정을 위해 reps≥2로 갱신됐으므로, **현재 정식 수치는 생성 산출물 [BENCHMARK-RESULTS.md](BENCHMARK-RESULTS.md)를 기준**으로 합니다(아래 표는 초기 baseline의 indicative 값).
 
 | 도메인 | n | 지연 p50 | 처리량 | 평균 출력토큰 | 성공률 |
 |---|---|---|---|---|---|
@@ -93,7 +93,7 @@
 - 비용 $0(로컬), `num_predict=256`. 짧은 출력(스킬 ~65토큰)은 프롬프트 평가 오버헤드 비중이 커 유효 tps가 낮고, 긴 출력(워크플로/에이전트 ~256토큰)은 정상 생성 속도(~50 tps)에 수렴합니다.
 - qwen35(27B)는 reasoning 모델이라 `think:false`로 호출(기본 thinking 모드가 출력 토큰을 소진). 지연은 1회성 모델 로드를 제외한 추론 시간.
 - **지연/처리량은 환경 의존적**입니다(GPU 부하·warm 상태). 정식 수치는 생성 산출물 `BENCHMARK-RESULTS.md`를 기준으로 합니다.
-- 보조 비교: `qwen-2.5-0.5b`(소형) 측정값(skills+commerce 107건)도 `results.json`에 있어 소형 vs 대형 대비를 제공합니다.
+- 소형 모델 `qwen-2.5-0.5b`는 **전 114 타깃을 reps=3으로 측정한 완전한 재현성 baseline**을 보유합니다(소형 vs 대형 대비 + 재현성 비교).
 - 메모리 경합으로 모델 동시 상주가 어려워 전환 시 `ollama stop <tag>`로 언로드 후 실행했습니다.
 - 재현: `pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest --limit 1000` (전체 114) 또는 `--targets agent:cs,playbook:daily_ops_brief_v1` (부분).
 
@@ -111,6 +111,8 @@ pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest \
 ```
 
 실측 예(qwen3.6-27b · reps=10): `skill:korean-spell-check` **consistency 90%** — temperature 0인데도 10회 중 1회 다른 출력이 나와 **실 GPU 비결정성을 포착**했고, `workflow:order-delay-review`는 **100%**. 짧은 사실형 출력일수록 토큰 단위 흔들림이 일관성에 더 민감합니다.
+
+**재현성 baseline & 모델 크기 상관**: `qwen-2.5-0.5b`는 **전 114 타깃을 reps=3으로 측정**(재현성 커버리지 100%), `qwen3.6-27b`는 대표 6개(5.3%)만. 평균 출력 일관성은 **0.5b 67.5% vs 27b 86.7%** — 소형 모델이 동일 입력에도 훨씬 자주 다른 출력을 냅니다(0.5b는 114개 중 111개가 66–99%, 100%는 3개뿐). 즉 **모델 용량이 작을수록 재현성이 떨어진다**는 정량 신호. 커버리지·분포는 `pnpm run analyze:benchmarks`의 Coverage 섹션에서 확인합니다.
 
 **회귀(regression) 추적**: 같은 모델·타깃을 다시 측정해 이전 baseline과 비교합니다. 매 실행은 `experiments/runs/<model>-<ts>.json`에 원시 run record로 보존되고, `results`·`rollups`의 measured 값 변화로 드리프트가 드러납니다. 측정 후 `pnpm run summary:benchmarks`로 문서를 재생성하지 않으면 `validate:benchmark-doc`가 CI에서 차단합니다.
 
@@ -133,6 +135,7 @@ pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest \
 run record들을 읽어 집계 행이 못 보여주는 신호를 표면화합니다(`dist/benchmark-analysis.md`로도 출력):
 
 - **Runs** — 실행 인벤토리(모델·reps·타깃·실패 수)
+- **Coverage** — 커밋된 measured 결과에서 모델별 재현성 측정 커버리지(`sampleSize≥2` 비율) — "어디가 reps=1이라 재현성 미측정인지"
 - **Failures** — `ok:false` 반복(모델·타깃·rep·error)
 - **Reproducibility & latency stability** — reps≥2 기록의 타깃별 일관성(distinct 출력 수)·지연 cv, 임계 초과 시 ⚠
 - **Regression** — 모델별 최근 두 실행의 공유 타깃 비교(p50·consistency 델타, 20%/-10%p 초과 시 ⚠)

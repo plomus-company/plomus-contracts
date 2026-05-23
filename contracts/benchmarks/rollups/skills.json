@@ -71,21 +71,6 @@
     },
     {
       "domain": "skills",
-      "modelId": "qwen-2.5-0.5b",
-      "dataSource": "measured",
-      "targetCount": 86,
-      "metrics": {
-        "cost_per_run_usd": 0,
-        "input_tokens": 135.43,
-        "output_tokens": 187.35,
-        "latency_p50_ms": 538.51,
-        "throughput_tps": 522.57,
-        "success_rate": 100,
-        "error_rate": 0
-      }
-    },
-    {
-      "domain": "skills",
       "modelId": "qwen3.6-27b",
       "dataSource": "measured",
       "targetCount": 86,
@@ -100,6 +85,24 @@
         "success_rate": 100,
         "error_rate": 0,
         "output_consistency": 100
+      }
+    },
+    {
+      "domain": "skills",
+      "modelId": "qwen-2.5-0.5b",
+      "dataSource": "measured",
+      "targetCount": 86,
+      "metrics": {
+        "cost_per_run_usd": 0,
+        "input_tokens": 135.43,
+        "output_tokens": 183.27,
+        "latency_p50_ms": 2601.22,
+        "latency_p95_ms": 3311.33,
+        "throughput_tps": 76.07,
+        "latency_stddev_ms": 414.02,
+        "success_rate": 100,
+        "error_rate": 0,
+        "output_consistency": 67.45
       }
     }
   ]
