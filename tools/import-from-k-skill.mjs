@@ -188,7 +188,7 @@ const CREDENTIALS = [
   { envVar: "SEOUL_OPEN_API_KEY", upstream: "seoul-open-data", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["seoul-subway-arrival", "seoul-density"] },
   { envVar: "HRFCO_OPEN_API_KEY", upstream: "hrfco", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["han-river-water-level"] },
   { envVar: "OPINET_API_KEY", upstream: "opinet", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["cheap-gas-nearby"] },
-  { envVar: "DATA_GO_KR_API_KEY", upstream: "data-go-kr", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["real-estate-search", "lh-notice-search", "parking-lot-search", "household-waste-info", "nts-business-registration", "kstartup-search", "mfds-drug-safety", "mfds-food-safety"] },
+  { envVar: "DATA_GO_KR_API_KEY", upstream: "data-go-kr", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["real-estate-search", "lh-notice-search", "parking-lot-search", "household-waste-info", "nts-business-registration", "kstartup-search", "mfds-drug-safety"] },
   { envVar: "DATA4LIBRARY_AUTH_KEY", upstream: "data4library", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["library-book-search"] },
   { envVar: "FOODSAFETYKOREA_API_KEY", upstream: "foodsafety-korea", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["mfds-food-safety"] },
   { envVar: "KEDU_INFO_KEY", upstream: "neis", credentialType: "api-key", proxyManaged: true, aliases: [], usedBySkills: ["k-schoollunch-menu"] },

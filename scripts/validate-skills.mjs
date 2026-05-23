@@ -151,6 +151,31 @@ for (const credential of credentials) {
   if (unknownUsedBy.length) fail(scope, `Unknown usedBySkills: ${unknownUsedBy.join(", ")}`);
 }
 
+// ---- usedBySkills must reflect real usage (same-upstream rule) ----
+// A skill legitimately "uses" a credential if it touches that credential's upstream
+// — via requiredEnv or a proxy route's credential. Same-upstream (not exact-envVar)
+// allows credential pairs (e.g. Naver CLIENT_ID + CLIENT_SECRET, where a route
+// records only one) and user-side alternates for a proxied upstream; it still
+// catches cross-upstream mis-attribution.
+const credUpstreamOf = new Map(credentials.map((c) => [c.envVar, c.upstream]));
+const skillUpstreams = new Map(skills.map((s) => {
+  const set = new Set();
+  for (const e of s.requiredEnv ?? []) { const u = credUpstreamOf.get(e); if (u) set.add(u); }
+  return [s.skillId, set];
+}));
+for (const route of routes) {
+  const u = credUpstreamOf.get(route.credential);
+  if (u) for (const sid of route.skills ?? []) skillUpstreams.get(sid)?.add(u);
+}
+for (const credential of credentials) {
+  for (const sid of credential.usedBySkills ?? []) {
+    const touched = skillUpstreams.get(sid);
+    if (touched && !touched.has(credential.upstream)) {
+      fail(`credential:${credential.envVar}`, `usedBySkills lists '${sid}' but it never uses upstream '${credential.upstream}' (uses: ${[...touched].join(", ") || "none"}).`);
+    }
+  }
+}
+
 // alias collisions across the whole registry
 const aliasAll = credentials.flatMap((c) => c.aliases ?? []);
 assertUnique("credentials", "aliases", [...aliasAll, ...credentialEnvVars]);

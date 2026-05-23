@@ -166,3 +166,20 @@ test("benchmark-doc check passes when fresh and fails when BENCHMARK-RESULTS.md 
   const stale = runNodeScript("scripts/summary-benchmarks.mjs", { registryRoot: fixtureRoot, args: ["--check"] });
   assertScriptFails(stale, /stale/);
 });
+
+test("skills validator rejects a usedBySkills cross-upstream mis-attribution", (t) => {
+  const fixtureRoot = createContractsFixture(t);
+  // bunjang-search is a public-only skill (no proxy/credential → touches no upstream),
+  // so listing it under any credential's usedBySkills must fail the same-upstream rule.
+  const ok = mutateFixtureItem(
+    fixtureRoot,
+    "skills-credentials",
+    "credentials",
+    (c) => Array.isArray(c.usedBySkills),
+    (c) => c.usedBySkills.push("bunjang-search"),
+  );
+  assert.ok(ok, "fixture needs a credential with usedBySkills");
+
+  const result = runNodeScript("scripts/validate-skills.mjs", { registryRoot: fixtureRoot });
+  assertScriptFails(result, /never uses upstream/);
+});
