@@ -13,6 +13,7 @@
         "order"
       ],
       "summary": "통신판매업자 신원·연락처·청약철회·교환반품 고지 (전자상거래법 표시의무). 항목은 legal-disclosures 참조.",
+      "legalBasis": "전자상거래법 제10조, 제13조",
       "status": "DRAFT"
     }
   ]

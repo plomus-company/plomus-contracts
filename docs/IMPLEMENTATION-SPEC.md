@@ -36,7 +36,7 @@
 | Governance | `contracts/governance/governance-*` | `plomus-governance` | role 6, lifecycle 19, 승인정책 3, 라우팅 4 |
 | GameOps | `contracts/agent/gameops-*`(agent·playbook·field), `contracts/tool/gameops-adapters` | `plomus-agent` · `plomus-tool` | adapter 7, intent 16, agent 4, playbook 2, field 6 |
 | Transaction | `contracts/transaction/` | `plomus-transaction` | budget 4, settlement 3 (EXPERIMENTAL) |
-| Legal | `contracts/legal/` | `plomus-legal` | document 6, disclosure 4 (DRAFT) |
+| Legal | `contracts/legal/` | `plomus-legal` | document 6 (DRAFT), disclosure 11 (ACTIVE, 전자상거래법 제10·13조) |
 
 계약은 버전 폴더 없이 `<role>/<domain>-<contract>/` 단위로 관리합니다(버전관리는 git/GitHub). review rule·workflow는 `businessUnit`으로, skill은 `category`로 파일이 나뉘며, role 매핑·분류 규칙은 [CONTRACT-TAXONOMY.md](CONTRACT-TAXONOMY.md)에 정의되고 validator가 강제합니다. 본 문서는 Commerce·Skills·Benchmarks 세 도메인을 중심으로 기술하며, 나머지는 [docs/contracts/](contracts/)에 상세가 있습니다.
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "status": "EXPERIMENTAL",
-  "note": "Legal document contract surface (ToS, privacy, e-commerce disclosure, partner, refund). DRAFT — summaries are scaffolds, not legally reviewed text.",
+  "note": "Legal contract surface. Disclosures (legal-disclosures) are ACTIVE — 전자상거래법 제10·13조 표시의무 항목을 법령 그대로 옮긴 것이라 사실에 해당한다. Documents (legal-documents) carry an accurate legalBasis but stay DRAFT: the actual clause text is a scaffold, not legally reviewed.",
   "documentTypes": [
     "TERMS_OF_SERVICE",
     "PRIVACY_POLICY",

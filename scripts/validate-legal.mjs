@@ -47,6 +47,7 @@ for (const d of documents) {
   requireString(scope, d.documentId, "documentId");
   requireString(scope, d.version, "version");
   requireString(scope, d.summary, "summary");
+  requireString(scope, d.legalBasis, "legalBasis");
   inSet(scope, d.documentType, documentTypes, "documentType");
   inSet(scope, d.audience, audiences, "audience");
   inSet(scope, d.jurisdiction, jurisdictions, "jurisdiction");

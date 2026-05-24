@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "disclosures": [
+    {
+      "disclosureId": "escrow-or-consumer-protection-insurance",
+      "businessUnit": "settlement",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "선지급식 통신판매의 경우 결제대금예치(에스크로) 또는 소비자피해보상보험계약 등의 이용을 선택할 수 있다는 사항",
+      "legalBasis": "전자상거래법 제13조 제2항 제10호, 제24조",
+      "status": "ACTIVE"
+    }
+  ]
+}

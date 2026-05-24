@@ -5,33 +5,41 @@
       "disclosureId": "seller-identity",
       "businessUnit": "legal-policy",
       "documentType": "ECOMMERCE_DISCLOSURE",
-      "field": "상호·대표자·사업자등록번호·통신판매업 신고번호",
-      "legalBasis": "전자상거래법 제13조 제1항",
-      "status": "EXPERIMENTAL"
+      "field": "상호 및 대표자 성명, 사업자등록번호",
+      "legalBasis": "전자상거래법 제10조 제1항",
+      "status": "ACTIVE"
     },
     {
       "disclosureId": "contact-channel",
       "businessUnit": "legal-policy",
       "documentType": "ECOMMERCE_DISCLOSURE",
-      "field": "주소·전화번호·전자우편 주소",
+      "field": "영업소 소재지 주소(불만처리 주소 포함), 전화번호, 전자우편주소",
+      "legalBasis": "전자상거래법 제10조 제1항",
+      "status": "ACTIVE"
+    },
+    {
+      "disclosureId": "telesales-registration",
+      "businessUnit": "legal-policy",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "통신판매업 신고번호 및 신고기관",
       "legalBasis": "전자상거래법 제13조 제1항",
-      "status": "EXPERIMENTAL"
+      "status": "ACTIVE"
     },
     {
-      "disclosureId": "withdrawal-of-offer",
+      "disclosureId": "terms-of-trade-access",
       "businessUnit": "legal-policy",
       "documentType": "ECOMMERCE_DISCLOSURE",
-      "field": "청약철회의 기한·행사방법·효과",
-      "legalBasis": "전자상거래법 제13조 제2항",
-      "status": "EXPERIMENTAL"
+      "field": "거래에 관한 약관(내용을 확인할 수 있는 방법 포함)",
+      "legalBasis": "전자상거래법 제13조 제2항 제9호",
+      "status": "ACTIVE"
     },
     {
-      "disclosureId": "exchange-return-cost",
+      "disclosureId": "consumer-dispute-handling",
       "businessUnit": "legal-policy",
       "documentType": "ECOMMERCE_DISCLOSURE",
-      "field": "교환·반품·보증 조건 및 비용 부담",
-      "legalBasis": "전자상거래법 제13조 제2항",
-      "status": "EXPERIMENTAL"
+      "field": "소비자피해보상의 처리, 재화등에 대한 불만 및 소비자·사업자 간 분쟁 처리에 관한 사항",
+      "legalBasis": "전자상거래법 제13조 제2항 제8호",
+      "status": "ACTIVE"
     }
   ]
 }

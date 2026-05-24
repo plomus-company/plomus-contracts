@@ -13,6 +13,7 @@
         "settlement"
       ],
       "summary": "청약철회 기간, 환불 방법·기한, 반품 배송비 부담 — 환불·교환 정책. 거래 처리는 transaction-settlement 참조.",
+      "legalBasis": "전자상거래법 제17조, 제18조",
       "status": "DRAFT"
     }
   ]

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "disclosures": [
+    {
+      "disclosureId": "goods-info",
+      "businessUnit": "product",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "재화등의 명칭·종류 및 내용",
+      "legalBasis": "전자상거래법 제13조 제2항 제2호",
+      "status": "ACTIVE"
+    }
+  ]
+}

@@ -93,7 +93,7 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 | Task / delegation | `contracts/task/` | 예산/토큰 한도는 `contracts/transaction/`이 보완; benchmarks가 비용을 측정 |
 | Behavioral / Governance | `contracts/governance/` | Pre/Invariant/Policy/Recovery(rollback)가 lifecycle에 |
 | Payment / transaction | `contracts/transaction/` | x402식 세션/일/월 예산·결제증명·승인 게이트(→governance) + 수수료·정산·환불. EXPERIMENTAL |
-| Legal | `contracts/legal/` | 약관·개인정보·전자상거래 고지·파트너·환불 문서 + 전자상거래법 표시의무. DRAFT |
+| Legal | `contracts/legal/` | 약관·개인정보·전자상거래 고지·파트너·환불 문서(legalBasis 정확, 본문 DRAFT) + 전자상거래법 제10·13조 표시의무 disclosure(법령 그대로, ACTIVE) |
 | Smart contract (on-chain) | **범위 밖** | 온체인 요소 없음. (`transaction`의 `X402`/`ONCHAIN_TX` proof로 경계만 접함) |
 
 ### transaction과 governance의 관계
@@ -106,7 +106,7 @@ AI agent 생태계에서 "contract"는 법률 계약서 하나가 아니라, **�
 - **category (15)** — skill 계약을 기능 분류로 나누는 2차 축(`commerce`·`finance`·…·`tooling`).
 - **logical id (`<domain>-<contract>`)** — 각 계약 폴더는 출처를 드러내는 논리 id를 그대로 유지합니다(예: `contracts/governance/commerce-review-rules/`). validator·build는 이 논리 id로 읽으므로 폴더가 옮겨져도 본체는 바뀌지 않습니다.
 - **member (dist)** — 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다(예: `plomus-tool.json.members.skills`).
-- **status** — `transaction`·`legal`은 현재 `EXPERIMENTAL`/`DRAFT`입니다. 구조는 검증되지만 값(수수료율·약관 문구)은 권위 있는 데이터가 아닌 scaffold이며, 제품 확정 시 `ACTIVE`로 승격합니다.
+- **status** — `transaction`과 `legal` 문서 본문은 현재 `EXPERIMENTAL`/`DRAFT`입니다. 구조는 검증되지만 값(수수료율·약관 본문)은 권위 있는 데이터가 아닌 scaffold이며, 제품 확정 시 `ACTIVE`로 승격합니다. 단 **legal disclosure(전자상거래법 제10·13조 표시의무 항목)는 법령을 그대로 옮긴 것이라 이미 `ACTIVE`**이고, legal document은 legalBasis만 정확하고 본문은 DRAFT입니다.
 
 ## 용어 연관관계 (relationships)
 
@@ -245,14 +245,15 @@ const enums  = tool.members.skills.enums.categories;       // 도메인 enum
 **legal** — *어떤 문서를 제시·준수* · `.../legal` → `.members.legal.contracts.{documents,disclosures}[]`
 
 ```jsonc
-// contracts/legal/legal-documents/ecommerce-disclosure.json
+// contracts/legal/legal-documents/ecommerce-disclosure.json — legalBasis 정확, 본문 DRAFT
 { "documentId": "ecommerce-seller-disclosure", "documentType": "ECOMMERCE_DISCLOSURE",
   "audience": "CONSUMER", "requiredConsent": "REQUIRED",
-  "governsBusinessUnits": ["legal-policy", "order"], "status": "DRAFT" }
-// contracts/legal/legal-disclosures/legal-policy.json   (전자상거래법 표시의무)
+  "governsBusinessUnits": ["legal-policy", "order"],
+  "legalBasis": "전자상거래법 제10조, 제13조", "status": "DRAFT" }
+// contracts/legal/legal-disclosures/legal-policy.json — 법령 그대로, ACTIVE
 { "disclosureId": "seller-identity", "businessUnit": "legal-policy",
-  "documentType": "ECOMMERCE_DISCLOSURE", "field": "상호·대표자·사업자등록번호·통신판매업 신고번호",
-  "legalBasis": "전자상거래법 제13조 제1항" }
+  "documentType": "ECOMMERCE_DISCLOSURE", "field": "상호 및 대표자 성명, 사업자등록번호",
+  "legalBasis": "전자상거래법 제10조 제1항", "status": "ACTIVE" }
 ```
 
 ### 보조 어휘가 실제로 어떻게 쓰이나

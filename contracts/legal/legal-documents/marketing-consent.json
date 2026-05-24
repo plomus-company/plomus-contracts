@@ -12,6 +12,7 @@
         "operations"
       ],
       "summary": "광고성 정보 수신 동의(이메일·SMS·푸시) — 선택 동의, 철회 가능.",
+      "legalBasis": "정보통신망법 제50조",
       "status": "DRAFT"
     }
   ]

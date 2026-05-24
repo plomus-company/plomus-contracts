@@ -15,13 +15,13 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 | **Task** | `contracts/task/` | 위임 작업·워크플로 | preset 8 · workflow 21 · dist-preset 1 | `plomus-task.json` |
 | **Governance** | `contracts/governance/` | 규칙·역할·라이프사이클·복구 | rule 37 · role 6 · 실행상태 19 · 승인정책 3 · EXPERIMENTAL 규칙 12 | `plomus-governance.json` |
 | **Transaction** | `contracts/transaction/` | 결제·정산·수수료·예산 (EXPERIMENTAL) | budget 4 · settlement 3 | `plomus-transaction.json` |
-| **Legal** | `contracts/legal/` | 법적 문서·약관·고지 (DRAFT) | document 6 · disclosure 4 | `plomus-legal.json` |
+| **Legal** | `contracts/legal/` | 전자상거래 고지(ACTIVE)·문서 본문(DRAFT) | document 6 · disclosure 11 | `plomus-legal.json` |
 | **Foundation** | `contracts/foundation/` | 공유 어휘(역할 아님) | frontmatter 10 · 이벤트그룹 6 · error code 21 · 필드 7 | `plomus-foundation.json` |
 | **Benchmarks** | `contracts/benchmarks/` | 측정층(역할 아님) | model 14 · metric 11 · target 114 · result 684 | `plomus-benchmarks.json` |
 
 분류 규칙(role 매핑 + 15 business unit · 15 category 2차 축)은 [docs/CONTRACT-TAXONOMY.md](docs/CONTRACT-TAXONOMY.md)에 정의되고 validator가 폴더 배치를 강제합니다. 빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만듭니다. 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다. 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
 
-> **transaction·legal**은 `EXPERIMENTAL`/`DRAFT`입니다 — 구조는 검증되지만 값(수수료율·약관 문구)은 권위 데이터가 아닌 scaffold입니다. governance review-rule(settlement·finance·claim·legal-policy 행동 규칙)은 그대로 두고, transaction은 그 위에 *기계 거래 규격*(예산·결제증명·정산)을, legal은 *법적 문서 계약*을 더합니다([GLOSSARY](docs/CONTRACT-GLOSSARY.md)). smart contract는 범위 밖.
+> **transaction·legal**은 대체로 `EXPERIMENTAL`/`DRAFT`입니다 — 구조는 검증되지만 값(수수료율·약관 본문)은 권위 데이터가 아닌 scaffold입니다. 예외로 **legal disclosure(전자상거래법 제10·13조 표시의무 항목)는 법령을 그대로 옮긴 것이라 `ACTIVE`**, legal document은 legalBasis만 정확하고 본문은 DRAFT입니다. governance review-rule(settlement·finance·claim·legal-policy 행동 규칙)은 그대로 두고, transaction은 그 위에 *기계 거래 규격*(예산·결제증명·정산)을, legal은 *법적 문서 계약*을 더합니다([GLOSSARY](docs/CONTRACT-GLOSSARY.md)). smart contract는 범위 밖.
 > **소비자 이전**: dist·export가 변경(breaking)되었습니다 — [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md).
 
 ## 계약 역할 상세
@@ -56,7 +56,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 
 ### Legal (`contracts/legal/`) → `plomus-legal.json` (DRAFT)
 
-*어떤 법적 문서를 제시·준수해야 하는가*. legal document(6: 이용약관·개인정보처리방침·전자상거래 고지·파트너 계약·환불 정책·마케팅 동의, documentType별)과 전자상거래법 표시의무 disclosure(4). 값은 법률 검토 전 scaffold입니다 — [GLOSSARY](docs/CONTRACT-GLOSSARY.md).
+*어떤 법적 문서를 제시·준수해야 하는가*. legal document(6: 이용약관·개인정보처리방침·전자상거래 고지·파트너 계약·환불 정책·마케팅 동의, documentType별 — 각 문서의 legalBasis는 정확하나 본문은 법률 검토 전 DRAFT scaffold)과 전자상거래법 제10·13조 표시의무 disclosure(11) — businessUnit별, 법령 항목을 그대로 옮긴 것이라 ACTIVE — [GLOSSARY](docs/CONTRACT-GLOSSARY.md).
 
 ### Foundation (`contracts/foundation/`) → `plomus-foundation.json`
 

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "disclosures": [
+    {
+      "disclosureId": "withdrawal-of-offer",
+      "businessUnit": "claim",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "청약철회 및 계약 해제의 기한·행사방법·효과(청약철회 서식 포함)",
+      "legalBasis": "전자상거래법 제13조 제2항 제5호",
+      "status": "ACTIVE"
+    },
+    {
+      "disclosureId": "exchange-return-refund",
+      "businessUnit": "claim",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "재화등의 교환·반품·보증과 그 대금 환급 및 환급 지연에 따른 배상금 지급의 조건·절차",
+      "legalBasis": "전자상거래법 제13조 제2항 제6호",
+      "status": "ACTIVE"
+    }
+  ]
+}

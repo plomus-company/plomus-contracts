@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "disclosures": [
+    {
+      "disclosureId": "price-and-payment",
+      "businessUnit": "order",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "재화등의 가격(가격이 정해지지 않은 경우 그 결정 방법)과 지급방법·지급시기",
+      "legalBasis": "전자상거래법 제13조 제2항 제3호",
+      "status": "ACTIVE"
+    },
+    {
+      "disclosureId": "supply-method-timing",
+      "businessUnit": "order",
+      "documentType": "ECOMMERCE_DISCLOSURE",
+      "field": "재화등의 공급방법 및 공급시기",
+      "legalBasis": "전자상거래법 제13조 제2항 제4호",
+      "status": "ACTIVE"
+    }
+  ]
+}
