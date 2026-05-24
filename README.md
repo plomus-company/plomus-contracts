@@ -22,7 +22,7 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 분류 규칙(role 매핑 + 15 business unit · 15 category 2차 축)은 [docs/CONTRACT-TAXONOMY.md](docs/CONTRACT-TAXONOMY.md)에 정의되고 validator가 폴더 배치를 강제합니다. 빌드(`build:*`)가 폴더를 다시 합쳐 `dist/plomus-*.json`을 만듭니다. 한 role 번들은 여러 출처 도메인의 조각을 `members.<domain>` 아래 담습니다. 버전 폴더는 두지 않습니다(버전관리는 git/GitHub).
 
 > **transaction·legal**은 대체로 `EXPERIMENTAL`/`DRAFT`입니다 — 구조는 검증되지만 값(수수료율·약관 본문)은 권위 데이터가 아닌 scaffold입니다. 예외로 **legal disclosure(전자상거래법 제10·13조 표시의무 항목)는 법령을 그대로 옮긴 것이라 `ACTIVE`**, legal document은 legalBasis만 정확하고 본문은 DRAFT입니다. governance review-rule(settlement·finance·claim·legal-policy 행동 규칙)은 그대로 두고, transaction은 그 위에 *기계 거래 규격*(예산·결제증명·정산)을, legal은 *법적 문서 계약*을 더합니다([GLOSSARY](docs/CONTRACT-GLOSSARY.md)). smart contract는 범위 밖.
-> **소비자 이전**: dist·export가 변경(breaking)되었습니다 — [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md).
+> **소비자 이전**: dist·export가 변경(breaking)되었습니다 — [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md). 릴리스 내역은 [CHANGELOG.md](CHANGELOG.md).
 
 ## 계약 역할 상세
 
