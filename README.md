@@ -73,8 +73,8 @@ Plomus 운영체제들이 공유하는 공개 contract registry입니다. 외부
 ### 1. 획득 — 세 경로
 
 - **npm**: `npm i @plomus/contracts` (public). publish 시 빌드된 `dist/`가 포함됩니다.
-- **GitHub Release**: `Contract Release` workflow가 role별 `dist/plomus-*.json` + 매니페스트 + `contract-summary.md`를 첨부합니다.
-- **git ref / commit SHA 고정**: `npm i github:plomus-company/plomus-contracts#<sha>`. `dist/`는 git에 커밋되지 않지만(빌드 산출물), 설치 시 `prepare`(node 단독, pnpm 불필요)가 소스에서 `dist/`를 재현합니다.
+- **GitHub Release**: `Contract Release` 워크플로(`workflow_dispatch` 수동 실행)가 role별 8개 `dist/plomus-*.json` + 매니페스트 + `contract-summary.md`를 첨부합니다. 최신 릴리스는 [**v0.1.0**](https://github.com/plomus-company/plomus-contracts/releases/tag/v0.1.0).
+- **git 태그 / commit SHA 고정**: `npm i github:plomus-company/plomus-contracts#v0.1.0`(또는 임의 `#<sha>`). `dist/`는 git에 커밋되지 않지만(빌드 산출물), 설치 시 `prepare`(node 단독, pnpm 불필요)가 소스에서 `dist/`를 재현합니다.
 
 ### 2. import — export 맵
 
@@ -103,7 +103,7 @@ JS가 아니어도 됩니다 — Python·Go 등은 `dist/plomus-tool.json`(또�
 
 ### 4. 버전 고정 & 호환성 (consumer가 지켜야 할 것)
 
-- **고정(pin)**: release tag · npm version · commit SHA 중 하나로 고정해 재현성을 확보하세요.
+- **고정(pin)**: release tag(예: `v0.1.0`) · npm version · commit SHA 중 하나로 고정해 재현성을 확보하세요. 현재 소비 제품(`*-ai-os`)은 lock/PINNED 파일에 `ref: v0.1.0` + resolved commit을 기록해 고정합니다.
 - **호환성**: `patch`(라벨·설명·status) · `minor`(추가) · `major`(id 삭제·의미 변경·필수 필드)는 [docs/CONTRACT-LIFECYCLE.md](docs/CONTRACT-LIFECYCLE.md)를 따릅니다. major는 [docs/CONTRACT-MIGRATION.md](docs/CONTRACT-MIGRATION.md)에 이전 절차를 둡니다.
 - **`status`를 반드시 확인**: production에는 `ACTIVE`만 쓰세요. `EXPERIMENTAL`/`DRAFT`(현재 `transaction`·`legal`)는 구조는 검증되지만 값(수수료율·약관 문구)이 권위 데이터가 아닌 scaffold입니다. `DEPRECATED`는 다음 major에서 `REMOVED`됩니다.
 - **교차참조 해소**: 한 번들의 참조(예: transaction budget의 `approvalPolicy`)는 의존 번들(governance)에서 해소합니다 — `dependsOn`(매니페스트)대로 함께 가져오세요.

@@ -43,6 +43,8 @@ jobs:
             dist/plomus-agent.json \
             dist/plomus-task.json \
             dist/plomus-governance.json \
+            dist/plomus-transaction.json \
+            dist/plomus-legal.json \
             dist/plomus-foundation.json \
             dist/plomus-benchmarks.json \
             dist/plomus-contracts-index.json \
