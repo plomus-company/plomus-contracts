@@ -23,7 +23,8 @@
 `pnpm run experiment`(`tools/run-experiment.mjs`)의 6단계입니다. 각 단계가 어떤 계약을 읽는지 표시합니다.
 
 ```
- $ pnpm run experiment -- --model-id <M> --ollama-tag <tag> [--targets …] [--reps N] [--num-predict N]
+ $ pnpm run experiment -- --model-id <M> [--provider ollama|anthropic|openai|google]
+                         [--api-model NAME] [--ollama-tag <tag>] [--targets …] [--reps N] [--num-predict N]
          │
          ▼
  ┌ 1. RESOLVE ───────────────────────────────────────────────────────────────┐
@@ -40,8 +41,13 @@
  └───────────────────────────────┬───────────────────────────────────────────┘
                                   ▼  warmup 1회 후 reps회
  ┌ 3. RUN ────────────────────────────────────────────────────────────────────┐
- │ POST {BASE_URL}/api/generate  (Ollama · temperature 0 · think:false)       │
- │ ← total_duration·load_duration·prompt_eval_count·eval_count·eval_duration  │
+ │ provider = --provider ?? VENDOR_PROVIDER[model.vendor] ?? ollama            │
+ │   ollama    → POST {BASE_URL}/api/generate  (think:false, server timing)    │
+ │   anthropic → POST api.anthropic.com/v1/messages      (x-api-key)           │
+ │   openai    → POST api.openai.com/v1/chat/completions  (Bearer)             │
+ │   google    → POST …/v1beta/models/<m>:generateContent (?key=)              │
+ │ 키는 env(ANTHROPIC/OPENAI_API_KEY·GEMINI/GOOGLE_API_KEY); 없으면 즉시 중단  │
+ │ 원격 API는 서버 타이밍이 없어 latency=wall-clock. temperature 0(o-시리즈 제외)│
  └───────────────────────────────┬───────────────────────────────────────────┘
                                   ▼  benchmarks-metrics 기준 산출
  ┌ 4. MEASURE ─────────────────────────────────────────────────────────────────┐
@@ -96,6 +102,7 @@
 - 소형 모델 `qwen-2.5-0.5b`는 **전 114 타깃을 reps=3으로 측정한 완전한 재현성 baseline**을 보유합니다(소형 vs 대형 대비 + 재현성 비교).
 - 메모리 경합으로 모델 동시 상주가 어려워 전환 시 `ollama stop <tag>`로 언로드 후 실행했습니다.
 - 재현: `pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest --limit 1000` (전체 114) 또는 `--targets agent:cs,playbook:daily_ops_brief_v1` (부분).
+- **상용 모델 측정**: provider는 `model.vendor`(anthropic/openai/google)에서 추론되며 `--provider`로 강제할 수 있습니다. 키는 환경변수(`ANTHROPIC_API_KEY`·`OPENAI_API_KEY`·`GEMINI_API_KEY`/`GOOGLE_API_KEY`)에서 읽고 없으면 측정 전에 중단합니다. modelId가 곧 API 모델명(예: `claude-opus-4-7`·`gpt-4o`·`gemini-2.5-pro`)이며 다르면 `--api-model`로 지정 — `pnpm run experiment -- --model-id claude-haiku-4-5 --targets skill:k-dart --reps 3`. (현재 커밋된 measured 값은 로컬 Ollama baseline뿐; 상용 측정은 키가 있을 때 추가됩니다.)
 
 ## 재현성·회귀 실험 (reproducibility / regression)
 
@@ -124,7 +131,7 @@ pnpm run experiment -- --model-id qwen3.6-27b --ollama-tag qwen3.6-27b:latest \
 
 자기완결적 디버깅 기록입니다(git에 보존). 담는 것:
 
-- `modelId`·`ollamaTag`·`baseUrl`·`reps`·`numPredict`·`startedAt`/`finishedAt` — 실험 조건
+- `modelId`·`provider`·`apiModel`(ollama면 `ollamaTag`·`baseUrl`도)·`reps`·`numPredict`·`startedAt`/`finishedAt` — 실험 조건
 - `prompts[targetId]` — 실제로 보낸 프롬프트, `targetMeta[targetId]` — `{kind, ref, domain}`(어느 계약에서 나왔는지)
 - `runs[]` — **반복 단위 원시 데이터**: `targetId`·`rep`·`ok`·`text`(출력 전문)·`inferMs`/`totalMs`/`loadMs`·`inputTokens`/`outputTokens`·`evalSec`·`error`
 

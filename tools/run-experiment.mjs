@@ -1,20 +1,28 @@
 import { readContract, writeGroup } from "../scripts/group.mjs";
-import { readJson, writeJson } from "../scripts/read-json.mjs";
+import { writeJson } from "../scripts/read-json.mjs";
+import { providerFor, requireApiKey, buildRequest, parseResponse } from "./experiment-providers.mjs";
 
-// Experiment pipeline: run benchmark targets against a real model (default: the
-// local Ollama qwen3.6-27b baseline) and merge MEASURED results into the
-// benchmarks contract. Illustrative seed rows are preserved (different dataSource).
+// Experiment pipeline: run benchmark targets against a real model and merge
+// MEASURED results into the benchmarks contract. Illustrative seed rows are
+// preserved (different dataSource). The provider is the local Ollama baseline by
+// default; commercial APIs (Anthropic / OpenAI / Google) are reached by their
+// vendor or an explicit --provider, with the key taken from the environment.
 //
-//   pnpm run experiment -- [--model-id ID] [--ollama-tag TAG] [--targets a,b,c]
-//                          [--limit N] [--reps N] [--num-predict N] [--base-url URL]
+//   pnpm run experiment -- [--model-id ID] [--provider ollama|anthropic|openai|google]
+//                          [--api-model NAME] [--ollama-tag TAG] [--base-url URL]
+//                          [--targets a,b,c] [--limit N] [--reps N] [--num-predict N]
 //
-// Metrics measured from the Ollama response: latency (total_duration), token
-// counts (prompt_eval_count / eval_count), throughput (eval_count / eval_duration),
-// success_rate / error_rate. cost_per_run_usd uses the model's registry pricing
-// (0 for the local baseline). accuracy is not measured (no gold set) and omitted.
-// Reproducibility/regression (only when reps >= 2): output_consistency (share of
-// reps matching the modal output) and latency_stddev_ms; latency_p95_ms at reps>=3.
-// e.g. reproducibility run: pnpm run experiment -- --targets <id> --reps 10
+// Provider is inferred from the model's `vendor` (anthropic/openai/google) and
+// falls back to ollama; --provider overrides. Remote providers need a key:
+// ANTHROPIC_API_KEY / OPENAI_API_KEY / GEMINI_API_KEY (or GOOGLE_API_KEY) — the run
+// aborts with a clear message before any measurement if it is missing.
+//
+// Metrics: latency, token counts, throughput, success_rate / error_rate.
+// cost_per_run_usd uses the model's registry pricing (0 for the local baseline).
+// accuracy is not measured (no gold set) and omitted. Ollama reports server-side
+// timing; remote APIs use wall-clock latency. Reproducibility/regression (reps >= 2):
+// output_consistency (share of reps matching the modal output) and latency_stddev_ms;
+// latency_p95_ms at reps >= 3. e.g.: pnpm run experiment -- --targets <id> --reps 10
 
 function arg(name, fallback) {
   const i = process.argv.indexOf(`--${name}`);
@@ -24,6 +32,7 @@ function arg(name, fallback) {
 const MODEL_ID = arg("model-id", "qwen3.6-27b");
 const OLLAMA_TAG = arg("ollama-tag", "qwen3.6-27b:latest");
 const BASE_URL = arg("base-url", process.env.OLLAMA_BASE_URL ?? "http://localhost:11434");
+const PROVIDER_ARG = arg("provider", "");
 const REPS = Number(arg("reps", "1"));
 const NUM_PREDICT = Number(arg("num-predict", "256"));
 const LIMIT = Number(arg("limit", "0"));
@@ -45,6 +54,21 @@ if (!model) {
   console.error(`Unknown modelId '${MODEL_ID}'. Add it to contracts/benchmarks/models/ (run generate:benchmarks).`);
   process.exit(1);
 }
+
+// Resolve the provider (vendor → adapter, or --provider) and its API key up front.
+// A missing key is a configuration error: report it cleanly and abort before any work.
+let PROVIDER;
+let API_KEY;
+try {
+  PROVIDER = providerFor(model.vendor, PROVIDER_ARG);
+  API_KEY = requireApiKey(PROVIDER);
+} catch (err) {
+  console.error(String(err?.message ?? err));
+  process.exit(1);
+}
+// API model name defaults to the registry modelId (claude-opus-4-7 / gpt-4o /
+// gemini-2.5-pro already match); override with --api-model for vendor-specific ids.
+const API_MODEL = arg("api-model", MODEL_ID);
 
 const allTargets = readContract("benchmarks-targets", "targets");
 const targetById = new Map(allTargets.map((t) => [t.targetId, t]));
@@ -84,37 +108,25 @@ function promptFor(target) {
   return `다음 유통 온보딩 preset 기준으로 초기 운영 점검 계획을 한국어로 작성하라.\npreset: ${target.ref} (${ps?.label ?? ""})\n설명: ${ps?.description ?? ""}\n우선 점검 영역 3가지를 간결히.`;
 }
 
+// Dispatch one generation through the resolved provider. Request shaping and
+// response normalization live in experiment-providers.mjs (pure, unit-tested);
+// this wrapper owns the I/O: fetch, timeout, and HTTP/network error capture.
 async function generate(prompt) {
+  const { url, method, headers, body } = buildRequest(PROVIDER, {
+    prompt, apiModel: API_MODEL, ollamaTag: OLLAMA_TAG, baseUrl: BASE_URL, apiKey: API_KEY, numPredict: NUM_PREDICT,
+  });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 600000);
   const started = Date.now();
   try {
-    const res = await fetch(`${BASE_URL}/api/generate`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      // think:false — qwen35 is a reasoning model; otherwise the token budget is
-      // spent on hidden thinking and `response` comes back empty.
-      body: JSON.stringify({ model: OLLAMA_TAG, prompt, stream: false, think: false, options: { num_predict: NUM_PREDICT, temperature: 0 } }),
-      signal: controller.signal,
-    });
-    if (!res.ok) return { ok: false, error: `HTTP ${res.status}`, wallMs: Date.now() - started };
-    const d = await res.json();
-    const ns = (v) => (typeof v === "number" ? v : 0);
-    const totalMs = ns(d.total_duration) / 1e6;
-    const loadMs = ns(d.load_duration) / 1e6;
-    const answer = (typeof d.response === "string" ? d.response : "").trim() || (typeof d.thinking === "string" ? d.thinking : "").trim();
-    return {
-      ok: Boolean(d.done) && answer.length > 0,
-      text: answer, // captured to measure output_consistency across reps
-      // inference latency excludes one-time model load (we warm up first anyway)
-      inferMs: Math.max(0, totalMs - loadMs),
-      totalMs,
-      loadMs,
-      inputTokens: ns(d.prompt_eval_count),
-      outputTokens: ns(d.eval_count),
-      evalSec: ns(d.eval_duration) / 1e9,
-      wallMs: Date.now() - started,
-    };
+    const res = await fetch(url, { method, headers, body: JSON.stringify(body), signal: controller.signal });
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      return { ok: false, error: `HTTP ${res.status}${detail ? ` ${detail.slice(0, 200)}` : ""}`, wallMs: Date.now() - started };
+    }
+    const json = await res.json();
+    // text is captured to measure output_consistency across reps.
+    return parseResponse(PROVIDER, json, { wallMs: Date.now() - started });
   } catch (err) {
     return { ok: false, error: String(err?.name === "AbortError" ? "timeout" : err), wallMs: Date.now() - started };
   } finally {
@@ -139,20 +151,25 @@ const stddev = (xs) => {
 };
 const round = (n, d = 2) => Number(n.toFixed(d));
 
-console.error(`Experiment: model=${MODEL_ID} (ollama ${OLLAMA_TAG}) targets=${selectedIds.length} reps=${REPS}`);
+const endpoint = PROVIDER === "ollama" ? `ollama ${OLLAMA_TAG} @ ${BASE_URL}` : `${PROVIDER} ${API_MODEL}`;
+console.error(`Experiment: model=${MODEL_ID} (${endpoint}) targets=${selectedIds.length} reps=${REPS}`);
 console.error("Warming up model...");
 const warm = await generate("Reply with: ready");
 if (!warm.ok) {
   // Fail fast: if the endpoint is unavailable the whole run would otherwise record
   // 342 failed rows and clobber the good baseline on merge (see guard below).
-  console.error(`Warmup failed (${warm.error ?? "empty response"}) — model/endpoint unavailable at ${BASE_URL}. Aborting before any measurement; nothing written.`);
+  console.error(`Warmup failed (${warm.error ?? "empty response"}) — ${PROVIDER} model/endpoint unavailable (${endpoint}). Aborting before any measurement; nothing written.`);
   process.exit(1);
 }
 
 const newResults = [];
 // prompts + targetMeta make each run record self-contained for debugging/analysis
 // (you can see exactly what was sent and which contract it resolved from).
-const runRecord = { modelId: MODEL_ID, ollamaTag: OLLAMA_TAG, baseUrl: BASE_URL, startedAt: new Date().toISOString(), reps: REPS, numPredict: NUM_PREDICT, prompts: {}, targetMeta: {}, runs: [] };
+const runRecord = {
+  modelId: MODEL_ID, provider: PROVIDER, apiModel: API_MODEL,
+  ...(PROVIDER === "ollama" ? { ollamaTag: OLLAMA_TAG, baseUrl: BASE_URL } : {}),
+  startedAt: new Date().toISOString(), reps: REPS, numPredict: NUM_PREDICT, prompts: {}, targetMeta: {}, runs: [],
+};
 
 for (const targetId of selectedIds) {
   const target = targetById.get(targetId);
